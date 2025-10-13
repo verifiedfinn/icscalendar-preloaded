@@ -1,9 +1,22 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (ICALns && ICALns.parse) ? ICALns
            : (() => { throw new Error("ical.js failed to load"); })();
 
+function useResizeWidth(ref) {
+  const [w, setW] = useState(0);
+  useEffect(() => {
+    if (!ref.current) return;
+    const ro = new ResizeObserver((entries) => {
+      const el = entries[0]?.contentRect;
+      if (el?.width != null) setW(el.width);
+    });
+    ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, [ref]);
+  return w;
+}
 
 // ---------- helpers ----------
 const startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
@@ -27,10 +40,8 @@ const splitIntervalByDays = (s,e)=>{
   while(cur<e){ const dayEnd=endOfDay(new Date(cur)).getTime()+1; const segEnd=Math.min(dayEnd,e); out.push({date:new Date(cur).toISOString().slice(0,10), start:cur, end:segEnd}); cur=segEnd; }
   return out;
 };
-// complement of merged intervals within [ws,we)
 const invertIntervals = (merged, ws, we) => {
-  const out = [];
-  let cur = ws;
+  const out = []; let cur = ws;
   for (const [s, e] of merged) {
     if (s > cur) out.push([cur, s]);
     cur = Math.max(cur, e);
@@ -40,22 +51,19 @@ const invertIntervals = (merged, ws, we) => {
   return out;
 };
 
-// ---------- simple local persistence ----------
-const STORAGE_KEY = "ics_saved_v1"; // stores [{id,name,text}]
-function getSaved() {
-  try { const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : []; } catch { return []; }
-}
-function setSaved(arr) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); return true; } catch (e) { return e; }
-}
-function clearSaved() { try { localStorage.removeItem(STORAGE_KEY); } catch {}
-}
+// ---- Preloaded calendars served from /public/calendars ----
+const PRESET_CALENDARS = [
+  { id: "hector", name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
+  { id: "matt",   name: "Matt.ics",   url: `${import.meta.env.BASE_URL}calendars/Matt.ics` },
+];
 
-// ---------- ICS parsing (v2 safe) ----------
+// ---------- ICS parsing ----------
 function parseICSText(text, sourceId, sourceName){
   const jcal = ICAL.parse(text);
   const comp = new ICAL.Component(jcal);
   const vevents = comp.getAllSubcomponents("vevent");
+
+  // tz support when available
   try {
     const register = ICAL?.TimezoneService?.register;
     if (register) {
@@ -76,16 +84,15 @@ function parseICSText(text, sourceId, sourceName){
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
         events.push({ sourceId, sourceName, summary: e.summary, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
-    } catch (err) { console.warn("Failed vevent", err); }
+    } catch {}
   }
   return events;
 }
 
 // ---------- UI ----------
 export default function App(){
-  const [sources, setSources] = useState([]); // {id,name}
-  const [files, setFiles] = useState([]);     // names for display
-  const [rawEvents, setRawEvents] = useState([]);
+  const [sources, setSources] = useState([]);        // [{id,name}]
+  const [rawEvents, setRawEvents] = useState([]);    // parsed events (recurring placeholders + concrete)
   const [dateFrom, setDateFrom] = useState(()=> dayKey(new Date()));
   const [dateTo,   setDateTo]   = useState(()=> dayKey(addDays(new Date(),30)));
   const [workStart, setWorkStart] = useState(9);
@@ -94,216 +101,92 @@ export default function App(){
   const [currentMonth, setCurrentMonth] = useState(()=> monthStart(new Date()));
   const [hoverDay, setHoverDay] = useState(null);
   const [err, setErr] = useState("");
-  const [remember, setRemember] = useState(true);
   const [notice, setNotice] = useState("");
 
-  const inputRef = useRef(null);
+  // which preset calendars are currently shown
+  const [selectedIds, setSelectedIds] = useState(new Set());
+  const toggleSelected = (id) => {
+    setSelectedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
 
-  // Stop browser default file-open on drop
-  useEffect(()=>{
-    const pd=(e)=>e.preventDefault();
-    window.addEventListener("dragover", pd);
-    window.addEventListener("drop", pd);
-    return ()=>{ window.removeEventListener("dragover", pd); window.removeEventListener("drop", pd); };
-  },[]);
-
-  // On load: auto-load saved calendars (if any)
-  useEffect(()=>{
-    const saved = getSaved();
-    if (saved && saved.length) {
-      const newSources = []; const newNames = []; const newEvents = [];
-      for (const s of saved) {
-        const id = s.id || `saved_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-        const name = s.name || "saved.ics";
-        try {
-          newSources.push({ id, name });
-          newNames.push(name);
-          newEvents.push(...parseICSText(s.text, id, name));
-        } catch(e) {
-          setErr(prev => (prev? prev+" • ":"") + `Failed saved ${name}: ${e?.message||e}`);
+  // Load presets on mount
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const loadedSources = [];
+        const loadedEvents  = [];
+        for (const p of PRESET_CALENDARS) {
+          const resp = await fetch(p.url);
+          if (!resp.ok) throw new Error(`Fetch failed for ${p.name} (${resp.status})`);
+          const text = await resp.text();
+          loadedSources.push({ id: p.id, name: p.name });
+          loadedEvents.push(...parseICSText(text, p.id, p.name));
         }
-      }
-      if (newSources.length) {
-        setSources(prev=>[...prev, ...newSources]);
-        setFiles(prev=>[...prev, ...newNames]);
-        setRawEvents(prev=>[...prev, ...newEvents]);
-        setNotice(`Loaded ${newSources.length} saved calendar${newSources.length>1?"s":""}.`);
-        // fit range
-setRawEvents(prev => {
-  const next = [...prev, ...newEvents];
+        if (cancelled) return;
 
-  // Only auto-fit if this is the *first* time we’re loading anything
-  if (prev.length === 0) {
-    const bounds = next
-      .filter(e => !e.isRecurring && e.start && e.end)
-      .flatMap(e => [e.start.getTime(), e.end.getTime()]);
-    if (bounds.length) {
-      const min = new Date(Math.min(...bounds));
-      const max = new Date(Math.max(...bounds));
-      setDateFrom(dayKey(startOfDay(min)));
-      setDateTo(dayKey(endOfDay(max)));
-      setCurrentMonth(monthStart(min));
-    }
-  }
+        setSources(loadedSources);
+        setRawEvents(loadedEvents);
+        setSelectedIds(new Set(loadedSources.map(s => s.id)));
+        setNotice(`Loaded ${loadedSources.length} preset calendar${loadedSources.length>1?'s':''}.`);
 
-  return next;
-});
-      }
-    }
-  },[]);
-
-async function handleFiles(fileList){
-  setErr("");
-  if (!fileList || !fileList.length) return;
-
-  const fs = Array.from(fileList);
-  const newNames = [];
-  const newSources = [];
-  const newEvents = [];
-  const toSave = [];
-  let idx = 0;
-
-  for (const f of fs){
-    const id = `${Date.now()}_${idx++}`;
-    const name = f.name || `calendar-${idx}.ics`;
-    newSources.push({ id, name });
-    newNames.push(name);
-    try {
-      const text = await f.text();
-      newEvents.push(...parseICSText(text, id, name));
-      if (remember) toSave.push({ id, name, text });
-    } catch (e) {
-      setErr(prev => (prev ? prev + " • " : "") + `Failed ${name}: ${e?.message || e}`);
-    }
-  }
-
-  setSources(prev => [...prev, ...newSources]);
-  setFiles(prev => [...prev, ...newNames]);
-
-  // Add events and expand (never shrink) the date range if needed
-  setRawEvents(prev => {
-    const next = [...prev, ...newEvents];
-
-    // Bounds of just the newly added *non-recurring* concrete events
-    const newBounds = newEvents
-      .filter(e => !e.isRecurring && e.start && e.end)
-      .flatMap(e => [e.start.getTime(), e.end.getTime()]);
-
-    if (newBounds.length) {
-      const newMin = new Date(Math.min(...newBounds));
-      const newMax = new Date(Math.max(...newBounds));
-
-      // Current range (from state at call time)
-      const curStart = new Date(dateFrom + "T00:00:00");
-      const curEnd   = new Date(dateTo   + "T23:59:59");
-
-      // If nothing was loaded before, or new files extend beyond current range, expand outward
-      if (prev.length === 0) {
-        setDateFrom(dayKey(startOfDay(newMin)));
-        setDateTo(dayKey(endOfDay(newMax)));
-        setCurrentMonth(monthStart(newMin));
-      } else {
-        let expanded = false;
-        if (newMin < curStart) {
-          setDateFrom(dayKey(startOfDay(newMin)));
-          setCurrentMonth(monthStart(newMin)); // align month with earliest event seen
-          expanded = true;
+        // Fit initial range to concrete events once
+        const bounds = loadedEvents
+          .filter(e => !e.isRecurring && e.start && e.end)
+          .flatMap(e => [e.start.getTime(), e.end.getTime()]);
+        if (bounds.length) {
+          const min = new Date(Math.min(...bounds));
+          const max = new Date(Math.max(...bounds));
+          setDateFrom(dayKey(startOfDay(min)));
+          setDateTo(dayKey(endOfDay(max)));
+          setCurrentMonth(monthStart(min));
         }
-        if (newMax > curEnd) {
-          setDateTo(dayKey(endOfDay(newMax)));
-          expanded = true;
-        }
-        // if neither earlier nor later, keep the user’s current range as-is
+      } catch (e) {
+        setErr(`Preset load error: ${e?.message || e}`);
       }
-    }
-
-    return next;
-  });
-
-  // persist if asked
-  if (remember && toSave.length){
-    const cur = getSaved();
-    const merged = [...cur, ...toSave];
-    const result = setSaved(merged);
-    if (result !== true) {
-      setErr(prev => (prev ? prev + " • " : "") + "Could not save calendars locally (storage full or blocked). They still load for this session.");
-    } else {
-      setNotice(`Saved ${toSave.length} calendar${toSave.length>1?"s":""} on this device.`);
-    }
-  }
-}
-
-  // Sample with TWO calendars so per-person view is obvious
-  function loadSample(){
-    const A = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Sample A//EN
-BEGIN:VEVENT
-UID:a1
-DTSTART:20251015T150000Z
-DTEND:20251015T160000Z
-SUMMARY:A Overlap 1
-END:VEVENT
-BEGIN:VEVENT
-UID:a2
-DTSTART:20251020T090000Z
-DTEND:20251020T110000Z
-SUMMARY:A Morning
-END:VEVENT
-END:VCALENDAR`;
-    const B = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Sample B//EN
-BEGIN:VEVENT
-UID:b1
-DTSTART:20251015T153000Z
-DTEND:20251015T170000Z
-SUMMARY:B Overlap 2
-END:VEVENT
-BEGIN:VEVENT
-UID:b2
-DTSTART:20251022T130000Z
-DTEND:20251022T150000Z
-SUMMARY:B Afternoon
-END:VEVENT
-END:VCALENDAR`;
-    const id1 = `sample_${Date.now()}_1`, id2 = `sample_${Date.now()}_2`;
-    setSources(prev=>[...prev, {id:id1, name:"sample-a.ics"}, {id:id2, name:"sample-b.ics"}]);
-    setFiles(prev=>[...prev, "sample-a.ics", "sample-b.ics"]);
-    setRawEvents(prev=>[...prev, ...parseICSText(A,id1,"sample-a.ics"), ...parseICSText(B,id2,"sample-b.ics")]);
-    setDateFrom("2025-10-01"); setDateTo("2025-10-31"); setCurrentMonth(new Date(2025,9,1));
-  }
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   const rangeStart = useMemo(()=> new Date(dateFrom+"T00:00:00"), [dateFrom]);
   const rangeEnd   = useMemo(()=> new Date(dateTo  +"T23:59:59"), [dateTo]);
 
-  // expand recurrences within range
-  const events = useMemo(()=>{
-    const out=[];
-    for(const e of rawEvents){
-      if(e.isRecurring){
+  // Expand recurrences within range, THEN filter by selectedIds (stable counts)
+  const events = useMemo(() => {
+    const out = [];
+    const want = selectedIds;
+
+    for (const e of rawEvents) {
+      if (!want.size || !want.has(e.sourceId)) continue;
+
+      if (e.isRecurring) {
         const evt = new ICAL.Event(e.component);
         const it = evt.iterator();
-        let next; let i=0;
-        while((next=it.next())){
-          const s = next.toJSDate();
-          const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate() : new Date(s.getTime()+30*60000);
-          if(ee < rangeStart){ if(++i>5000) break; continue; }
-          if(s > rangeEnd) break;
-          out.push({ sourceId:e.sourceId, sourceName:e.sourceName, summary: evt.summary, start: s, end: ee, allDay: next.isDate });
-          if(++i>5000) break;
+        let next; let i = 0;
+        while ((next = it.next())) {
+          const s  = next.toJSDate();
+          const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
+                                  : new Date(s.getTime() + 30*60000);
+          if (ee < rangeStart) { if (++i > 5000) break; continue; }
+          if (s  > rangeEnd) break;
+          out.push({ sourceId:e.sourceId, sourceName:e.sourceName, summary:evt.summary, start:s, end:ee, allDay:next.isDate });
+          if (++i > 5000) break;
         }
-      } else if (!(e.end < rangeStart || e.start > rangeEnd)){
+      } else if (!(e.end < rangeStart || e.start > rangeEnd)) {
         out.push(e);
       }
     }
     return out;
-  }, [rawEvents, rangeStart, rangeEnd]);
+  }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // day aggregates (union + per-person)
+  // Day aggregates (union + per-person)
   const dayStats = useMemo(()=>{
-    const perDayAll = new Map();          // date -> intervals across all
-    const perDayBySrc = new Map();        // date -> Map(sourceId -> {name, intervals})
+    const perDayAll = new Map();   // date -> intervals across all
+    const perDayBySrc = new Map(); // date -> Map(sourceId -> {name, intervals})
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
@@ -328,25 +211,25 @@ END:VCALENDAR`;
       const total = minutesBetween(WS,WE);
 
       const allIntervals = (perDayAll.get(k)||[])
-        .map(([a,b])=>[clamp(a,WS,WE), clamp(b,WS,WE)])
+        .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)])
         .filter(([a,b])=>b>a);
       const mergedAll = mergeIntervals(allIntervals);
       const busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
       const freeUnion = Math.max(0, total - busyUnion);
 
-      // per-person summary
       const bySrcMap = perDayBySrc.get(k) || new Map();
       const perPerson = [];
       for (const [sid, {name, intervals}] of bySrcMap.entries()){
-        const clipped = intervals.map(([a,b])=>[clamp(a,WS,WE), clamp(b,WS,WE)]).filter(([a,b])=>b>a);
+        const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
         const merged = mergeIntervals(clipped);
         const busy = merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
         const free = Math.max(0, total - busy);
         const freeBlocks = invertIntervals(merged, WS, WE);
         perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
       }
-      // include people with no events that day (fully free)
+      // include selected people with no events that day (fully free)
       for (const s of sources) {
+        if (!selectedIds.has(s.id)) continue;
         if (!(bySrcMap.has(s.id))) {
           perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
         }
@@ -356,11 +239,11 @@ END:VCALENDAR`;
       res[k] = { date:new Date(d), totalMinutes: total, freeMinutes: freeUnion, busyMinutes: busyUnion, freeRatio: total? freeUnion/total : 0, mergedBusy: mergedAll, perPerson };
     }
     return res;
-  }, [events, sources, rangeStart, rangeEnd, workStart, workEnd]);
+  }, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
 
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
 
-  const hoverInfo = hoverDay ? dayStats[hoverDay] : null;
+  const hoverDayInfo = hoverDay ? dayStats[hoverDay] : null;
   const singleFrom = monthStart(currentMonth);
   const singleTo   = monthEnd(currentMonth);
 
@@ -384,7 +267,6 @@ END:VCALENDAR`;
 
   return (
     <div className="min-h-screen w-full" style={{ background: "#f8fafc", color: "#111", colorScheme: "light" }}>
-      {/* FORCE LIGHT CONTROLS */}
       <style>{`
         :root { color-scheme: light !important; }
         input, select, textarea, button { background:#fff !important; color:#111 !important; }
@@ -394,33 +276,32 @@ END:VCALENDAR`;
         .mono{font-variant-numeric: tabular-nums;}
       `}</style>
 
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <h1 className="text-3xl font-bold mb-2">Free Time Heatmap from ICS</h1>
-        <p className="text-gray-600 mb-3">Drop .ics files or use the button. Color shows how free the group is within selected hours.</p>
+        <p className="text-gray-600 mb-3">Preset calendars are loaded automatically. Toggle any person below.</p>
         {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
+        {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-white rounded-2xl shadow p-4"
-               onDrop={(e)=>{e.preventDefault(); handleFiles(e.dataTransfer?.files);}}
-               onDragOver={(e)=>e.preventDefault()}>
+          {/* Upload card removed for this repo. Keep this commented block if you want it back later.
+          <div className="bg-white rounded-2xl shadow p-4"> …upload UI… </div>
+          */}
+
+          <div className="bg-white rounded-2xl shadow p-4">
             <h2 className="font-semibold mb-2">1) Calendars</h2>
-            <label htmlFor="file" className="block w-full border-2 border-dashed border-gray-300 rounded-xl p-6 text-center cursor-pointer hover:border-gray-400">
-              <input ref={inputRef} id="file" type="file" accept=".ics,text/calendar" multiple className="hidden"
-                     onChange={(e)=>{handleFiles(e.target.files); e.target.value="";}} />
-              <div className="text-sm">Click to pick files <span className="text-gray-400">or drag & drop here</span></div>
-              <div className="text-xs text-gray-500 mt-1">Parsing happens in your browser.</div>
-            </label>
-            <div className="flex flex-wrap items-center gap-2 mt-3">
-              <button onClick={()=>inputRef.current?.click()} className="px-3 py-1.5 rounded-lg border text-sm">Load .ics</button>
-              <button onClick={()=>{setFiles([]); setRawEvents([]); setSources([]);}} className="px-3 py-1.5 rounded-lg border text-sm">Clear</button>
-              <button onClick={loadSample} className="px-3 py-1.5 rounded-lg border text-sm ">Load sample</button>
+            <div className="text-sm">Show calendars</div>
+            <div className="flex flex-wrap gap-3 text-sm mt-2">
+              {sources.map(s => (
+                <label key={s.id} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.has(s.id)}
+                    onChange={() => toggleSelected(s.id)}
+                  />
+                  {s.name}
+                </label>
+              ))}
             </div>
-            <div className="flex items-center gap-2 mt-3 text-sm">
-              <label className="flex items-center gap-2"><input type="checkbox" checked={remember} onChange={(e)=>setRemember(e.target.checked)} /> Remember on this device</label>
-              <button className="px-2 py-1 border rounded text-xs" onClick={()=>{clearSaved(); setNotice("Cleared saved calendars.");}}>Forget saved</button>
-            </div>
-            {files.length>0 && <div className="mt-3 text-xs text-gray-600">Loaded: {files.join(", ")}</div>}
-            {err && <div className="mt-2 text-xs text-red-600">{err}</div>}
           </div>
 
           <div className="bg-white rounded-2xl shadow p-4">
@@ -441,33 +322,23 @@ END:VCALENDAR`;
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
               <span className="text-gray-500">o'clock</span>
             </div>
-<div className="flex items-center justify-between">
-  <div className="flex items-center gap-3 text-sm">
-    <label className="flex items-center gap-1 cursor-pointer">
-      <input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month
-    </label>
-    <label className="flex items-center gap-1 cursor-pointer">
-      <input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range
-    </label>
-  </div>
-
-  <div className="flex items-center gap-2">
-    {viewMode==='single' && (
-      <>
-        <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
-        <div className="text-sm text-gray-600 w-28 text-center">
-          {singleFrom.toLocaleDateString(undefined,{month:'long',year:'numeric'})}
-        </div>
-        <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
-      </>
-    )}
-
-  </div>
-</div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3 text-sm">
+                <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
+                <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
+              </div>
+              {viewMode==='single' && (
+                <div className="flex items-center gap-2">
+                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
+                  <div className="text-sm text-gray-600 w-28 text-center">{singleFrom.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</div>
+                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4">
           <span className="text-sm font-medium">Legend:</span>
           <div className="flex items-center gap-1">
             {Array.from({length:10},(_,i)=>i/9).map(r=> (
@@ -478,7 +349,7 @@ END:VCALENDAR`;
           <span className="text-sm text-gray-600 ml-4">Loaded events: <b>{events.length}</b></span>
         </div>
 
-        <div className="grid md:grid-cols-[1fr_360px] gap-6 items-start">
+        <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-6 items-start">
           <div>
             {viewMode==='single'
               ? <MonthGrid year={singleFrom.getFullYear()} month={singleFrom.getMonth()} from={singleFrom} to={singleTo} dayStats={dayStats} setHoverDay={setHoverDay} colorForRatio={colorForRatio}/>
@@ -487,18 +358,18 @@ END:VCALENDAR`;
           </div>
 
           <aside className="md:sticky md:top-6">
-            {hoverInfo
+            {hoverDayInfo
               ? <div className="bg-white rounded-2xl shadow p-4">
-                  <h3 className="text-lg font-semibold">{fmt(hoverInfo.date)}</h3>
+                  <h3 className="text-lg font-semibold">{fmt(hoverDayInfo.date)}</h3>
                   <p className="text-sm text-gray-600">
-                    Group free: <span className="mono">{Math.round(hoverInfo.freeMinutes)}</span> / <span className="mono">{hoverInfo.totalMinutes}</span> min
-                    <span className="chip">{Math.round(hoverInfo.freeRatio*100)}% free</span>
+                    Group free: <span className="mono">{Math.round(hoverDayInfo.freeMinutes)}</span> / <span className="mono">{hoverDayInfo.totalMinutes}</span> min
+                    <span className="chip">{Math.round(hoverDayInfo.freeRatio*100)}% free</span>
                   </p>
 
                   <div className="mt-3">
                     <h4 className="font-medium text-sm mb-1">Per person (in selected hours)</h4>
                     <ul style={{maxHeight: 260, overflow: "auto", paddingRight: 4}}>
-                      {hoverInfo.perPerson.map(p => (
+                      {hoverDayInfo.perPerson.map(p => (
                         <li key={p.sourceId} className="text-sm mb-2">
                           <div>
                             <b>{p.sourceName}</b>
@@ -519,11 +390,11 @@ END:VCALENDAR`;
                     </ul>
                   </div>
 
-                  {hoverInfo.mergedBusy.length
+                  {hoverDayInfo.mergedBusy.length
                     ? <div className="mt-3">
                         <h4 className="font-medium text-sm mb-1">Group busy (union)</h4>
                         <ul className="text-sm list-disc list-inside text-gray-700">
-                          {hoverInfo.mergedBusy.map(([s,e],i)=> <li key={i}>{fmtTime(new Date(s))} – {fmtTime(new Date(e))}</li>)}
+                          {hoverDayInfo.mergedBusy.map(([s,e],i)=> <li key={i}>{fmtTime(new Date(s))} – {fmtTime(new Date(e))}</li>)}
                         </ul>
                       </div>
                     : <div className="mt-3 text-sm text-green-700">No conflicts in these hours 🎉</div>}
@@ -541,6 +412,16 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
 
+  // measure grid width -> derive square size (roughly (width - gaps)/7)
+  const wrapRef = useRef(null);
+  const gridWidth = useResizeWidth(wrapRef);
+  const gap = 8; // px gap between cells (Tailwind gap-2 ≈ 8px)
+  const cellSize = Math.max(36, Math.floor((gridWidth - gap * 6) / 7)); // min 36px
+
+  // scale labels with the cell
+  const dayNumSize = Math.round(cellSize * 0.22);   // top-right day number
+  const pctSize    = Math.round(cellSize * 0.24);   // bottom-left percentage
+
   const cells=[];
   for(let i=0;i<startWeekday;i++) cells.push(<div key={"pad-"+i}/>);
   for(let day=1; day<=daysInMonth; day++){
@@ -554,22 +435,32 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
       <div key={day} onMouseEnter={()=>setHoverDay(k)} onMouseLeave={()=>setHoverDay(null)}
            className="aspect-square rounded-xl shadow-sm border border-gray-200 relative overflow-hidden cursor-default"
            style={{ backgroundColor: colorForRatio(r) }} title={`${fmt(date)} — ${Math.round(r*100)}% free`}>
-        <div className="absolute top-1 right-2 text-[10px] font-semibold text-gray-700/80">{day}</div>
-        <div className="absolute bottom-1 left-2 text-[11px] font-medium text-gray-700/90">{Math.round(r*100)}%</div>
+<div
+  className="absolute top-1 right-2 font-semibold text-gray-700/80"
+  style={{ fontSize: Math.max(10, dayNumSize) }}
+>
+  {day}
+</div>
+<div
+  className="absolute bottom-1 left-2 font-medium text-gray-700/90"
+  style={{ fontSize: Math.max(11, pctSize) }}
+>
+  {Math.round(r*100)}%
+</div>
       </div>
     );
   }
 
-  return (
-    <div className="bg-white rounded-2xl shadow p-4">
+return (
+  <div ref={wrapRef} className="bg-white rounded-2xl shadow p-4">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-semibold">{first.toLocaleDateString(undefined,{month:"long",year:"numeric"})}</h3>
         <div className="text-xs text-gray-500">Mon–Sun</div>
       </div>
-      <div className="grid grid-cols-7 gap-2 text-xs text-gray-500 mb-2">
+      <div className="grid grid-cols-7 gap-2 sm:gap-2 text-[clamp(10px,1.5vw,12px)] text-gray-500 mb-2">
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d=> <div key={d} className="text-center">{d}</div>)}
       </div>
-      <div className="grid grid-cols-7 gap-2">{cells}</div>
+      <div className="grid grid-cols-7 gap-2 sm:gap-2">{cells}</div>
     </div>
   );
 }

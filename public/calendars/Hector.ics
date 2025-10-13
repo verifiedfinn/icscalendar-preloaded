@@ -1,0 +1,1299 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
+METHOD:PUBLISH
+X-WR-CALNAME:Las Cafeteras @ Artist Growth
+X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
+X-WR-RELCALID:5da9dff1-6979-4e10-bdf4-2c4eb297762b
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0b852c2c-6415-49f1-a767-f3f8539291d4
+DTSTAMP:20250417T171513
+SUMMARY:Confirmed  Private Party (Calinchi- Keys)
+DTSTART;VALUE=DATE:20250727
+DTEND;VALUE=DATE:20250728
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Musicians: Denise\, hector\,Mijangos\, Alih\, Moi\, Jonny\, C
+ alinchi (keys)
+  FOH Angie\n
+  \nVENUE INFO:\n
+    tel:+1 323-954-9400\n
+    http://www.themintla.com/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM PDT: Angie load/prep\n----------------------------------------\
+ n
+  3:30 PM PDT: 3:30pm Jonny arrive prep drum kit\n-----------------------
+ -----------------\n
+  4:00 PM - 5:15 PM PDT: Load & soundcheck\n-----------------------------
+ -----------\n
+  5:30 PM PDT: Band dinner/personal prep\n-------------------------------
+ ---------\n
+  5:45 PM PDT: Doors\n----------------------------------------\n
+  6:30 PM PDT: Call time\n----------------------------------------\n
+  7:15 PM - 7:55 PM PDT: Set 1- 40 min\n---------------------------------
+ -------\n
+  7:55 PM - 8:55 PM PDT: Dinner reception\n------------------------------
+ ----------\n
+  9:00 PM - 9:40 PM PDT: Set 2- 40min\n----------------------------------
+ ------\n
+  9:45 PM PDT: Strike\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.themintla.com/
+GEO:34.052203;-118.371601
+LOCATION:The Mint\n6010 W Pico Blvd\nLos Angeles CA  90035 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Mint\n6010 W Pico Blvd\nLos Angeles CA 90035 United States":ge
+ o:34.052203,-118.371601
+CREATED:20250417T171513
+LAST-MODIFIED:20250714T184250
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:b5d25fd5-cf85-43db-8af2-3c537972e521
+DTSTAMP:20250515T180231
+SUMMARY:Travel to Denver\, CO
+DTSTART;VALUE=DATE:20250730
+DTEND;VALUE=DATE:20250731
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  8:00 PM - 7/31/2025 8:00 PM PDT: Rental Car - Alamo - Denise\n  Rental 
+ : Mini Van - Denise Carlos\n
+  Address: 24530 E 78th Ave\n
+  Confirmation: #1382457451\n
+  Expedia itinerary: 73190721790647\n
+  Reservation details<h4>Pick-up</h4>\n
+  Wed\, Jul 30\n
+  8:00pm\n
+  <h4>Drop-off</h4>\n
+  Fri\, Aug 1\n
+  11:00am\n
+  \n----------------------------------------\n
+  8:00 PM - 7/31/2025 8:00 PM PDT: Rental car - Alamo - Hector\n  Rental:
+  Mini Van - Alamo - Hector Flores\n
+  Address: 24530 E 78th Ave\n
+  Confirmation: #1382458378\n
+  Expedia itinerary: 73190763258825\n
+  Reservation details<h4>Pick-up</h4>\n
+  Wed\, Jul 30\n
+  8:00pm\n
+  <h4>Drop-off</h4>\n
+  Fri\, Aug 1\n
+  11:00am\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - LAX>DEN - United - I1M4FM - JC - United\n
+    2146\n
+    DEPART: Los Angeles International Airport 7/30/2025 4:13 PM PDT\n
+    ARRIVE: Denver International Airport 7/30/2025 7:40 PM MDT\n
+    \n----------------------------------------\n
+    Flight - LAX>DEN - United - JCF5GX - JM - United\n
+    2146\n
+    DEPART: Los Angeles International Airport 7/30/2025 4:13 PM PDT\n
+    ARRIVE: Denver International Airport 7/30/2025 7:40 PM MDT\n
+    \n----------------------------------------\n
+    Flight - LAX>DEN - United - PQ0DP5 - DC\,MB - United\n
+    2146\n
+    DEPART: Los Angeles International Airport 7/30/2025 4:13 PM PDT\n
+    ARRIVE: Denver International Airport 7/30/2025 7:40 PM MDT\n
+    \n----------------------------------------\n
+    Flight - LAX>DEN - United - PR7NKY - HF\,JJ\,AD - United\n
+    2146\n
+    DEPART: Los Angeles International Airport 7/30/2025 4:13 PM PDT\n
+    ARRIVE: Denver International Airport 7/30/2025 7:40 PM MDT\n
+    \n----------------------------------------\n
+    Flight - ONT>DEN - United - IXNEGJ - AG - United\n
+    2146\n
+    DEPART: Los Angeles International Airport 7/30/2025 4:13 PM PDT\n
+    ARRIVE: Denver International Airport 7/30/2025 7:40 PM MDT\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Holiday Inn Express Denver Central North\n
+    Denver\, CO\, 80207\, US\n
+    ARRIVE: 7/30/2025 4:00 PM MDT\n
+    DEPART: 8/1/2025 11:00 AM MDT\n
+    Rooms\n
+  Room 1: Reservation : Denise Carlos - 893197606\n
+  Room 2: Reservation :Hector Flores - 893197610\n
+  Room 3: Reservation Moises Baqueiro & Jonny Jyemo -  893197598\n
+  Room 4: Reservation Jorge Mijangos & John Calanchini -  893197614\n
+  Room 5:Reservation Angela Gonzalez & Alih De Pena - 893197602\n
+  \n
+    tel:+1 303-321-3333\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250515T180231
+LAST-MODIFIED:20250515T180231
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:4f2c53db-6eb3-4f7d-87ab-43abeb4cc591
+DTSTAMP:20250411T182453
+SUMMARY:Denver w/ Ozomatli (Calinchi Keys)
+DTSTART;VALUE=DATE:20250731
+DTEND;VALUE=DATE:20250801
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Musicians: Denise\, hector\,Mijangos\, Alih\, Moi\, Jonny\, C
+ alinchi (keys)
+  FOH Angie\n
+  Wi-Fi Information: Venue WiFi Network: AmphConcerts.\n
+  Venue WiFi Password: s6901-C7306\n
+  Parking: Tour bus/vehicle parking is on the east side of the venue – 
+ Loading Dock. Buses with\n
+  trailers should pull straight in (nose in) – for unloading purposes. 
+ There is an additional paved lot\n
+  100 yards Northeast of loading dock.\n
+  Buses with trailers and trucks should use Loading Dock B – right side
+ . Artist busses should use\n
+  loading dock A – Left side against fence. More private\n
+  \nVENUE INFO:\n
+    tel:+1 720-898-7200\n
+    http://www.arvadacenter.org/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM MDT: ALL Load/ Angie Prep\n------------------------------------
+ ----\n
+  3:00 PM - 4:30 PM MDT: Ozo soundcheck\n--------------------------------
+ --------\n
+  3:15 PM - 4:00 PM MDT: HF Set-up Merch/ Train Seller\n-----------------
+ -----------------------\n
+  4:00 PM - 6:00 PM MDT: LC Set-up & Soundcheck\n------------------------
+ ----------------\n
+  6:00 PM MDT: Courtyard Open\n----------------------------------------\n
+  6:00 PM MDT: Dinner Served\n----------------------------------------\n
+  6:30 PM MDT: Amphitheatre Doors\n--------------------------------------
+ --\n
+  7:30 PM - 8:30 PM MDT: LC Showtime! 1 hr\n  DENVER Set\n
+  ——————\n
+  Nepantla\n
+  Cafe con Pan\n
+  Chuchumbe\n
+  Caravana\n
+  Cumbia de mi Barrio\n
+  Ya Me Voy\n
+  Prezi\n
+  Sirena\n
+  Oaxaca\n
+  LTC / Nunca / Love Triangle\n
+  La Bamba\n
+  This Land\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.arvadacenter.org/
+GEO:39.823499;-105.083521
+LOCATION:Arvada Center for the Arts and Humanities\n6901 Wadsworth Blvd\n
+ Arvada CO  80003 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Arvada Center for the Arts and Humanities\n6901 Wadsworth Blvd\nAr
+ vada CO 80003 United States":geo:39.823499,-105.083521
+CREATED:20250411T182453
+LAST-MODIFIED:20250731T055433
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:c7d967f0-e57d-41b4-9a15-9a9b88200745
+DTSTAMP:20250515T180126
+SUMMARY:Travel to New Hampshire
+DTSTART;VALUE=DATE:20250805
+DTEND;VALUE=DATE:20250806
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:no ground transportation per offer
+  \n*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Rental Car - Enterprise - DC\n  Denise - Mini VanEnter
+ prise\n
+  Confirmation: #1584650014\n
+  Expedia itinerary: 73194078769068\n
+  Reservation details\n
+  Pick-up\n
+  Tue\, Aug 5\n
+  6:00pm\n
+  Drop-off\n
+  Fri\, Aug 8\n
+  11:00am\n
+  Address: 15 Transportation Wy\n
+  Phone: +1 833-230-5695\n
+  \n----------------------------------------\n
+  12:00 AM -  PDT: Rental Car - Enterprise - HF\n  Hector - Mini VanEnter
+ prise\n
+  Confirmation: #1584650010\n
+  Expedia itinerary: 73194078180205\n
+  Reservation details\n
+  Pick-up\n
+  Tue\, Aug 5\n
+  6:00pm\n
+  Drop-off\n
+  Fri\, Aug 8\n
+  11:00am\n
+  Address: 15 Transportation Wy\n
+  Phone: +1 833-230-5695\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - LAX>BOS - United - IW9X7P - AG - United\n
+    1936\n
+    DEPART: LA/Ontario International Airport 8/5/2025 6:00 AM PDT\n
+    ARRIVE: Boston Logan International Airport 8/5/2025 5:01 PM EDT\n
+    \n----------------------------------------\n
+    Flight - LAX>BOS - United - E2TR7H - HF\,MB\,JJ - United\n
+    1783\n
+    DEPART: Los Angeles International Airport 8/5/2025 8:35 AM PDT\n
+    ARRIVE: Boston Logan International Airport 8/5/2025 5:18 PM EDT\n
+    \n----------------------------------------\n
+    Flight - LAX>BOS - United - FBPBKQ - DC\,AD\,JM - United\n
+    1783\n
+    DEPART: Los Angeles International Airport 8/5/2025 8:35 AM PDT\n
+    ARRIVE: Boston Logan International Airport 8/5/2025 5:18 PM EDT\n
+    \n----------------------------------------\n
+    Flight - LAX>BOS - United - I2CYD2 - JC - United\n
+    1783\n
+    DEPART: Los Angeles International Airport 8/5/2025 8:35 AM PDT\n
+    ARRIVE: Boston Logan International Airport 8/5/2025 5:18 PM EDT\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Dartmouth Hotel:Six South Street Hotel\n
+    6 South Street\, Hanover\, NH\, 03755\, US\n
+    ARRIVE: 8/5/2025 12:00 AM EDT\n
+    DEPART: 8/7/2025 11:59 PM EDT\n
+    Hotel:Six South Street Hotel -\n
+  6 South Street\, Hanover\, NH 03755\n
+  603-643-0600 https://sixsouth.com\n
+  Distance from Venue: 0.3 miles - 5 minute walk\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250515T180126
+LAST-MODIFIED:20250627T003321
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:86531256-0571-428e-8eff-febb56d07a4a
+DTSTAMP:20250321T224742
+SUMMARY:Dartmouth College (Calinchini- Keys)
+DTSTART;VALUE=DATE:20250806
+DTEND;VALUE=DATE:20250807
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Contact: Jason Merwin 802.779.1490
+  jason.merwin@dartmouth.edu\n
+  5 hotel rooms for the night of August 6\, 2026.\n
+  outdoor Dartmouth Green\n
+  Musicians: Denise\, hector\,Mijangos\, Alih\, Moi\, Jonny\, Calinchi (k
+ eys)\n
+  FOH Angie\n
+  \nVENUE INFO:\n
+    tel:+1 603-646-1110\n
+    http://dartmouth.edu/life-community/explore-green\n
+  \n*************************************\nSCHEDULE:\n
+  11:00 AM EDT: Lobby/head to farm\n-------------------------------------
+ ---\n
+  12:00 PM - 1:00 PM EDT: 12-1pm Community Farm visit/ tocada (Band only)
+ \n  Engagement will include intro interactive ice breaker\,/ activities
+  & conversation\, and a few songs.\n
+  Focus on the power of story\, immigration family experiences\, cultural
+  pride\, music as medicine\, legacy of social change\, and building bri
+ dges across communities so we can see a world where many worlds fit.\n
+  \n----------------------------------------\n
+  1:15 PM EDT: Drive back to venue for Soundcheck\n----------------------
+ ------------------\n
+  1:30 PM EDT: 1:30 pm Angie sets up\n  PARK:\n
+  https://drive.google.com/open?id=1o9jPxkd-l2EyDIB7X7hZ2UqYq4NioAIw\n
+  \n----------------------------------------\n
+  2:30 PM - 4:00 PM EDT: Band load & soundchek\n-------------------------
+ ---------------\n
+  4:00 PM - 5:00 PM EDT: Dinner/ Change Wardrobe\n-----------------------
+ -----------------\n
+  5:00 PM EDT: Doors\n----------------------------------------\n
+  5:30 PM - 7:00 PM EDT: Showtime!\n-------------------------------------
+ ---\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://dartmouth.edu/life-community/explore-gre
+ en
+GEO:43.70335499999999;-72.288557
+LOCATION:The Dartmouth Green\n1 E Wheelock St\nHanover NH  03755 United S
+ tates
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Dartmouth Green\n1 E Wheelock St\nHanover NH 03755 United Stat
+ es":geo:43.70335499999999,-72.288557
+CREATED:20250321T224742
+LAST-MODIFIED:20250725T185158
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:3bb4688b-5375-49d6-8547-31c42641c21e
+DTSTAMP:20250515T175009
+SUMMARY:Amherst\, MA ((Calinchini- keys)
+DTSTART;VALUE=DATE:20250807
+DTEND;VALUE=DATE:20250808
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:CONTACT: Sam Leonard 413-221-2423
+  GREEN ROOM: One large green room to be shared\n
+  Merch: 100% artist sells. A local seller can be hired for $100 (per adv
+ ance)\n
+  Marketing: Jenna Korus jenna@dspshows.com\n
+  Production/Advance: Sam Leonard sam@thedrakeamherst.org\n
+  Musicians: Denise\, hector\,Mijangos\, Alih\, Moi\, Jonny\, Calinchi (k
+ eys)\n
+  FOH Angie\n
+  \nVENUE INFO:\n
+    tel:+1 413-345-2945\n
+    https://www.thedrakeamherst.org/\n
+  \n*************************************\nSCHEDULE:\n
+  10:00 AM - 12:00 PM EDT: Breakfast on your own\n-----------------------
+ -----------------\n
+  12:00 PM - 3:00 PM EDT: Drive out to Amherst\n-------------------------
+ ---------------\n
+  3:30 PM - 5:30 PM EDT: ALL Load-in/ Angie & Drums set up\n  PARK: https
+ ://drive.google.com/open?id=1SW57YeSuj1konN7Eymt_eJ4xHynle6ei\n
+  11 Amity Street Amherst MA 01002\n
+  \n----------------------------------------\n
+  7:00 PM EDT: Doors\n----------------------------------------\n
+  8:00 PM - 9:30 PM EDT: Showtime! (90min)\n-----------------------------
+ -----------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Hampton Inn By Hilton & Suites Springfield/Downtown\n
+    ARRIVE: 8/7/2025 3:00 PM EDT\n
+    DEPART: 8/8/2025 11:00 AM EDT\n
+    Rooms\n
+  Room 1: Denise Carlos\,\n
+  Room 2: Hector Flores\,\n
+  Room 3:  Moises Baqueiro\, Jon Paul Jyemo\n
+  Room 4: Jorge Mijangos\, John Calanchini\n
+  Room 5:  Angela Gonzalez\, Alih De Pena\n
+  Hotel confirmation number: Room 1: 889736054 Room 2: 889736066 Roo
+ m 3: 889736058 Room 4: 889736070 Room 5: 889736062\n
+  \n
+    tel:413-310-2300\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.thedrakeamherst.org/
+GEO:42.37638880000001;-72.5202764
+LOCATION:The Drake\n44 N Pleasant St\nAmherst MA  01002 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Drake\n44 N Pleasant St\nAmherst MA 01002 United States":geo:4
+ 2.37638880000001,-72.5202764
+CREATED:20250515T175009
+LAST-MODIFIED:20250725T185230
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:2e1de9b7-8350-44f8-9886-c768cf7af803
+DTSTAMP:20250206T222848
+SUMMARY:Edmonton Fest (Calinchi- Keys)
+DTSTART;VALUE=DATE:20250809
+DTEND;VALUE=DATE:20250811
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Dennis Franz (Technical Director): td@edmontonfolkfest.org
+  Connie McCall (Assnt. Technical Director & Backline Logistics): tech2@
+ edmontonfolkfest.org\n
+  festival weekend only\n
+  pre-festival\, and during festival\n
+  Hotel Hospitality: 780–493–8955\n
+  Technical Director\, Dennis Franz: 780–905–6434\n
+  Airport Transportation: 780–493–8957\n
+  Producer\, Terry Wickham: 780–983–4508\n
+  1 concert\, 1 party and 1 session\n
+  Musicians: Denise\, hector\,Mijangos\, Alih\, Moi\, Jonny\, Calinchi (k
+ eys)\n
+  FOH Angie\n
+  Hotels\n
+  Musicians: Denise\, hector\,Mijangos\, Alih\, Chuy (bass)\n
+  Drum??\n
+  FOH Angie\n
+  \nVENUE INFO:\n
+    http://www.edmonton.ca/\n
+  \n*************************************\nSCHEDULE:\n
+  12:30 PM MDT: SHUTTLE to Festival\n------------------------------------
+ ----\n
+  1:00 PM MDT: Call-Time MAINSTAGE (DRESSED SHOW READY)\n----------------
+ ------------------------\n
+  2:00 PM - 3:30 PM MDT: 2pm MAINSTAGE 1HR\n  Upon arrival on site\, chec
+ k in with Performer Hospitality at Main Stage.\n
+  \n----------------------------------------\n
+  4:50 PM MDT: Call time- Session Stage\n--------------------------------
+ --------\n
+  5:40 PM - 6:40 PM MDT: Stage 6- Collab perform (Las Cafeteras\, Daniell
+ e Ponder\, Wesli)\n  a shared performance space for artists\, with a t
+ one of singer-songwriter in the round. Although collaboration is not ex
+ pected\, it is warmly welcomed\, and always left to the discretion of ea
+ ch artist.\n
+  \n----------------------------------------\n
+  11:00 PM MDT: Call time After-party stage\n----------------------------
+ ------------\n
+  11:59 PM - 8/10/2025 1:10 AM MDT: Midnight SATURDAY NIGHT PARTY (HOTEL 
+ BALLROOM)\n  Showtime 12:15am-1:15am\n
+  Same hotel that we are staying\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.edmonton.ca/
+GEO:53.5461245;-113.4938229
+LOCATION:Edmonton\nEdmonton AB Canada
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Edmont
+ on\nEdmonton AB Canada":geo:53.5461245,-113.4938229
+CREATED:20250206T222848
+LAST-MODIFIED:20250731T194631
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:1fb7f4b9-60ae-4a38-ae34-6a64e68fdaaf
+DTSTAMP:20250323T052417
+SUMMARY:Fly home (Hector\, Mijangos\, Alih)
+DTSTART;VALUE=DATE:20250811
+DTEND;VALUE=DATE:20250812
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - YEG>BUR - United -  GSXJ6D - HF\,JM\,AD - United\n
+    1773\n
+    DEPART: Edmonton International Airport 8/11/2025 3:15 PM MDT\n
+    ARRIVE: Bob Hope Airport 8/11/2025 8:35 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250323T052417
+LAST-MODIFIED:20250714T184137
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7f1d27b6-9dbc-4f1b-8a5c-60a84a08516a
+DTSTAMP:20250714T190103
+SUMMARY:Hector BLACKOUT DATES
+DTSTART;VALUE=DATE:20250816
+DTEND;VALUE=DATE:20250818
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250714T190103
+LAST-MODIFIED:20250714T190103
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0200e3b0-bfad-4b71-a6c2-9998270dced1
+DTSTAMP:20250714T185249
+SUMMARY:FLY TO Milwaukee\,MN
+DTSTART;VALUE=DATE:20250828
+DTEND;VALUE=DATE:20250829
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Danielle Passwaters 414-810-8780.
+  \n*************************************\nFLIGHTS:\n
+    Flight - ONT>MKE - Southwest - B5PIJQ - AG - Southwest\n
+    3940\n
+    DEPART: LA/Ontario International Airport 8/28/2025 12:45 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:00 PM CDT
+ \n
+    \n----------------------------------------\n
+    Flight - BUR > MKE - Southwest - A2EAZ7 - HF - Southwest\n
+    1555\n
+    DEPART: Bob Hope Airport 8/28/2025 2:50 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:45 PM CDT
+ \n
+    \n----------------------------------------\n
+    Flight - BUR> MKE - Southwest - B5KSPH - DC - Southwest\n
+    1555\n
+    DEPART: Bob Hope Airport 8/28/2025 2:50 PM PDT\n
+    ARRIVE:  8/28/2025 11:45 PM PDT\n
+    \n----------------------------------------\n
+    Flight - BUR> MKE - Southwest -CXKPCJ- JJ - Southwest\n
+    1555\n
+    DEPART: Bob Hope Airport 8/28/2025 2:50 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:45 PM CDT
+ \n
+    \n----------------------------------------\n
+    Flight - BUR>MKE - Southwest - CMVVNA - AD - Southwest\n
+    1517\n
+    DEPART: Bob Hope Airport 8/28/2025 4:10 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:45 PM CDT
+ \n
+    \n----------------------------------------\n
+    Flight - BUR>MKE - Southwest - CN9UHP - MB - Southwest\n
+    1517\n
+    DEPART: Bob Hope Airport 8/28/2025 4:10 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:45 PM CDT
+ \n
+    \n----------------------------------------\n
+    Flight - SBA>MKE -  Southwest - B5MALY - JM - Southwest\n
+    3224\n
+    DEPART: Santa Barbara Airport 8/28/2025 4:25 PM PDT\n
+    ARRIVE: General Mitchell International Airport 8/28/2025 11:45 PM CDT
+ \n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Milwaukee hote: Crowne Plaza\n
+    6401 South 13th Street\, Milwaukee\, WI\, 53221\, US\n
+    ARRIVE: 8/28/2025 11:50 PM CDT\n
+    DEPART: 8/30/2025 8:00 AM CDT\n
+    Hotel: Crowne Plaza Milwaukee South by IHG\n
+  Address: 6401 South 13th Street\, Milwaukee\, WI 53221\n
+  Main Phone: (414) 764-5300\n
+  Hotel Contact for This Reservation:Mike Bender\n
+  Director of Sales and Marketing\n
+  Direct: (414) 563-4070\n
+  Stay Details:\n
+  Dates: 2 nights – August 28–30\n
+  Confirmation Numbers:\n
+  Denise Carlos/Single room 62553644\n
+  Hector Flores/ Single room 25447871\n
+  Moises Baqueiro/ Single room 84623953\n
+  Alih De La Peña & Angela Gonzalez  87748925\n
+  Jorge Mijangos & Jonny Jyemo     60561792\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250714T185249
+LAST-MODIFIED:20250827T053220
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:79202e3d-0453-48a9-8a75-68b7a7f4ab85
+DTSTAMP:20250812T011237
+SUMMARY:Workshop & Fly Home
+DTSTART;VALUE=DATE:20250830
+DTEND;VALUE=DATE:20250831
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  8:30 AM - 10:00 AM PDT: WORKSHOP\n  Location:\n
+  Voces de la Frontera Headquarters\, 733 W Historic Mitchell\n
+  Street\, Milwaukee\, WI 53204\n
+  Las Cafeteras will lead a music\, art\, or cultural empowerment worksho
+ p in collaboration with Voces de la Frontera members.\n
+  \n----------------------------------------\n
+  5:00 PM - 8/31/2025 5:00 PM PDT: Rental car Hector - Budget\n  Budget\n
+  Confirmation number\n
+  73224824638881\n
+  Itinerary # 73224824638881\n
+  Midsize\n
+  Toyota Rav4 or similar\n
+  5 passengers\n
+  Unlimited mileage\n
+  Pick-up\n
+  Sat\, Aug 30\, 5:00pm\n
+  7600 Earhart Rd\, Oakland\, California\, USA\, OAK\n
+  Drop-off\n
+  Tue\, Sep 2\, 4:00pm\n
+  1212 West Whittier Boulevard\, Los Angeles\, California\, USA\, LGB\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - MKE> BUR - Southwest - CN9UHP - MB - Southwest\n
+    3797\n
+    DEPART: General Mitchell International Airport 8/30/2025 5:30 AM CDT\
+ n
+    ARRIVE: Bob Hope Airport 8/30/2025 11:00 AM PDT\n
+    \n----------------------------------------\n
+    Flight-MKE> ONT-Southwest- B5PIJQ- AG - SOUTHWEST\n
+    3797\n
+    DEPART: General Mitchell International Airport 8/30/2025 5:30 AM CDT\
+ n
+    ARRIVE: LA/Ontario International Airport 8/30/2025 11:00 AM PDT\n
+    B5PIJQ\n
+  \n
+    \n----------------------------------------\n
+    Flight - MKE> BUR - Southwest -B5KSPH- DC - Southwest\n
+    WN3853\n
+    DEPART: General Mitchell International Airport 8/30/2025 12:20 PM CDT
+ \n
+    ARRIVE: Bob Hope Airport 8/30/2025 4:05 PM PDT\n
+    \n----------------------------------------\n
+    Flight - MKE>BUR - Southwest - CMVVNA - AD - Southwest\n
+    3853\n
+    DEPART: General Mitchell International Airport 8/30/2025 12:20 PM CDT
+ \n
+    ARRIVE: Bob Hope Airport 8/30/2025 4:05 PM PDT\n
+    \n----------------------------------------\n
+    Flight - MKE>BUR - Southwest - CXKPCJ - JJ - Southwest\n
+    3853\n
+    DEPART: General Mitchell International Airport 8/30/2025 12:20 PM CDT
+ \n
+    ARRIVE: Bob Hope Airport 8/30/2025 4:05 PM PDT\n
+    \n----------------------------------------\n
+    Flight - MKE>OAK - Southwest - A2EAZ7 - HF - Southwest\n
+    3853\n
+    DEPART: General Mitchell International Airport 8/30/2025 2:20 PM CDT\
+ n
+    ARRIVE: Oakland International Airport 8/30/2025 4:25 PM PDT\n
+    \n----------------------------------------\n
+    Flight  - MKE>SBA - Southwest - B5MALY - JM - Southwest\n
+    DEPART: General Mitchell International Airport 8/30/2025 3:50 PM CDT\
+ n
+    ARRIVE: Santa Barbara Airport 8/30/2025 8:15 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250812T011237
+LAST-MODIFIED:20250813T230317
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:d806b054-7dc6-465e-85ac-8711242593b0
+DTSTAMP:20250714T185117
+SUMMARY:San Jose (Plaza de Cesar Chavez)
+DTSTART;VALUE=DATE:20250906
+DTEND;VALUE=DATE:20250907
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Backline provided
+  12:25 Las Cafeteras Flight lands\n
+  2-4pm Las Cafeteras Load & Soundcheck\n
+  3:30-5pm ECNO load & Soundcheck\n
+  5pm DOORS\n
+  7:25-8:25pm ECNO\n
+  8:25- 8:45pm changeover\n
+  8:45-10pm LAS CAFETERAS\n
+  \nVENUE INFO:\n
+    tel:+1 408-535-3570\n
+    http://www.sjparks.org/\n
+  \n*************************************\nSCHEDULE:\n
+  2:00 PM - 4:00 PM PDT: Las Cafeteras Load/ Soundcheck\n----------------
+ ------------------------\n
+  3:30 PM - 5:00 PM PDT: ECNO load/sound\n-------------------------------
+ ---------\n
+  5:00 PM PDT: DOORS\n----------------------------------------\n
+  8:45 PM - 10:45 PM PDT: Show time 75pm\n-------------------------------
+ ---------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - BUR> MKE - Southwest -  CWXNWL- JM - Southwest\n
+    WN1486\n
+    DEPART: Bob Hope Airport 9/6/2025 11:05 AM PDT\n
+    ARRIVE: Mineta San José International Airport 9/6/2025 12:25 PM PDT\
+ n
+    \n----------------------------------------\n
+    Flight - BUR> MKE - Southwest - CWVQQ8- JC - Southwest\n
+    WN1486\n
+    DEPART: Burbank Airport – North (AV Line) Metrolink Station 9/6/202
+ 5 11:05 AM PDT\n
+    ARRIVE: Mineta San José International Airport 9/6/2025 12:25 PM PDT\
+ n
+    \n----------------------------------------\n
+    Flight - BUR> MKE - Southwest - CX4XAN- DC\,HF\,AD\, JJ - Southwest\n
+    WN1486\n
+    DEPART: Bob Hope Airport 9/6/2025 11:05 AM PDT\n
+    ARRIVE: Mineta San José International Airport 9/6/2025 12:25 PM PDT\
+ n
+    \n----------------------------------------\n
+    Flight - BUR> SJC - Southwest - CWZEJ7-AG - Southwest\n
+    1698\n
+    DEPART: LA/Ontario International Airport 9/6/2025 11:05 AM PDT\n
+    ARRIVE: Mineta San José International Airport 9/6/2025 12:20 PM PDT\
+ n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    San Jose Hotel: SIGNIA BY HILTON\n
+    170 S Market St\, San Jose\, CA\, 95113\, US\n
+    ARRIVE: 9/6/2025 4:00 PM PDT\n
+    DEPART: 9/7/2025 9:00 AM PDT\n
+    1 - DENISE CARLOS - 3321338153\n
+  2 - HECTOR FLORES - 3319807404\n
+  3 - JONNY JYEMO/ MOISES BAQUEIRO- 3324581021\n
+  4 - ANGELA GONZÁLEZ - 3322353242\n
+  5 - JORGE MIJANGOS/ JON CALINCHINI - 3316713046\n
+  6 - ALIH DE LA PENA - 3321232560\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.sjparks.org/
+GEO:37.3324858;-121.8898421
+LOCATION:Plaza de César Chávez\n1 Paseo de San Antonio\nSan Jose CA  95
+ 113 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Plaza de César Chávez\n1 Paseo de San Antonio\nSan Jose CA 95113
+  United States":geo:37.3324858,-121.8898421
+CREATED:20250714T185117
+LAST-MODIFIED:20250906T212242
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:d32348c5-7ad2-4105-9aa1-2cca53262786
+DTSTAMP:20250427T030819
+SUMMARY:Millpond Music Fest (Bishop\, CA)
+DTSTART;VALUE=DATE:20250919
+DTEND;VALUE=DATE:20250921
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Fest provides backline
+  Loren Miller\n
+  imrioting@gmail.com\n
+  530 559 0447\n
+  9/19\n
+  Load in: 5 pm\n
+  Set time main stage: 7:50-8:50\n
+  9/20\n
+  Workshop tent: 11: 45-12:30pm\n
+  -------\n
+  Merch\, we provide the space and staff and receive a 15 % commission on
+  sales\n
+  \nVENUE INFO:\n
+    tel:+1 760-873-8014\n
+    http://inyo.org/\n
+  \n*************************************\nSCHEDULE:\n
+  5:00 PM PDT: Load-in\n----------------------------------------\n
+  7:50 PM - 8:50 PM PDT: Showtime-MAINSTAGE (1 HR)\n---------------------
+ -------------------\n
+  9/20/2025 10:30 AM PDT: Load-in\n--------------------------------------
+ --\n
+  9/20/2025 11:45 AM - 9/20/2025 12:30 PM PDT: WORKSHOP\n  Workshop tent:
+  11: 45-12:30pm\n
+  \n----------------------------------------\n
+  9/20/2025 2:00 PM PDT: Drive home\n------------------------------------
+ ----\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Vagabond Inn Bishop\n
+    Bishop\, CA\, 93514\, US\n
+    ARRIVE: 9/19/2025 3:00 PM PDT\n
+    DEPART: 9/20/2025 11:00 AM PDT\n
+    Expedia itinerary: 73240016269830\n
+  Confirmation: SZYAEYHEJ\n
+  Confirmation: SZYAEYHE1\n
+  Confirmation: SZYAEYHET\n
+  Confirmation: SZYAEYHEE\n
+  Confirmation: SZYAEYHEF\n
+  1-Denise Carlos\n
+  2-Hector Flores\n
+  3-Jorge Mijangos & John Calinchini\n
+  4-Moises Baqueiro & Jonny Jyemo\n
+  5- Angela Gonzalez\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://inyo.org/
+GEO:37.3607735;-118.3955491
+LOCATION:Inyo Council For the Arts\n137 S Main St\nBishop CA  93514 Unite
+ d States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Inyo Council For the Arts\n137 S Main St\nBishop CA 93514 United S
+ tates":geo:37.3607735,-118.3955491
+CREATED:20250427T030819
+LAST-MODIFIED:20250912T191450
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:483980d5-d436-49d7-bf55-215fa936a8fa
+DTSTAMP:20250827T165518
+SUMMARY:2pm Band Drive to San Luis Obispo
+DTSTART;TZID=America/Los_Angeles:20251005T140000
+DTEND;TZID=America/Los_Angeles:20251005T190000
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  1:00 PM - 10/6/2025 1:00 PM PDT: Rental car Hector - Budget\n  Budget\n
+  Confirmation: #32907992US5\n
+  Expedia itinerary: 73260955296634\n
+  Reservation details\n
+  15 passenger\n
+  Pick-up\n
+  Sun\, Oct 5\n
+  1:00pm\n
+  Drop-off\n
+  Thu\, Oct 9\n
+  8:00pm\n
+  \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - La Cuesta Inn\n
+    San Luis Obispo\, CA\, 93401\, US\n
+    ARRIVE: 10/5/2025 3:00 PM PDT\n
+    DEPART: 10/6/2025 11:00 AM PDT\n
+    Reservation details\n
+  Booked\n
+  Check in\n
+  Sun\, Oct 5\n
+  3 PM\n
+  Check out\n
+  Mon\, Oct 6\n
+  11:00 AM\n
+  1-Denise Carlos\n
+  2-Hector Flores & Moises Baqueiro\n
+  3-Jonny Jyemo  & John Calinchini\n
+  4-Jasmine Lopez & Angela Gonzalez\n
+  Confirmation: 810386556\n
+  Confirmation: 510386256\n
+  Confirmation: 280386156\n
+  Confirmation: 820386456\n
+  \n
+    tel:1-805-543-2777\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250827T165518
+LAST-MODIFIED:20251003T194042
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:55a56c7f-9c29-4df1-9b11-48b90b82bea1
+DTSTAMP:20250725T235107
+SUMMARY:San Luis Obispo LC CONCERT
+DTSTART;VALUE=DATE:20251006
+DTEND;VALUE=DATE:20251007
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:one 30-minute planning Zoom call with OUDI Leadership Team to
+  discuss event
+  one 1-hour keynote presentation (or panel\, workshop\, etc.) during th
+ e symposium\n
+  one 1-hour performance  4PM or 5PM show)\n
+  one 1-hour meet & greet or meal with student leaders\n
+  \nVENUE INFO:\n
+    tel:+1 805-756-1111\n
+    https://www.calpoly.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  10:30 AM PDT: 10:30 arrive Cal Poly\n  Cal Poly SLO\n
+  1 Grand Ave. San Luis Obispo\, CA\, 93407\n
+  ¡Adelante! HSI Symposium – Website\n
+  Register your car(s) for parking:\n
+  https://www.offstreet.io/events/9RV8SA0T\n
+  CODE: HSI\n
+  \n----------------------------------------\n
+  10:30 AM - 5:55 PM PDT: SLO Day schedule\n  10:30AM BAND MEMBERS ARRIVE
+  AT CAL POLY\n
+  10:45 AM KEYNOTE CHECK-IN BACKSTAGE\n
+  11AM – 12PM KEYNOTE ADDRESS and Q&A\n
+  12PM LUNCH & CONCERT SET-UP BEGINS IN UU PLAZA\n
+  Lunch Buffet in Chumash Auditorium\n
+  12:30pm unload van/ Angie set-up Audio\n
+  2 PM SOUND CHECK IN UU PLAZA\n
+  4-5 PM CONCERT in UU PLAZA!\n
+  5-5:30 PM MERCH SALES & SIGNING at Booth\n
+  5:30-6 PM RETURN TO DRESSING ROOMS PACK UP FOR DEPARTURE\n
+  \n----------------------------------------\n
+  11:00 AM - 11:35 AM PDT: Hector Keynote speech:\n  keynote DETAILS:\n
+  TITLE: The Sounds of Resistance: From Storytelling to Movement Building
+ \n
+  Description: Stories have always been at the heart of resistance. They
+  preserve memory\, carry truth across generations\, and spark the imagin
+ ation needed to build a different future. This keynote explores how stor
+ ytelling can move beyond the personal to fuel collective action and tran
+ sformational change. Through words of empowerment\, cultural rhythms\, a
+ nd reclaimed narratives\, we will reflect on how stories carve space for
+  justice\, belonging\, and possibility.\n
+  BULLET POINTS FOR KEYNOTE SPEAKER:\n
+  Las Cafeteras introduction: what are the origins of the band\, what ar
+ e your art\, culture\, and musical influences.\n
+  Local grassroots efforts: talk about Las Cafeteras relationship with th
+ eir local community\, share how communities use the creative arts to res
+ pond\, resist\, and reimagine social injustice.\n
+  Connection to higher education: why it matters for students to develop 
+ their voices and reclaim their narratives\, how does one begin to practi
+ ce storytelling and to be a part of the collective reframing of our stor
+ ies.\n
+  Movement building through the arts: provide examples of how music\, per
+ formance\, and creative expression embody resilience and collective powe
+ r\, in what ways does Las Cafeteras create spaces of belonging.\n
+  Art as a reminder of hope and possibility: talk about imagination as a 
+ tool for envisioning new futures\, leave us with a sense of hope and pos
+ sibility to continue to take care of our communities while advocating fo
+ r a better tomorrow.\n
+  \n----------------------------------------\n
+  4:00 PM - 5:00 PM PDT: 1 hr Concert\n----------------------------------
+ ------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Best Western Plus Santa Barbara\n
+    Santa Barbara\, CA\, 93105\, US\n
+    ARRIVE: 10/6/2025 3:00 PM PDT\n
+    DEPART: 10/7/2025 11:00 AM PDT\n
+    Reservation details\n
+  Booked\n
+  Check in\n
+  Mon\, Oct 6\n
+  3:00 PM\n
+  Check out\n
+  Tue\, Oct 7\n
+  11 AM\n
+  1-Denise Carlos\n
+  2-Hector Flores &\n
+  3-Moises Baqueiro & Jonny Jyemo\n
+  4-Emmanuel Ortiz & John Calinchini\n
+  5- Dante Espinoza & Russel Chow\n
+  6- Adriana Rafaela & Jennifer Rodriguez\n
+  7- Jasmine Lopez & Angelina Rivera\n
+  8- Angela Gonzalez\n
+  Confirmation: 917386055\n
+  Confirmation: 917386955\n
+  Confirmation: 617386655\n
+  Confirmation: 487386655\n
+  Confirmation: 787386955\n
+  Confirmation: 587386755\n
+  Confirmation: 287386455\n
+  Confirmation: 127386955\n
+  Expedia itinerary: 73261899938094\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.calpoly.edu/
+GEO:35.3050053;-120.6624942
+LOCATION:California Polytechnic State University\n1 Grand Ave\nSan Luis O
+ bispo CA  93407 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="California Polytechnic State University\n1 Grand Ave\nSan Luis Obi
+ spo CA 93407 United States":geo:35.3050053,-120.6624942
+CREATED:20250725T235107
+LAST-MODIFIED:20251006T075606
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:916519ca-2749-4e7b-bdfb-9f566b6a8798
+DTSTAMP:20251006T082805
+SUMMARY:Hotel check-in
+DTSTART;TZID=America/Los_Angeles:20251007T200000
+DTEND;TZID=America/Los_Angeles:20251009T110000
+DESCRIPTION:Hotel Rooming assignments:
+  Denise Carlos\n
+  Hector Flores\n
+  Moises Baqueiro\n
+  Jonny Jyemo & John Calinchini\n
+  Dante Espinoza & Russell Chow\n
+  Adriana Rafaela & Jennifer Rodriguez\n
+  Jasmine Lopez\n
+  Angela Gonzalez\n
+  Jessica Lopez & Angelina Rivera\n
+  Emmanuel Ortiz\n
+  Conf #\n
+  36501295 - 1\n
+  81037490 - 1\n
+  18923304 - 1\n
+  79350341 - 1\n
+  31205275 - 1\n
+  25896856 - 1\n
+  36563100 - 1\n
+  57157590 - 1\n
+  85855846 - 1\n
+  52545813 - 1\n
+  \nVENUE INFO:\n
+    tel:+1 209-383-1234\n
+    https://elcapitanhotelmerced.com/?utm_source=google-gbp&utm_medium=or
+ ganic&utm_campaign=gbp\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://elcapitanhotelmerced.com/?utm_source=go
+ ogle-gbp&utm_medium=organic&utm_campaign=gbp
+GEO:37.3023145;-120.4850844
+LOCATION:El Capitan Hotel\n609 W Main St\nMerced CA  95340 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="El Capitan Hotel\n609 W Main St\nMerced CA 95340 United States":ge
+ o:37.3023145,-120.4850844
+CREATED:20251006T082805
+LAST-MODIFIED:20251007T083708
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:2f149479-9b2f-487d-8ac5-b7f4b088cb84
+DTSTAMP:20250208T043211
+SUMMARY:HLM San Diego
+DTSTART;VALUE=DATE:20251014
+DTEND;VALUE=DATE:20251015
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:LAUREN TENNISON (she/her/hers)
+  Production Manager\n
+  Campus Performances and Events Office\n
+  M: (858)239-3318\n
+  Kathryn Sturch  – Will coordinate all Hospitality and travel/lodgin
+ g if contracted.\n
+  Production Manager and Artist Liaison\n
+  ArtPower at UC San Diego\n
+  office: 858.822-3121\n
+  cell: 619-857-0993\n
+  Lauren Tennison Production Manager – Will coordinate all scheduling
+  and Technical needs.\n
+  Simonne Darbonne Front of House Manager – Will coordinate any front
+  of house needs if needed (merch\, security etc.)\n
+  \nVENUE INFO:\n
+    https://amphitheater.ucsd.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  12:00 PM - 11:00 PM PDT: HLM SHOW!\n  HLM DAY OF SHOW SCHEDULE\n
+  12PM VENUE ACCESS/ SOUND & LIGHTING TECH SET-UP\n
+  2pm FULL CAST LOAD-IN/ STAGE ALTAR & MERCH SET-UP\n
+  2:30-4:30PM SOUND CHECK /FULL CAST RUN THROUGH\n
+  4:30PM RELEASE FOR PREP/ HOTEL CHECK-IN & DINNER\n
+  6PM CALL TIME/ DRESSING ROOMS\n
+  7PM DOORS\n
+  7:30-9:30PM SHOW TIME\n
+  9:30PM STRIKE STAGE/ LOBBY MEET & GREET\n
+  10PM STRIKE LOBBY/ PACK STAGE & ALTAR PROPS\n
+  11PM DEPART VENUE\n
+  \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    San Diego Hotel:  Best Western Premier Hotel Del Mar\n
+    ARRIVE: 10/13/2025 12:00 AM PDT\n
+    DEPART: 10/15/2025 11:59 PM PDT\n
+    Accommodation: Best Western Premier Hotel Del Mar 720 Camino Del Ma
+ r\, Del Mar\, California 92014\n
+  arriving 10/13\, departure 10/15\n
+  single Denise Carlos 588963008\n
+  single Hector Flores 588963009\n
+  single Angela Gonzalez 588963010\n
+  single Jasmine Lopez 588963011\n
+  double Jonny Jyemo 588963012\n
+  double Moises Baqueiro 588963013\n
+  double Dante Espinoza 588963014\n
+  double Adriana Rafaela 588963015\n
+  double Jessica Lopez 588963017\n
+  double Emmanuel Ortiz 588963016\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://amphitheater.ucsd.edu/
+GEO:32.8792506;-117.233073
+LOCATION:Epstein Family Amphitheater\n9500 Gilman Dr\nSan Diego CA  92093
+  United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Epstein Family Amphitheater\n9500 Gilman Dr\nSan Diego CA 92093 Un
+ ited States":geo:32.8792506,-117.233073
+CREATED:20250208T043211
+LAST-MODIFIED:20250919T002742
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:06a2d633-4cb6-4525-abb1-bd46bd2fa4e6
+DTSTAMP:20250815T062417
+SUMMARY:1pm Travel to Phoenix (Meet at Hector's)
+DTSTART;TZID=America/Los_Angeles:20251016T130000
+DTEND;TZID=America/Los_Angeles:20251016T190000
+DESCRIPTION:Sunday\, Oct 19: ABQ
+   Overnight: ABQ\n
+   1 Community Workshop + Full Hasta la Muerte Performance\n
+  o The Sounds of Resistance Workshop with Working Classroom w/ Non-profi
+ t Partner\n
+  2-\n
+  o Hasta la Muerte performance at the KiMo in Albuquerque at 7:30pm\n
+   Congresswoman Teresa Leger Fernandez will be attending\, might\n
+  introduce the show\, and would love to quickly meet you before or after
+ \;\n
+  she is thrilled about this residency and Las Cafeteras.\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Chandler Hotel: Crowne Plaza\n
+    1 N San Marcos Pl\, Chandler\, AZ\, 85225\, US\n
+    ARRIVE: 10/16/2025 6:00 PM MST\n
+    DEPART: 10/18/2025 11:00 AM MST\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250815T062417
+LAST-MODIFIED:20251003T203140
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:dfddba6f-fca4-4f5c-a390-32506f8188ef
+DTSTAMP:20250223T072313
+SUMMARY:HLM Oklahoma City\, OK
+DTSTART;VALUE=DATE:20251022
+DTEND;VALUE=DATE:20251023
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Mark Levine
+  Director\, Visual & Performing Arts Center\n
+  Mark.d.levine@occc.edu\n
+  Tyler Swim\n
+  Technical\, Stage\, and A/V Elements\; Technical Staff\n
+  tyler.p.swim@occc.edu\n
+  Kurt Leftwich\n
+  Coordinator of Events\, Visual & Performing Arts Center\n
+  kurt.d.leftwich@occc.edu\n
+  Connor Traynor\n
+  Administrative Coordinator\, Visual & Performing Arts Center\n
+  connor.a.traynor@occc.edu\n
+  Kandese Green\n
+  Box Office and Marketing Manager\, Visual & Performing Arts Center\n
+  Kandese.a.green@occc.edu\n
+  \nVENUE INFO:\n
+    tel:+1 405-682-7579\n
+    https://www.occc.edu/visual-and-performing-arts-center/\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Oklahoma Hotel: Avid Hotel\n
+    4621 SW 15th St\, Oklahoma City\, OK\, 73128\, US\n
+    ARRIVE: 10/22/2025 12:00 AM CDT\n
+    DEPART: 10/22/2025 11:59 PM CDT\n
+    261342 Baqueiro\,Moises\n
+  261340 Carlos\,Denise\n
+  261344 Espinoza\,Dante\n
+  261341 Flores\,Hector\n
+  261347 Gonzalez\,Angela\n
+  261343 Jyemo\,Jonny\n
+  261346 Lopez\,Jasmmine\n
+  261348 Lopez\,Jessica\n
+  261349 Ortiz\,Emmanuel\n
+  261345 Rafaela\,Adriana\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.occc.edu/visual-and-performing-arts
+ -center/
+GEO:35.389504;-97.57231689999999
+LOCATION:OCCC Visual and Performing Arts Center Theater\n7777 S May Ave\n
+ Oklahoma City OK  73159 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="OCCC Visual and Performing Arts Center Theater\n7777 S May Ave\nOk
+ lahoma City OK 73159 United States":geo:35.389504,-97.57231689999999
+CREATED:20250223T072313
+LAST-MODIFIED:20250912T182428
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:c2eb9892-08ae-4c2b-b287-faa87bbdd2fe
+DTSTAMP:20251006T002940
+SUMMARY:Hotel: Sage Hotel
+DTSTART;TZID=America/Denver:20251026T150000
+DTEND;TZID=America/Denver:20251029T110000
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 505-982-5952\n
+    https://www.thesagesf.com/?utm_source=google&utm_medium=organic&utm_c
+ ampaign=business-listing\n
+  \n*************************************\nACCOMMODATIONS:\n
+    SAGE HOTEL\n
+    725 Cerrillos Rd Suit A\, Santa Fe\, NM\, 87505\, US\n
+    ARRIVE: 10/26/2025 3:00 PM MDT\n
+    DEPART: 10/29/2025 11:00 AM MDT\n
+    The Sage\n
+  725 Cerrillos Rd\n
+  Santa Fe NM\n
+  Ph: 505-982-5952\n
+  E-mail: res@thesagesf.com\n
+  Web: www.thesagesf.com\n
+  Conf #\n
+  Denise Carlos 307870\n
+  Hector Flores 307871\n
+  Moises Baqueiro & John Calinchini  307873\n
+  Jonny Jyemo & Jorge Mijangos & 307874\n
+  Dante Espinoza & Emmanuel Ortiz  307875\n
+  Adriana Rafaela & Jennifer Rodriguez 307876\n
+  Jasmine Lopez  307872\n
+  Angela Gonzalez 307877\n
+  Jessica Lopez & Angelina Rivera  307878\n
+  Aunya Graham (check in 10/25)\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.thesagesf.com/?utm_source=google&ut
+ m_medium=organic&utm_campaign=business-listing
+GEO:35.6790576;-105.9491241
+LOCATION:The Sage Hotel\n725 Cerrillos Rd Suit A\nSanta Fe NM  87505 Unit
+ ed States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Sage Hotel\n725 Cerrillos Rd Suit A\nSanta Fe NM 87505 United 
+ States":geo:35.6790576,-105.9491241
+CREATED:20251006T002940
+LAST-MODIFIED:20251006T003132
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:5bcebe22-6312-4581-8d9a-b6313a5a26f5
+DTSTAMP:20250710T181819
+SUMMARY:HLM Santa Fe (2 student shows & HLM show)
+DTSTART;VALUE=DATE:20251028
+DTEND;VALUE=DATE:20251029
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:David Carter/ Production Director
+  OFFICE: 505-988-7050 EXT: 1209\n
+  CELL: 505-577-8054\n
+  Tuesday 10/28 Youth Shows\n
+  Suggested Morning Show Schedule\n
+  8am load for line check/ costume prep\n
+  9:30am doors\n
+  10am & 12:30 (2) youth shows\n
+  2-3:30pm Cast rest at Hotel\n
+  7:30pm Hasta la Muerte performance\n
+  Suggested Schedule\n
+  4pm load for line check/ costume prep\n
+  5pm merch set-up (seller requested) Hector can train\n
+  6pm dinner\n
+  7pm doors\n
+  7:30-9:30pm show\, post-show cast meet audience in lobby\n
+  11pm load out\n
+  \nVENUE INFO:\n
+    tel:+1 505-988-1234\n
+    http://www.lensic.org/\n
+  \n*************************************\nSCHEDULE:\n
+  8:00 AM MDT: Load-in/ prep\n----------------------------------------\n
+  10:00 AM - 11:00 AM MDT: 10am- Student show #1\n-----------------------
+ -----------------\n
+  12:00 PM - 1:00 PM MDT: 12pm- Student show #2\n------------------------
+ ----------------\n
+  2:00 PM - 3:30 PM MDT: 2-3:30pm Hotel rest\n---------------------------
+ -------------\n
+  4:00 PM MDT: load-in/prep for HLM show\n-------------------------------
+ ---------\n
+  7:00 PM MDT: Doors\n----------------------------------------\n
+  7:30 PM - 9:30 PM MDT: HLM show!\n-------------------------------------
+ ---\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.lensic.org/
+GEO:35.6878272;-105.941044
+LOCATION:Lensic Performing Arts Center\n211 W San Francisco St\nSanta Fe 
+ NM  87501 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Lensic Performing Arts Center\n211 W San Francisco St\nSanta Fe NM
+  87501 United States":geo:35.6878272,-105.941044
+CREATED:20250710T181819
+LAST-MODIFIED:20250924T063814
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:fd44bbca-af70-46ce-a864-a44b92aef34e
+DTSTAMP:20250815T233955
+SUMMARY:Fly to Rohnert Park\, CA (Sonoma)
+DTSTART;VALUE=DATE:20251029
+DTEND;VALUE=DATE:20251030
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    Sonoma Hotel: Oxford Suites Rohnert Park\n
+    67 Golf Course Drive West\, Rohnert Park\, CA\, 94928\, US\n
+    ARRIVE: 10/29/2025 3:00 PM PDT\n
+    DEPART: 10/31/2025 11:00 AM PDT\n
+    https://www.oxfordcollection.com/hotels/suites-sonoma-county?utm_sour
+ ce=gmb&utm_medium=yext\n
+  Hotel Rooming assignments:\n
+  Denise Carlos\n
+  Hector Flores & Mel Puljic\n
+  Moises Baqueiro & Jonny Jyemo\n
+  Jorge Mijangos & John Calinchini\n
+  Dante Espinoza & Emmanuel Ortiz\n
+  Adriana Rafaela & Jennifer Rodriguez\n
+  Jasmine Lopez & Angela Gonzalez (First night dbdl\, second night singl
+ e)\n
+  Jessica Lopez & Angelina Rivera\n
+  Aunya Graham\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250815T233955
+LAST-MODIFIED:20250819T195356
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7a8835c4-55bc-479a-a9d9-764f2b90079a
+DTSTAMP:20250821T214800
+SUMMARY:Manny/ Hector's Big Adventure (Drive Home)
+DTSTART;VALUE=DATE:20251110
+DTEND;VALUE=DATE:20251112
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250821T214800
+LAST-MODIFIED:20250821T214800
+END:VEVENT
+
+END:VCALENDAR
