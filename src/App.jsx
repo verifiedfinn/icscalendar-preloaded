@@ -90,15 +90,19 @@ function parseICSText(text, sourceId, sourceName){
 }
 
 // ---------- UI ----------
+// ---------- UI ----------
 export default function App(){
+  // 8am–8pm by default; show the current month by default
+  const today = new Date();
+
   const [sources, setSources] = useState([]);        // [{id,name}]
-  const [rawEvents, setRawEvents] = useState([]);    // parsed events (recurring placeholders + concrete)
-  const [dateFrom, setDateFrom] = useState(()=> dayKey(new Date()));
-  const [dateTo,   setDateTo]   = useState(()=> dayKey(addDays(new Date(),30)));
-  const [workStart, setWorkStart] = useState(9);
-  const [workEnd,   setWorkEnd]   = useState(17);
+  const [rawEvents, setRawEvents] = useState([]);    // parsed events
+  const [dateFrom, setDateFrom] = useState(() => dayKey(monthStart(today)));
+  const [dateTo,   setDateTo]   = useState(() => dayKey(monthEnd(today)));
+  const [workStart, setWorkStart] = useState(8);     // 8 AM
+  const [workEnd,   setWorkEnd]   = useState(20);    // 8 PM
   const [viewMode, setViewMode] = useState("single");
-  const [currentMonth, setCurrentMonth] = useState(()=> monthStart(new Date()));
+  const [currentMonth, setCurrentMonth] = useState(() => monthStart(today));
   const [hoverDay, setHoverDay] = useState(null);
   const [err, setErr] = useState("");
   const [notice, setNotice] = useState("");
@@ -112,6 +116,33 @@ export default function App(){
       return next;
     });
   };
+
+  // Load presets on mount (no auto-fit of date range)
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const loadedSources = [];
+        const loadedEvents  = [];
+        for (const p of PRESET_CALENDARS) {
+          const resp = await fetch(p.url);
+          if (!resp.ok) throw new Error(`Fetch failed for ${p.name} (${resp.status})`);
+          const text = await resp.text();
+          loadedSources.push({ id: p.id, name: p.name });
+          loadedEvents.push(...parseICSText(text, p.id, p.name));
+        }
+        if (cancelled) return;
+
+        setSources(loadedSources);
+        setRawEvents(loadedEvents);
+        setSelectedIds(new Set(loadedSources.map(s => s.id)));
+        setNotice(`Loaded ${loadedSources.length} preset calendar${loadedSources.length>1?'s':''}.`);
+      } catch (e) {
+        setErr(`Preset load error: ${e?.message || e}`);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
 
   // Load presets on mount
   useEffect(() => {
@@ -134,17 +165,6 @@ export default function App(){
         setSelectedIds(new Set(loadedSources.map(s => s.id)));
         setNotice(`Loaded ${loadedSources.length} preset calendar${loadedSources.length>1?'s':''}.`);
 
-        // Fit initial range to concrete events once
-        const bounds = loadedEvents
-          .filter(e => !e.isRecurring && e.start && e.end)
-          .flatMap(e => [e.start.getTime(), e.end.getTime()]);
-        if (bounds.length) {
-          const min = new Date(Math.min(...bounds));
-          const max = new Date(Math.max(...bounds));
-          setDateFrom(dayKey(startOfDay(min)));
-          setDateTo(dayKey(endOfDay(max)));
-          setCurrentMonth(monthStart(min));
-        }
       } catch (e) {
         setErr(`Preset load error: ${e?.message || e}`);
       }
@@ -277,7 +297,7 @@ export default function App(){
       `}</style>
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <h1 className="text-3xl font-bold mb-2">Dawn's Custom Calender Heat Map</h1>
+        <h1 className="text-3xl font-bold mb-2">Dawn's F2T Heat Map</h1>
         <p className="text-gray-600 mb-3">Preset calendars are loaded automatically. Toggle any person below.</p>
         {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
         {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
