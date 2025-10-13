@@ -1,5 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import ICAL from "ical.js";
+import ICALdefault, * as ICALns from "ical.js";
+const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
+           : (ICALns && ICALns.parse) ? ICALns
+           : (() => { throw new Error("ical.js failed to load"); })();
+
 
 // ---------- helpers ----------
 const startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
@@ -125,54 +129,15 @@ export default function App(){
         setRawEvents(prev=>[...prev, ...newEvents]);
         setNotice(`Loaded ${newSources.length} saved calendar${newSources.length>1?"s":""}.`);
         // fit range
-        const bounds = newEvents.filter(e=>!e.isRecurring && e.start && e.end).flatMap(e=>[e.start.getTime(), e.end.getTime()]);
-        if(bounds.length){
-          const min = new Date(Math.min(...bounds));
-          const max = new Date(Math.max(...bounds));
-          setDateFrom(dayKey(startOfDay(min))); setDateTo(dayKey(endOfDay(max))); setCurrentMonth(monthStart(min));
-        }
-      }
-    }
-  },[]);
+setRawEvents(prev => {
+  const next = [...prev, ...newEvents];
 
-  async function handleFiles(fileList){
-    setErr("");
-    if(!fileList || !fileList.length) return;
-    const fs = Array.from(fileList);
-
-    const newNames = []; const newSources = []; const newEvents = []; const toSave = [];
-    let idx = 0;
-    for (const f of fs){
-      const id = `${Date.now()}_${idx++}`;
-      const name = f.name || `calendar-${idx}.ics`;
-      newSources.push({ id, name }); newNames.push(name);
-      try {
-        const text = await f.text();
-        newEvents.push(...parseICSText(text, id, name));
-        if (remember) toSave.push({ id, name, text });
-      } catch(e){ setErr(prev => (prev? prev+" • ":"") + `Failed ${name}: ${e?.message||e}`); }
-    }
-
-    setSources(prev => [...prev, ...newSources]);
-    setFiles(prev => [...prev, ...newNames]);
-    setRawEvents(prev => [...prev, ...newEvents]);
-
-    // persist if asked
-    if (remember && toSave.length){
-      const cur = getSaved();
-      const merged = [...cur, ...toSave];
-      const result = setSaved(merged);
-      if (result !== true) {
-        setErr(prev => (prev? prev+" • ":"") + "Could not save calendars locally (storage full or blocked). They still load for this session.");
-      } else {
-        setNotice(`Saved ${toSave.length} calendar${toSave.length>1?"s":""} on this device.`);
-      }
-    }
-
-    // auto fit range to concrete (non-recurring) events
-    const bounds = newEvents.filter(e=>!e.isRecurring && e.start && e.end)
-                            .flatMap(e=>[e.start.getTime(), e.end.getTime()]);
-    if(bounds.length){
+  // Only auto-fit if this is the *first* time we’re loading anything
+  if (prev.length === 0) {
+    const bounds = next
+      .filter(e => !e.isRecurring && e.start && e.end)
+      .flatMap(e => [e.start.getTime(), e.end.getTime()]);
+    if (bounds.length) {
       const min = new Date(Math.min(...bounds));
       const max = new Date(Math.max(...bounds));
       setDateFrom(dayKey(startOfDay(min)));
@@ -180,6 +145,93 @@ export default function App(){
       setCurrentMonth(monthStart(min));
     }
   }
+
+  return next;
+});
+      }
+    }
+  },[]);
+
+async function handleFiles(fileList){
+  setErr("");
+  if (!fileList || !fileList.length) return;
+
+  const fs = Array.from(fileList);
+  const newNames = [];
+  const newSources = [];
+  const newEvents = [];
+  const toSave = [];
+  let idx = 0;
+
+  for (const f of fs){
+    const id = `${Date.now()}_${idx++}`;
+    const name = f.name || `calendar-${idx}.ics`;
+    newSources.push({ id, name });
+    newNames.push(name);
+    try {
+      const text = await f.text();
+      newEvents.push(...parseICSText(text, id, name));
+      if (remember) toSave.push({ id, name, text });
+    } catch (e) {
+      setErr(prev => (prev ? prev + " • " : "") + `Failed ${name}: ${e?.message || e}`);
+    }
+  }
+
+  setSources(prev => [...prev, ...newSources]);
+  setFiles(prev => [...prev, ...newNames]);
+
+  // Add events and expand (never shrink) the date range if needed
+  setRawEvents(prev => {
+    const next = [...prev, ...newEvents];
+
+    // Bounds of just the newly added *non-recurring* concrete events
+    const newBounds = newEvents
+      .filter(e => !e.isRecurring && e.start && e.end)
+      .flatMap(e => [e.start.getTime(), e.end.getTime()]);
+
+    if (newBounds.length) {
+      const newMin = new Date(Math.min(...newBounds));
+      const newMax = new Date(Math.max(...newBounds));
+
+      // Current range (from state at call time)
+      const curStart = new Date(dateFrom + "T00:00:00");
+      const curEnd   = new Date(dateTo   + "T23:59:59");
+
+      // If nothing was loaded before, or new files extend beyond current range, expand outward
+      if (prev.length === 0) {
+        setDateFrom(dayKey(startOfDay(newMin)));
+        setDateTo(dayKey(endOfDay(newMax)));
+        setCurrentMonth(monthStart(newMin));
+      } else {
+        let expanded = false;
+        if (newMin < curStart) {
+          setDateFrom(dayKey(startOfDay(newMin)));
+          setCurrentMonth(monthStart(newMin)); // align month with earliest event seen
+          expanded = true;
+        }
+        if (newMax > curEnd) {
+          setDateTo(dayKey(endOfDay(newMax)));
+          expanded = true;
+        }
+        // if neither earlier nor later, keep the user’s current range as-is
+      }
+    }
+
+    return next;
+  });
+
+  // persist if asked
+  if (remember && toSave.length){
+    const cur = getSaved();
+    const merged = [...cur, ...toSave];
+    const result = setSaved(merged);
+    if (result !== true) {
+      setErr(prev => (prev ? prev + " • " : "") + "Could not save calendars locally (storage full or blocked). They still load for this session.");
+    } else {
+      setNotice(`Saved ${toSave.length} calendar${toSave.length>1?"s":""} on this device.`);
+    }
+  }
+}
 
   // Sample with TWO calendars so per-person view is obvious
   function loadSample(){
@@ -389,19 +441,29 @@ END:VCALENDAR`;
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
               <span className="text-gray-500">o'clock</span>
             </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3 text-sm">
-                <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
-                <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
-              </div>
-              {viewMode==='single' && (
-                <div className="flex items-center gap-2">
-                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
-                  <div className="text-sm text-gray-600 w-28 text-center">{singleFrom.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</div>
-                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
-                </div>
-              )}
-            </div>
+<div className="flex items-center justify-between">
+  <div className="flex items-center gap-3 text-sm">
+    <label className="flex items-center gap-1 cursor-pointer">
+      <input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month
+    </label>
+    <label className="flex items-center gap-1 cursor-pointer">
+      <input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range
+    </label>
+  </div>
+
+  <div className="flex items-center gap-2">
+    {viewMode==='single' && (
+      <>
+        <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
+        <div className="text-sm text-gray-600 w-28 text-center">
+          {singleFrom.toLocaleDateString(undefined,{month:'long',year:'numeric'})}
+        </div>
+        <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
+      </>
+    )}
+
+  </div>
+</div>
           </div>
         </div>
 
