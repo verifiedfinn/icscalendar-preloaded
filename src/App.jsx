@@ -419,8 +419,8 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
   const cellSize = Math.max(36, Math.floor((gridWidth - gap * 6) / 7)); // min 36px
 
   // scale labels with the cell
-  const dayNumSize = Math.round(cellSize * 0.22);   // top-right day number
-  const pctSize    = Math.round(cellSize * 0.24);   // bottom-left percentage
+  const dayNumSize = Math.round(cellSize * 0.16);   // top-right day number
+  const pctSize    = Math.round(cellSize * 0.18);   // bottom-left percentage
 
   const cells=[];
   for(let i=0;i<startWeekday;i++) cells.push(<div key={"pad-"+i}/>);
@@ -437,13 +437,13 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
            style={{ backgroundColor: colorForRatio(r) }} title={`${fmt(date)} — ${Math.round(r*100)}% free`}>
 <div
   className="absolute top-1 right-2 font-semibold text-gray-700/80"
-  style={{ fontSize: Math.max(10, dayNumSize) }}
+  style={{ fontSize: Math.max(8, dayNumSize) }}
 >
   {day}
 </div>
 <div
   className="absolute bottom-1 left-2 font-medium text-gray-700/90"
-  style={{ fontSize: Math.max(11, pctSize) }}
+  style={{ fontSize: Math.max(9, pctSize) }}
 >
   {Math.round(r*100)}%
 </div>
