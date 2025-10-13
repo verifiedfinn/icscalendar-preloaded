@@ -1,9 +1,3 @@
-/**
- * Calendar Heatmap
- * (c) {new Date().getFullYear()} verifiedfinn / Finn Horgan
- * Notes: Preset ICS loader + free-time heatmap UI (ical.js + React + Vite)
- */
-
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
@@ -288,12 +282,12 @@ export default function App(){
         {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
         {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
 
-        <div className="grid md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 items-stretch">
           {/* Upload card removed for this repo. Keep this commented block if you want it back later.
           <div className="bg-white rounded-2xl shadow p-4"> …upload UI… </div>
           */}
 
-          <div className="bg-white rounded-2xl shadow p-4">
+          <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">1) Calendars</h2>
             <div className="text-sm">Show calendars</div>
             <div className="flex flex-wrap gap-3 text-sm mt-2">
@@ -307,22 +301,21 @@ export default function App(){
                   {s.name}
                 </label>
               ))}
-
               
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow p-4">
+          <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">2) Date range</h2>
             <div className="flex items-center gap-2">
-              <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full" />
+              <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
               <span className="text-gray-500">to</span>
-              <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full" />
+              <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
             <div className="text-xs text-gray-500 mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow p-4">
+          <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">3) Hours & View</h2>
             <div className="flex items-center gap-2 mb-3">
               <input type="number" min={0} max={23} value={workStart} onChange={e=>setWorkStart(clamp(parseInt(e.target.value||"0",10),0,23))} className="border rounded-lg p-2 w-20" />
@@ -330,7 +323,7 @@ export default function App(){
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
               <span className="text-gray-500">o'clock</span>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-3 text-sm">
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
