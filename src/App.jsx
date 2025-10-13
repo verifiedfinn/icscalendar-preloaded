@@ -1,3 +1,9 @@
+/**
+ * Calendar Heatmap
+ * (c) {new Date().getFullYear()} verifiedfinn / Finn Horgan
+ * Notes: Preset ICS loader + free-time heatmap UI (ical.js + React + Vite)
+ */
+
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
@@ -277,7 +283,7 @@ export default function App(){
       `}</style>
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <h1 className="text-3xl font-bold mb-2">Free Time Heatmap from ICS</h1>
+        <h1 className="text-3xl font-bold mb-2">Dawn's Custom Calender Heat Map</h1>
         <p className="text-gray-600 mb-3">Preset calendars are loaded automatically. Toggle any person below.</p>
         {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
         {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
@@ -301,6 +307,8 @@ export default function App(){
                   {s.name}
                 </label>
               ))}
+
+              
             </div>
           </div>
 
@@ -464,3 +472,4 @@ return (
     </div>
   );
 }
+

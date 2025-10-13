@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Free Time Heatmap from ICS</title>
+    <title>Dawn's Custom Calender Heat Map</title>
     <!-- Load Tailwind (quick CDN way) -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100 text-gray-900">
     <div id="root"></div>
+    <!-- Watermark -->
+<div
+  class="fixed bottom-2 right-3 text-[11px] sm:text-[12px] text-gray-500/80 select-none pointer-events-none z-50"
+  aria-label="Copyright watermark"
+>
+  © <span id="year-watermark"></span> verifiedfinn / Finn Horgan
+</div>
+<script>
+  document.getElementById('year-watermark').textContent = new Date().getFullYear();
+</script>
     <script type="module" src="/src/main.jsx"></script>
+    
   </body>
 </html>
