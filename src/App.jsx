@@ -5,7 +5,7 @@ const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (() => { throw new Error("ical.js failed to load"); })();
 
 /* =========================
-   Helpers (unchanged look)
+   Helpers
 ========================= */
 function useResizeWidth(ref) {
   const [w, setW] = useState(0);
@@ -49,26 +49,30 @@ const invertIntervals = (merged, ws, we) => {
 /* =========================
    Config
 ========================= */
-// Keep only Hector as a local file; remove Matt local file so it cannot override live.
+const PODCAST_ID = "podcast_live";
+const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
+
 const PRESET_CALENDARS = [
   { id: "hector", name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
 ];
 
-// Public Google ICS path (from your message)
-const GOOGLE_ICS = "https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics";
-
-// We’ll try a mirror first (CORS-friendly), then the direct URL.
 const REMOTE_CALENDARS = [
   {
     id: "matt_live",
     name: "Matt (Live)",
     urls: [
-      // server-side mirror that usually returns raw text with permissive CORS
       "https://r.jina.ai/https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
-      // fallback mirror via http scheme (some CDNs differ)
       "https://r.jina.ai/http://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
-      // direct (will work if you host behind a proxy or the browser allows it)
-      GOOGLE_ICS,
+      "https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
+    ],
+  },
+  {
+    id: PODCAST_ID,
+    name: PODCAST_NAME,
+    urls: [
+      "https://r.jina.ai/https://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
+      "https://r.jina.ai/http://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
+      "https://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
     ],
   },
 ];
@@ -85,8 +89,6 @@ async function fetchTextNoStore(url) {
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   return resp.text();
 }
-
-// Cut strictly to the VCALENDAR block
 function sliceCalendar(raw) {
   if (!raw) return "";
   let s = String(raw).replace(/^\uFEFF/, "").trim();
@@ -95,8 +97,6 @@ function sliceCalendar(raw) {
   if (b === -1 || e === -1) return "";
   return s.slice(b, e + "END:VCALENDAR".length);
 }
-
-// Unfold RFC5545 soft-wrapped lines
 function unfoldLines(text) {
   const lf = text.replace(/\r\n/g, "\n");
   const out = [];
@@ -106,10 +106,7 @@ function unfoldLines(text) {
   }
   return out;
 }
-
-// Accept only valid iCal properties; drop junk like “Download and organize …”
 const VALID_PROP_RE = /^([A-Z0-9-]+)(;[^:]*)?:/;
-
 function repairIcs(raw) {
   const sliced = sliceCalendar(raw);
   if (!sliced) return "";
@@ -120,9 +117,7 @@ function repairIcs(raw) {
     if (!ln.trim()) { kept.push(ln); continue; }
     if (ln.startsWith("BEGIN:") || ln.startsWith("END:")) { kept.push(ln); continue; }
     if (VALID_PROP_RE.test(ln)) { kept.push(ln); continue; }
-    // else drop the line silently
   }
-  // Refold long lines at 75 chars (optional)
   const refolded = kept.flatMap((l) => {
     if (l.length <= 75) return [l];
     const chunks = [];
@@ -136,7 +131,6 @@ function repairIcs(raw) {
   });
   return refolded.join("\r\n") + "\r\n";
 }
-
 async function fetchFixedICS(name, urls) {
   let lastErr;
   for (const u of urls) {
@@ -153,7 +147,6 @@ async function fetchFixedICS(name, urls) {
   }
   throw new Error(`${name} fetch failed: ${lastErr?.message || lastErr}`);
 }
-
 function parseICSText(text, sourceId, sourceName){
   const ics = repairIcs(text);
   if (!/^BEGIN:VCALENDAR[\s\S]*END:VCALENDAR\s*$/i.test(ics)) {
@@ -162,7 +155,6 @@ function parseICSText(text, sourceId, sourceName){
   let jcal;
   try { jcal = ICAL.parse(ics); }
   catch (e) { throw new Error(`ICS parse failed for ${sourceName}: ${e?.message || e}`); }
-
   const comp = new ICAL.Component(jcal);
 
   try {
@@ -195,7 +187,7 @@ function parseICSText(text, sourceId, sourceName){
 }
 
 /* =========================
-   UI (same look)
+   UI
 ========================= */
 export default function App(){
   const today = new Date();
@@ -249,7 +241,6 @@ export default function App(){
         const loadedSources = [];
         const loadedEvents  = [];
 
-        // Local (Hector)
         for (const p of PRESET_CALENDARS) {
           try {
             const raw = await fetchTextNoStore(p.url);
@@ -262,8 +253,6 @@ export default function App(){
             setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
           }
         }
-
-        // Live (Matt)
         for (const r of REMOTE_CALENDARS) {
           try {
             const fixed = await fetchFixedICS(r.name, r.urls);
@@ -289,11 +278,10 @@ export default function App(){
     return () => { cancelled = true; };
   }, []);
 
-  // Auto-refresh live every 10 min
+  // Auto-refresh
   useEffect(() => {
     const intervalMs = 10 * 60 * 1000;
     let stop = false;
-
     async function refresh() {
       for (const r of REMOTE_CALENDARS) {
         try {
@@ -312,47 +300,45 @@ export default function App(){
         }
       }
     }
-
     refresh();
     const t = setInterval(refresh, intervalMs);
     return () => { stop = true; clearInterval(t); };
   }, []);
 
-  
-  // Manual force refresh
-async function forceRefresh() {
-  if (isRefreshing) return;
-  setIsRefreshing(true);
-  let ok = 0;
-  try {
-    for (const r of REMOTE_CALENDARS) {
-      try {
-        const fixed = await fetchFixedICS(r.name, r.urls);
-        const evs = parseICSText(fixed, r.id, r.name);
-        setRawEvents(prev => {
-          const others = prev.filter(e => e.sourceId !== r.id);
-          return [...others, ...evs];
-        });
-        setSourceCounts(prev => ({ ...prev, [r.id]: evs.length }));
-        setLastFetchAt(prev => ({ ...prev, [r.id]: new Date() }));
-        setFetchErrors(prev => ({ ...prev, [r.id]: undefined }));
-        ok++;
-      } catch (e) {
-        alert(`Manual refresh failed for ${r.name}: ${e?.message || e}`);
+  // Manual refresh
+  async function forceRefresh() {
+    if (isRefreshing) return;
+    setIsRefreshing(true);
+    let ok = 0;
+    try {
+      for (const r of REMOTE_CALENDARS) {
+        try {
+          const fixed = await fetchFixedICS(r.name, r.urls);
+          const evs = parseICSText(fixed, r.id, r.name);
+          setRawEvents(prev => {
+            const others = prev.filter(e => e.sourceId !== r.id);
+            return [...others, ...evs];
+          });
+          setSourceCounts(prev => ({ ...prev, [r.id]: evs.length }));
+          setLastFetchAt(prev => ({ ...prev, [r.id]: new Date() }));
+          setFetchErrors(prev => ({ ...prev, [r.id]: undefined }));
+          ok++;
+        } catch (e) {
+          alert(`Manual refresh failed for ${r.name}: ${e?.message || e}`);
+        }
       }
+      const ts = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
+      setNotice(ok ? `Refreshed at ${ts}` : `Refresh finished with errors at ${ts}`);
+    } finally {
+      setIsRefreshing(false);
     }
-    const ts = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
-    setNotice(ok ? `Refreshed at ${ts}` : `Refresh finished with errors at ${ts}`);
-  } finally {
-    setIsRefreshing(false);
   }
-}
 
   // Active window
   const rangeStart = useMemo(() => new Date(dateFrom + "T00:00:00"), [dateFrom]);
   const rangeEnd   = useMemo(() => new Date(dateTo   + "T23:59:59"), [dateTo]);
 
-  // Expand recurrences, filter by range + selected sources
+  // Expand recurrences + filter by selected sources
   const events = useMemo(() => {
     const out = [];
     const want = selectedIds;
@@ -378,17 +364,21 @@ async function forceRefresh() {
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // Aggregate per day
+  // Aggregate per-day, excluding podcast from heatmap union, but tracking its blocks separately
   const dayStats = useMemo(()=>{
-    const perDayAll = new Map();
-    const perDayBySrc = new Map();
+    const perDayUnion = new Map(); // for heatmap (exclude podcast)
+    const perDayBySrc = new Map(); // include all
+    const podcastBlocks = new Map(); // merged podcast intervals per day
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
-        if(!perDayAll.has(k)) perDayAll.set(k, []);
-        perDayAll.get(k).push([seg.start, seg.end]);
+
+        if (ev.sourceId !== PODCAST_ID) {
+          if(!perDayUnion.has(k)) perDayUnion.set(k, []);
+          perDayUnion.get(k).push([seg.start, seg.end]);
+        }
 
         if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
         const m = perDayBySrc.get(k);
@@ -405,15 +395,18 @@ async function forceRefresh() {
       const WS=ws.getTime(), WE=we.getTime();
       const total = minutesBetween(WS,WE);
 
-      const allIntervals = (perDayAll.get(k)||[])
+      const allIntervals = (perDayUnion.get(k)||[])
         .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
       const mergedAll = mergeIntervals(allIntervals);
       const busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
       const freeUnion = Math.max(0, total - busyUnion);
 
       const bySrcMap = perDayBySrc.get(k) || new Map();
+
+      // Build perPerson list but SKIP podcast (we'll render it separately)
       const perPerson = [];
       for (const [sid, {name, intervals}] of bySrcMap.entries()){
+        if (sid === PODCAST_ID) continue;
         const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
         const merged = mergeIntervals(clipped);
         const busy = merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
@@ -421,7 +414,9 @@ async function forceRefresh() {
         const freeBlocks = invertIntervals(merged, WS, WE);
         perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
       }
+      // add empty rows for selected non-podcast sources with no events
       for (const s of sources) {
+        if (s.id === PODCAST_ID) continue;
         if (!selectedIds.has(s.id)) continue;
         if (!(bySrcMap.has(s.id))) {
           perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
@@ -429,7 +424,25 @@ async function forceRefresh() {
       }
       perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
 
-      res[k] = { date:new Date(d), totalMinutes: total, freeMinutes: freeUnion, busyMinutes: busyUnion, freeRatio: total? freeUnion/total : 0, mergedBusy: mergedAll, perPerson };
+      // compute merged podcast blocks for this day (render-only)
+      let podcastMerged = [];
+      if (bySrcMap.has(PODCAST_ID)) {
+        const ivals = bySrcMap.get(PODCAST_ID).intervals
+          .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+        podcastMerged = mergeIntervals(ivals);
+      }
+      if (podcastMerged.length) podcastBlocks.set(k, podcastMerged);
+
+      res[k] = {
+        date:new Date(d),
+        totalMinutes: total,
+        freeMinutes: freeUnion,
+        busyMinutes: busyUnion,
+        freeRatio: total? freeUnion/total : 0,
+        mergedBusy: mergedAll,
+        perPerson,
+        podcastMerged
+      };
     }
     return res;
   }, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
@@ -441,39 +454,40 @@ async function forceRefresh() {
   const singleTo   = monthEnd(currentMonth);
 
   function renderMonthGrid(from, to){
-    const blocks=[]; let cur=startOfDay(from);
-    while(cur<=to){
-      const mStart=monthStart(cur); const mEnd=monthEnd(cur);
-      const secFrom = cur<mStart? mStart : cur;
-      const secTo   = to<mEnd  ? to   : mEnd;
+    const blocks = [];
+    let cur = startOfDay(from);
+
+    while (cur <= to) {
+      const mStart = monthStart(cur);
+      const mEnd   = monthEnd(cur);
+      const secFrom = cur < mStart ? mStart : cur;
+      const secTo   = to  < mEnd   ? to    : mEnd;
+
       blocks.push(
-        <MonthGrid key={`${mStart.getFullYear()}-${mStart.getMonth()}`}
-          year={mStart.getFullYear()} month={mStart.getMonth()}
-          from={secFrom} to={secTo}
-          dayStats={dayStats} setHoverDay={setHoverDay} colorForRatio={colorForRatio}
-          fmt={fmt} fmtTime={fmtTime}
+        <MonthGrid
+          key={`${mStart.getFullYear()}-${mStart.getMonth()}`}
+          year={mStart.getFullYear()}
+          month={mStart.getMonth()}
+          from={secFrom}
+          to={secTo}
+          dayStats={dayStats}
+          setHoverDay={setHoverDay}
+          colorForRatio={colorForRatio}
+          fmt={fmt}
+          fmtTime={fmtTime}
+          podcastId={PODCAST_ID}
+          podcastOn={selectedIds.has(PODCAST_ID)}
         />
       );
-      cur = addDays(mEnd,1);
+
+      cur = addDays(mEnd, 1);
     }
+
     return blocks;
   }
 
-  function listEventsOn(dateLike) {
-    const day = new Date(dateLike);
-    const start = new Date(day); start.setHours(0,0,0,0);
-    const end   = new Date(day); end.setHours(23,59,59,999);
-    const hits = events.filter(e => !(e.end < start || e.start > end));
-    return hits.map(e => `${fmtTime(e.start)}–${fmtTime(e.end)} · ${e.sourceName} · ${e.summary || "(no title)"}`);
-  }
-
-  const debugNextWed = useMemo(() => {
-    const now = new Date();
-    const w = new Date(now);
-    const delta = (3 - w.getDay() + 7) % 7; // 0=Sun, 3=Wed
-    w.setDate(w.getDate() + delta);
-    return { date: w, items: listEventsOn(w) };
-  }, [events, displayTz]);
+  const dayHasPodcast = (k) =>
+    !!dayStats[k]?.podcastMerged?.length;
 
   return (
     <div className="min-h-screen w-full" style={{ background: "#f8fafc", color: "#111", colorScheme: "light" }}>
@@ -484,10 +498,37 @@ async function forceRefresh() {
         .chip{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;}
         .muted{color:#6b7280;}
         .mono{font-variant-numeric: tabular-nums;}
+
+        /* Rainbow animation + outline */
+        @keyframes rainbowShift {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .rainbow-always {
+          background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
+          background-size: 400% 400%;
+          animation: rainbowShift 6s linear infinite;
+          color: #111;
+          border-radius: 6px;
+          padding: 0 6px;
+          font-weight: 600;
+        }
+        .rainbow-outline {
+          position: relative;
+          border: 2px solid transparent;
+          background:
+            linear-gradient(#ffffff,#ffffff) padding-box,
+            linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
+          background-size: auto, 400% 400%;
+          animation: rainbowShift 6s linear infinite;
+        }
+        .day-cell { transition: box-shadow .15s ease; }
+        .divider { height:1px; background:#eee; margin:8px 0; }
       `}</style>
 
-<div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
-  <h1 className="text-2xl font-bold mb-1">Dawn's F2T Heat Map</h1>
+      <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
+        <h1 className="text-2xl font-bold mb-1">Dawn's F2T Heat Map</h1>
         <p className="text-gray-600 mb-3">Preset calendars are loaded automatically. Toggle any person below.</p>
         {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
         {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
@@ -502,18 +543,32 @@ async function forceRefresh() {
           ))}
         </div>
 
+        {/* Calendars + Podcast toggle together (podcast separated visually) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 items-stretch">
           <div className="bg-white rounded-2xl shadow p-3 min-w-0">
             <h2 className="font-semibold mb-2">1) Calendars</h2>
+
             <div className="text-sm">Show calendars</div>
             <div className="flex flex-wrap gap-3 text-sm mt-2">
-              {sources.map(s => (
+              {sources.filter(s => s.id !== PODCAST_ID).map(s => (
                 <label key={s.id} className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={selectedIds.has(s.id)} onChange={() => toggleSelected(s.id)} />
                   {s.name}
                 </label>
               ))}
             </div>
+
+            <div className="divider" />
+
+            <div className="text-sm font-medium mb-1">Permanent Schedule</div>
+            <label className="flex items-center gap-2 text-sm cursor-pointer">
+              <input
+                type="checkbox"
+                checked={selectedIds.has(PODCAST_ID)}
+                onChange={() => toggleSelected(PODCAST_ID)}
+              />
+              {PODCAST_NAME}
+            </label>
           </div>
 
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
@@ -556,50 +611,76 @@ async function forceRefresh() {
           </div>
         </div>
 
-<div className="flex items-center gap-2 sm:gap-3 mb-2">
-  <span className="text-sm font-medium">Legend:</span>
-  <div className="flex items-center gap-1">
-    {Array.from({length:10},(_,i)=>i/9).map(r=> (
-      <div key={r} className="h-3 w-6 rounded" style={{ backgroundColor: colorForRatio(r) }} />
-    ))}
-  </div>
-  <span className="text-xs text-gray-600">Less free → More free</span>
+        <div className="flex items-center gap-2 sm:gap-3 mb-2">
+          <span className="text-sm font-medium">Legend:</span>
+          <div className="flex items-center gap-1">
+            {Array.from({length:10},(_,i)=>i/9).map(r=> (
+              <div key={r} className="h-3 w-6 rounded" style={{ backgroundColor: colorForRatio(r) }} />
+            ))}
+          </div>
+          <span className="text-xs text-gray-600">Less free → More free</span>
 
-  <span className="text-sm text-gray-600 ml-4">Loaded events: <b>{events.length}</b></span>
+          <span className="text-sm text-gray-600 ml-4">Loaded events: <b>{events.length}</b></span>
 
-  <button
-    className="ml-auto px-3 py-1 border rounded text-sm"
-    onClick={forceRefresh}
-    disabled={isRefreshing}
-    style={{ opacity: isRefreshing ? 0.6 : 1, cursor: isRefreshing ? 'not-allowed' : 'pointer' }}
-  >
-    {isRefreshing ? 'Refreshing…' : 'Force refresh live calendars'}
-  </button>
-</div>
+          <button
+            className="ml-auto px-3 py-1 border rounded text-sm"
+            onClick={forceRefresh}
+            disabled={isRefreshing}
+            style={{ opacity: isRefreshing ? 0.6 : 1, cursor: isRefreshing ? 'not-allowed' : 'pointer' }}
+          >
+            {isRefreshing ? 'Refreshing…' : 'Force refresh live calendars'}
+          </button>
+        </div>
 
-{notice && (
-  <div className="text-xs text-gray-600 mb-4">
-    <div className="text-[11px] text-gray-500">{notice}</div>
-  </div>
-)}
-
+        {notice && (
+          <div className="text-xs text-gray-600 mb-4">
+            <div className="text-[11px] text-gray-500">{notice}</div>
+          </div>
+        )}
 
         <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-6 items-start">
           <div>
             {viewMode==='single'
-              ? <MonthGrid year={singleFrom.getFullYear()} month={singleFrom.getMonth()} from={singleFrom} to={singleTo} dayStats={dayStats} setHoverDay={setHoverDay} colorForRatio={colorForRatio} fmt={fmt} fmtTime={fmtTime}/>
+              ? <MonthGrid
+                  year={singleFrom.getFullYear()}
+                  month={singleFrom.getMonth()}
+                  from={singleFrom}
+                  to={singleTo}
+                  dayStats={dayStats}
+                  setHoverDay={setHoverDay}
+                  colorForRatio={colorForRatio}
+                  fmt={fmt}
+                  fmtTime={fmtTime}
+                  podcastId={PODCAST_ID}
+                  podcastOn={selectedIds.has(PODCAST_ID)}
+                />
               : renderMonthGrid(new Date(dateFrom), new Date(dateTo))
             }
           </div>
 
-         <aside>
+          <aside className={selectedIds.has(PODCAST_ID) && hoverDay && dayHasPodcast(hoverDay) ? "rainbow-outline rounded-2xl" : ""}>
             {hoverDayInfo
               ? <div className="bg-white rounded-2xl shadow p-4">
                   <h3 className="text-lg font-semibold">{fmt(hoverDayInfo.date)}</h3>
+
+                  {/* Podcast section (permanent schedule) */}
+                  {selectedIds.has(PODCAST_ID) && hoverDayInfo.podcastMerged?.length ? (
+                    <div className="mt-2 mb-3">
+                      <span className="rainbow-always">Podcast happening</span>
+                      <div className="mt-1 text-sm">
+                        {hoverDayInfo.podcastMerged.map(([s,e],i)=>(
+                          <div key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}</div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* Group availability (podcast excluded from calc) */}
                   <p className="text-sm text-gray-600">
                     Group free: <span className="mono">{Math.round(hoverDayInfo.freeMinutes)}</span> / <span className="mono">{Math.round(hoverDayInfo.totalMinutes)}</span> min
                     <span className="chip">{Math.round(hoverDayInfo.freeRatio*100)}% free</span>
                   </p>
+
                   <div className="mt-3">
                     <h4 className="font-medium text-sm mb-1">Per person (in selected hours)</h4>
                     <ul style={{maxHeight: 260, overflow: "auto", paddingRight: 4}}>
@@ -612,13 +693,11 @@ async function forceRefresh() {
                           {p.mergedBusy.length
                             ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
                             : <div className="muted">Busy: none</div>}
-                          {p.freeBlocks.length
-                            ? <div className="muted">Free: {p.freeBlocks.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.freeBlocks.length-1?", ":""}</span>))}</div>
-                            : <div className="muted">Free: —</div>}
                         </li>
                       ))}
                     </ul>
                   </div>
+
                   {hoverDayInfo.mergedBusy.length
                     ? <div className="mt-3">
                         <h4 className="font-medium text-sm mb-1">Group busy (union)</h4>
@@ -636,31 +715,42 @@ async function forceRefresh() {
   );
 }
 
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio, fmt, fmtTime }){
+function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio, fmt, fmtTime, podcastId, podcastOn }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
 
   const wrapRef = useRef(null);
   const gridWidth = useResizeWidth(wrapRef);
-const gap = 4; // px (tighter)
-const cellSize = Math.max(28, Math.floor((gridWidth - gap * 6) / 7)); // smaller min
-const dayNumSize = Math.round(cellSize * 0.14); // slightly smaller text
-const pctSize    = Math.round(cellSize * 0.16);
+  const gap = 4;
+  const cellSize = Math.max(28, Math.floor((gridWidth - gap * 6) / 7));
+  const dayNumSize = Math.round(cellSize * 0.14);
+  const pctSize    = Math.round(cellSize * 0.16);
 
   const cells=[];
   for(let i=0;i<startWeekday;i++) cells.push(<div key={"pad-"+i}/>);
+
   for(let day=1; day<=daysInMonth; day++){
     const date = new Date(year, month, day);
     if(date < startOfDay(from) || date > endOfDay(to)){
       cells.push(<div key={day} className="aspect-square rounded-xl border border-dashed border-gray-200 text-gray-300 flex items-start justify-end p-1 text-xs">{day}</div>);
       continue;
     }
-    const k = dayKey(date); const info=dayStats[k]; const r=info?info.freeRatio:0;
+    const k = dayKey(date);
+    const info = dayStats[k];
+    const r = info ? info.freeRatio : 0;
+
+    const hasPodcast = podcastOn && info?.podcastMerged?.length > 0;
+
     cells.push(
-      <div key={day} onMouseEnter={()=>setHoverDay(k)} onMouseLeave={()=>setHoverDay(null)}
-           className="aspect-square rounded-xl shadow-sm border border-gray-200 relative overflow-hidden cursor-default"
-           style={{ backgroundColor: colorForRatio(r) }} title={`${fmt(date)} — ${Math.round(r*100)}% free`}>
+      <div
+        key={day}
+        onMouseEnter={()=>setHoverDay(k)}
+        onMouseLeave={()=>setHoverDay(null)}
+        className={`day-cell aspect-square rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden cursor-default ${hasPodcast ? 'rainbow-outline' : ''}`}
+        style={{ backgroundColor: colorForRatio(r) }}
+        title={`${fmt(date)} — ${Math.round(r*100)}% free${hasPodcast ? ' • Podcast happening' : ''}`}
+      >
         <div className="absolute top-1 right-2 font-semibold text-gray-700/80" style={{ fontSize: Math.max(8, dayNumSize) }}>{day}</div>
         <div className="absolute bottom-1 left-2 font-medium text-gray-700/90" style={{ fontSize: Math.max(9, pctSize) }}>{Math.round(r*100)}%</div>
       </div>
@@ -673,7 +763,7 @@ const pctSize    = Math.round(cellSize * 0.16);
         <h3 className="font-semibold">{first.toLocaleDateString(undefined,{month:"long",year:"numeric"})}</h3>
         <div className="text-xs text-gray-500">Mon–Sun</div>
       </div>
-     <div className="grid grid-cols-7 gap-1 sm:gap-1 text-[clamp(10px,1.2vw,11px)] text-gray-500 mb-1">
+      <div className="grid grid-cols-7 gap-1 sm:gap-1 text-[clamp(10px,1.2vw,11px)] text-gray-500 mb-1">
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d=> <div key={d} className="text-center">{d}</div>)}
       </div>
       <div className="grid grid-cols-7 gap-1 sm:gap-1">{cells}</div>
