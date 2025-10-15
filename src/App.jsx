@@ -45,7 +45,6 @@ const invertIntervals = (merged, ws, we) => {
   if (cur < we) out.push([cur, we]);
   return out;
 };
-
 // Safe percent formatter (shows 0.1–0.9% as "<1")
 function pct(value, total) {
   const t = Math.max(1, total|0);
@@ -83,6 +82,22 @@ const REMOTE_CALENDARS = [
     ],
   },
 ];
+
+// === Per-source colors (fallback hashes if unknown) ===
+const SOURCE_COLORS = {
+  [MATT_SOURCE_ID]: "#2563eb", // Matt = blue
+  hector: "#0ea5e9",           // Hector = sky
+  // add more fixed ones here if you like: "dawn": "#10b981", etc.
+};
+function colorForSource(id) {
+  if (SOURCE_COLORS[id]) return SOURCE_COLORS[id];
+  // deterministic fallback: hash id -> hue
+  let h = 0;
+  for (let i=0;i<id.length;i++) h = (h*31 + id.charCodeAt(i)) >>> 0;
+  const hue = h % 360;
+  return `hsl(${hue}, 70%, 50%)`;
+}
+const PURPLE_URGENT = "#6d28d9";
 
 /* =========================
    Hardened ICS fetch + parse
@@ -186,7 +201,7 @@ function parseICSText(text, sourceId, sourceName){
     try {
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
-      const isUrgent = /!/.test(summary); // <-- URGENT tagging by "!"
+      const isUrgent = /!/.test(summary); // urgent tagging by "!"
       if (e.isRecurring()) {
         events.push({ sourceId, sourceName, summary, isUrgent, isRecurring: true, component: v });
       } else {
@@ -241,7 +256,7 @@ export default function App(){
   const [selectedIds, setSelectedIds] = useState(new Set());
 
   const [mattScheduleOn, setMattScheduleOn] = useState(false);
-  const [outlineUrgent, setOutlineUrgent] = useState(false); // toggle for purple outline on cells
+  const [outlineUrgent, setOutlineUrgent] = useState(false); // toggle for purple outline/faint fill on cells
 
   const toggleSelected = (id) => {
     setSelectedIds(prev => {
@@ -407,7 +422,11 @@ export default function App(){
                                   : new Date(s.getTime() + 30 * 60000);
           if (ee < rangeStart) { if (++i > 5000) break; continue; }
           if (s  > rangeEnd) break;
-          out.push({ sourceId:e.sourceId, sourceName:e.sourceName, summary:evt.summary, isUrgent:/!/.test(evt.summary||""), start:s, end:ee, allDay:next.isDate });
+          const summary = evt.summary || "Event";
+          out.push({
+            sourceId:e.sourceId, sourceName:e.sourceName, summary,
+            isUrgent:/!/.test(summary), start:s, end:ee, allDay:next.isDate
+          });
           if (++i > 5000) break;
         }
       } else if (!(e.end < rangeStart || e.start > rangeEnd)) {
@@ -428,7 +447,7 @@ export default function App(){
     const perDayUnion = new Map();   // heatmap union (no podcast)
     const perDayBySrc = new Map();   // per-person lists (all)
     const podcastByDay = new Map();  // podcast items with titles
-    const urgentByDay = new Map();   // whether day has any urgent events
+    const urgentByDay = new Map();   // day has any urgent events
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
@@ -459,13 +478,11 @@ export default function App(){
     for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
       const k=dayKey(d);
 
-      // DST-proof total: use the hour span only
-      const WSd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart, 0, 0, 0);
-      const WEd = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd,   0, 0, 0);
-      const WS = WSd.getTime();
-      const WE = WEd.getTime();
+      // DST-proof total: use hours span only
       const hoursSpan = ((workEnd - workStart) + 24) % 24;
       const total = Math.max(0, Math.round(hoursSpan * 60));
+      const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
+      const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
 
       const allIntervals = (perDayUnion.get(k)||[])
         .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
@@ -590,10 +607,10 @@ export default function App(){
         @keyframes spin { to { transform: rotate(360deg); } }
         .btn { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:10px; font-size:13px; background:#fff; }
         .btn-toggle-on { background:#111; color:#fff; border-color:#111; }
-        .urgent-outline { outline: 2px solid #6d28d9; outline-offset: -2px; } /* darker purple */
-        .urgent-faint { box-shadow: inset 0 0 0 9999px rgba(109, 40, 217, 0.07); } /* faint fill */
+        .urgent-outline { outline: 2px solid ${PURPLE_URGENT}; outline-offset: -2px; }
+        .urgent-faint { box-shadow: inset 0 0 0 9999px rgba(109, 40, 217, 0.07); }
         .tag { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid #e5e7eb; background:#f3f4f6; color:#111; }
-        .tag-urgent { background:#f5f3ff; border-color:#ddd6fe; color:#6d28d9; }
+        .tag-urgent { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
       `}</style>
 
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
@@ -723,7 +740,7 @@ export default function App(){
               ))}
             </div>
             <span className="text-xs text-gray-600">Less free → More free</span>
-            <span className="text-xs text-gray-600 ml-3">“!” items appear with a purple tag in details; you can optionally outline their days via the toggle.</span>
+            <span className="text-xs text-gray-600 ml-3">“!” items appear with a purple tag; use the toggle to outline those days.</span>
 
             <span className="text-sm text-gray-600 ml-auto">Loaded events: <b>{events.length}</b></span>
           </div>
@@ -803,8 +820,16 @@ export default function App(){
                           <summary className="cursor-pointer text-sm font-medium">Show all events/titles</summary>
                           <ul className="text-sm mt-2 space-y-1">
                             {activeInfo.titles.map((t,i)=>(
-                              <li key={i}>
-                                <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span> · <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                              <li key={i} className="flex items-start gap-2">
+                                <span
+                                  className="mt-1 inline-block w-2.5 h-2.5 rounded-full"
+                                  style={{ background: t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
+                                  title={t.isUrgent ? "Urgent (!) event" : t.sourceName}
+                                />
+                                <div>
+                                  <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
+                                  {" "}· <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                                </div>
                               </li>
                             ))}
                           </ul>
@@ -855,7 +880,10 @@ function MattAgenda({ events, fmt, fmtTime }) {
             <div className="space-y-2">
               {list.map((e, i) => (
                 <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
-                  <div className="w-1.5 rounded h-10" style={{ background: e.isUrgent ? "#6d28d9" : "#2563eb" }} />
+                  <div
+                    className="w-1.5 rounded h-10"
+                    style={{ background: e.isUrgent ? PURPLE_URGENT : colorForSource(e.sourceId) }}
+                  />
                   <div className="flex-1">
                     <div className="text-sm font-medium">
                       {e.summary || "Event"} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
