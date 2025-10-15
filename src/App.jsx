@@ -334,9 +334,22 @@ export default function App(){
     }
   }
 
-  // Active window
-  const rangeStart = useMemo(() => new Date(dateFrom + "T00:00:00"), [dateFrom]);
-  const rangeEnd   = useMemo(() => new Date(dateTo   + "T23:59:59"), [dateTo]);
+  // Single-month bounds from the navigator
+  const singleFrom = useMemo(() => monthStart(currentMonth), [currentMonth]);
+  const singleTo   = useMemo(() => monthEnd(currentMonth),   [currentMonth]);
+
+  // Active calculation window
+  const rangeStart = useMemo(() => {
+    return viewMode === 'single'
+      ? startOfDay(singleFrom)
+      : new Date(dateFrom + "T00:00:00");
+  }, [viewMode, singleFrom, dateFrom]);
+
+  const rangeEnd = useMemo(() => {
+    return viewMode === 'single'
+      ? endOfDay(singleTo)
+      : new Date(dateTo + "T23:59:59");
+  }, [viewMode, singleTo, dateTo]);
 
   // Expand recurrences + filter by selected sources
   const events = useMemo(() => {
@@ -364,11 +377,11 @@ export default function App(){
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // Aggregate per-day, excluding podcast from heatmap union, but tracking its blocks separately
+  // Aggregate per-day (exclude podcast from heatmap union), keep podcast items WITH TITLES
   const dayStats = useMemo(()=>{
-    const perDayUnion = new Map(); // for heatmap (exclude podcast)
-    const perDayBySrc = new Map(); // include all
-    const podcastBlocks = new Map(); // merged podcast intervals per day
+    const perDayUnion = new Map();   // for heatmap (exclude podcast)
+    const perDayBySrc = new Map();   // include all (for per-person)
+    const podcastByDay = new Map();  // store podcast items WITH titles
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
@@ -384,6 +397,12 @@ export default function App(){
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [] });
         m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+
+        // NEW: keep podcast items with titles
+        if (ev.sourceId === PODCAST_ID) {
+          if (!podcastByDay.has(k)) podcastByDay.set(k, []);
+          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast" });
+        }
       }
     }
 
@@ -403,7 +422,7 @@ export default function App(){
 
       const bySrcMap = perDayBySrc.get(k) || new Map();
 
-      // Build perPerson list but SKIP podcast (we'll render it separately)
+      // Per person (skip podcast; it renders separately)
       const perPerson = [];
       for (const [sid, {name, intervals}] of bySrcMap.entries()){
         if (sid === PODCAST_ID) continue;
@@ -414,7 +433,7 @@ export default function App(){
         const freeBlocks = invertIntervals(merged, WS, WE);
         perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
       }
-      // add empty rows for selected non-podcast sources with no events
+      // Empty rows for selected non-podcast sources with no events
       for (const s of sources) {
         if (s.id === PODCAST_ID) continue;
         if (!selectedIds.has(s.id)) continue;
@@ -424,14 +443,11 @@ export default function App(){
       }
       perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
 
-      // compute merged podcast blocks for this day (render-only)
-      let podcastMerged = [];
-      if (bySrcMap.has(PODCAST_ID)) {
-        const ivals = bySrcMap.get(PODCAST_ID).intervals
-          .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-        podcastMerged = mergeIntervals(ivals);
-      }
-      if (podcastMerged.length) podcastBlocks.set(k, podcastMerged);
+      // NEW: podcast items with titles, clipped to work window
+      const podcastItems = (podcastByDay.get(k) || [])
+        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary }))
+        .filter(it => it.end > it.start)
+        .sort((a,b) => a.start - b.start);
 
       res[k] = {
         date:new Date(d),
@@ -441,7 +457,7 @@ export default function App(){
         freeRatio: total? freeUnion/total : 0,
         mergedBusy: mergedAll,
         perPerson,
-        podcastMerged
+        podcastItems, // <- with titles
       };
     }
     return res;
@@ -450,8 +466,6 @@ export default function App(){
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
 
   const hoverDayInfo = hoverDay ? dayStats[hoverDay] : null;
-  const singleFrom = monthStart(currentMonth);
-  const singleTo   = monthEnd(currentMonth);
 
   function renderMonthGrid(from, to){
     const blocks = [];
@@ -487,7 +501,7 @@ export default function App(){
   }
 
   const dayHasPodcast = (k) =>
-    !!dayStats[k]?.podcastMerged?.length;
+    !!dayStats[k]?.podcastItems?.length;
 
   return (
     <div className="min-h-screen w-full" style={{ background: "#f8fafc", color: "#111", colorScheme: "light" }}>
@@ -663,13 +677,15 @@ export default function App(){
               ? <div className="bg-white rounded-2xl shadow p-4">
                   <h3 className="text-lg font-semibold">{fmt(hoverDayInfo.date)}</h3>
 
-                  {/* Podcast section (permanent schedule) */}
-                  {selectedIds.has(PODCAST_ID) && hoverDayInfo.podcastMerged?.length ? (
+                  {/* Podcast section (permanent schedule) with titles */}
+                  {selectedIds.has(PODCAST_ID) && hoverDayInfo.podcastItems?.length ? (
                     <div className="mt-2 mb-3">
                       <span className="rainbow-always">Podcast happening</span>
                       <div className="mt-1 text-sm">
-                        {hoverDayInfo.podcastMerged.map(([s,e],i)=>(
-                          <div key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}</div>
+                        {hoverDayInfo.podcastItems.map((it,i)=>(
+                          <div key={i} className="mono">
+                            {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-medium">{it.summary}</span>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -740,7 +756,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
     const info = dayStats[k];
     const r = info ? info.freeRatio : 0;
 
-    const hasPodcast = podcastOn && info?.podcastMerged?.length > 0;
+    const hasPodcast = podcastOn && info?.podcastItems?.length > 0;
 
     cells.push(
       <div
@@ -749,7 +765,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
         onMouseLeave={()=>setHoverDay(null)}
         className={`day-cell aspect-square rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden cursor-default ${hasPodcast ? 'rainbow-outline' : ''}`}
         style={{ backgroundColor: colorForRatio(r) }}
-        title={`${fmt(date)} — ${Math.round(r*100)}% free${hasPodcast ? ' • Podcast happening' : ''}`}
+        title={`${fmt(date)} — ${Math.round(r*100)}% free${hasPodcast ? ` • ${info.podcastItems[0].summary}` : ''}`}
       >
         <div className="absolute top-1 right-2 font-semibold text-gray-700/80" style={{ fontSize: Math.max(8, dayNumSize) }}>{day}</div>
         <div className="absolute bottom-1 left-2 font-medium text-gray-700/90" style={{ fontSize: Math.max(9, pctSize) }}>{Math.round(r*100)}%</div>
