@@ -51,19 +51,20 @@ const invertIntervals = (merged, ws, we) => {
 ========================= */
 const PODCAST_ID = "podcast_live";
 const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
+const MATT_SOURCE_ID = "matt_live";
 
+/** If you swapped Hector to a new ICS, export it as: public/calendars/Hector.ics */
 const PRESET_CALENDARS = [
   { id: "hector", name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
 ];
 
+// One mirrored URL per remote (avoid direct google.com to dodge CORS)
 const REMOTE_CALENDARS = [
   {
-    id: "matt_live",
+    id: MATT_SOURCE_ID,
     name: "Matt (Live)",
     urls: [
       "https://r.jina.ai/https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
-      "https://r.jina.ai/http://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
-      "https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
     ],
   },
   {
@@ -71,8 +72,6 @@ const REMOTE_CALENDARS = [
     name: PODCAST_NAME,
     urls: [
       "https://r.jina.ai/https://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
-      "https://r.jina.ai/http://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
-      "https://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
     ],
   },
 ];
@@ -83,9 +82,10 @@ const REMOTE_CALENDARS = [
 const looksHtml = (s) => /^\s*<!doctype html|^\s*<html/i.test(s||"");
 const looksJson = (s) => /^\s*(\{|\[)/.test(s||"");
 
-async function fetchTextNoStore(url) {
-  const bust = url + (url.includes("?") ? "&" : "?") + "t=" + Date.now();
-  const resp = await fetch(bust, { cache: "no-store" });
+/** Local files: allow cache-bust. Remote files: DO NOT bust (reduces 429s). */
+async function fetchText(url, { bust = false } = {}) {
+  const final = bust ? (url + (url.includes("?") ? "&" : "?") + "t=" + Date.now()) : url;
+  const resp = await fetch(final, { cache: "no-store" });
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   return resp.text();
 }
@@ -110,7 +110,6 @@ const VALID_PROP_RE = /^([A-Z0-9-]+)(;[^:]*)?:/;
 function repairIcs(raw) {
   const sliced = sliceCalendar(raw);
   if (!sliced) return "";
-
   const lines = unfoldLines(sliced);
   const kept = [];
   for (const ln of lines) {
@@ -135,13 +134,17 @@ async function fetchFixedICS(name, urls) {
   let lastErr;
   for (const u of urls) {
     try {
-      const raw = await fetchTextNoStore(u);
+      const raw = await fetchText(u, { bust: false }); // remote: no bust
       if (looksHtml(raw) || looksJson(raw)) throw new Error("not ICS (HTML/JSON)");
       const fixed = repairIcs(raw);
       if (!/BEGIN:VCALENDAR[\s\S]*END:VCALENDAR/i.test(fixed)) throw new Error("no VCALENDAR after repair");
       return fixed;
     } catch (e) {
       lastErr = e;
+      const msg = String(e?.message || "");
+      if (msg.includes("HTTP 429")) {
+        await new Promise(r => setTimeout(r, 60_000)); // gentle backoff
+      }
       console.warn(`${name} attempt failed at`, u, e);
     }
   }
@@ -216,14 +219,18 @@ export default function App(){
   const [viewMode, setViewMode] = useState("single");
   const [currentMonth, setCurrentMonth] = useState(() => monthStart(today));
   const [hoverDay, setHoverDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
   const [err, setErr] = useState("");
   const [notice, setNotice] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const [sourceCounts, setSourceCounts] = useState({});
   const [lastFetchAt, setLastFetchAt] = useState({});
   const [fetchErrors, setFetchErrors] = useState({});
   const [selectedIds, setSelectedIds] = useState(new Set());
+
+  const [mattScheduleOn, setMattScheduleOn] = useState(false);
 
   const toggleSelected = (id) => {
     setSelectedIds(prev => {
@@ -233,17 +240,28 @@ export default function App(){
     });
   };
 
+  // Keep Matt selected when schedule is on
+  useEffect(() => {
+    if (!mattScheduleOn) return;
+    setSelectedIds(prev => {
+      const next = new Set(prev);
+      next.add(MATT_SOURCE_ID);
+      return next;
+    });
+  }, [mattScheduleOn]);
+
   // Initial load
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
+        setIsLoading(true);
         const loadedSources = [];
         const loadedEvents  = [];
 
         for (const p of PRESET_CALENDARS) {
           try {
-            const raw = await fetchTextNoStore(p.url);
+            const raw = await fetchText(p.url, { bust: true });
             const evs = parseICSText(raw, p.id, p.name);
             loadedSources.push({ id: p.id, name: p.name });
             loadedEvents.push(...evs);
@@ -273,18 +291,24 @@ export default function App(){
         setNotice(`Loaded ${loadedSources.length} calendar${loadedSources.length>1?'s':''}.`);
       } catch (e) {
         setErr(`Initial load error: ${e?.message || e}`);
+      } finally {
+        if (!cancelled) setIsLoading(false);
       }
     })();
     return () => { cancelled = true; };
   }, []);
 
-  // Auto-refresh
+  // Auto-refresh every 6 hours
   useEffect(() => {
-    const intervalMs = 10 * 60 * 1000;
+    const SIX_HOURS = 6 * 60 * 60 * 1000;
     let stop = false;
+
     async function refresh() {
       for (const r of REMOTE_CALENDARS) {
         try {
+          const last = lastFetchAt[r.id]?.getTime?.() || 0;
+          if (Date.now() - last < SIX_HOURS) continue;
+          setIsLoading(true);
           const fixed = await fetchFixedICS(r.name, r.urls);
           const evs = parseICSText(fixed, r.id, r.name);
           if (stop) return;
@@ -295,20 +319,24 @@ export default function App(){
           setSourceCounts(prev => ({ ...prev, [r.id]: evs.length }));
           setLastFetchAt(prev => ({ ...prev, [r.id]: new Date() }));
           setFetchErrors(prev => ({ ...prev, [r.id]: undefined }));
+          setNotice(`Updated ${r.name}`);
         } catch (e) {
           setFetchErrors(prev => ({ ...prev, [r.id]: String(e?.message || e) }));
+        } finally {
+          setIsLoading(false);
         }
       }
     }
-    refresh();
-    const t = setInterval(refresh, intervalMs);
-    return () => { stop = true; clearInterval(t); };
-  }, []);
 
-  // Manual refresh
+    const t = setInterval(refresh, SIX_HOURS);
+    return () => { stop = true; clearInterval(t); };
+  }, [lastFetchAt]);
+
+  // Console-only manual refresh
   async function forceRefresh() {
     if (isRefreshing) return;
     setIsRefreshing(true);
+    setIsLoading(true);
     let ok = 0;
     try {
       for (const r of REMOTE_CALENDARS) {
@@ -324,17 +352,19 @@ export default function App(){
           setFetchErrors(prev => ({ ...prev, [r.id]: undefined }));
           ok++;
         } catch (e) {
-          alert(`Manual refresh failed for ${r.name}: ${e?.message || e}`);
+          console.warn(`Manual refresh failed for ${r.name}: ${e?.message || e}`);
         }
       }
       const ts = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
       setNotice(ok ? `Refreshed at ${ts}` : `Refresh finished with errors at ${ts}`);
     } finally {
       setIsRefreshing(false);
+      setIsLoading(false);
     }
   }
+  useEffect(() => { window.forceRefresh = forceRefresh; }, []);
 
-  // Single-month bounds from the navigator
+  // Single-month bounds for "single" view
   const singleFrom = useMemo(() => monthStart(currentMonth), [currentMonth]);
   const singleTo   = useMemo(() => monthEnd(currentMonth),   [currentMonth]);
 
@@ -344,7 +374,6 @@ export default function App(){
       ? startOfDay(singleFrom)
       : new Date(dateFrom + "T00:00:00");
   }, [viewMode, singleFrom, dateFrom]);
-
   const rangeEnd = useMemo(() => {
     return viewMode === 'single'
       ? endOfDay(singleTo)
@@ -377,11 +406,17 @@ export default function App(){
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // Aggregate per-day (exclude podcast from heatmap union), keep podcast items WITH TITLES
+  // Matt-only list data
+  const mattEvents = useMemo(
+    () => events.filter(e => e.sourceId === MATT_SOURCE_ID).sort((a,b)=> a.start - b.start),
+    [events]
+  );
+
+  // Aggregate per-day (exclude podcast from union), keep titles
   const dayStats = useMemo(()=>{
-    const perDayUnion = new Map();   // for heatmap (exclude podcast)
-    const perDayBySrc = new Map();   // include all (for per-person)
-    const podcastByDay = new Map();  // store podcast items WITH titles
+    const perDayUnion = new Map();   // heatmap union (no podcast)
+    const perDayBySrc = new Map();   // per-person lists (all)
+    const podcastByDay = new Map();  // podcast items with titles
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
@@ -395,10 +430,10 @@ export default function App(){
 
         if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
         const m = perDayBySrc.get(k);
-        if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [] });
+        if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
         m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event" });
 
-        // NEW: keep podcast items with titles
         if (ev.sourceId === PODCAST_ID) {
           if (!podcastByDay.has(k)) podcastByDay.set(k, []);
           podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast" });
@@ -409,9 +444,8 @@ export default function App(){
     const res={};
     for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
       const k=dayKey(d);
-      const ws=new Date(d); ws.setHours(workStart,0,0,0);
-      const we=new Date(d); we.setHours(workEnd,0,0,0);
-      const WS=ws.getTime(), WE=we.getTime();
+      const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
+      const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
       const total = minutesBetween(WS,WE);
 
       const allIntervals = (perDayUnion.get(k)||[])
@@ -422,18 +456,22 @@ export default function App(){
 
       const bySrcMap = perDayBySrc.get(k) || new Map();
 
-      // Per person (skip podcast; it renders separately)
       const perPerson = [];
-      for (const [sid, {name, intervals}] of bySrcMap.entries()){
-        if (sid === PODCAST_ID) continue;
-        const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-        const merged = mergeIntervals(clipped);
-        const busy = merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
-        const free = Math.max(0, total - busy);
-        const freeBlocks = invertIntervals(merged, WS, WE);
-        perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
+      const dayEventTitles = [];
+      for (const [sid, {name, intervals, titles}] of bySrcMap.entries()){
+        if (sid !== PODCAST_ID) {
+          const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+          const merged = mergeIntervals(clipped);
+          const busy = merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
+          const free = Math.max(0, total - busy);
+          const freeBlocks = invertIntervals(merged, WS, WE);
+          perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
+        }
+        for (const t of titles) {
+          const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary });
+        }
       }
-      // Empty rows for selected non-podcast sources with no events
       for (const s of sources) {
         if (s.id === PODCAST_ID) continue;
         if (!selectedIds.has(s.id)) continue;
@@ -442,8 +480,8 @@ export default function App(){
         }
       }
       perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
+      dayEventTitles.sort((a,b)=> a.start - b.start);
 
-      // NEW: podcast items with titles, clipped to work window
       const podcastItems = (podcastByDay.get(k) || [])
         .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary }))
         .filter(it => it.end > it.start)
@@ -457,7 +495,8 @@ export default function App(){
         freeRatio: total? freeUnion/total : 0,
         mergedBusy: mergedAll,
         perPerson,
-        podcastItems, // <- with titles
+        podcastItems,
+        titles: dayEventTitles,
       };
     }
     return res;
@@ -465,18 +504,18 @@ export default function App(){
 
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
 
-  const hoverDayInfo = hoverDay ? dayStats[hoverDay] : null;
+  const activeDayKey = selectedDay ?? hoverDay;
+  const activeInfo = activeDayKey ? dayStats[activeDayKey] : null;
+  const dayHasPodcast = (k) => !!dayStats[k]?.podcastItems?.length;
 
   function renderMonthGrid(from, to){
     const blocks = [];
     let cur = startOfDay(from);
-
     while (cur <= to) {
       const mStart = monthStart(cur);
       const mEnd   = monthEnd(cur);
       const secFrom = cur < mStart ? mStart : cur;
       const secTo   = to  < mEnd   ? to    : mEnd;
-
       blocks.push(
         <MonthGrid
           key={`${mStart.getFullYear()}-${mStart.getMonth()}`}
@@ -486,22 +525,18 @@ export default function App(){
           to={secTo}
           dayStats={dayStats}
           setHoverDay={setHoverDay}
+          onClickDay={(k)=> setSelectedDay(prev => prev === k ? null : k)}
+          selectedDay={selectedDay}
           colorForRatio={colorForRatio}
           fmt={fmt}
           fmtTime={fmtTime}
-          podcastId={PODCAST_ID}
           podcastOn={selectedIds.has(PODCAST_ID)}
         />
       );
-
       cur = addDays(mEnd, 1);
     }
-
     return blocks;
   }
-
-  const dayHasPodcast = (k) =>
-    !!dayStats[k]?.podcastItems?.length;
 
   return (
     <div className="min-h-screen w-full" style={{ background: "#f8fafc", color: "#111", colorScheme: "light" }}>
@@ -512,41 +547,53 @@ export default function App(){
         .chip{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;}
         .muted{color:#6b7280;}
         .mono{font-variant-numeric: tabular-nums;}
-
-        /* Rainbow animation + outline */
-        @keyframes rainbowShift {
-          0%   { background-position: 0% 50%; }
-          50%  { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
+        @keyframes rainbowShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
         .rainbow-always {
           background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
           background-size: 400% 400%;
           animation: rainbowShift 6s linear infinite;
-          color: #111;
-          border-radius: 6px;
-          padding: 0 6px;
-          font-weight: 600;
+          color: #111; border-radius: 6px; padding: 0 6px; font-weight: 600;
         }
         .rainbow-outline {
-          position: relative;
-          border: 2px solid transparent;
-          background:
-            linear-gradient(#ffffff,#ffffff) padding-box,
-            linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
-          background-size: auto, 400% 400%;
-          animation: rainbowShift 6s linear infinite;
+          position: relative; border: 2px solid transparent;
+          background: linear-gradient(#ffffff,#ffffff) padding-box,
+                      linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
+          background-size: auto, 400% 400%; animation: rainbowShift 6s linear infinite;
         }
         .day-cell { transition: box-shadow .15s ease; }
         .divider { height:1px; background:#eee; margin:8px 0; }
+        .day-selected { outline: 2px solid #111; outline-offset: -2px; }
+        .spinner { width:14px;height:14px;border:2px solid #93c5fd; border-top-color: transparent; border-radius:50%; display:inline-block; animation: spin .8s linear infinite; vertical-align: -2px;}
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:10px; font-size:13px; background:#fff; }
+        .btn-toggle-on { background:#111; color:#fff; border-color:#111; }
+        .tag { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid #e5e7eb; background:#f3f4f6; color:#111; }
       `}</style>
 
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
-        <h1 className="text-2xl font-bold mb-1">Dawn's F2T Heat Map</h1>
-        <p className="text-gray-600 mb-3">Preset calendars are loaded automatically. Toggle any person below.</p>
-        {notice && <div className="mb-4 text-xs" style={{padding:"6px 10px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:8}}>ℹ️ {notice}</div>}
-        {err && <div className="mb-4 text-xs text-red-600">{err}</div>}
+        {/* Top toolbar: title + status + TZ */}
+        <div className="flex items-center gap-3 flex-wrap mb-2">
+          <h1 className="text-2xl font-bold mr-2">Dawn's F2T Heat Map</h1>
 
+          {isLoading ? (
+            <div className="text-sm text-blue-700 flex items-center gap-2">
+              <span className="spinner" /> <span>Loading calendars…</span>
+            </div>
+          ) : (
+            notice && <div className="text-xs" style={{padding:"3px 8px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:9999}}>ℹ️ {notice}</div>
+          )}
+
+          {err && <div className="text-xs text-red-600">Error: {err}</div>}
+
+          <div className="ml-auto flex items-center gap-2">
+            <label className="text-sm text-gray-600">Display time zone:</label>
+            <select className="border rounded-lg p-2 text-sm" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
+              {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
+            </select>
+          </div>
+        </div>
+
+        {/* Per-source status */}
         <div className="text-xs text-gray-600 mb-3">
           {sources.map(s => (
             <div key={s.id}>
@@ -557,11 +604,10 @@ export default function App(){
           ))}
         </div>
 
-        {/* Calendars + Podcast toggle together (podcast separated visually) */}
+        {/* Filters + controls row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 items-stretch">
           <div className="bg-white rounded-2xl shadow p-3 min-w-0">
             <h2 className="font-semibold mb-2">1) Calendars</h2>
-
             <div className="text-sm">Show calendars</div>
             <div className="flex flex-wrap gap-3 text-sm mt-2">
               {sources.filter(s => s.id !== PODCAST_ID).map(s => (
@@ -573,7 +619,6 @@ export default function App(){
             </div>
 
             <div className="divider" />
-
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
               <input
@@ -593,6 +638,17 @@ export default function App(){
               <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
             <div className="text-xs text-gray-500 mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
+
+            {/* Matt schedule toggle (quaint, under range) */}
+            <div className="mt-3 flex items-center justify-between">
+              <div className="text-sm text-gray-700">Matt schedule view</div>
+              <button
+                className={`btn ${mattScheduleOn ? "btn-toggle-on" : ""}`}
+                onClick={()=> setMattScheduleOn(v => !v)}
+              >
+                {mattScheduleOn ? "On" : "Off"}
+              </button>
+            </div>
           </div>
 
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
@@ -608,16 +664,10 @@ export default function App(){
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
               </div>
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-gray-600">Display time zone:</label>
-                <select className="border rounded-lg p-2 text-sm" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
-                  {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
-                </select>
-              </div>
               {viewMode==='single' && (
                 <div className="flex items-center gap-2">
                   <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
-                  <div className="text-sm text-gray-600 w-28 text-center">{singleFrom.toLocaleDateString(undefined,{month:'long',year:'numeric'})}</div>
+                  <div className="text-sm text-gray-600 w-28 text-center">{new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}</div>
                   <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
                 </div>
               )}
@@ -625,113 +675,165 @@ export default function App(){
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3 mb-2">
-          <span className="text-sm font-medium">Legend:</span>
-          <div className="flex items-center gap-1">
-            {Array.from({length:10},(_,i)=>i/9).map(r=> (
-              <div key={r} className="h-3 w-6 rounded" style={{ backgroundColor: colorForRatio(r) }} />
-            ))}
-          </div>
-          <span className="text-xs text-gray-600">Less free → More free</span>
+        {/* Legend + counts (hidden when Matt schedule view is on) */}
+        {!mattScheduleOn && (
+          <div className="flex items-center gap-2 sm:gap-3 mb-3">
+            <span className="text-sm font-medium">Legend:</span>
+            <div className="flex items-center gap-1">
+              {Array.from({length:10},(_,i)=>i/9).map(r=> (
+                <div key={r} className="h-3 w-6 rounded" style={{ backgroundColor: colorForRatio(r) }} />
+              ))}
+            </div>
+            <span className="text-xs text-gray-600">Less free → More free</span>
 
-          <span className="text-sm text-gray-600 ml-4">Loaded events: <b>{events.length}</b></span>
-
-          <button
-            className="ml-auto px-3 py-1 border rounded text-sm"
-            onClick={forceRefresh}
-            disabled={isRefreshing}
-            style={{ opacity: isRefreshing ? 0.6 : 1, cursor: isRefreshing ? 'not-allowed' : 'pointer' }}
-          >
-            {isRefreshing ? 'Refreshing…' : 'Force refresh live calendars'}
-          </button>
-        </div>
-
-        {notice && (
-          <div className="text-xs text-gray-600 mb-4">
-            <div className="text-[11px] text-gray-500">{notice}</div>
+            <span className="text-sm text-gray-600 ml-4">Loaded events: <b>{events.length}</b></span>
           </div>
         )}
 
         <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-6 items-start">
           <div>
-            {viewMode==='single'
-              ? <MonthGrid
-                  year={singleFrom.getFullYear()}
-                  month={singleFrom.getMonth()}
-                  from={singleFrom}
-                  to={singleTo}
-                  dayStats={dayStats}
-                  setHoverDay={setHoverDay}
-                  colorForRatio={colorForRatio}
-                  fmt={fmt}
-                  fmtTime={fmtTime}
-                  podcastId={PODCAST_ID}
-                  podcastOn={selectedIds.has(PODCAST_ID)}
-                />
-              : renderMonthGrid(new Date(dateFrom), new Date(dateTo))
-            }
+            {/* EITHER Matt agenda OR Heat map */}
+            {mattScheduleOn ? (
+              <MattAgenda events={mattEvents} fmt={fmt} fmtTime={fmtTime} />
+            ) : (
+              viewMode==='single'
+                ? <MonthGrid
+                    year={new Date(currentMonth).getFullYear()}
+                    month={new Date(currentMonth).getMonth()}
+                    from={monthStart(currentMonth)}
+                    to={monthEnd(currentMonth)}
+                    dayStats={dayStats}
+                    setHoverDay={setHoverDay}
+                    onClickDay={(k)=> setSelectedDay(prev => prev === k ? null : k)}
+                    selectedDay={selectedDay}
+                    colorForRatio={colorForRatio}
+                    fmt={fmt}
+                    fmtTime={fmtTime}
+                    podcastOn={selectedIds.has(PODCAST_ID)}
+                  />
+                : renderMonthGrid(new Date(dateFrom), new Date(dateTo))
+            )}
           </div>
 
-          <aside className={selectedIds.has(PODCAST_ID) && hoverDay && dayHasPodcast(hoverDay) ? "rainbow-outline rounded-2xl" : ""}>
-            {hoverDayInfo
-              ? <div className="bg-white rounded-2xl shadow p-4">
-                  <h3 className="text-lg font-semibold">{fmt(hoverDayInfo.date)}</h3>
+          {/* Sidebar stays; if schedule is on, it still shows day details when you click/hover dates in the grid (when visible) */}
+          {!mattScheduleOn && (
+            <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey) ? "rainbow-outline rounded-2xl" : ""}>
+              {activeInfo
+                ? <div className="bg-white rounded-2xl shadow p-4">
+                    <h3 className="text-lg font-semibold">{fmt(activeInfo.date)}</h3>
 
-                  {/* Podcast section (permanent schedule) with titles */}
-                  {selectedIds.has(PODCAST_ID) && hoverDayInfo.podcastItems?.length ? (
-                    <div className="mt-2 mb-3">
-                      <span className="rainbow-always">Podcast happening</span>
-                      <div className="mt-1 text-sm">
-                        {hoverDayInfo.podcastItems.map((it,i)=>(
-                          <div key={i} className="mono">
-                            {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-medium">{it.summary}</span>
-                          </div>
+                    {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (
+                      <div className="mt-2 mb-3">
+                        <span className="rainbow-always">Podcast Recording</span>
+                        <div className="mt-1 text-sm">
+                          {activeInfo.podcastItems.map((it,i)=>(
+                            <div key={i} className="mono">
+                              {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-medium">{it.summary}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+
+                    <p className="text-sm text-gray-600">
+                      Group free: <span className="mono">{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono">{Math.round(activeInfo.totalMinutes)}</span> min
+                      <span className="chip">{Math.round(activeInfo.freeRatio*100)}% free</span>
+                    </p>
+
+                    <div className="mt-3">
+                      <h4 className="font-medium text-sm mb-1">Per person (in selected hours)</h4>
+                      <ul style={{maxHeight: 220, overflow: "auto", paddingRight: 4}}>
+                        {activeInfo.perPerson.map(p => (
+                          <li key={p.sourceId} className="text-sm mb-2">
+                            <div>
+                              <b>{p.sourceName}</b>
+                              <span className="chip">{Math.round(p.freeRatio*100)}% free</span>
+                            </div>
+                            {p.mergedBusy.length
+                              ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
+                              : <div className="muted">Busy: none</div>}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
-                  ) : null}
 
-                  {/* Group availability (podcast excluded from calc) */}
-                  <p className="text-sm text-gray-600">
-                    Group free: <span className="mono">{Math.round(hoverDayInfo.freeMinutes)}</span> / <span className="mono">{Math.round(hoverDayInfo.totalMinutes)}</span> min
-                    <span className="chip">{Math.round(hoverDayInfo.freeRatio*100)}% free</span>
-                  </p>
-
-                  <div className="mt-3">
-                    <h4 className="font-medium text-sm mb-1">Per person (in selected hours)</h4>
-                    <ul style={{maxHeight: 260, overflow: "auto", paddingRight: 4}}>
-                      {hoverDayInfo.perPerson.map(p => (
-                        <li key={p.sourceId} className="text-sm mb-2">
-                          <div>
-                            <b>{p.sourceName}</b>
-                            <span className="chip">{Math.round(p.freeRatio*100)}% free</span>
-                          </div>
-                          {p.mergedBusy.length
-                            ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
-                            : <div className="muted">Busy: none</div>}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {hoverDayInfo.mergedBusy.length
-                    ? <div className="mt-3">
-                        <h4 className="font-medium text-sm mb-1">Group busy (union)</h4>
-                        <ul className="text-sm list-disc list-inside text-gray-700">
-                          {hoverDayInfo.mergedBusy.map(([s,e],i)=> <li key={i}>{fmtTime(new Date(s))} – {fmtTime(new Date(e))}</li>)}
-                        </ul>
+                    {activeInfo.titles?.length ? (
+                      <div className="mt-3">
+                        <details>
+                          <summary className="cursor-pointer text-sm font-medium">Show all events/titles</summary>
+                          <ul className="text-sm mt-2 space-y-1">
+                            {activeInfo.titles.map((t,i)=>(
+                              <li key={i}>
+                                <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span> · <b>{t.sourceName}</b>: {t.summary || "Event"}
+                              </li>
+                            ))}
+                          </ul>
+                        </details>
                       </div>
-                    : <div className="mt-3 text-sm text-green-700">No conflicts in these hours 🎉</div>}
-                </div>
-              : <div className="text-sm text-gray-500 bg-white rounded-2xl shadow p-4">Hover a day to see details.</div>}
-          </aside>
+                    ) : null}
+                  </div>
+                : <div className="text-sm text-gray-500 bg-white rounded-2xl shadow p-4">Hover or click a day to see details.</div>}
+            </aside>
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio, fmt, fmtTime, podcastId, podcastOn }){
+/* ===== Matt Agenda (Google Calendar–style list) ===== */
+function MattAgenda({ events, fmt, fmtTime }) {
+  const groups = useMemo(() => {
+    const m = new Map();
+    for (const e of events) {
+      const k = e.start.toISOString().slice(0,10);
+      if (!m.has(k)) m.set(k, []);
+      m.get(k).push(e);
+    }
+    for (const [, list] of m) list.sort((a,b)=> a.start - b.start);
+    return [...m.entries()].sort((a,b)=> a[0].localeCompare(b[0]));
+  }, [events]);
+
+  if (!events.length) {
+    return (
+      <div className="bg-white rounded-2xl shadow p-6 mb-4 text-sm text-gray-600">
+        No Matt events in the selected range.
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-2xl shadow p-4 mb-4">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-semibold">Matt — Schedule</h3>
+        <span className="text-xs text-gray-500">List view replaces the heat map</span>
+      </div>
+      <div className="space-y-3">
+        {groups.map(([k, list]) => (
+          <div key={k}>
+            <div className="text-xs font-medium text-gray-500 mb-1">{fmt(new Date(k))}</div>
+            <div className="space-y-2">
+              {list.map((e, i) => (
+                <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
+                  <div className="w-1.5 rounded h-10" style={{ background: "#2563eb" }} />
+                  <div className="flex-1">
+                    <div className="text-sm font-medium">{e.summary || "Event"}</div>
+                    <div className="text-xs text-gray-600 mono">
+                      {e.allDay ? "All day" : `${fmtTime(e.start)}–${fmtTime(e.end)}`}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ===== Calendar Grid ===== */
+function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
@@ -757,15 +859,21 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, colorForRatio
     const r = info ? info.freeRatio : 0;
 
     const hasPodcast = podcastOn && info?.podcastItems?.length > 0;
+    const selected = selectedDay === k;
+
+    const title = hasPodcast
+      ? `${fmt(date)} — ${Math.round(r*100)}% free • ${info.podcastItems[0].summary}`
+      : `${fmt(date)} — ${Math.round(r*100)}% free`;
 
     cells.push(
       <div
         key={day}
         onMouseEnter={()=>setHoverDay(k)}
         onMouseLeave={()=>setHoverDay(null)}
-        className={`day-cell aspect-square rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden cursor-default ${hasPodcast ? 'rainbow-outline' : ''}`}
+        onClick={()=> onClickDay?.(k)}
+        className={`day-cell aspect-square rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden cursor-pointer ${hasPodcast ? 'rainbow-outline' : ''} ${selected ? 'day-selected' : ''}`}
         style={{ backgroundColor: colorForRatio(r) }}
-        title={`${fmt(date)} — ${Math.round(r*100)}% free${hasPodcast ? ` • ${info.podcastItems[0].summary}` : ''}`}
+        title={title}
       >
         <div className="absolute top-1 right-2 font-semibold text-gray-700/80" style={{ fontSize: Math.max(8, dayNumSize) }}>{day}</div>
         <div className="absolute bottom-1 left-2 font-medium text-gray-700/90" style={{ fontSize: Math.max(9, pctSize) }}>{Math.round(r*100)}%</div>

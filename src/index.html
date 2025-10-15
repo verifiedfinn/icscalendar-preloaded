@@ -2,24 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dawn's Custom Calender Heat Map</title>
-    <!-- Load Tailwind (quick CDN way) -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Dawn’s F2T Heat Map</title>
+
+    <!-- Tailwind CDN is fine while developing. (The console warning is harmless.) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root { color-scheme: light; }
+      html, body, #root { height: 100%; }
+      body { background: #f8fafc; color: #111; }
+    </style>
   </head>
-  <body class="bg-gray-100 text-gray-900">
+
+  <body>
+    <!-- React mounts here -->
     <div id="root"></div>
-    <!-- Watermark -->
-<div
-  class="fixed bottom-2 right-3 text-[11px] sm:text-[12px] text-gray-500/80 select-none pointer-events-none z-50"
-  aria-label="Copyright watermark"
->
-  © <span id="year-watermark"></span> verifiedfinn / Finn Horgan
-</div>
-<script>
-  document.getElementById('year-watermark').textContent = new Date().getFullYear();
-</script>
+
+    <!-- Optional build/info badge (only shown if we actually set text) -->
+    <small id="build-info" hidden
+      style="position:fixed;bottom:8px;left:8px;color:#6b7280;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:2px 6px;font-family:ui-monospace, SFMono-Regular, Menlo, monospace;">
+    </small>
+
+    <!-- SAFE: only touches #build-info if it exists AND we have something to show -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const el = document.getElementById('build-info');
+        // Set this from your build if you want, e.g. via Vite define or env
+        const version = window.APP_VERSION || '';   // e.g. "1.2.3"
+        const stamp   = window.BUILD_TIME  || '';   // e.g. "2025-10-14 12:34"
+
+        const text = [version && `v${version}`, stamp].filter(Boolean).join(' · ');
+        if (el && text) {
+          el.textContent = text;
+          el.hidden = false;
+        }
+      });
+    </script>
+
+    <!-- Your React entry. If you’re using Vite, this is correct.
+         If you’re deploying to GitHub Pages with a base path, Vite will rewrite this in the build. -->
     <script type="module" src="/src/main.jsx"></script>
-    
   </body>
 </html>
