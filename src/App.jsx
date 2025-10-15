@@ -59,10 +59,11 @@ function pct(value, total) {
 const PODCAST_ID = "podcast_live";
 const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
 const MATT_SOURCE_ID = "matt_live";
+const HECTOR_SOURCE_ID = "hector";
 
 /** If you swapped Hector to a new ICS, export it as: public/calendars/Hector.ics */
 const PRESET_CALENDARS = [
-  { id: "hector", name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
+  { id: HECTOR_SOURCE_ID, name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
 ];
 
 // One mirrored URL per remote (avoid direct google.com to dodge CORS)
@@ -85,13 +86,11 @@ const REMOTE_CALENDARS = [
 
 // === Per-source colors (fallback hashes if unknown) ===
 const SOURCE_COLORS = {
-  [MATT_SOURCE_ID]: "#2563eb", // Matt = blue
-  hector: "#0ea5e9",           // Hector = sky
-  // add more fixed ones here if you like: "dawn": "#10b981", etc.
+  [MATT_SOURCE_ID]: "#2563eb",  // Matt = blue
+  [HECTOR_SOURCE_ID]: "#0ea5e9", // Hector = sky
 };
 function colorForSource(id) {
   if (SOURCE_COLORS[id]) return SOURCE_COLORS[id];
-  // deterministic fallback: hash id -> hue
   let h = 0;
   for (let i=0;i<id.length;i++) h = (h*31 + id.charCodeAt(i)) >>> 0;
   const hue = h % 360;
@@ -105,7 +104,6 @@ const PURPLE_URGENT = "#6d28d9";
 const looksHtml = (s) => /^\s*<!doctype html|^\s*<html/i.test(s||"");
 const looksJson = (s) => /^\s*(\{|\[)/.test(s||"");
 
-/** Local files: allow cache-bust. Remote files: DO NOT bust (reduces 429s). */
 async function fetchText(url, { bust = false } = {}) {
   const final = bust ? (url + (url.includes("?") ? "&" : "?") + "t=" + Date.now()) : url;
   const resp = await fetch(final, { cache: "no-store" });
@@ -157,7 +155,7 @@ async function fetchFixedICS(name, urls) {
   let lastErr;
   for (const u of urls) {
     try {
-      const raw = await fetchText(u, { bust: false }); // remote: no bust
+      const raw = await fetchText(u, { bust: false });
       if (looksHtml(raw) || looksJson(raw)) throw new Error("not ICS (HTML/JSON)");
       const fixed = repairIcs(raw);
       if (!/BEGIN:VCALENDAR[\s\S]*END:VCALENDAR/i.test(fixed)) throw new Error("no VCALENDAR after repair");
@@ -166,7 +164,7 @@ async function fetchFixedICS(name, urls) {
       lastErr = e;
       const msg = String(e?.message || "");
       if (msg.includes("HTTP 429")) {
-        await new Promise(r => setTimeout(r, 60_000)); // gentle backoff
+        await new Promise(r => setTimeout(r, 60_000));
       }
       console.warn(`${name} attempt failed at`, u, e);
     }
@@ -201,7 +199,7 @@ function parseICSText(text, sourceId, sourceName){
     try {
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
-      const isUrgent = /!/.test(summary); // urgent tagging by "!"
+      const isUrgent = /!/.test(summary); // marks “need more information” days
       if (e.isRecurring()) {
         events.push({ sourceId, sourceName, summary, isUrgent, isRecurring: true, component: v });
       } else {
@@ -255,8 +253,10 @@ export default function App(){
   const [fetchErrors, setFetchErrors] = useState({});
   const [selectedIds, setSelectedIds] = useState(new Set());
 
-  const [mattScheduleOn, setMattScheduleOn] = useState(false);
-  const [outlineUrgent, setOutlineUrgent] = useState(false); // toggle for purple outline/faint fill on cells
+  // New: Time slot view (Matt & Hector side-by-side)
+  const [slotViewOn, setSlotViewOn] = useState(false);
+  // New: Need more information toggle (purple outline/faint fill)
+  const [outlineUrgent, setOutlineUrgent] = useState(false);
 
   const toggleSelected = (id) => {
     setSelectedIds(prev => {
@@ -266,15 +266,16 @@ export default function App(){
     });
   };
 
-  // Keep Matt selected when schedule is on
+  // Keep Matt & Hector selected when slot view is on
   useEffect(() => {
-    if (!mattScheduleOn) return;
+    if (!slotViewOn) return;
     setSelectedIds(prev => {
       const next = new Set(prev);
       next.add(MATT_SOURCE_ID);
+      next.add(HECTOR_SOURCE_ID);
       return next;
     });
-  }, [mattScheduleOn]);
+  }, [slotViewOn]);
 
   // Initial load
   useEffect(() => {
@@ -436,18 +437,22 @@ export default function App(){
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // Matt-only list data
+  // Person-specific lists (respect selectedIds/current range)
   const mattEvents = useMemo(
     () => events.filter(e => e.sourceId === MATT_SOURCE_ID).sort((a,b)=> a.start - b.start),
+    [events]
+  );
+  const hectorEvents = useMemo(
+    () => events.filter(e => e.sourceId === HECTOR_SOURCE_ID).sort((a,b)=> a.start - b.start),
     [events]
   );
 
   // Aggregate per-day (exclude podcast from union), keep titles + urgent flags
   const dayStats = useMemo(()=>{
-    const perDayUnion = new Map();   // heatmap union (no podcast)
-    const perDayBySrc = new Map();   // per-person lists (all)
-    const podcastByDay = new Map();  // podcast items with titles
-    const urgentByDay = new Map();   // day has any urgent events
+    const perDayUnion = new Map();
+    const perDayBySrc = new Map();
+    const podcastByDay = new Map();
+    const urgentByDay = new Map();
 
     for(const ev of events){
       const s = ev.start.getTime(), e = ev.end.getTime();
@@ -478,7 +483,6 @@ export default function App(){
     for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
       const k=dayKey(d);
 
-      // DST-proof total: use hours span only
       const hoursSpan = ((workEnd - workStart) + 24) % 24;
       const total = Math.max(0, Math.round(hoursSpan * 60));
       const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
@@ -682,26 +686,26 @@ export default function App(){
             </div>
             <div className="text-xs text-gray-500 mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
 
-            {/* Matt schedule toggle (under range) */}
+            {/* Time slot view toggle (Matt & Hector) */}
             <div className="mt-3 flex items-center justify-between">
-              <div className="text-sm text-gray-700">Matt schedule view</div>
+              <div className="text-sm text-gray-700">Time slot view (Matt & Hector)</div>
               <button
-                className={`btn ${mattScheduleOn ? "btn-toggle-on" : ""}`}
-                onClick={()=> setMattScheduleOn(v => !v)}
+                className={`btn ${slotViewOn ? "btn-toggle-on" : ""}`}
+                onClick={()=> setSlotViewOn(v => !v)}
               >
-                {mattScheduleOn ? "On" : "Off"}
+                {slotViewOn ? "Toggled on" : "Toggled off"}
               </button>
             </div>
 
-            {/* Urgent outline toggle */}
+            {/* Need more info toggle (purple day outline) */}
             <div className="mt-2 flex items-center justify-between">
-              <div className="text-sm text-gray-700">Outline days with “!”</div>
+              <div className="text-sm text-gray-700">Need more information days (“!”)</div>
               <button
                 className={`btn ${outlineUrgent ? "btn-toggle-on" : ""}`}
                 onClick={()=> setOutlineUrgent(v => !v)}
-                title="Adds a faint purple outline/fill to calendar squares that have at least one '!' event"
+                title="Adds a faint purple outline/fill to days that include any '!' events"
               >
-                {outlineUrgent ? "On" : "Off"}
+                {outlineUrgent ? "Toggled on" : "Toggled off"}
               </button>
             </div>
           </div>
@@ -730,8 +734,8 @@ export default function App(){
           </div>
         </div>
 
-        {/* Legend + counts (hidden when Matt schedule view is on) */}
-        {!mattScheduleOn && (
+        {/* Legend + counts (hidden when slot view is on) */}
+        {!slotViewOn && (
           <div className="flex items-center gap-2 sm:gap-3 mb-3">
             <span className="text-sm font-medium">Legend:</span>
             <div className="flex items-center gap-1">
@@ -740,17 +744,21 @@ export default function App(){
               ))}
             </div>
             <span className="text-xs text-gray-600">Less free → More free</span>
-            <span className="text-xs text-gray-600 ml-3">“!” items appear with a purple tag; use the toggle to outline those days.</span>
-
+            <span className="text-xs text-gray-600 ml-3">“!” items = “Need more info”.</span>
             <span className="text-sm text-gray-600 ml-auto">Loaded events: <b>{events.length}</b></span>
           </div>
         )}
 
         <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-6 items-start">
           <div>
-            {/* EITHER Matt agenda OR Heat map */}
-            {mattScheduleOn ? (
-              <MattAgenda events={mattEvents} fmt={fmt} fmtTime={fmtTime} />
+            {/* EITHER Dual time-slot agenda OR Heat map */}
+            {slotViewOn ? (
+              <DualAgenda
+                mattEvents={mattEvents}
+                hectorEvents={hectorEvents}
+                fmt={fmt}
+                fmtTime={fmtTime}
+              />
             ) : (
               viewMode==='single'
                 ? <MonthGrid
@@ -773,7 +781,7 @@ export default function App(){
           </div>
 
           {/* Sidebar (hover/click details) */}
-          {!mattScheduleOn && (
+          {!slotViewOn && (
             <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey) ? "rainbow-outline rounded-2xl" : ""}>
               {activeInfo
                 ? <div className="bg-white rounded-2xl shadow p-4">
@@ -824,7 +832,7 @@ export default function App(){
                                 <span
                                   className="mt-1 inline-block w-2.5 h-2.5 rounded-full"
                                   style={{ background: t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
-                                  title={t.isUrgent ? "Urgent (!) event" : t.sourceName}
+                                  title={t.isUrgent ? "Need more information" : t.sourceName}
                                 />
                                 <div>
                                   <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
@@ -846,8 +854,17 @@ export default function App(){
   );
 }
 
-/* ===== Matt Agenda (Google Calendar–style list) ===== */
-function MattAgenda({ events, fmt, fmtTime }) {
+/* ===== Dual Agenda (Matt & Hector side-by-side) ===== */
+function DualAgenda({ mattEvents, hectorEvents, fmt, fmtTime }) {
+  return (
+    <div className="grid md:grid-cols-2 gap-4">
+      <PersonAgenda person="Matt" events={mattEvents} fmt={fmt} fmtTime={fmtTime} />
+      <PersonAgenda person="Hector" events={hectorEvents} fmt={fmt} fmtTime={fmtTime} />
+    </div>
+  );
+}
+
+function PersonAgenda({ person, events, fmt, fmtTime }) {
   const groups = useMemo(() => {
     const m = new Map();
     for (const e of events) {
@@ -859,45 +876,42 @@ function MattAgenda({ events, fmt, fmtTime }) {
     return [...m.entries()].sort((a,b)=> a[0].localeCompare(b[0]));
   }, [events]);
 
-  if (!events.length) {
-    return (
-      <div className="bg-white rounded-2xl shadow p-6 mb-4 text-sm text-gray-600">
-        No Matt events in the selected range.
-      </div>
-    );
-  }
-
   return (
     <div className="bg-white rounded-2xl shadow p-4 mb-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-semibold">Matt — Schedule</h3>
-        <span className="text-xs text-gray-500">List view replaces the heat map</span>
+        <h3 className="font-semibold">{person} — Time slots</h3>
+        <span className="text-xs text-gray-500">List view</span>
       </div>
-      <div className="space-y-3">
-        {groups.map(([k, list]) => (
-          <div key={k}>
-            <div className="text-xs font-medium text-gray-500 mb-1">{fmt(new Date(k))}</div>
-            <div className="space-y-2">
-              {list.map((e, i) => (
-                <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
-                  <div
-                    className="w-1.5 rounded h-10"
-                    style={{ background: e.isUrgent ? PURPLE_URGENT : colorForSource(e.sourceId) }}
-                  />
-                  <div className="flex-1">
-                    <div className="text-sm font-medium">
-                      {e.summary || "Event"} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
-                    </div>
-                    <div className="text-xs text-gray-600 mono">
-                      {e.allDay ? "All day" : `${fmtTime(e.start)}–${fmtTime(e.end)}`}
+
+      {!events.length ? (
+        <div className="text-sm text-gray-600">No {person} events in the selected range.</div>
+      ) : (
+        <div className="space-y-3">
+          {groups.map(([k, list]) => (
+            <div key={k}>
+              <div className="text-xs font-medium text-gray-500 mb-1">{fmt(new Date(k))}</div>
+              <div className="space-y-2">
+                {list.map((e, i) => (
+                  <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
+                    <div
+                      className="w-1.5 rounded h-10"
+                      style={{ background: e.isUrgent ? PURPLE_URGENT : colorForSource(e.sourceId) }}
+                    />
+                    <div className="flex-1">
+                      <div className="text-sm font-medium">
+                        {e.summary || "Event"} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                      </div>
+                      <div className="text-xs text-gray-600 mono">
+                        {e.allDay ? "All day" : `${fmtTime(e.start)}–${fmtTime(e.end)}`}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -929,6 +943,8 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const r = info ? info.freeRatio : 0;
 
     const hasPodcast = podcastOn && info?.podcastItems?.length > 0;
+    the_selected:
+    void 0;
     const selected = selectedDay === k;
     const urgentDecor = outlineUrgent && info?.hasUrgent;
 
