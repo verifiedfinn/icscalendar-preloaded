@@ -888,14 +888,41 @@ const dayStats = useMemo(()=>{
                       <ul style={{maxHeight: 220, overflow: "auto", paddingRight: 4}}>
                         {activeInfo.perPerson.map(p => (
                           <li key={p.sourceId} className="text-sm mb-2">
-                            <div>
-                              <b>{p.sourceName}</b>
-                              <span className="chip">{pct(p.freeMinutes, activeInfo.totalMinutes)}% free</span>
-                            </div>
-                            {p.mergedBusy.length
-                              ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
-                              : <div className="muted">Busy: none</div>}
-                          </li>
+  <div>
+    <b>{p.sourceName}</b>
+    <span className="chip">{pct(p.freeMinutes, activeInfo.totalMinutes)}% free</span>
+  </div>
+
+  {/* Busy ranges (already account for FREE overlays) */}
+  {p.mergedBusy.length
+    ? (
+      <div className="muted">
+        Busy:{" "}
+        {p.mergedBusy.map(([s,e],i)=>(
+          <span key={i} className="mono">
+            {fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}
+          </span>
+        ))}
+      </div>
+    )
+    : <div className="muted">Busy: none</div>
+  }
+
+  {/* NEW: Free slots (computed via invertIntervals) */}
+  {p.freeBlocks.length
+    ? (
+      <div className="muted">
+        Free:{" "}
+        {p.freeBlocks.map(([s,e],i)=>(
+          <span key={i} className="mono">
+            {fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.freeBlocks.length-1?", ":""}
+          </span>
+        ))}
+      </div>
+    )
+    : <div className="muted">Free: none</div>
+  }
+</li>
                         ))}
                       </ul>
                     </div>
