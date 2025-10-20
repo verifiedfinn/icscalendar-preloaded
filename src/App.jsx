@@ -45,34 +45,20 @@ const invertIntervals = (merged, ws, we) => {
   if (cur < we) out.push([cur, we]);
   return out;
 };
-// Subtract merged "cuts" from merged "busy"
-function subtractIntervals(busy, cuts) {
-  if (!busy.length || !cuts.length) return busy.slice();
-  const out = [];
-  let i = 0, j = 0;
-  while (i < busy.length) {
-    let [bs, be] = busy[i];
-    while (j < cuts.length && cuts[j][1] <= bs) j++;
-    let curS = bs;
-    let k = j;
-    while (k < cuts.length && cuts[k][0] < be) {
-      const [cs, ce] = cuts[k];
-      if (cs > curS) out.push([curS, Math.min(be, cs)]);
-      curS = Math.max(curS, ce);
-      if (curS >= be) break;
-      k++;
-    }
-    if (curS < be) out.push([curS, be]);
-    i++;
-  }
-  return out;
-}
 // Safe percent formatter (shows 0.1–0.9% as "<1")
 function pct(value, total) {
   const t = Math.max(1, total|0);
   const r = Math.max(0, Math.min(1, value / t));
   const p = r * 100;
   return p > 0 && p < 1 ? "<1" : String(Math.round(p));
+}
+// Parse episode number from summary, eg: "Episode 12", "Ep 7", "E#3", "Ep. 22", "#14"
+function parseEpisode(summary="") {
+  const s = String(summary);
+  const m =
+    s.match(/\b(?:episode|ep\.?|e)\s*#?\s*(\d{1,4})\b/i) ||
+    s.match(/#\s*(\d{1,4})\b/);
+  return m ? `Ep ${m[1]}` : null;
 }
 
 /* =========================
@@ -108,7 +94,7 @@ const REMOTE_CALENDARS = [
 
 // === Per-source colors (fallback hashes if unknown) ===
 const SOURCE_COLORS = {
-  [MATT_SOURCE_ID]: "#2563eb",  // Matt = blue
+  [MATT_SOURCE_ID]: "#2563eb",   // Matt = blue
   [HECTOR_SOURCE_ID]: "#0ea5e9", // Hector = sky
 };
 function colorForSource(id) {
@@ -221,15 +207,15 @@ function parseICSText(text, sourceId, sourceName){
     try {
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
-      const isUrgent = /!/.test(summary); // marks “need more information” days
-      const isFreeOverlay = /\bfree\b/i.test(summary); // <<—— FREE windows by title
+      const isUrgent = /!/.test(summary); // “need more info” marker
+      const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
 
       if (e.isRecurring()) {
-        events.push({ sourceId, sourceName, summary, isUrgent, isFreeOverlay, isRecurring: true, component: v });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, isRecurring: true, component: v });
       } else {
         const s = e.startDate.toJSDate();
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, isFreeOverlay, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
     } catch {}
   }
@@ -277,9 +263,9 @@ export default function App(){
   const [fetchErrors, setFetchErrors] = useState({});
   const [selectedIds, setSelectedIds] = useState(new Set());
 
-  // New: Time slot view (Matt & Hector side-by-side)
+  // Dual time-slot view
   const [slotViewOn, setSlotViewOn] = useState(false);
-  // New: Need more information toggle (purple outline/faint fill)
+  // “Need more info” outline toggle
   const [outlineUrgent, setOutlineUrgent] = useState(false);
 
   const toggleSelected = (id) => {
@@ -290,7 +276,7 @@ export default function App(){
     });
   };
 
-  // Keep Matt & Hector selected when slot view is on
+  // Ensure Matt & Hector selected when slot view is on
   useEffect(() => {
     if (!slotViewOn) return;
     setSelectedIds(prev => {
@@ -450,7 +436,7 @@ export default function App(){
           const summary = evt.summary || "Event";
           out.push({
             sourceId:e.sourceId, sourceName:e.sourceName, summary,
-            isUrgent:/!/.test(summary), isFreeOverlay: /\bfree\b/i.test(summary),
+            isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
             start:s, end:ee, allDay:next.isDate
           });
           if (++i > 5000) break;
@@ -462,7 +448,7 @@ export default function App(){
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
-  // Person-specific lists (respect selectedIds/current range)
+  // Person-specific lists
   const mattEvents = useMemo(
     () => events.filter(e => e.sourceId === MATT_SOURCE_ID).sort((a,b)=> a.start - b.start),
     [events]
@@ -473,155 +459,102 @@ export default function App(){
   );
 
   // Aggregate per-day
-  // Aggregate per-day (with FREE overlays applied to group and per-person)
-const dayStats = useMemo(()=>{
-  const perDayUnion = new Map();        // busy union (no podcast)
-  const perDayBySrc = new Map();        // per-person intervals + titles
-  const podcastByDay = new Map();       // podcast items
-  const urgentByDay = new Map();        // any "!"
-  const freeOverlayByDay = new Map();   // FREE windows (all sources) for group calc
-  const freeOverlayByDaySrc = new Map(); // FREE windows keyed by day then source
+  const dayStats = useMemo(()=>{
+    const perDayUnion = new Map();
+    const perDayBySrc = new Map();
+    const podcastByDay = new Map();
+    const urgentByDay = new Map();
 
-  for(const ev of events){
-    const s = ev.start.getTime(), e = ev.end.getTime();
-    for(const seg of splitIntervalByDays(s,e)){
-      const k = seg.date;
+    for(const ev of events){
+      const s = ev.start.getTime(), e = ev.end.getTime();
+      for(const seg of splitIntervalByDays(s,e)){
+        const k=seg.date;
 
-      // Track FREE windows (group + source-specific)
-      if (ev.isFreeOverlay) {
-        if (!freeOverlayByDay.has(k)) freeOverlayByDay.set(k, []);
-        freeOverlayByDay.get(k).push([seg.start, seg.end]);
+        if (ev.sourceId !== PODCAST_ID) {
+          if(!perDayUnion.has(k)) perDayUnion.set(k, []);
+          perDayUnion.get(k).push([seg.start, seg.end]);
+        }
 
-        if (!freeOverlayByDaySrc.has(k)) freeOverlayByDaySrc.set(k, new Map());
-        const bySrc = freeOverlayByDaySrc.get(k);
-        if (!bySrc.has(ev.sourceId)) bySrc.set(ev.sourceId, []);
-        bySrc.get(ev.sourceId).push([seg.start, seg.end]);
-      }
+        if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
+        const m = perDayBySrc.get(k);
+        if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
+        m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent });
 
-      // Group busy union (exclude podcast)
-      if (ev.sourceId !== PODCAST_ID) {
-        if(!perDayUnion.has(k)) perDayUnion.set(k, []);
-        perDayUnion.get(k).push([seg.start, seg.end]);
-      }
+        if (ev.isUrgent) urgentByDay.set(k, true);
 
-      // Per-person aggregation
-      if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
-      const m = perDayBySrc.get(k);
-      if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
-      m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-      m.get(ev.sourceId).titles.push({
-        start: seg.start, end: seg.end,
-        summary: ev.summary || "Event",
-        isUrgent: !!ev.isUrgent
-      });
-
-      if (ev.isUrgent) urgentByDay.set(k, true);
-
-      if (ev.sourceId === PODCAST_ID) {
-        if (!podcastByDay.has(k)) podcastByDay.set(k, []);
-        podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast" });
-      }
-    }
-  }
-
-  const res = {};
-  for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
-    const k = dayKey(d);
-
-    const hoursSpan = ((workEnd - workStart) + 24) % 24;
-    const total = Math.max(0, Math.round(hoursSpan * 60));
-    const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
-    const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
-
-    // ----- GROUP BUSY (apply FREE overlays at the group level) -----
-    const clippedBusy = (perDayUnion.get(k)||[])
-      .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-    let mergedAll = mergeIntervals(clippedBusy);
-
-    const clippedFree = (freeOverlayByDay.get(k)||[])
-      .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-    const mergedFree = mergeIntervals(clippedFree);
-
-    if (mergedFree.length) mergedAll = subtractIntervals(mergedAll, mergedFree);
-
-    let busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
-    busyUnion = Math.min(Math.max(0, busyUnion), total);
-    const freeUnion = Math.min(total, Math.max(0, total - busyUnion));
-
-    // ----- PER-PERSON (apply FREE overlays PER SOURCE) -----
-    const bySrcMap = perDayBySrc.get(k) || new Map();
-    const perPerson = [];
-    const dayEventTitles = [];
-
-    for (const [sid, {name, intervals, titles}] of bySrcMap.entries()){
-      if (sid !== PODCAST_ID) {
-        // busy intervals for this source, clipped + merged
-        const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-        let merged = mergeIntervals(clipped);
-
-        // source-specific FREE cuts
-        const cutsRaw = (freeOverlayByDaySrc.get(k)?.get(sid) || [])
-          .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-        const mergedCuts = mergeIntervals(cutsRaw);
-
-        if (mergedCuts.length) merged = subtractIntervals(merged, mergedCuts);
-
-        const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
-        const free = Math.min(total, Math.max(0, total - busy));
-        const freeBlocks = invertIntervals(merged, WS, WE);
-
-        perPerson.push({
-          sourceId: sid, sourceName: name,
-          busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0,
-          mergedBusy: merged, freeBlocks
-        });
-      }
-
-      for (const t of titles) {
-        const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-        if (b > a) dayEventTitles.push({
-          sourceId: sid, sourceName: name,
-          start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent
-        });
+        if (ev.sourceId === PODCAST_ID) {
+          if (!podcastByDay.has(k)) podcastByDay.set(k, []);
+          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast", ep: ev.ep || null });
+        }
       }
     }
 
-    // Add rows for selected sources that had no events that day
-    for (const s of sources) {
-      if (s.id === PODCAST_ID) continue;
-      if (!selectedIds.has(s.id)) continue;
-      if (!(bySrcMap.has(s.id))) {
-        perPerson.push({
-          sourceId: s.id, sourceName: s.name,
-          busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0,
-          mergedBusy: [], freeBlocks: total ? [[WS, WE]] : []
-        });
+    const res={};
+    for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
+      const k=dayKey(d);
+
+      const hoursSpan = ((workEnd - workStart) + 24) % 24;
+      const total = Math.max(0, Math.round(hoursSpan * 60));
+      const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
+      const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
+
+      const allIntervals = (perDayUnion.get(k)||[])
+        .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+      const mergedAll = mergeIntervals(allIntervals);
+
+      let busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
+      busyUnion = Math.min(Math.max(0, busyUnion), total);
+      const freeUnion = Math.min(total, Math.max(0, total - busyUnion));
+
+      const bySrcMap = perDayBySrc.get(k) || new Map();
+
+      const perPerson = [];
+      const dayEventTitles = [];
+      for (const [sid, {name, intervals, titles}] of bySrcMap.entries()){
+        if (sid !== PODCAST_ID) {
+          const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+          const merged = mergeIntervals(clipped);
+          const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
+          const free = Math.min(total, Math.max(0, total - busy));
+          const freeBlocks = invertIntervals(merged, WS, WE);
+          perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
+        }
+        for (const t of titles) {
+          const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent });
+        }
       }
+      for (const s of sources) {
+        if (s.id === PODCAST_ID) continue;
+        if (!selectedIds.has(s.id)) continue;
+        if (!(bySrcMap.has(s.id))) {
+          perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
+        }
+      }
+      perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
+      dayEventTitles.sort((a,b)=> a.start - b.start);
+
+      const podcastItems = (podcastByDay.get(k) || [])
+        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary, ep: it.ep || null }))
+        .filter(it => it.end > it.start)
+        .sort((a,b) => a.start - b.start);
+
+      res[k] = {
+        date:new Date(d),
+        totalMinutes: total,
+        freeMinutes: freeUnion,
+        busyMinutes: busyUnion,
+        freeRatio: total? freeUnion/total : 0,
+        mergedBusy: mergedAll,
+        perPerson,
+        podcastItems,
+        titles: dayEventTitles,
+        hasUrgent: !!urgentByDay.get(k),
+      };
     }
-
-    perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
-    dayEventTitles.sort((a,b)=> a.start - b.start);
-
-    const podcastItems = (podcastByDay.get(k) || [])
-      .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary }))
-      .filter(it => it.end > it.start)
-      .sort((a,b) => a.start - b.start);
-
-    res[k] = {
-      date:new Date(d),
-      totalMinutes: total,
-      freeMinutes: freeUnion,
-      busyMinutes: busyUnion,
-      freeRatio: total? freeUnion/total : 0,
-      mergedBusy: mergedAll,
-      perPerson,
-      podcastItems,
-      titles: dayEventTitles,
-      hasUrgent: !!urgentByDay.get(k),
-    };
-  }
-  return res;
-}, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
+    return res;
+  }, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
 
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
 
@@ -661,38 +594,92 @@ const dayStats = useMemo(()=>{
   }
 
   return (
-    <div className="min-h-screen w-full" style={{ background: "#f8fafc", color: "#111", colorScheme: "light" }}>
+    <div className="app-root">
       <style>{`
-        :root { color-scheme: light !important; }
-        input, select, textarea, button { background:#fff !important; color:#111 !important; }
-        input[type="date"], input[type="number"] { background:#fff !important; color:#111 !important; }
-        .chip{display:inline-block;padding:2px 8px;border:1px solid #ddd;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;}
+        /* Whole window light theme */
+        html, body, #root, .app-root { height: 100%; min-height: 100vh; background: #f8fafc; color: #111827; }
+
+        input, select, textarea, button { background:#fff !important; color:#111827 !important; }
+        input[type="date"], input[type="number"] { background:#fff !important; color:#111827 !important; border: 1px solid #e5e7eb; }
+
+        .chip{display:inline-block;padding:2px 8px;border:1px solid #e5e7eb;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;background:#f3f4f6;color:#111827;}
         .muted{color:#6b7280;}
         .mono{font-variant-numeric: tabular-nums;}
+        /* Label readability */
+.ep-label-percent { color: #3d3c3cff; text-shadow: 0 1px 0 rgba(255,255,255,.55); } /* black % by default */
+.ep-label-episode { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); letter-spacing: .2px; } /* white EP on animated tile */
+
+
+        /* RAINBOW border (UPCOMING podcast): thicker */
         @keyframes rainbowShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-        .rainbow-always {
-          background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
-          background-size: 400% 400%;
-          animation: rainbowShift 6s linear infinite;
-          color: #111; border-radius: 6px; padding: 0 6px; font-weight: 600;
-        }
         .rainbow-outline {
-          position: relative; border: 2px solid transparent;
+          position: relative; border: 3px solid transparent;
           background: linear-gradient(#ffffff,#ffffff) padding-box,
                       linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
-          background-size: auto, 400% 400%; animation: rainbowShift 6s linear infinite;
+          background-size: auto, 400% 400%;
+          animation: rainbowShift 6s linear infinite;
         }
+        /* RECORDED border (AFTER podcast day): solid readable teal/blue */
+        .recorded-outline {
+          position: relative; border: 3px solid #0ea5e9; background:#ffffff;
+        }
+
+        /* Animated inner blue for podcast tile (more movement) */
+        @keyframes softBlue {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .podcast-fill {
+          position:absolute; inset:2px; border-radius: 14px;
+          background: linear-gradient(135deg,#0ea5e9aa,#2563eb66,#1d4ed899,#3b82f655);
+          background-size: 260% 260%;
+          animation: softBlue 8s ease-in-out infinite;
+          pointer-events: none;
+        }
+        /* Muted variant once recorded */
+        .podcast-fill-muted {
+          animation-duration: 14s;
+          filter: saturate(0.75) brightness(0.98);
+        }
+
         .day-cell { transition: box-shadow .15s ease; }
+                /* %/label color helpers */
+        .day-pct       { color:#111; }  /* default: black for readability */
+        .day-pct-ep    { color:#fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); } /* white on podcast tiles */
         .divider { height:1px; background:#eee; margin:8px 0; }
         .day-selected { outline: 2px solid #111; outline-offset: -2px; }
         .spinner { width:14px;height:14px;border:2px solid #93c5fd; border-top-color: transparent; border-radius:50%; display:inline-block; animation: spin .8s linear infinite; vertical-align: -2px;}
         @keyframes spin { to { transform: rotate(360deg); } }
-        .btn { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:10px; font-size:13px; background:#fff; }
+
+        .btn { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:10px; font-size:13px; background:#fff; color:#111; }
+        .btn:hover { filter: brightness(0.98); }
         .btn-toggle-on { background:#111; color:#fff; border-color:#111; }
+        .nav-btn { padding:2px 8px; border:1px solid #e5e7eb; background:#fff; color:#111; border-radius:8px; }
+        .nav-btn:hover { filter:brightness(0.98); }
+
         .urgent-outline { outline: 2px solid ${PURPLE_URGENT}; outline-offset: -2px; }
         .urgent-faint { box-shadow: inset 0 0 0 9999px rgba(109, 40, 217, 0.07); }
         .tag { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid #e5e7eb; background:#f3f4f6; color:#111; }
         .tag-urgent { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
+
+        /* Light blue readable pill for sidebar Recording/Recorded */
+        .blue-pill {
+          display:inline-block; padding:2px 8px; border-radius:8px;
+          background: linear-gradient(90deg, #e0f2fe, #dbeafe);
+          border: 1px solid #93c5fd;
+          color:#0b1b39; font-weight:700;
+        }
+
+        /* Episode label legibility on blue tile */
+        .ep-label {
+          color: #ffffff;
+          font-weight: 800;
+          text-shadow:
+            0 1px 2px rgba(0,0,0,.45),
+            0 0 2px rgba(0,0,0,.35);
+          letter-spacing: 0.3px;
+        }
       `}</style>
 
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
@@ -708,10 +695,10 @@ const dayStats = useMemo(()=>{
             notice && <div className="text-xs" style={{padding:"3px 8px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:9999}}>ℹ️ {notice}</div>
           )}
 
-          {err && <div className="text-xs text-red-600">Error: {err}</div>}
+          {err && <div className="text-xs" style={{color:"#ef4444"}}>Error: {err}</div>}
 
           <div className="ml-auto flex items-center gap-2">
-            <label className="text-sm text-gray-600">Display time zone:</label>
+            <label className="text-sm muted">Display time zone:</label>
             <select className="border rounded-lg p-2 text-sm" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
               {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
             </select>
@@ -719,12 +706,12 @@ const dayStats = useMemo(()=>{
         </div>
 
         {/* Per-source status */}
-        <div className="text-xs text-gray-600 mb-3">
+        <div className="text-xs muted mb-3">
           {sources.map(s => (
             <div key={s.id}>
-              <b>{s.name}</b>: {sourceCounts[s.id] ?? 0} events
+              <b style={{color:"#111827"}}>{s.name}</b>: {sourceCounts[s.id] ?? 0} events
               {lastFetchAt[s.id] && <> · updated {new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second:'2-digit' }).format(lastFetchAt[s.id])}</>}
-              {fetchErrors[s.id] && <span className="text-red-600"> · err: {fetchErrors[s.id]}</span>}
+              {fetchErrors[s.id] && <span style={{color:"#ef4444"}}> · err: {fetchErrors[s.id]}</span>}
             </div>
           ))}
         </div>
@@ -759,14 +746,14 @@ const dayStats = useMemo(()=>{
             <h2 className="font-semibold mb-2">2) Date range</h2>
             <div className="flex items-center gap-2">
               <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
-              <span className="text-gray-500">to</span>
+              <span className="muted">to</span>
               <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
-            <div className="text-xs text-gray-500 mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
+            <div className="text-xs muted mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
 
             {/* Time slot view toggle (Matt & Hector) */}
             <div className="mt-3 flex items-center justify-between">
-              <div className="text-sm text-gray-700">Time slot view (Matt & Hector)</div>
+              <div className="text-sm">Time slot view (Matt & Hector)</div>
               <button
                 className={`btn ${slotViewOn ? "btn-toggle-on" : ""}`}
                 onClick={()=> setSlotViewOn(v => !v)}
@@ -777,7 +764,7 @@ const dayStats = useMemo(()=>{
 
             {/* Need more info toggle (purple day outline) */}
             <div className="mt-2 flex items-center justify-between">
-              <div className="text-sm text-gray-700">Need more information days (“!”)</div>
+              <div className="text-sm">Need more information days (“!”)</div>
               <button
                 className={`btn ${outlineUrgent ? "btn-toggle-on" : ""}`}
                 onClick={()=> setOutlineUrgent(v => !v)}
@@ -792,9 +779,9 @@ const dayStats = useMemo(()=>{
             <h2 className="font-semibold mb-2">3) Hours & View</h2>
             <div className="flex items-center gap-2 mb-3">
               <input type="number" min={0} max={23} value={workStart} onChange={e=>setWorkStart(clamp(parseInt(e.target.value||"0",10),0,23))} className="border rounded-lg p-2 w-20" />
-              <span className="text-gray-500">to</span>
+              <span className="muted">to</span>
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
-              <span className="text-gray-500">o'clock</span>
+              <span className="muted">o'clock</span>
             </div>
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-3 text-sm">
@@ -803,9 +790,11 @@ const dayStats = useMemo(()=>{
               </div>
               {viewMode==='single' && (
                 <div className="flex items-center gap-2">
-                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>&lt;</button>
-                  <div className="text-sm text-gray-600 w-28 text-center">{new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}</div>
-                  <button className="px-2 py-1 border rounded text-sm" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>&gt;</button>
+                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>‹</button>
+                  <div className="text-sm muted w-32 text-center" style={{color:"#111827"}}>
+                    {new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}
+                  </div>
+                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>›</button>
                 </div>
               )}
             </div>
@@ -821,9 +810,9 @@ const dayStats = useMemo(()=>{
                 <div key={r} className="h-3 w-6 rounded" style={{ backgroundColor: colorForRatio(r) }} />
               ))}
             </div>
-            <span className="text-xs text-gray-600">Less free → More free</span>
-            <span className="text-xs text-gray-600 ml-3">“!” items = “Need more info”.</span>
-            <span className="text-sm text-gray-600 ml-auto">Loaded events: <b>{events.length}</b></span>
+            <span className="text-xs muted">Less free → More free</span>
+            <span className="text-xs muted ml-3">“!” items = “Need more info”.</span>
+            <span className="text-sm muted ml-auto">Loaded events: <b style={{color:"#111827"}}>{events.length}</b></span>
           </div>
         )}
 
@@ -860,26 +849,33 @@ const dayStats = useMemo(()=>{
 
           {/* Sidebar (hover/click details) */}
           {!slotViewOn && (
-            <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey) ? "rainbow-outline rounded-2xl" : ""}>
+            <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey)
+              ? (endOfDay(new Date(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl")
+              : ""}>
               {activeInfo
                 ? <div className="bg-white rounded-2xl shadow p-4">
                     <h3 className="text-lg font-semibold">{fmt(activeInfo.date)}</h3>
 
                     {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (
                       <div className="mt-2 mb-3">
-                        <span className="rainbow-always">Podcast Recording</span>
+                        {endOfDay(activeInfo.date) < new Date()
+                          ? <span className="blue-pill">Recorded</span>
+                          : <span className="blue-pill">Recording</span>}
                         <div className="mt-1 text-sm">
-                          {activeInfo.podcastItems.map((it,i)=>(
-                            <div key={i} className="mono">
-                              {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-medium">{it.summary}</span>
-                            </div>
-                          ))}
+                          {activeInfo.podcastItems.map((it,i)=>{
+                            const ep = parseEpisode(it.summary);
+                            return (
+                              <div key={i} className="mono">
+                                {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{ep || it.summary}</span>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     ) : null}
 
-                    <p className="text-sm text-gray-600">
-                      Group free: <span className="mono">{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono">{Math.round(activeInfo.totalMinutes)}</span> min
+                    <p className="text-sm muted">
+                      Group free: <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.totalMinutes)}</span> min
                       <span className="chip">{pct(activeInfo.freeMinutes, activeInfo.totalMinutes)}% free</span>
                     </p>
 
@@ -888,41 +884,14 @@ const dayStats = useMemo(()=>{
                       <ul style={{maxHeight: 220, overflow: "auto", paddingRight: 4}}>
                         {activeInfo.perPerson.map(p => (
                           <li key={p.sourceId} className="text-sm mb-2">
-  <div>
-    <b>{p.sourceName}</b>
-    <span className="chip">{pct(p.freeMinutes, activeInfo.totalMinutes)}% free</span>
-  </div>
-
-  {/* Busy ranges (already account for FREE overlays) */}
-  {p.mergedBusy.length
-    ? (
-      <div className="muted">
-        Busy:{" "}
-        {p.mergedBusy.map(([s,e],i)=>(
-          <span key={i} className="mono">
-            {fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}
-          </span>
-        ))}
-      </div>
-    )
-    : <div className="muted">Busy: none</div>
-  }
-
-  {/* NEW: Free slots (computed via invertIntervals) */}
-  {p.freeBlocks.length
-    ? (
-      <div className="muted">
-        Free:{" "}
-        {p.freeBlocks.map(([s,e],i)=>(
-          <span key={i} className="mono">
-            {fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.freeBlocks.length-1?", ":""}
-          </span>
-        ))}
-      </div>
-    )
-    : <div className="muted">Free: none</div>
-  }
-</li>
+                            <div>
+                              <b>{p.sourceName}</b>
+                              <span className="chip">{pct(p.freeMinutes, activeInfo.totalMinutes)}% free</span>
+                            </div>
+                            {p.mergedBusy.length
+                              ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
+                              : <div className="muted">Busy: none</div>}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -950,7 +919,7 @@ const dayStats = useMemo(()=>{
                       </div>
                     ) : null}
                   </div>
-                : <div className="text-sm text-gray-500 bg-white rounded-2xl shadow p-4">Hover or click a day to see details.</div>}
+                : <div className="text-sm muted bg-white rounded-2xl shadow p-4">Hover or click a day to see details.</div>}
             </aside>
           )}
         </div>
@@ -985,16 +954,16 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
     <div className="bg-white rounded-2xl shadow p-4 mb-4">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-semibold">{person} — Time slots</h3>
-        <span className="text-xs text-gray-500">List view</span>
+        <span className="text-xs muted">List view</span>
       </div>
 
       {!events.length ? (
-        <div className="text-sm text-gray-600">No {person} events in the selected range.</div>
+        <div className="text-sm muted">No {person} events in the selected range.</div>
       ) : (
         <div className="space-y-3">
           {groups.map(([k, list]) => (
             <div key={k}>
-              <div className="text-xs font-medium text-gray-500 mb-1">{fmt(new Date(k))}</div>
+              <div className="text-xs font-medium muted mb-1">{fmt(new Date(k))}</div>
               <div className="space-y-2">
                 {list.map((e, i) => (
                   <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
@@ -1006,7 +975,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
                       <div className="text-sm font-medium">
                         {e.summary || "Event"} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
                       </div>
-                      <div className="text-xs text-gray-600 mono">
+                      <div className="text-xs muted mono">
                         {e.allDay ? "All day" : `${fmtTime(e.start)}–${fmtTime(e.end)}`}
                       </div>
                     </div>
@@ -1022,7 +991,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
 }
 
 /* ===== Calendar Grid ===== */
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent }){
+function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, podcastOn, outlineUrgent }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
@@ -1032,15 +1001,17 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
   const gap = 4;
   const cellSize = Math.max(28, Math.floor((gridWidth - gap * 6) / 7));
   const dayNumSize = Math.round(cellSize * 0.14);
-  const pctSize    = Math.round(cellSize * 0.16);
+  const pctSize    = Math.round(cellSize * 0.18); // slightly larger for EP label
 
   const cells=[];
   for(let i=0;i<startWeekday;i++) cells.push(<div key={"pad-"+i}/>);
 
+  const now = new Date();
+
   for(let day=1; day<=daysInMonth; day++){
     const date = new Date(year, month, day);
     if(date < startOfDay(from) || date > endOfDay(to)){
-      cells.push(<div key={day} className="aspect-square rounded-xl border border-dashed border-gray-200 text-gray-300 flex items-start justify-end p-1 text-xs">{day}</div>);
+      cells.push(<div key={day} className="aspect-square rounded-xl border border-dashed border-gray-200 text-gray-400 flex items-start justify-end p-1 text-xs">{day}</div>);
       continue;
     }
     const k = dayKey(date);
@@ -1051,7 +1022,12 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const selected = selectedDay === k;
     const urgentDecor = outlineUrgent && info?.hasUrgent;
 
-    const title = `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free` + (hasPodcast ? ` • ${info.podcastItems[0].summary}` : "");
+    const epTag = hasPodcast ? (info.podcastItems[0].ep || parseEpisode(info.podcastItems[0].summary) || "Episode") : null;
+    const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
+
+    const title = hasPodcast
+      ? `${fmt(date)} — ${epTag || "Podcast"}`
+      : `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free`;
 
     cells.push(
       <div
@@ -1059,13 +1035,38 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
         onMouseEnter={()=>setHoverDay(k)}
         onMouseLeave={()=>setHoverDay(null)}
         onClick={()=> onClickDay?.(k)}
-        className={`day-cell aspect-square rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden cursor-pointer
-          ${hasPodcast ? 'rainbow-outline' : ''} ${selected ? 'day-selected' : ''} ${urgentDecor ? 'urgent-outline urgent-faint' : ''}`}
-        style={{ backgroundColor: colorForRatio(r) }}
+        className={`day-cell aspect-square rounded-2xl shadow-sm relative overflow-hidden cursor-pointer
+          ${hasPodcast ? (isPastPodcastDay ? 'recorded-outline' : 'rainbow-outline') : ''} ${selected ? 'day-selected' : ''} ${urgentDecor ? 'urgent-outline urgent-faint' : ''}`}
+        style={{ backgroundColor: hasPodcast ? "transparent" : colorForRatio(r), border: hasPodcast ? undefined : `1px solid #e5e7eb` }}
         title={title}
       >
-        <div className="absolute top-1 right-2 font-semibold text-gray-700/80" style={{ fontSize: Math.max(8, dayNumSize) }}>{day}</div>
-        <div className="absolute bottom-1 left-2 font-medium text-gray-700/90" style={{ fontSize: Math.max(9, pctSize) }}>{pct(info?.freeMinutes||0, info?.totalMinutes||0)}%</div>
+        {/* animated podcast inner fill */}
+        {hasPodcast && (
+          <div className={`podcast-fill ${isPastPodcastDay ? 'podcast-fill-muted' : ''}`} />
+        )}
+
+        {/* day number (top-right) */}
+        <div className="absolute top-1 right-2 font-semibold" style={{ color:"#0f172a", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
+          {day}
+        </div>
+
+{/* bottom-left label: episode or % (EP highly legible) */}
+<div
+  className={`absolute bottom-1 left-2 ${hasPodcast ? 'ep-label-episode' : 'ep-label-percent'}`}
+  style={{ fontSize: Math.max(11, pctSize) }}
+>
+  {hasPodcast ? (epTag || "Episode") : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
+</div>
+
+        {/* If past podcast day, corner badge */}
+        {isPastPodcastDay && hasPodcast && (
+          <div
+            className="absolute top-1 left-2 text-[10px] font-bold"
+            style={{ color:"#0b3b3f", background:"#c7f9ff", border:"1px solid #7dd3fc", padding:"1px 6px", borderRadius:9999 }}
+          >
+            Recorded
+          </div>
+        )}
       </div>
     );
   }
