@@ -45,6 +45,28 @@ const invertIntervals = (merged, ws, we) => {
   if (cur < we) out.push([cur, we]);
   return out;
 };
+// Subtract merged "cuts" from merged "busy"
+function subtractIntervals(busy, cuts) {
+  if (!busy.length || !cuts.length) return busy.slice();
+  const out = [];
+  let i = 0, j = 0;
+  while (i < busy.length) {
+    let [bs, be] = busy[i];
+    while (j < cuts.length && cuts[j][1] <= bs) j++;
+    let curS = bs;
+    let k = j;
+    while (k < cuts.length && cuts[k][0] < be) {
+      const [cs, ce] = cuts[k];
+      if (cs > curS) out.push([curS, Math.min(be, cs)]);
+      curS = Math.max(curS, ce);
+      if (curS >= be) break;
+      k++;
+    }
+    if (curS < be) out.push([curS, be]);
+    i++;
+  }
+  return out;
+}
 // Safe percent formatter (shows 0.1–0.9% as "<1")
 function pct(value, total) {
   const t = Math.max(1, total|0);
@@ -200,12 +222,14 @@ function parseICSText(text, sourceId, sourceName){
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
       const isUrgent = /!/.test(summary); // marks “need more information” days
+      const isFreeOverlay = /\bfree\b/i.test(summary); // <<—— FREE windows by title
+
       if (e.isRecurring()) {
-        events.push({ sourceId, sourceName, summary, isUrgent, isRecurring: true, component: v });
+        events.push({ sourceId, sourceName, summary, isUrgent, isFreeOverlay, isRecurring: true, component: v });
       } else {
         const s = e.startDate.toJSDate();
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        events.push({ sourceId, sourceName, summary, isUrgent, isFreeOverlay, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
     } catch {}
   }
@@ -426,7 +450,8 @@ export default function App(){
           const summary = evt.summary || "Event";
           out.push({
             sourceId:e.sourceId, sourceName:e.sourceName, summary,
-            isUrgent:/!/.test(summary), start:s, end:ee, allDay:next.isDate
+            isUrgent:/!/.test(summary), isFreeOverlay: /\bfree\b/i.test(summary),
+            start:s, end:ee, allDay:next.isDate
           });
           if (++i > 5000) break;
         }
@@ -447,103 +472,156 @@ export default function App(){
     [events]
   );
 
-  // Aggregate per-day (exclude podcast from union), keep titles + urgent flags
-  const dayStats = useMemo(()=>{
-    const perDayUnion = new Map();
-    const perDayBySrc = new Map();
-    const podcastByDay = new Map();
-    const urgentByDay = new Map();
+  // Aggregate per-day
+  // Aggregate per-day (with FREE overlays applied to group and per-person)
+const dayStats = useMemo(()=>{
+  const perDayUnion = new Map();        // busy union (no podcast)
+  const perDayBySrc = new Map();        // per-person intervals + titles
+  const podcastByDay = new Map();       // podcast items
+  const urgentByDay = new Map();        // any "!"
+  const freeOverlayByDay = new Map();   // FREE windows (all sources) for group calc
+  const freeOverlayByDaySrc = new Map(); // FREE windows keyed by day then source
 
-    for(const ev of events){
-      const s = ev.start.getTime(), e = ev.end.getTime();
-      for(const seg of splitIntervalByDays(s,e)){
-        const k=seg.date;
+  for(const ev of events){
+    const s = ev.start.getTime(), e = ev.end.getTime();
+    for(const seg of splitIntervalByDays(s,e)){
+      const k = seg.date;
 
-        if (ev.sourceId !== PODCAST_ID) {
-          if(!perDayUnion.has(k)) perDayUnion.set(k, []);
-          perDayUnion.get(k).push([seg.start, seg.end]);
-        }
+      // Track FREE windows (group + source-specific)
+      if (ev.isFreeOverlay) {
+        if (!freeOverlayByDay.has(k)) freeOverlayByDay.set(k, []);
+        freeOverlayByDay.get(k).push([seg.start, seg.end]);
 
-        if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
-        const m = perDayBySrc.get(k);
-        if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
-        m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent });
+        if (!freeOverlayByDaySrc.has(k)) freeOverlayByDaySrc.set(k, new Map());
+        const bySrc = freeOverlayByDaySrc.get(k);
+        if (!bySrc.has(ev.sourceId)) bySrc.set(ev.sourceId, []);
+        bySrc.get(ev.sourceId).push([seg.start, seg.end]);
+      }
 
-        if (ev.isUrgent) urgentByDay.set(k, true);
+      // Group busy union (exclude podcast)
+      if (ev.sourceId !== PODCAST_ID) {
+        if(!perDayUnion.has(k)) perDayUnion.set(k, []);
+        perDayUnion.get(k).push([seg.start, seg.end]);
+      }
 
-        if (ev.sourceId === PODCAST_ID) {
-          if (!podcastByDay.has(k)) podcastByDay.set(k, []);
-          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast" });
-        }
+      // Per-person aggregation
+      if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
+      const m = perDayBySrc.get(k);
+      if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
+      m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+      m.get(ev.sourceId).titles.push({
+        start: seg.start, end: seg.end,
+        summary: ev.summary || "Event",
+        isUrgent: !!ev.isUrgent
+      });
+
+      if (ev.isUrgent) urgentByDay.set(k, true);
+
+      if (ev.sourceId === PODCAST_ID) {
+        if (!podcastByDay.has(k)) podcastByDay.set(k, []);
+        podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast" });
+      }
+    }
+  }
+
+  const res = {};
+  for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
+    const k = dayKey(d);
+
+    const hoursSpan = ((workEnd - workStart) + 24) % 24;
+    const total = Math.max(0, Math.round(hoursSpan * 60));
+    const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
+    const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
+
+    // ----- GROUP BUSY (apply FREE overlays at the group level) -----
+    const clippedBusy = (perDayUnion.get(k)||[])
+      .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+    let mergedAll = mergeIntervals(clippedBusy);
+
+    const clippedFree = (freeOverlayByDay.get(k)||[])
+      .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+    const mergedFree = mergeIntervals(clippedFree);
+
+    if (mergedFree.length) mergedAll = subtractIntervals(mergedAll, mergedFree);
+
+    let busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
+    busyUnion = Math.min(Math.max(0, busyUnion), total);
+    const freeUnion = Math.min(total, Math.max(0, total - busyUnion));
+
+    // ----- PER-PERSON (apply FREE overlays PER SOURCE) -----
+    const bySrcMap = perDayBySrc.get(k) || new Map();
+    const perPerson = [];
+    const dayEventTitles = [];
+
+    for (const [sid, {name, intervals, titles}] of bySrcMap.entries()){
+      if (sid !== PODCAST_ID) {
+        // busy intervals for this source, clipped + merged
+        const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+        let merged = mergeIntervals(clipped);
+
+        // source-specific FREE cuts
+        const cutsRaw = (freeOverlayByDaySrc.get(k)?.get(sid) || [])
+          .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+        const mergedCuts = mergeIntervals(cutsRaw);
+
+        if (mergedCuts.length) merged = subtractIntervals(merged, mergedCuts);
+
+        const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
+        const free = Math.min(total, Math.max(0, total - busy));
+        const freeBlocks = invertIntervals(merged, WS, WE);
+
+        perPerson.push({
+          sourceId: sid, sourceName: name,
+          busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0,
+          mergedBusy: merged, freeBlocks
+        });
+      }
+
+      for (const t of titles) {
+        const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
+        if (b > a) dayEventTitles.push({
+          sourceId: sid, sourceName: name,
+          start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent
+        });
       }
     }
 
-    const res={};
-    for(let d=new Date(rangeStart); d<=rangeEnd; d=addDays(d,1)){
-      const k=dayKey(d);
-
-      const hoursSpan = ((workEnd - workStart) + 24) % 24;
-      const total = Math.max(0, Math.round(hoursSpan * 60));
-      const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
-      const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
-
-      const allIntervals = (perDayUnion.get(k)||[])
-        .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-      const mergedAll = mergeIntervals(allIntervals);
-
-      let busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
-      busyUnion = Math.min(Math.max(0, busyUnion), total);
-      const freeUnion = Math.min(total, Math.max(0, total - busyUnion));
-
-      const bySrcMap = perDayBySrc.get(k) || new Map();
-
-      const perPerson = [];
-      const dayEventTitles = [];
-      for (const [sid, {name, intervals, titles}] of bySrcMap.entries()){
-        if (sid !== PODCAST_ID) {
-          const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
-          const merged = mergeIntervals(clipped);
-          const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
-          const free = Math.min(total, Math.max(0, total - busy));
-          const freeBlocks = invertIntervals(merged, WS, WE);
-          perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
-        }
-        for (const t of titles) {
-          const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent });
-        }
+    // Add rows for selected sources that had no events that day
+    for (const s of sources) {
+      if (s.id === PODCAST_ID) continue;
+      if (!selectedIds.has(s.id)) continue;
+      if (!(bySrcMap.has(s.id))) {
+        perPerson.push({
+          sourceId: s.id, sourceName: s.name,
+          busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0,
+          mergedBusy: [], freeBlocks: total ? [[WS, WE]] : []
+        });
       }
-      for (const s of sources) {
-        if (s.id === PODCAST_ID) continue;
-        if (!selectedIds.has(s.id)) continue;
-        if (!(bySrcMap.has(s.id))) {
-          perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
-        }
-      }
-      perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
-      dayEventTitles.sort((a,b)=> a.start - b.start);
-
-      const podcastItems = (podcastByDay.get(k) || [])
-        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary }))
-        .filter(it => it.end > it.start)
-        .sort((a,b) => a.start - b.start);
-
-      res[k] = {
-        date:new Date(d),
-        totalMinutes: total,
-        freeMinutes: freeUnion,
-        busyMinutes: busyUnion,
-        freeRatio: total? freeUnion/total : 0,
-        mergedBusy: mergedAll,
-        perPerson,
-        podcastItems,
-        titles: dayEventTitles,
-        hasUrgent: !!urgentByDay.get(k),
-      };
     }
-    return res;
-  }, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
+
+    perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
+    dayEventTitles.sort((a,b)=> a.start - b.start);
+
+    const podcastItems = (podcastByDay.get(k) || [])
+      .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary }))
+      .filter(it => it.end > it.start)
+      .sort((a,b) => a.start - b.start);
+
+    res[k] = {
+      date:new Date(d),
+      totalMinutes: total,
+      freeMinutes: freeUnion,
+      busyMinutes: busyUnion,
+      freeRatio: total? freeUnion/total : 0,
+      mergedBusy: mergedAll,
+      perPerson,
+      podcastItems,
+      titles: dayEventTitles,
+      hasUrgent: !!urgentByDay.get(k),
+    };
+  }
+  return res;
+}, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
 
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
 
@@ -943,8 +1021,6 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const r = info ? info.freeRatio : 0;
 
     const hasPodcast = podcastOn && info?.podcastItems?.length > 0;
-    the_selected:
-    void 0;
     const selected = selectedDay === k;
     const urgentDecor = outlineUrgent && info?.hasUrgent;
 
