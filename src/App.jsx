@@ -605,15 +605,15 @@ export default function App(){
         .chip{display:inline-block;padding:2px 8px;border:1px solid #e5e7eb;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;background:#f3f4f6;color:#111827;}
         .muted{color:#6b7280;}
         .mono{font-variant-numeric: tabular-nums;}
-        /* Label readability */
-.ep-label-percent { color: #3d3c3cff; text-shadow: 0 1px 0 rgba(255,255,255,.55); } /* black % by default */
-.ep-label-episode { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); letter-spacing: .2px; } /* white EP on animated tile */
 
+        /* % label colors: black by default, white on podcast cells */
+        .ep-label-percent { color: #262626; text-shadow: 0 1px 0 rgba(255,255,255,.55); }
+        .ep-label-episode { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); letter-spacing: .2px; }
 
         /* RAINBOW border (UPCOMING podcast): thicker */
         @keyframes rainbowShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
         .rainbow-outline {
-          position: relative; border: 3px solid transparent;
+          position: relative; border: 3px solid transparent; border-radius: 1rem;
           background: linear-gradient(#ffffff,#ffffff) padding-box,
                       linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
           background-size: auto, 400% 400%;
@@ -621,10 +621,10 @@ export default function App(){
         }
         /* RECORDED border (AFTER podcast day): solid readable teal/blue */
         .recorded-outline {
-          position: relative; border: 3px solid #0ea5e9; background:#ffffff;
+          position: relative; border: 3px solid #0ea5e9; background:#ffffff; border-radius:1rem;
         }
 
-        /* Animated inner blue for podcast tile (more movement) */
+        /* Animated inner blue for podcast tile; muted when recorded */
         @keyframes softBlue {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -636,17 +636,15 @@ export default function App(){
           background-size: 260% 260%;
           animation: softBlue 8s ease-in-out infinite;
           pointer-events: none;
+          z-index: 0;
         }
-        /* Muted variant once recorded */
-        .podcast-fill-muted {
-          animation-duration: 14s;
-          filter: saturate(0.75) brightness(0.98);
-        }
+        .podcast-fill-muted { animation-duration: 14s; filter: saturate(0.75) brightness(0.98); }
+
+        /* keep content above film */
+        .day-num   { position:absolute; top: 4px; right: 8px; z-index: 2; }
+        .ep-label  { position:absolute; left: 8px; bottom: 6px; z-index: 2; }
 
         .day-cell { transition: box-shadow .15s ease; }
-                /* %/label color helpers */
-        .day-pct       { color:#111; }  /* default: black for readability */
-        .day-pct-ep    { color:#fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); } /* white on podcast tiles */
         .divider { height:1px; background:#eee; margin:8px 0; }
         .day-selected { outline: 2px solid #111; outline-offset: -2px; }
         .spinner { width:14px;height:14px;border:2px solid #93c5fd; border-top-color: transparent; border-radius:50%; display:inline-block; animation: spin .8s linear infinite; vertical-align: -2px;}
@@ -663,22 +661,22 @@ export default function App(){
         .tag { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid #e5e7eb; background:#f3f4f6; color:#111; }
         .tag-urgent { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
 
-        /* Light blue readable pill for sidebar Recording/Recorded */
-        .blue-pill {
-          display:inline-block; padding:2px 8px; border-radius:8px;
-          background: linear-gradient(90deg, #e0f2fe, #dbeafe);
-          border: 1px solid #93c5fd;
-          color:#0b1b39; font-weight:700;
-        }
-
-        /* Episode label legibility on blue tile */
-        .ep-label {
-          color: #ffffff;
+        /* Sidebar gradient text labels */
+        .rainbow-text {
           font-weight: 800;
-          text-shadow:
-            0 1px 2px rgba(0,0,0,.45),
-            0 0 2px rgba(0,0,0,.35);
-          letter-spacing: 0.3px;
+          background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
+          background-size: 400% 400%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: rainbowShift 6s linear infinite;
+        }
+        .blue-text-grad {
+          font-weight: 800;
+          background: linear-gradient(90deg,#0ea5e9,#60a5fa,#93c5fd);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
         }
       `}</style>
 
@@ -790,11 +788,11 @@ export default function App(){
               </div>
               {viewMode==='single' && (
                 <div className="flex items-center gap-2">
-                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))}>‹</button>
+                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))} aria-label="Previous month">‹</button>
                   <div className="text-sm muted w-32 text-center" style={{color:"#111827"}}>
                     {new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}
                   </div>
-                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))}>›</button>
+                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))} aria-label="Next month">›</button>
                 </div>
               )}
             </div>
@@ -856,23 +854,31 @@ export default function App(){
                 ? <div className="bg-white rounded-2xl shadow p-4">
                     <h3 className="text-lg font-semibold">{fmt(activeInfo.date)}</h3>
 
-                    {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (
-                      <div className="mt-2 mb-3">
-                        {endOfDay(activeInfo.date) < new Date()
-                          ? <span className="blue-pill">Recorded</span>
-                          : <span className="blue-pill">Recording</span>}
-                        <div className="mt-1 text-sm">
-                          {activeInfo.podcastItems.map((it,i)=>{
-                            const ep = parseEpisode(it.summary);
-                            return (
-                              <div key={i} className="mono">
-                                {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{ep || it.summary}</span>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ) : null}
+{/* Podcast: rainbow pill "Recording — Ep ###" before today, blue pill "Recorded — Ep ###" after */}
+{selectedIds.has(PODCAST_ID) && activeInfo?.podcastItems?.length ? (() => {
+  const isRecorded = endOfDay(activeInfo.date) < new Date();
+  const first = activeInfo.podcastItems[0];
+  const ep = parseEpisode(first?.summary) || null;
+
+  return (
+    <div className="mt-2 mb-3">
+      <span className={isRecorded ? "blue-pill" : "rainbow-pill"}>
+        {isRecorded ? "Recorded" : "Recording"}{ep ? ` — ${ep}` : ""}
+      </span>
+
+      <div className="mt-1 text-sm">
+        {activeInfo.podcastItems.map((it,i) => {
+          const tag = parseEpisode(it?.summary) || it?.summary || "";
+          return (
+            <div key={i} className="mono">
+              {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{tag}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+})() : null}
 
                     <p className="text-sm muted">
                       Group free: <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.totalMinutes)}</span> min
@@ -991,7 +997,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
 }
 
 /* ===== Calendar Grid ===== */
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, podcastOn, outlineUrgent }){
+function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
@@ -1022,7 +1028,8 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const selected = selectedDay === k;
     const urgentDecor = outlineUrgent && info?.hasUrgent;
 
-    const epTag = hasPodcast ? (info.podcastItems[0].ep || parseEpisode(info.podcastItems[0].summary) || "Episode") : null;
+    const firstPod = hasPodcast ? info.podcastItems[0] : null;
+    const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "Episode") : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
 
     const title = hasPodcast
@@ -1045,24 +1052,24 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
           <div className={`podcast-fill ${isPastPodcastDay ? 'podcast-fill-muted' : ''}`} />
         )}
 
-        {/* day number (top-right) */}
-        <div className="absolute top-1 right-2 font-semibold" style={{ color:"#0f172a", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
+        {/* day number (top-right) — sits above the film */}
+        <div className="day-num font-semibold" style={{ color:"#0f172a", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
           {day}
         </div>
 
-{/* bottom-left label: episode or % (EP highly legible) */}
-<div
-  className={`absolute bottom-1 left-2 ${hasPodcast ? 'ep-label-episode' : 'ep-label-percent'}`}
-  style={{ fontSize: Math.max(11, pctSize) }}
->
-  {hasPodcast ? (epTag || "Episode") : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
-</div>
+        {/* bottom-left label: episode or % */}
+        <div
+          className={`ep-label ${hasPodcast ? 'ep-label-episode' : 'ep-label-percent'}`}
+          style={{ fontSize: Math.max(11, pctSize) }}
+        >
+          {hasPodcast ? epTag : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
+        </div>
 
-        {/* If past podcast day, corner badge */}
+        {/* If past podcast day, corner "Recorded" badge */}
         {isPastPodcastDay && hasPodcast && (
           <div
             className="absolute top-1 left-2 text-[10px] font-bold"
-            style={{ color:"#0b3b3f", background:"#c7f9ff", border:"1px solid #7dd3fc", padding:"1px 6px", borderRadius:9999 }}
+            style={{ color:"#0b3b3f", background:"#c7f9ff", border:"1px solid #7dd3fc", padding:"1px 6px", borderRadius:9999, zIndex:2 }}
           >
             Recorded
           </div>

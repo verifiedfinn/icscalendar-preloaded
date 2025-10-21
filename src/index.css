@@ -68,6 +68,27 @@ button:focus-visible {
   letter-spacing: .2px; 
 }
 
+/* Animated rainbow pill (readable on white) */
+.rainbow-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: 800;
+  color: #fff; /* WHITE text for readability */
+  border: 1px solid rgba(0,0,0,.08);
+  background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
+  background-size: 400% 400%;
+  animation: rainbowShift 6s linear infinite;
+}
+
+/* Blue pill (recorded) – keeps good contrast */
+.blue-pill {
+  display:inline-block; padding:4px 10px; border-radius:10px; font-weight:800;
+  background: linear-gradient(90deg, #1e40af, #2563eb, #0ea5e9);
+  color:#fff;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
