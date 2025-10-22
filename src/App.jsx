@@ -61,6 +61,92 @@ function parseEpisode(summary="") {
   return m ? `Ep ${m[1]}` : null;
 }
 
+/* ========= US Holiday helpers ========= */
+// weekday: 0=Sun..6=Sat
+function nthDowInMonth(year, month /*0-11*/, n /*1..5*/, dow /*0..6*/) {
+  const d = new Date(year, month, 1);
+  const shift = (dow - d.getDay() + 7) % 7;
+  const day = 1 + shift + 7 * (n - 1);
+  const max = new Date(year, month + 1, 0).getDate();
+  return day <= max ? new Date(year, month, day) : null;
+}
+function lastDowInMonth(year, month, dow) {
+  const last = new Date(year, month + 1, 0); // last of month
+  const shift = (last.getDay() - dow + 7) % 7;
+  return new Date(year, month, last.getDate() - shift);
+}
+function sameYMD(a, b) {
+  return a.getFullYear() === b.getFullYear() &&
+         a.getMonth() === b.getMonth() &&
+         a.getDate() === b.getDate();
+}
+// Easter (Gregorian, Meeus/Jones/Butcher)
+function easterDate(year) {
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const month = Math.floor((h + l - 7 * m + 114) / 31); // 3=Mar, 4=Apr
+  const day = ((h + l - 7 * m + 114) % 31) + 1;
+  return new Date(year, month - 1, day);
+}
+/** Return {id,name,emoji,accentClass} or null */
+function getUsHoliday(date) {
+  const y = date.getFullYear();
+  const m = date.getMonth(); // 0-11
+  const d = date.getDate();
+
+  // Fixed-date holidays
+  const fixed = [
+    { m:0,  d:1,   id:"newyear",      name:"New Year's Day", emoji:"🎉", accent:"holiday-confetti" },
+    { m:1,  d:14,  id:"valentines",   name:"Valentine's Day", emoji:"❤️", accent:"holiday-heart" },
+    { m:2,  d:17,  id:"stpatricks",   name:"St. Patrick's Day", emoji:"☘️", accent:"holiday-green" },
+    { m:5,  d:19,  id:"juneteenth",   name:"Juneteenth", emoji:"🕊️", accent:"holiday-juneteenth" },
+    { m:6,  d:4,   id:"independence", name:"Independence Day", emoji:"🎆", accent:"holiday-usa" },
+    { m:9,  d:31,  id:"halloween",    name:"Halloween", emoji:"🎃", accent:"holiday-halloween" }, // 31st Oct
+    { m:10, d:11,  id:"veterans",     name:"Veterans Day", emoji:"🪖", accent:"holiday-service" },
+    { m:11, d:25,  id:"christmas",    name:"Christmas Day", emoji:"🎄", accent:"holiday-xmas" },
+  ];
+  for (const f of fixed) {
+    if (f.m === m && f.d === d) return { id:f.id, name:f.name, emoji:f.emoji, accentClass:f.accent };
+  }
+
+  // Moveable/federal pattern holidays
+  const mlk = nthDowInMonth(y, 0, 3, 1);           // 3rd Mon Jan
+  const pres = nthDowInMonth(y, 1, 3, 1);          // 3rd Mon Feb
+  const memorial = lastDowInMonth(y, 4, 1);        // last Mon May
+  const labor = nthDowInMonth(y, 8, 1, 1);         // 1st Mon Sep
+  const columbus = nthDowInMonth(y, 9, 2, 1);      // 2nd Mon Oct (Indigenous Peoples Day)
+  const thanks = nthDowInMonth(y, 10, 4, 4);       // 4th Thu Nov
+  const mothers = nthDowInMonth(y, 4, 2, 0);       // 2nd Sun May
+  const easter = easterDate(y);                    // Easter Sunday
+
+  const moves = [
+    { dt: mlk,      id:"mlk",       name:"MLK Day",                     emoji:"🕊️", accent:"holiday-civil" },
+    { dt: pres,     id:"pres",      name:"Presidents Day",              emoji:"🦅", accent:"holiday-usa" },
+    { dt: memorial, id:"memorial",  name:"Memorial Day",                emoji:"🇺🇸", accent:"holiday-usa" },
+    { dt: labor,    id:"labor",     name:"Labor Day",                   emoji:"🛠️", accent:"holiday-labor" },
+    { dt: columbus, id:"indigenous",name:"Indigenous Peoples Day",      emoji:"🌎", accent:"holiday-earth" },
+    { dt: thanks,   id:"thanks",    name:"Thanksgiving",                emoji:"🦃", accent:"holiday-thanks" },
+    { dt: mothers,  id:"mothers",   name:"Mother's Day",                emoji:"💐", accent:"holiday-bloom" },
+    { dt: easter,   id:"easter",    name:"Easter",                      emoji:"🐣", accent:"holiday-pastel" },
+  ];
+  for (const mv of moves) {
+    if (mv.dt && sameYMD(mv.dt, date)) {
+      return { id: mv.id, name: mv.name, emoji: mv.emoji, accentClass: mv.accent };
+    }
+  }
+  return null;
+}
+
 /* =========================
    Config
 ========================= */
@@ -425,21 +511,23 @@ export default function App(){
       if (!want.size || !want.has(e.sourceId)) continue;
       if (e.isRecurring) {
         const evt = new ICAL.Event(e.component);
-        const it = evt.iterator();
-        let next; let i = 0;
-        while ((next = it.next())) {
-          const s  = next.toJSDate();
-          const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
-                                  : new Date(s.getTime() + 30 * 60000);
-          if (ee < rangeStart) { if (++i > 5000) break; continue; }
-          if (s  > rangeEnd) break;
-          const summary = evt.summary || "Event";
-          out.push({
-            sourceId:e.sourceId, sourceName:e.sourceName, summary,
-            isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
-            start:s, end:ee, allDay:next.isDate
-          });
-          if (++i > 5000) break;
+        theIter: {
+          const it = evt.iterator();
+          let next; let i = 0;
+          while ((next = it.next())) {
+            const s  = next.toJSDate();
+            const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
+                                    : new Date(s.getTime() + 30 * 60000);
+            if (ee < rangeStart) { if (++i > 5000) break theIter; continue; }
+            if (s  > rangeEnd) break;
+            const summary = evt.summary || "Event";
+            out.push({
+              sourceId:e.sourceId, sourceName:e.sourceName, summary,
+              isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
+              start:s, end:ee, allDay:next.isDate
+            });
+            if (++i > 5000) break;
+          }
         }
       } else if (!(e.end < rangeStart || e.start > rangeEnd)) {
         out.push(e);
@@ -678,6 +766,32 @@ export default function App(){
           background-clip: text;
           color: transparent;
         }
+
+        /* === Holidays === */
+        .holiday-icon {
+          position: absolute;
+          left: 6px; top: 4px;
+          z-index: 2;
+          font-size: 12px;
+          filter: drop-shadow(0 1px 0 rgba(255,255,255,.65))
+                  drop-shadow(0 0 2px rgba(0,0,0,.12));
+          pointer-events: none;
+        }
+        /* Accents only for NON-podcast days */
+        .holiday-usa      { box-shadow: inset 0 0 0 2px rgba(220,38,38,.10), inset 0 0 0 4px rgba(37,99,235,.06); }
+        .holiday-thanks   { box-shadow: inset 0 0 0 3px rgba(217,119,6,.12); }
+        .holiday-halloween{ box-shadow: inset 0 0 0 3px rgba(245,158,11,.14); }
+        .holiday-xmas     { box-shadow: inset 0 0 0 3px rgba(22,163,74,.14); }
+        .holiday-confetti { background-image: radial-gradient(12px 8px at 10% 10%, rgba(59,130,246,.08), transparent 60%); background-clip: padding-box; }
+        .holiday-heart    { box-shadow: inset 0 0 0 3px rgba(244,63,94,.12); }
+        .holiday-green    { box-shadow: inset 0 0 0 3px rgba(16,185,129,.14); }
+        .holiday-juneteenth { box-shadow: inset 0 0 0 3px rgba(34,197,94,.10), inset 0 0 0 5px rgba(239,68,68,.06); }
+        .holiday-service  { box-shadow: inset 0 0 0 3px rgba(30,41,59,.12); }
+        .holiday-civil    { box-shadow: inset 0 0 0 3px rgba(30,64,175,.12); }
+        .holiday-labor    { box-shadow: inset 0 0 0 3px rgba(107,114,128,.14); }
+        .holiday-earth    { box-shadow: inset 0 0 0 3px rgba(34,197,94,.10); }
+        .holiday-bloom    { box-shadow: inset 0 0 0 3px rgba(236,72,153,.12); }
+        .holiday-pastel   { box-shadow: inset 0 0 0 3px rgba(99,102,241,.10); }
       `}</style>
 
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
@@ -854,31 +968,31 @@ export default function App(){
                 ? <div className="bg-white rounded-2xl shadow p-4">
                     <h3 className="text-lg font-semibold">{fmt(activeInfo.date)}</h3>
 
-{/* Podcast: rainbow pill "Recording — Ep ###" before today, blue pill "Recorded — Ep ###" after */}
-{selectedIds.has(PODCAST_ID) && activeInfo?.podcastItems?.length ? (() => {
-  const isRecorded = endOfDay(activeInfo.date) < new Date();
-  const first = activeInfo.podcastItems[0];
-  const ep = parseEpisode(first?.summary) || null;
-
-  return (
-    <div className="mt-2 mb-3">
-      <span className={isRecorded ? "blue-pill" : "rainbow-pill"}>
-        {isRecorded ? "Recorded" : "Recording"}{ep ? ` — ${ep}` : ""}
-      </span>
-
-      <div className="mt-1 text-sm">
-        {activeInfo.podcastItems.map((it,i) => {
-          const tag = parseEpisode(it?.summary) || it?.summary || "";
-          return (
-            <div key={i} className="mono">
-              {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{tag}</span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-})() : null}
+                    {/* Podcast: rainbow "Recording — Ep ###" before today, blue "Recorded — Ep ###" after */}
+                    {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (() => {
+                      const isRecorded = endOfDay(activeInfo.date) < new Date();
+                      const first = activeInfo.podcastItems[0];
+                      const ep = parseEpisode(first.summary);
+                      return (
+                        <div className="mt-2 mb-3">
+                          {isRecorded ? (
+                            <span className="blue-text-grad">Recorded{ep ? ` — ${ep}` : ""}</span>
+                          ) : (
+                            <span className="rainbow-text">Recording{ep ? ` — ${ep}` : ""}</span>
+                          )}
+                          <div className="mt-1 text-sm">
+                            {activeInfo.podcastItems.map((it,i)=>{
+                              const tag = parseEpisode(it.summary) || it.summary;
+                              return (
+                                <div key={i} className="mono">
+                                  {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{tag}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })() : null}
 
                     <p className="text-sm muted">
                       Group free: <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.totalMinutes)}</span> min
@@ -1032,9 +1146,13 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "Episode") : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
 
+    // Holiday (icon + optional accent if NOT a podcast day)
+    const holiday = getUsHoliday(date);
+    const holidayAccentClass = (!hasPodcast && holiday?.accentClass) ? holiday.accentClass : "";
+
     const title = hasPodcast
       ? `${fmt(date)} — ${epTag || "Podcast"}`
-      : `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free`;
+      : `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free${holiday ? ` • ${holiday.name}` : ""}`;
 
     cells.push(
       <div
@@ -1042,8 +1160,13 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
         onMouseEnter={()=>setHoverDay(k)}
         onMouseLeave={()=>setHoverDay(null)}
         onClick={()=> onClickDay?.(k)}
-        className={`day-cell aspect-square rounded-2xl shadow-sm relative overflow-hidden cursor-pointer
-          ${hasPodcast ? (isPastPodcastDay ? 'recorded-outline' : 'rainbow-outline') : ''} ${selected ? 'day-selected' : ''} ${urgentDecor ? 'urgent-outline urgent-faint' : ''}`}
+        className={[
+          "day-cell aspect-square rounded-2xl shadow-sm relative overflow-hidden cursor-pointer",
+          hasPodcast ? (isPastPodcastDay ? "recorded-outline" : "rainbow-outline") : "",
+          selected ? "day-selected" : "",
+          urgentDecor ? "urgent-outline urgent-faint" : "",
+          holidayAccentClass
+        ].join(" ")}
         style={{ backgroundColor: hasPodcast ? "transparent" : colorForRatio(r), border: hasPodcast ? undefined : `1px solid #e5e7eb` }}
         title={title}
       >
@@ -1052,7 +1175,14 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
           <div className={`podcast-fill ${isPastPodcastDay ? 'podcast-fill-muted' : ''}`} />
         )}
 
-        {/* day number (top-right) — sits above the film */}
+        {/* tiny holiday icon */}
+        {holiday && (
+          <div className="holiday-icon" title={holiday.name} aria-label={holiday.name}>
+            {holiday.emoji}
+          </div>
+        )}
+
+        {/* day number (top-right) */}
         <div className="day-num font-semibold" style={{ color:"#0f172a", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
           {day}
         </div>
