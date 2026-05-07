@@ -157,8 +157,9 @@ const HECTOR_SOURCE_ID = "hector";
 
 /** If you swapped Hector to a new ICS, export it as: public/calendars/Hector.ics */
 const PRESET_CALENDARS = [
-  { id: HECTOR_SOURCE_ID, name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics` },
+  { id: HECTOR_SOURCE_ID, name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: true },
 ];
+const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
 
 // One mirrored URL per remote (avoid direct google.com to dodge CORS)
 const REMOTE_CALENDARS = [
@@ -558,7 +559,7 @@ export default function App(){
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
 
-        if (ev.sourceId !== PODCAST_ID) {
+        if (ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
           if(!perDayUnion.has(k)) perDayUnion.set(k, []);
           perDayUnion.get(k).push([seg.start, seg.end]);
         }
@@ -587,8 +588,17 @@ export default function App(){
       const WS = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workStart).getTime();
       const WE = new Date(d.getFullYear(), d.getMonth(), d.getDate(), workEnd).getTime();
 
-      const allIntervals = (perDayUnion.get(k)||[])
+      const normalIntervals = (perDayUnion.get(k)||[])
         .map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
+      const availBusyIntervals = [];
+      for (const s of sources) {
+        if (!AVAILABILITY_SOURCES.has(s.id) || !selectedIds.has(s.id)) continue;
+        const srcData = (perDayBySrc.get(k) || new Map()).get(s.id);
+        const avail = (srcData?.intervals || [])
+          .map(([a,b]) => [Math.max(a,WS), Math.min(b,WE)]).filter(([a,b]) => b>a);
+        invertIntervals(mergeIntervals(avail), WS, WE).forEach(iv => availBusyIntervals.push(iv));
+      }
+      const allIntervals = [...normalIntervals, ...availBusyIntervals];
       const mergedAll = mergeIntervals(allIntervals);
 
       let busyUnion = mergedAll.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0);
@@ -603,10 +613,15 @@ export default function App(){
         if (sid !== PODCAST_ID) {
           const clipped = intervals.map(([a,b])=>[Math.max(a,WS), Math.min(b,WE)]).filter(([a,b])=>b>a);
           const merged = mergeIntervals(clipped);
-          const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
-          const free = Math.min(total, Math.max(0, total - busy));
-          const freeBlocks = invertIntervals(merged, WS, WE);
-          perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks });
+          if (AVAILABILITY_SOURCES.has(sid)) {
+            const free = Math.min(total, merged.reduce((acc,[a,b]) => acc + minutesBetween(a,b), 0));
+            const busy = Math.min(total, Math.max(0, total - free));
+            perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: invertIntervals(merged, WS, WE), freeBlocks: merged });
+          } else {
+            const busy = Math.min(total, merged.reduce((acc,[a,b])=> acc + minutesBetween(a,b), 0));
+            const free = Math.min(total, Math.max(0, total - busy));
+            perPerson.push({ sourceId: sid, sourceName: name, busyMinutes: busy, freeMinutes: free, freeRatio: total ? free/total : 0, mergedBusy: merged, freeBlocks: invertIntervals(merged, WS, WE) });
+          }
         }
         for (const t of titles) {
           const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
@@ -617,7 +632,11 @@ export default function App(){
         if (s.id === PODCAST_ID) continue;
         if (!selectedIds.has(s.id)) continue;
         if (!(bySrcMap.has(s.id))) {
-          perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
+          if (AVAILABILITY_SOURCES.has(s.id)) {
+            perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: total, freeMinutes: 0, freeRatio: 0, mergedBusy: total ? [[WS, WE]] : [], freeBlocks: [] });
+          } else {
+            perPerson.push({ sourceId: s.id, sourceName: s.name, busyMinutes: 0, freeMinutes: total, freeRatio: total ? 1 : 0, mergedBusy: [], freeBlocks: total ? [[WS, WE]] : [] });
+          }
         }
       }
       perPerson.sort((a,b)=> a.sourceName.localeCompare(b.sourceName));
