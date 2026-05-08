@@ -294,7 +294,7 @@ function parseICSText(text, sourceId, sourceName){
     try {
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
-      const isUrgent = /!/.test(summary); // “need more info” marker
+      const isUrgent = /!/.test(summary); // "need more info" marker
       const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
 
       if (e.isRecurring()) {
@@ -352,7 +352,7 @@ export default function App(){
 
   // Dual time-slot view
   const [slotViewOn, setSlotViewOn] = useState(false);
-  // “Need more info” outline toggle
+  // "Need more info" outline toggle
   const [outlineUrgent, setOutlineUrgent] = useState(false);
 
   const toggleSelected = (id) => {
@@ -895,7 +895,7 @@ export default function App(){
 
             {/* Need more info toggle (purple day outline) */}
             <div className="mt-2 flex items-center justify-between">
-              <div className="text-sm">Need more information days (“!”)</div>
+              <div className="text-sm">Need more information days ("!")</div>
               <button
                 className={`btn ${outlineUrgent ? "btn-toggle-on" : ""}`}
                 onClick={()=> setOutlineUrgent(v => !v)}
@@ -942,7 +942,11 @@ export default function App(){
               ))}
             </div>
             <span className="text-xs muted">Less free → More free</span>
-            <span className="text-xs muted ml-3">“!” items = “Need more info”.</span>
+            <div style={{display:"flex",alignItems:"center",gap:4,marginLeft:12}} className="text-xs muted">
+              <div style={{height:12,width:24,borderRadius:4,background:"#fee2e2",border:"1px solid #fca5a5"}}></div>
+              Not available
+            </div>
+            <span className="text-xs muted ml-1">"!" = Need more info.</span>
             <span className="text-sm muted ml-auto">Loaded events: <b style={{color:"#111827"}}>{events.length}</b></span>
           </div>
         )}
@@ -1027,9 +1031,15 @@ export default function App(){
                               <b>{p.sourceName}</b>
                               <span className="chip">{pct(p.freeMinutes, activeInfo.totalMinutes)}% free</span>
                             </div>
-                            {p.mergedBusy.length
-                              ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
-                              : <div className="muted">Busy: none</div>}
+                            {AVAILABILITY_SOURCES.has(p.sourceId) ? (
+                              p.freeBlocks?.length
+                                ? <div className="muted">Available: {p.freeBlocks.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.freeBlocks.length-1?", ":""}</span>))}</div>
+                                : <div className="muted" style={{color:"#ef4444"}}>Not available</div>
+                            ) : (
+                              p.mergedBusy.length
+                                ? <div className="muted">Busy: {p.mergedBusy.map(([s,e],i)=>(<span key={i} className="mono">{fmtTime(new Date(s))}–{fmtTime(new Date(e))}{i<p.mergedBusy.length-1?", ":""}</span>))}</div>
+                                : <div className="muted">Busy: none</div>
+                            )}
                           </li>
                         ))}
                       </ul>
