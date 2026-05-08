@@ -37,27 +37,27 @@
   --shadow-card:  0 2px 8px rgba(0,0,0,.4);
 }
 
-/* ── Las Cafeteras — deep night, marigold & skull energy ────── */
+/* ── Las Cafeteras — Día de los Muertos, warm earth & skull energy ── */
 .theme-lc {
   /* Transparent bg so the html gradient fills the screen */
   --bg:           transparent;
-  --surface:      #1a0d35;
-  --text:         #fef3e2;
-  --muted:        #c084fc;
-  --border:       #5b21b6;
-  --border-light: #3b0764;
-  --chip:         #2d1b4e;
-  --input-bg:     #1a0d35;
+  --surface:      #1c0e04;
+  --text:         #fef3c7;
+  --muted:        #d97706;
+  --border:       #78350f;
+  --border-light: #3c1a06;
+  --chip:         #2a1204;
+  --input-bg:     #1c0e04;
   --spin:         #f97316;
   --day-num:      #fde68a;
-  --shadow-card:  0 4px 24px rgba(249,115,22,.14), 0 0 0 1px rgba(139,92,246,.25);
+  --shadow-card:  0 4px 24px rgba(180,83,9,.28), 0 0 0 1px rgba(120,53,15,.5);
 
-  /* Full-screen animated night gradient on the html element */
+  /* Sugar skull tile + warm dark earth gradient on the html element */
   background:
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g opacity='0.18' transform='translate(50,50)'><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23f97316' transform='rotate(0)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(45)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23eab308' transform='rotate(90)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(135)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23f97316' transform='rotate(180)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(225)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23eab308' transform='rotate(270)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(315)'/><circle r='7' fill='%23eab308'/></g></svg>"),
-    linear-gradient(135deg, #0f0820 0%, #1a0a2e 25%, #2a0d3a 50%, #1a0830 75%, #0f0820 100%);
-  background-size: 100px 100px, 400% 400%;
-  animation: lcNight 20s ease infinite;
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><g transform='translate(60,56)' opacity='0.20'><path d='M0,-28 C-22,-28 -24,2 -16,16 L-14,26 L14,26 L16,16 C24,2 22,-28 0,-28Z' fill='%23fde68a'/><ellipse cx='-8' cy='-3' rx='7.5' ry='7.5' fill='%231a0800'/><ellipse cx='8' cy='-3' rx='7.5' ry='7.5' fill='%231a0800'/><ellipse cx='-8' cy='-3' rx='4' ry='4' fill='%23f97316' opacity='0.7'/><ellipse cx='8' cy='-3' rx='4' ry='4' fill='%23ec4899' opacity='0.7'/><path d='M-3,8 Q0,13 3,8' fill='none' stroke='%231a0800' stroke-width='2'/><rect x='-12' y='20' width='24' height='7' rx='2' fill='%23fde68a'/><line x1='-5' y1='20' x2='-5' y2='27' stroke='%231a0800' stroke-width='1.5'/><line x1='5' y1='20' x2='5' y2='27' stroke='%231a0800' stroke-width='1.5'/><path d='M-16,-10 C-26,-10 -26,4 -20,4 L-14,4 C-8,4 -8,-10 -16,-10Z' fill='%23fde68a' opacity='0.5'/><path d='M16,-10 C26,-10 26,4 20,4 L14,4 C8,4 8,-10 16,-10Z' fill='%23fde68a' opacity='0.5'/><path d='M0,-32 L3,-26 L0,-20 L-3,-26Z' fill='%23f97316'/><path d='M-12,-26 L-9,-20 L-12,-14 L-15,-20Z' fill='%23eab308'/><path d='M12,-26 L15,-20 L12,-14 L9,-20Z' fill='%23eab308'/></g></svg>"),
+    linear-gradient(160deg, #0d0500 0%, #1a0800 30%, #2a1200 55%, #1a0800 80%, #0d0500 100%);
+  background-size: 120px 120px, 400% 400%;
+  animation: lcWarm 25s ease infinite;
 }
 
 /* Children transparent → html gradient bleeds through */
@@ -99,12 +99,12 @@ html, body {
   transition: box-shadow 0.3s ease !important;
 }
 .theme-lc .bg-white:hover {
-  box-shadow: 0 8px 36px rgba(249,115,22,.32), 0 0 0 1px rgba(236,72,153,.35) !important;
+  box-shadow: 0 8px 36px rgba(180,83,9,.42), 0 0 0 1px rgba(234,179,8,.3) !important;
 }
 
-/* ── LC: animated title gradient ────────────────────────────── */
+/* ── LC: animated title gradient (warm marigold/amber only) ─── */
 .theme-lc h1 {
-  background: linear-gradient(90deg, #f97316, #eab308, #ec4899, #f97316);
+  background: linear-gradient(90deg, #f97316, #eab308, #fbbf24, #f97316);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -112,28 +112,16 @@ html, body {
   animation: titleFlame 4s linear infinite;
 }
 
-/* ── LC colorful top stripe (papel picado) ──────────────────── */
+/* ── LC top stripe hidden ───────────────────────────────────── */
 .lc-top-bar { display: none; }
-.theme-lc .lc-top-bar {
-  display: block;
-  height: 5px;
-  background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #06b6d4, #22c55e, #eab308, #f97316);
-  background-size: 300% 100%;
-  animation: stripeShift 4s linear infinite;
-}
 
 /* ── Keyframes ──────────────────────────────────────────────── */
-@keyframes lcNight {
+@keyframes lcWarm {
   0%, 100% { background-position: 0% 0%, 0% 50%;   }
   50%       { background-position: 0% 0%, 100% 50%; }
 }
 
 @keyframes titleFlame {
-  0%   { background-position: 0% 50%;   }
-  100% { background-position: 300% 50%; }
-}
-
-@keyframes stripeShift {
   0%   { background-position: 0% 50%;   }
   100% { background-position: 300% 50%; }
 }

@@ -862,8 +862,8 @@ export default function App(){
         .btn          { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--border); border-radius:10px; font-size:13px; background:var(--surface); color:var(--text); }
         .btn:hover    { filter: brightness(0.97); }
         .btn-toggle-on { background:var(--text); color:var(--bg); border-color:var(--text); }
-        .nav-btn      { padding:2px 8px; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:8px; }
-        .nav-btn:hover { filter: brightness(0.97); }
+        .nav-btn      { padding:4px 14px; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:8px; font-size:18px; font-weight:600; line-height:1; cursor:pointer; }
+        .nav-btn:hover { background:var(--text); color:var(--bg); }
 
         .urgent-outline { outline: 2px solid ${PURPLE_URGENT}; outline-offset: -2px; }
         .urgent-faint   { box-shadow: inset 0 0 0 9999px rgba(109,40,217,0.07); }
@@ -964,8 +964,8 @@ export default function App(){
                 onClick={() => setShowUnlock(v => !v)}
                 title="Private calendar"
                 style={{
-                  position: 'absolute', right: -26, top: '50%', transform: 'translateY(-50%)',
-                  width: 26, height: 64, cursor: 'pointer',
+                  position: 'absolute', right: -16, top: '50%', transform: 'translateY(-50%)',
+                  width: 16, height: 48, cursor: 'pointer',
                   background: 'var(--surface)',
                   border: '1px solid var(--border)',
                   borderLeft: 'none',
