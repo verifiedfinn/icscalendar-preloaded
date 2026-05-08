@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* ── Light theme (default) ── */
+  /* Light theme (default) */
   --bg:           #f8fafc;
   --surface:      #ffffff;
   --text:         #111827;
@@ -37,25 +37,39 @@
   --shadow-card:  0 2px 8px rgba(0,0,0,.4);
 }
 
-/* ── Las Cafeteras theme ─────────────────────────────────────── */
+/* ── Las Cafeteras — deep night, marigold & skull energy ────── */
 .theme-lc {
-  --bg:           #fef9e7;
-  --surface:      #fffdf5;
-  --text:         #1a0800;
-  --muted:        #92400e;
-  --border:       #fcd9a0;
-  --border-light: #fde68a;
-  --chip:         #fef3c7;
-  --input-bg:     #fffdf5;
+  /* Transparent bg so the html gradient fills the screen */
+  --bg:           transparent;
+  --surface:      #1a0d35;
+  --text:         #fef3e2;
+  --muted:        #c084fc;
+  --border:       #5b21b6;
+  --border-light: #3b0764;
+  --chip:         #2d1b4e;
+  --input-bg:     #1a0d35;
   --spin:         #f97316;
-  --day-num:      #1a0800;
-  --shadow-card:  0 2px 16px rgba(251,146,60,.10);
+  --day-num:      #fde68a;
+  --shadow-card:  0 4px 24px rgba(249,115,22,.14), 0 0 0 1px rgba(139,92,246,.25);
+
+  /* Full-screen animated night gradient on the html element */
+  background:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g opacity='0.18' transform='translate(50,50)'><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23f97316' transform='rotate(0)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(45)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23eab308' transform='rotate(90)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(135)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23f97316' transform='rotate(180)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(225)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23eab308' transform='rotate(270)'/><ellipse cx='0' cy='-16' rx='4' ry='10' fill='%23ec4899' transform='rotate(315)'/><circle r='7' fill='%23eab308'/></g></svg>"),
+    linear-gradient(135deg, #0f0820 0%, #1a0a2e 25%, #2a0d3a 50%, #1a0830 75%, #0f0820 100%);
+  background-size: 100px 100px, 400% 400%;
+  animation: lcNight 20s ease infinite;
+}
+
+/* Children transparent → html gradient bleeds through */
+.theme-lc body,
+.theme-lc #root,
+.theme-lc .app-root {
+  background: transparent !important;
 }
 
 /* ── Base reset ─────────────────────────────────────────────── */
-body {
+html, body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--text);
@@ -67,56 +81,67 @@ body {
   margin: 0 auto;
 }
 
-/* ── Tailwind color-class overrides (theme-aware) ───────────── */
+/* ── Tailwind color-class overrides ─────────────────────────── */
 .theme-dark .bg-white,
 .theme-lc   .bg-white {
   background-color: var(--surface) !important;
 }
 
-/* ── Dark: card shadows ─────────────────────────────────────── */
 .theme-dark .shadow,
 .theme-dark .shadow-sm {
   box-shadow: var(--shadow-card) !important;
 }
 
-/* ── Las Cafeteras: animated warm background ────────────────── */
-@keyframes lcWarm {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
-}
-
-.theme-lc body {
-  background: linear-gradient(135deg, #fef9e7 0%, #fff7ed 25%, #fef3c7 50%, #fff7ed 75%, #fef9e7 100%);
-  background-size: 400% 400%;
-  animation: lcWarm 18s ease infinite;
-}
-
-/* ── LC colorful top stripe ─────────────────────────────────── */
-@keyframes stripeShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.lc-top-bar { display: none; }
-
-.theme-lc .lc-top-bar {
-  display: block;
-  height: 5px;
-  background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #06b6d4, #22c55e, #eab308, #f97316);
-  background-size: 300% 100%;
-  animation: stripeShift 5s linear infinite;
-  border-radius: 0 0 3px 3px;
-}
-
-/* ── Las Cafeteras: warm card glow ──────────────────────────── */
+/* ── LC: card glow ──────────────────────────────────────────── */
 .theme-lc .bg-white {
   border: 1px solid var(--border) !important;
   box-shadow: var(--shadow-card) !important;
   transition: box-shadow 0.3s ease !important;
 }
 .theme-lc .bg-white:hover {
-  box-shadow: 0 6px 28px rgba(251,146,60,.22) !important;
+  box-shadow: 0 8px 36px rgba(249,115,22,.32), 0 0 0 1px rgba(236,72,153,.35) !important;
+}
+
+/* ── LC: animated title gradient ────────────────────────────── */
+.theme-lc h1 {
+  background: linear-gradient(90deg, #f97316, #eab308, #ec4899, #f97316);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: titleFlame 4s linear infinite;
+}
+
+/* ── LC colorful top stripe (papel picado) ──────────────────── */
+.lc-top-bar { display: none; }
+.theme-lc .lc-top-bar {
+  display: block;
+  height: 5px;
+  background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #06b6d4, #22c55e, #eab308, #f97316);
+  background-size: 300% 100%;
+  animation: stripeShift 4s linear infinite;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+@keyframes lcNight {
+  0%, 100% { background-position: 0% 0%, 0% 50%;   }
+  50%       { background-position: 0% 0%, 100% 50%; }
+}
+
+@keyframes titleFlame {
+  0%   { background-position: 0% 50%;   }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes stripeShift {
+  0%   { background-position: 0% 50%;   }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes rainbowShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ── EP labels ──────────────────────────────────────────────── */
@@ -133,12 +158,6 @@ body {
 }
 
 /* ── Pills ──────────────────────────────────────────────────── */
-@keyframes rainbowShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .rainbow-pill {
   display: inline-block;
   padding: 4px 10px;

@@ -942,7 +942,7 @@ export default function App(){
 
         {/* Filters + controls row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 items-stretch">
-          <div className="bg-white rounded-2xl shadow p-3 min-w-0">
+          <div className="bg-white rounded-2xl shadow p-3 min-w-0" style={{ position: 'relative' }}>
             <h2 className="font-semibold mb-2">1) Calendars</h2>
             <div className="text-sm">Show calendars</div>
             <div className="flex flex-wrap gap-3 text-sm mt-2">
@@ -958,12 +958,23 @@ export default function App(){
             )}
 
             <div className="divider" />
-            {/* discreet private-calendar tab — bottom of panel */}
+            {/* side tab for private calendar — sits on the right edge of the card */}
             {!appPassword && (
-              <div style={{ display:'flex', justifyContent:'flex-end', marginTop:'-4px' }}>
-                <button onClick={() => setShowUnlock(v => !v)}
-                  style={{ background:'none', border:'none', cursor:'pointer', color:'var(--muted)', opacity:0.35, fontSize:'11px', padding:'2px 4px', letterSpacing:'1px' }}>···</button>
-              </div>
+              <div
+                onClick={() => setShowUnlock(v => !v)}
+                title="Private calendar"
+                style={{
+                  position: 'absolute', right: -13, top: '50%', transform: 'translateY(-50%)',
+                  width: 13, height: 48, cursor: 'pointer',
+                  background: 'var(--border)', borderRadius: '0 8px 8px 0',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  boxShadow: '2px 0 6px rgba(0,0,0,.12)',
+                  opacity: 0.7,
+                  transition: 'opacity 0.15s, width 0.15s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.width = '16px'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.width = '13px'; }}
+              />
             )}
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
