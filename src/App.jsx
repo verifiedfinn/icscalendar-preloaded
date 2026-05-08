@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
+import LoginPage from "./LoginPage.jsx";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (ICALns && ICALns.parse) ? ICALns
@@ -25,7 +26,7 @@ const endOfDay   = (d) => { const x = new Date(d); x.setHours(23,59,59,999); ret
 const addDays    = (d,n)=> { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
 const monthStart = (d) => new Date(d.getFullYear(), d.getMonth(), 1);
 const monthEnd   = (d) => new Date(d.getFullYear(), d.getMonth()+1, 0);
-const dayKey     = (d) => d.toISOString().slice(0,10);
+const dayKey     = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const clamp      = (v,a,b)=> Math.max(a, Math.min(b, v));
 const minutesBetween = (a,b)=> Math.max(0, Math.round((b-a)/60000));
 const mergeIntervals = (ints)=>{
@@ -36,7 +37,7 @@ const mergeIntervals = (ints)=>{
 };
 const splitIntervalByDays = (s,e)=>{
   const out=[]; let cur=s;
-  while(cur<e){ const dayEnd=endOfDay(new Date(cur)).getTime()+1; const segEnd=Math.min(dayEnd,e); out.push({date:new Date(cur).toISOString().slice(0,10), start:cur, end:segEnd}); cur=segEnd; }
+  while(cur<e){ const dayEnd=endOfDay(new Date(cur)).getTime()+1; const segEnd=Math.min(dayEnd,e); const _d=new Date(cur); out.push({date:`${_d.getFullYear()}-${String(_d.getMonth()+1).padStart(2,'0')}-${String(_d.getDate()).padStart(2,'0')}`, start:cur, end:segEnd}); cur=segEnd; }
   return out;
 };
 const invertIntervals = (merged, ws, we) => {
@@ -154,10 +155,14 @@ const PODCAST_ID = "podcast_live";
 const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
 const MATT_SOURCE_ID = "matt_live";
 const HECTOR_SOURCE_ID = "hector";
+const HECTOR_PERSONAL_ID = "hector_personal";
 
-/** If you swapped Hector to a new ICS, export it as: public/calendars/Hector.ics */
+// Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
+// from the Artist Growth live feed. Events = Hector busy (availabilityMode:false).
+// Hector Personal is proxied by the Vercel API route /api/hector-personal.
 const PRESET_CALENDARS = [
-  { id: HECTOR_SOURCE_ID, name: "Hector.ics", url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: true },
+  { id: HECTOR_SOURCE_ID,   name: "Hector (Shows)",    url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: false },
+  { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `/api/hector-personal`, availabilityMode: false, requiresAuth: true },
 ];
 const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
 
@@ -199,9 +204,10 @@ const PURPLE_URGENT = "#6d28d9";
 const looksHtml = (s) => /^\s*<!doctype html|^\s*<html/i.test(s||"");
 const looksJson = (s) => /^\s*(\{|\[)/.test(s||"");
 
-async function fetchText(url, { bust = false } = {}) {
+async function fetchText(url, { bust = false, authToken = null } = {}) {
   const final = bust ? (url + (url.includes("?") ? "&" : "?") + "t=" + Date.now()) : url;
-  const resp = await fetch(final, { cache: "no-store" });
+  const headers = authToken ? { Authorization: `Bearer ${authToken}` } : undefined;
+  const resp = await fetch(final, { cache: "no-store", ...(headers && { headers }) });
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   return resp.text();
 }
@@ -296,13 +302,16 @@ function parseICSText(text, sourceId, sourceName){
       const summary = e.summary || "Event";
       const isUrgent = /!/.test(summary); // "need more info" marker
       const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
+      // X-HECTOR-TYPE:LOCATION marks hotel/lodging entries — show as location
+      // context in the sidebar but do not count toward busy time.
+      const isLocation = (v.getFirstPropertyValue("x-hector-type") || "").toUpperCase() === "LOCATION";
 
       if (e.isRecurring()) {
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, isRecurring: true, component: v });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, isLocation, isRecurring: true, component: v });
       } else {
         const s = e.startDate.toJSDate();
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
     } catch {}
   }
@@ -313,6 +322,16 @@ function parseICSText(text, sourceId, sourceName){
    UI
 ========================= */
 export default function App(){
+  const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
+
+  if (!appPassword) {
+    return <LoginPage onLogin={pw => setAppPassword(pw)} />;
+  }
+
+  return <AuthedApp appPassword={appPassword} onLogout={() => { localStorage.removeItem('app_pw'); setAppPassword(null); }} />;
+}
+
+function AuthedApp({ appPassword, onLogout }) {
   const today = new Date();
 
   const TZ_OPTS = [
@@ -385,13 +404,15 @@ export default function App(){
 
         for (const p of PRESET_CALENDARS) {
           try {
-            const raw = await fetchText(p.url, { bust: true });
+            const token = p.requiresAuth ? appPassword : null;
+            const raw = await fetchText(p.url, { bust: !p.requiresAuth, authToken: token });
             const evs = parseICSText(raw, p.id, p.name);
             loadedSources.push({ id: p.id, name: p.name });
             loadedEvents.push(...evs);
             setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
             setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
           } catch (e) {
+            if (String(e?.message).includes('401')) { onLogout(); return; }
             setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
           }
         }
@@ -525,6 +546,7 @@ export default function App(){
             out.push({
               sourceId:e.sourceId, sourceName:e.sourceName, summary,
               isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
+              isLocation: e.isLocation,
               start:s, end:ee, allDay:next.isDate
             });
             if (++i > 5000) break;
@@ -559,7 +581,8 @@ export default function App(){
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
 
-        if (ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
+        // Location events (hotels) show context only — skip busy-time accounting
+        if (!ev.isLocation && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
           if(!perDayUnion.has(k)) perDayUnion.set(k, []);
           perDayUnion.get(k).push([seg.start, seg.end]);
         }
@@ -567,8 +590,8 @@ export default function App(){
         if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
-        m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent });
+        if (!ev.isLocation) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isLocation: !!ev.isLocation });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
@@ -625,7 +648,7 @@ export default function App(){
         }
         for (const t of titles) {
           const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent });
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isLocation: !!t.isLocation });
         }
       }
       for (const s of sources) {
@@ -1053,12 +1076,15 @@ export default function App(){
                             {activeInfo.titles.map((t,i)=>(
                               <li key={i} className="flex items-start gap-2">
                                 <span
-                                  className="mt-1 inline-block w-2.5 h-2.5 rounded-full"
-                                  style={{ background: t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
-                                  title={t.isUrgent ? "Need more information" : t.sourceName}
+                                  className="mt-1 inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
+                                  style={{ background: t.isLocation ? "#6b7280" : t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
+                                  title={t.isLocation ? "Location / hotel" : t.isUrgent ? "Need more information" : t.sourceName}
                                 />
                                 <div>
-                                  <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
+                                  {t.isLocation
+                                    ? <span className="tag" style={{background:"#f0fdf4",borderColor:"#bbf7d0",color:"#166534",marginRight:4}}>📍 Location</span>
+                                    : <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
+                                  }
                                   {" "}· <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
                                 </div>
                               </li>

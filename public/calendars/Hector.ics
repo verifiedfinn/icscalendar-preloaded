@@ -1,94 +1,2031 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Finn Horgan//Hector Availability 2026//EN
+PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
+X-WR-CALNAME:Las Cafeteras @ Artist Growth
+X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
+X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
-UID:hector-2026-may-block1@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260512
-DTEND;VALUE=DATE:20260521
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (May 12-20)
+TRANSP:OPAQUE
+UID:21752ab4-d4e5-418e-92b4-f6b46299d522
+DTSTAMP:20260211T002622
+SUMMARY:DC/HF Walktthrough-  The Wallis
+DTSTART;TZID=America/Los_Angeles:20260211T110000
+DTEND;TZID=America/Los_Angeles:20260211T120000
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 310-246-3800\n
+    http://www.thewallis.org/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.thewallis.org/
+GEO:34.0724741;-118.4017355
+LOCATION:Wallis Annenberg Center for the Performing Arts\n9390 N Santa Mo
+ nica Blvd\nBeverly Hills CA  90210 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Wallis Annenberg Center for the Performing Arts\n9390 N Santa Moni
+ ca Blvd\nBeverly Hills CA 90210 United States":geo:34.0724741,-118.40173
+ 55
+CREATED:20260211T002622
+LAST-MODIFIED:20260211T002622
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-may-block2@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260525
-DTEND;VALUE=DATE:20260526
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full day (May 25)
+TRANSP:OPAQUE
+UID:c2fa75cf-b35a-4d87-b307-865e31696615
+DTSTAMP:20260221T202355
+SUMMARY:DC/ HF Fly to Minneapolis
+DTSTART;VALUE=DATE:20260226
+DTEND;VALUE=DATE:20260227
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flights - LAX>MSP - United - D6TN65 - DC\,HF - United\n
+    1912\n
+    DEPART: Los Angeles International Airport 2/26/2026 9:01 AM PST\n
+    ARRIVE: Minneapolis–Saint Paul International Airport 2/26/2026 4:33
+  PM CST\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260221T202355
+LAST-MODIFIED:20260221T202355
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-jun-block1@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260601
-DTEND;VALUE=DATE:20260604
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (June 1-3)
+TRANSP:OPAQUE
+UID:f8d5cb11-f226-430a-8f57-43d13c7b12cb
+DTSTAMP:20260226T032009
+SUMMARY:Saturday Lunch & Workshop Activity
+DTSTART;TZID=America/Chicago:20260228T120000
+DTEND;TZID=America/Chicago:20260228T151500
+DESCRIPTION:Saturday\, February 28
+  12:00 pm Lunch at IRoots (gallery)\n
+  1:00 pm Buffalo Ceremony at IRoots (Bodega)\n
+  2:00pm “My Story/ Our Legacy” Community Story Sharing Workshop (gal
+ lery)\n
+  4:00 pm Food by Isaac’s Blessings (gallery)\n
+  5:00 pm Bring the Heat Screenprinting with Myles Designs/Skoden Studio
+ (gallery)\n
+  6:00 pm Dinner at IRoots (gallery)\n
+  7:00 pm Bring the Heat Block Party with DJ\, Live Music and Las Cafeter
+ as! (Bodega)\n
+  \nVENUE INFO:\n
+    tel:+1 651-395-7145\n
+    http://indigenous-roots.org/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://indigenous-roots.org/
+GEO:44.9608391;-93.0677189
+LOCATION:Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSa
+ int Paul MN  55106 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSain
+ t Paul MN 55106 United States":geo:44.9608391,-93.0677189
+CREATED:20260226T032009
+LAST-MODIFIED:20260226T032152
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-jun-block2@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260605
-DTEND;VALUE=DATE:20260625
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (June 5-24)
+TRANSP:OPAQUE
+UID:e7133078-9e1b-4160-ba79-29fe0bb88332
+DTSTAMP:20260221T202432
+SUMMARY:Block Party Show
+DTSTART;TZID=America/Chicago:20260228T130000
+DTEND;TZID=America/Chicago:20260228T230000
+DESCRIPTION:1pm LC Musicians Arrive from Airport
+  2pm set up Angie/ Moi set-up IEM\n
+  3-5pm soundcheck\n
+  Artist Line Up\n
+  5:00 pm DJ QueenDuinn (gallery)\n
+  7:00 pm\n
+  7:30 pm Youth Band\n
+  8:00 pm\n
+  8:30 pm LAS CAFETERAS SHOW TIME (90MIN)\n
+  \nVENUE INFO:\n
+    tel:+1 651-395-7145\n
+    http://indigenous-roots.org/\n
+  \n*************************************\nSCHEDULE:\n
+  12:30 PM CST: 12:30 Mijangos and John land/ head to IRoots\n-----------
+ -----------------------------\n
+  2:00 PM - 3:00 PM CST: Tech set up/ Angie & Moi  (IEM)\n---------------
+ -------------------------\n
+  3:00 PM CST: Jonny lands/ head to IRoots\n-----------------------------
+ -----------\n
+  3:00 PM - 5:00 PM CST: Musician set-up/soundcheck\n--------------------
+ --------------------\n
+  5:00 PM CST: Doors\n----------------------------------------\n
+  7:00 PM CST: CALL TIME\n----------------------------------------\n
+  8:00 PM CST: Changeover\n----------------------------------------\n
+  8:30 PM - 10:00 PM CST: Show time (90min)\n----------------------------
+ ------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://indigenous-roots.org/
+GEO:44.9608391;-93.0677189
+LOCATION:Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSa
+ int Paul MN  55106 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSain
+ t Paul MN 55106 United States":geo:44.9608391,-93.0677189
+CREATED:20260221T202432
+LAST-MODIFIED:20260226T021707
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-jun-block3@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260630
-DTEND;VALUE=DATE:20260701
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full day (June 30)
+TRANSP:OPAQUE
+UID:2625b0ce-d987-41d8-9574-c8fcf3d28d2f
+DTSTAMP:20260212T191306
+SUMMARY:SEIU Music Video & Rally
+DTSTART;TZID=America/Los_Angeles:20260318T090000
+DTEND;TZID=America/Los_Angeles:20260318T180000
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  9:00 AM - 1:00 PM PDT: Musician call time (Music video)\n--------------
+ --------------------------\n
+  12:00 PM PDT: 12pm Angie Call time for set up (Grand Park stage)\n-----
+ -----------------------------------\n
+  1:00 PM - 2:30 PM PDT: Band call time- set up/ soundcheck\n------------
+ ----------------------------\n
+  2:45 PM - 3:15 PM PDT: LC Changeover & 2:30 min set\n  3:30pm DJ\n
+  4-4:30 Jornaleros del Norte\n
+  4-4:45pm Changeover\n
+  4:45-5:15pm Las Cafeteras\n
+  5:15-6:15pm RALLY\n
+  **WHAT TIME CAN WE STRIKE??**\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260212T191306
+LAST-MODIFIED:20260313T213817
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-jul-block1@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260701
-DTEND;VALUE=DATE:20260716
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (July 1-15)
+TRANSP:OPAQUE
+UID:576d47dc-2e0c-4cf9-8c78-b71b4d520e90
+DTSTAMP:20250618T215649
+SUMMARY:Viva el Arte de Santa Bárbara
+DTSTART;VALUE=DATE:20260319
+DTEND;VALUE=DATE:20260323
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  10:00 AM - 12:00 PM PDT: DC/HF Music as protest workshop\n  Staff: Ashl
+ ey & Roshan\n
+  La Cumbre Jr. High\, 2255 Modoc Rd\, Santa Barbara\, CA 93101\n
+  10:00am-12:00pm\, Music as protest workshop\n
+  2X 45MIN\n
+  Period 2 1012-11:00 ~ 30 Students Drumline\n
+  Period 3 1104-1155 ~20 Students Jazz Band\n
+  \n----------------------------------------\n
+  4:00 PM - 9:00 PM PDT: VIVA LA CULTURA Y MUSICA (PUBLIC/FAMILY)\n  Carp
+ interia Veterans Hall\, 941 Walnut Ave\, Carpinteria\n
+  4PM BAND ARRIVES\n
+  4:30 PM Sound check (ONLY PA)\n
+  5:30 PM DINNER\n
+  6:30 PM Doors\n
+  7:00-8:00 PM Performance(families/all ages) VIVA LA CULTURA\n
+  8:00-9:00 PM Reception\n
+  \n----------------------------------------\n
+  3/20/2026 12:00 PM - 3/20/2026 9:00 PM PDT: Goleta School shows & Eve.
+ Concert\n  3/20 Friday Staff: Ashley & Roshan + Aliz / Student: Merch\n
+  *Meet at Isla Vista School 12pm\n
+  Isla Vista Elementary 6875 El Colegio Rd\, Goleta\n
+  1:00-1:25PM Isla Vista Elementary assembly\,(215 students\, ages 4-8)\n
+  1:45-2:15 PM Isla Vista Elementary assembly\, (200 students\, ages 8-11
+ )\n
+  2:15-3:45pm- Break time\n
+  3pm Angie Arrives/ 3:00 backline arrival -How many PA inputs?\n
+  4:00 PM Sound check\n
+  5:30 PM DINNER\n
+  6:30 PM Doors\n
+  7:00-8:00 PM Performance(families/all ages)\n
+  8:00-9:00 PM Reception\n
+  END OF DAY\n
+  \n----------------------------------------\n
+  3/21/2026 1:15 PM - 3/21/2026 9:00 PM PDT: Guadalupe commute 1.5 hours/
+   Concert\n  3/21 Saturday\, Guadalupe City Hall\, 918 Obispo St.\, Guad
+ alupe -\n
+  1:15pm lobby\n
+  1:30 PM Van departure from SB\n
+  3pm PM set up/Sound check\n
+  5:00 PM DINNER\n
+  6:30 PM Doors\n
+  7:00 PM Performance\n
+  8:00-9:00 PM Reception\n
+  9:00 PM Departure from Guadalupe back to SB\n
+  END OF DAY\n
+  \n----------------------------------------\n
+  3/22/2026 12:30 PM - 3/22/2026 8:00 PM PDT: SB museum show and theatre
+ concert\n  3/22 Sunday\n
+  Meet at Santa Barbara Museum of Art\n
+  12:30pm\, arrive\n
+  1:00-2:00PM street performance (PA only)\n
+  Marjorie Luke Theater\, 721 Cota St.\,\n
+  2:00pm Marjorie Lukeopens for Angie to set up\n
+  2:30pm band load/soundcheck\n
+  4:30 PM DINNER\n
+  5:30 PM Doors\n
+  6:00 -7:00 PM Performance\n
+  7:00-8:00 PM Reception\n
+  END OF VIVA EL ARTE!\n
+  \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    HOTEL: Best Western Plus South Coast\n
+    5620 Calle Real\, Goleta\, CA\, 93117\, US\n
+    ARRIVE: 3/19/2026 12:00 AM PDT\n
+    DEPART: 3/23/2026 11:59 PM PDT\n
+    Best Western Plus South Coast\n
+  5620 Calle Real\, Goleta\, CA 93117\n
+  (805) 967-3200\n
+  Arriving 3/18/26\n
+  Denise Carlos    conf# 88404\n
+  Hector Flores conf# 88405\n
+  Arriving 3/19/26\n
+  Moises Baqueiro  conf# 88406\n
+  Jonny Jyemo       conf# 88407\n
+  Jorge Mijangos conf# 88408\n
+  Hector Lopez      conf# 88409\n
+  Arriving 3/20/26\n
+  Angela Gonzalez conf# 101640\n
+  Arriving 3/21/26\n
+  Alih Jey De Pena   conf#101641\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20250618T215649
+LAST-MODIFIED:20260221T204114
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-jul-block2@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260723
-DTEND;VALUE=DATE:20260730
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (July 23-29)
+TRANSP:OPAQUE
+UID:bcfa2179-c35c-45c2-b7e7-e343f538cd72
+DTSTAMP:20260104T225152
+SUMMARY:DC/ HF Fly to Chicago
+DTSTART;VALUE=DATE:20260324
+DTEND;VALUE=DATE:20260325
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Rental Car - Budget - DC\n  Budget : Mini Van\n
+  Itinerary#73395050720888\n
+  Confirmation #42222327US0\n
+  Budget Phone Number: 773 894 1900\n
+  Pick-up\n
+  Tue\, Mar 24\, 5:00pm\n
+  Ohare International Apo-10255 West Zemke Blvd\, Chicago\, Illinois\, US
+ A\, ORD\n
+  Drop-off\n
+  Mon\, Mar 30\, 5:00pm\n
+  5500 44Th St Se Unit 9\, Grand Rapids\, Michigan\, USA\, GRR\n
+  \n----------------------------------------\n
+  5:00 PM - 3/25/2026 5:00 PM PDT: Rental Car - Budget - HF\n  Budget: Mi
+ ni Van\n
+  Itinerary#73395049334404\n
+  Confirmation #42222218US3\n
+  Budget Phone Number: 773 894 1900\n
+  Pick-up\n
+  Tue\, Mar 24\, 5:00pm\n
+  Ohare International Apo-10255 West Zemke Blvd\, Chicago\, Illinois\, US
+ A\, ORD\n
+  Drop-off\n
+  Mon\, Mar 30\, 5:00pm\n
+  5500 44Th St Se Unit 9\, Grand Rapids\, Michigan\, USA\, GRR\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - LAX>ORD - United - EKFQ7D  - CM\,DC\,HF - United\n
+    2113\n
+    DEPART: Los Angeles International Airport 3/24/2026 10:55 AM PDT\n
+    ARRIVE: Chicago O'Hare International Airport 3/24/2026 5:05 PM CDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260104T225152
+LAST-MODIFIED:20260304T195747
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-aug-block1@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260803
-DTEND;VALUE=DATE:20260808
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (August 3-7)
+TRANSP:OPAQUE
+UID:e25e76c2-aa05-40cb-82e1-0152213117bc
+DTSTAMP:20260223T203719
+SUMMARY:Elgin Hotel: Best Western Plus Elgin
+DTSTART;TZID=America/Chicago:20260325T150000
+DTEND;TZID=America/Chicago:20260328T110000
+DESCRIPTION:Denise Carlos (single) - 20852
+  Hector Flores (single) - 20853\n
+  Diego Chi & Jonny Jyemo (double) - 20854\n
+  Angela Gonzalez& Alih Jey (double) - 20855\n
+  Jorge Mijangos & John Calinchini (double) - 20856\n
+  Checking in from March 25 through March 28\, 2026.\n
+            Breakfast is included.\n
+  \nVENUE INFO:\n
+    tel:+1 847-429-0300\n
+    https://www.bestwestern.com/en_US/book/hotel-rooms.14237.html?iata=00
+ 171880&ssob=BLBWI0004G&cid=BLBWI0004G:google:gmb:14237\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.bestwestern.com/en_US/book/hotel-ro
+ oms.14237.html?iata=00171880&ssob=BLBWI0004G&cid=BLBWI0004G:google:gmb:1
+ 4237
+GEO:42.07479499999999;-88.2885
+LOCATION:Best Western Plus Elgin - Chicago\n2175 Marriott Dr\nWest Dundee
+  IL  60118 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Best Western Plus Elgin - Chicago\n2175 Marriott Dr\nWest Dundee I
+ L 60118 United States":geo:42.07479499999999,-88.2885
+CREATED:20260223T203719
+LAST-MODIFIED:20260313T212927
+X-HECTOR-TYPE:LOCATION
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-aug-block2@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260810
-DTEND;VALUE=DATE:20260815
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (August 10-14)
+TRANSP:OPAQUE
+UID:dbc83529-93c5-452c-8eb6-1c5bd3a8d517
+DTSTAMP:20250413T030145
+SUMMARY:Elgin Community College\, Blizzard Theatre
+DTSTART;VALUE=DATE:20260326
+DTEND;VALUE=DATE:20260328
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Thursday\, March 26 - (2) educational outreach activities
+  Friday\, March 27 - one (1) public performance with a 15 – 20 minute
+ intermission.  Meet/greet with audience after the performance.\n
+  Elgin Community College Arts Center\, Blizzard Theatre\n
+  \nVENUE INFO:\n
+    tel:+1 847-622-0300\n
+    https://eccartscenter.org/?utm_source=google&utm_medium=organic&utm_c
+ ampaign=GMB-BFB-Arts-Center\n
+  \n*************************************\nSCHEDULE:\n
+  10:30 AM - 1:45 PM CDT: DC/HF “A peoples History of Music” (2 works
+ hops)\n  ECC ART CENTER (Bldg H/ Dock H)\n
+  Workshops will be in room H123. Entry can be made through the backstag
+ e door\n
+  Music of the World classes. 75min each\n
+  Meeting: Thurs. Mar 26 11am – 12:15  AND   12:30pm – 1:45pm\
+ n
+  Arrive: 10:30am\n
+  Workshop contact:\n
+  Cindy Gaspardo   l  Mgr. of Performing Arts\n
+  (847) 214-7140 l cgaspardo@elgin.edu\n
+  \n----------------------------------------\n
+  2:30 PM CDT: 2:30pm lobby\n----------------------------------------\n
+  3/27/2026 3:00 PM - 3/27/2026 5:30 PM CDT: Load/Soundcheck\n-----------
+ -----------------------------\n
+  3/27/2026 5:30 PM CDT: Dinner\n----------------------------------------
+ \n
+  3/27/2026 7:00 PM CDT: Doors\n----------------------------------------\
+ n
+  3/27/2026 7:30 PM - 3/27/2026 9:30 PM CDT: Show time! (2x 45min. w/ int
+ ermission)\n  Friday\, March 27 \; one (1) public performance with a 15
+ – 20 minute intermission. If possible\, meet/greet with audience after
+  the performance.\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://eccartscenter.org/?utm_source=google&ut
+ m_medium=organic&utm_campaign=GMB-BFB-Arts-Center
+GEO:42.018573;-88.32426599999999
+LOCATION:Elgin Community College Arts Center\n1700 Spartan Dr Building H\
+ nElgin IL  60123 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Elgin Community College Arts Center\n1700 Spartan Dr Building H\nE
+ lgin IL 60123 United States":geo:42.018573,-88.32426599999999
+CREATED:20250413T030145
+LAST-MODIFIED:20260310T064030
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-aug-block3@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260817
-DTEND;VALUE=DATE:20260819
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (August 17-18)
+TRANSP:OPAQUE
+UID:96722dbc-556f-4bbc-84a8-2ad93430c371
+DTSTAMP:20260103T045753
+SUMMARY:Grayslake\, IL
+DTSTART:20260328T170000Z
+DTEND:20260329T013000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:¡Vívela! Marquee Series
+  Mainstage Theatre\n
+  Jeremy Eiden\, Production Manager (Cell) 262-496-4351\n
+  Dave Unger\, head of audio.\n
+  HOTEL BUYOUT\n
+  \nVENUE INFO:\n
+    tel:+1 847-543-2300\n
+    https://www.jlcenter.clcillinois.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  12:00 PM CDT: Lobby & breakfast at Alexander’s & 1 hr drive\n--------
+ --------------------------------\n
+  3:00 PM - 5:15 PM CDT: Load-in/Set-up & Soundcheck\n-------------------
+ ---------------------\n
+  5:30 PM CDT: Dinner served\n----------------------------------------\n
+  6:30 PM CDT: Doors\n----------------------------------------\n
+  7:00 PM - 8:30 PM CDT: Showtime! 90MIN\n-------------------------------
+ ---------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Sonesta CHICAGO O'HARE\n
+    Rosemont\, IL\, 60018\, US\n
+    ARRIVE: 3/28/2026 11:00 PM CDT\n
+    DEPART: 3/29/2026 8:00 AM CDT\n
+    1 Denise Carlos\n
+  2 Hector Flores\n
+  Confirmation number\n
+  73407200328683\n
+  3 Jorge Mijangos & Diego Chi\n
+  4 Angela Gonzalez & Alih Jey De Pena\n
+  5 Jonny Jyemo  & John Calinchini\n
+  Confirmation number\n
+  73407202191077\n
+  \n
+    tel:1 847-954-8600\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.jlcenter.clcillinois.edu/
+GEO:42.3543672;-88.01110009999999
+LOCATION:James Lumber Center for the Performing Arts\n19351 W Washington
+ St\nGrayslake IL  60030 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="James Lumber Center for the Performing Arts\n19351 W Washington St
+ \nGrayslake IL 60030 United States":geo:42.3543672,-88.01110009999999
+CREATED:20260103T045753
+LAST-MODIFIED:20260313T211813
+X-HECTOR-SCHED:20260328 → 720–1230 min (CDT)
 END:VEVENT
 BEGIN:VEVENT
-UID:hector-2026-aug-block4@finnhorgan.com
-DTSTAMP:20260507T000000Z
-DTSTART;VALUE=DATE:20260824
-DTEND;VALUE=DATE:20260828
-SUMMARY:Hector Available
-DESCRIPTION:Hector available full days (August 24-27)
+TRANSP:OPAQUE
+UID:24afe073-57a8-4d91-9b5d-8aa69d317a9b
+DTSTAMP:20260104T225742
+SUMMARY:Connecting Chords Music Festival (Kalamazoo\, IL)
+DTSTART:20260329T120000Z
+DTEND:20260329T213000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:4pm- 75-90min
+  post show meet & greet\n
+  Contact:\n
+  Elizabeth Start\n
+  269-598-5090\n
+  es@elizabethstart.com\n
+  \nVENUE INFO:\n
+    tel:+1 269-250-8783\n
+    http://www.comstockps.org/community/comstock_community_auditorium\n
+  \n*************************************\nSCHEDULE:\n
+  8:00 AM EDT: Lobby & Drive out (2.5hrs)- Time change/ we lose an hour\n
+ ----------------------------------------\n
+  12:30 PM EDT: Load 12:30pm\n----------------------------------------\n
+  1:30 PM - 3:15 PM EDT: Set-up /Soundcheck\n----------------------------
+ ------------\n
+  2:30 PM EDT: Lunch served\n----------------------------------------\n
+  3:00 PM EDT: Building opens\n----------------------------------------\n
+  3:30 PM EDT: Doors\n----------------------------------------\n
+  4:00 PM - 5:30 PM EDT: SHOWTIME! 90 mi\n-------------------------------
+ ---------\n
+  5:45 PM EDT: Diego Lyft to Grand Rapids Airport (1 hr commute)\n-------
+ ---------------------------------\n
+  7:00 PM EDT: Head to dinner then drive to Grand Rapids hotel\n---------
+ -------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.comstockps.org/community/comstock_co
+ mmunity_auditorium
+GEO:42.30689599999999;-85.51898910000001
+LOCATION:Comstock Community Auditorium\n2107 N 26th St\nKalamazoo MI  490
+ 48 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Comstock Community Auditorium\n2107 N 26th St\nKalamazoo MI 49048
+ United States":geo:42.30689599999999,-85.51898910000001
+CREATED:20260104T225742
+LAST-MODIFIED:20260310T190707
+X-HECTOR-SCHED:20260329 → 480–1050 min (EDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:096d597f-9d0e-4c3b-812c-8a2413258489
+DTSTAMP:20260313T213539
+SUMMARY:Grand Rapids Hotel
+DTSTART;VALUE=DATE:20260329
+DTEND;VALUE=DATE:20260330
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    Hotel - Sonesta Hotel Grand Rapids Airport\n
+    Grand Rapids\, MI\, 49512\, US\n
+    ARRIVE: 3/29/2026 3:00 PM EDT\n
+    DEPART: 3/30/2026 11:00 AM EDT\n
+    1    Denise Carlos\n
+    2    Hector Flores\n
+    3    Jorge Mijangos & Diego Chi\n
+    4    Angela Gonzalez & Alih Jey De Pena\n
+    5     Jonny Jyemo  & John Calinchini\n
+  \n
+    tel:1 616-949-9222\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260313T213539
+LAST-MODIFIED:20260313T213539
+X-HECTOR-TYPE:LOCATION
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:55c1d330-1836-41e7-b0d0-7c404e9cb26b
+DTSTAMP:20260221T204150
+SUMMARY:Travel home
+DTSTART;VALUE=DATE:20260330
+DTEND;VALUE=DATE:20260331
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - GRR> ONT - United - GJ16YK - AG - United\n
+    1102\n
+    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
+    ARRIVE: Ontario International Airport 3/30/2026 12:38 PM PDT\n
+    \n----------------------------------------\n
+    Flight - GRR>LAX - United - E736BG - HF\, AD\, JJ - United\n
+    1102\n
+    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
+    ARRIVE: Hollywood Burbank Airport 3/30/2026 12:58 PM PDT\n
+    \n----------------------------------------\n
+    Flight - GRR>LAX - United - EJVEKQ - JC - United\n
+    1102\n
+    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
+    ARRIVE: Meadows Field Airport 3/30/2026 1:20 PM PDT\n
+    \n----------------------------------------\n
+    Flight - GRR>SBA - United - GJPFSV - JM - United\n
+    1102\n
+    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
+    ARRIVE: Santa Barbara Airport 3/30/2026 1:14 PM PDT\n
+    \n----------------------------------------\n
+    Flights - GRR>BUR - United - E7GWLV - DC - United\n
+    1102\n
+    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
+    ARRIVE: Hollywood Burbank Airport 3/30/2026 12:58 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260221T204150
+LAST-MODIFIED:20260221T204150
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:95398443-7cb1-4f0d-8fe7-cd3dc15889cc
+DTSTAMP:20250402T005549
+SUMMARY:Montalvo Arts Center (Saratoga\, CA)
+DTSTART:20260409T220000Z
+DTEND:20260410T043000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Contact: Tim Reeve
+  408-961-5855\n
+  Production:Robert Garrett will work with you regarding schedule for the
+  day\, backline arrangements\, audio\, 408-961-5855 / rgarrett@montalvo
+ arts.org.\n
+  VENUE: The Carriage House Theatre @ Montalvo Arts Center\n
+  Montalvo to provide backline per rider submitted with Contract\n
+  Montalvo does not provide travel or local transportation\n
+  Hotel- 1 night\n
+  \nVENUE INFO:\n
+    tel:+1 408-961-5858\n
+    http://montalvoarts.org/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM - 5:30 PM PDT: Load/Sound\n------------------------------------
+ ----\n
+  5:30 PM PDT: Dinner Served (Send order to Denise)\n  Order link:  https
+ ://www.dropbox.com/scl/fo/1as9bstfgg9q3qc4uti50/AMd5-0UO9FgWpWPUkfym5iU/
+ Andale%20Taqueria%20Menu.jpg?rlkey=4bh7zltcmxh8qjm7dyimuusx2&st=dhloae7r
+ &dl=0\n
+  \n----------------------------------------\n
+  7:00 PM PDT: Doors\n----------------------------------------\n
+  7:30 PM - 9:30 PM PDT: Showtime (90min)\n------------------------------
+ ----------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Saratoga Hotel: Toll House Hotel\n
+    140 S Santa Cruz Ave\, Los Gatos\, CA\, 95030\, US\n
+    ARRIVE: 4/9/2026 3:00 PM PDT\n
+    DEPART: 4/10/2026 11:00 AM PDT\n
+    Toll House Hotel\n
+  140 S. Santa Cruz Ave.\n
+  Los Gatos\, CA  95060\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://montalvoarts.org/
+GEO:37.2438887;-122.0308382
+LOCATION:Montalvo Arts Center\n15400 Montalvo Rd\nSaratoga CA  95070 Unit
+ ed States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Montalvo Arts Center\n15400 Montalvo Rd\nSaratoga CA 95070 United
+ States":geo:37.2438887,-122.0308382
+CREATED:20250402T005549
+LAST-MODIFIED:20260401T015208
+X-HECTOR-SCHED:20260409 → 900–1290 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:bde85a9c-e627-4a2b-bcb9-678e02f2c7be
+DTSTAMP:20260406T230514
+SUMMARY:Flight to San Jose\, Drive to venue (John drives himself)
+DTSTART;VALUE=DATE:20260409
+DTEND;VALUE=DATE:20260410
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  1:30 PM - 4/10/2026 1:30 PM PDT: Rental Car - Budget - DC\n  Budget - M
+ ini Van\n
+  Pick-up and drop-off\n
+  Thu\, Apr 9\, 1:30pm - Tue\, Apr 14\, 1:30pm\n
+  Confirmation #43757155US1\n
+  Itinerary#73414929793698\n
+  \n----------------------------------------\n
+  1:30 PM - 4/10/2026 1:30 PM PDT: Rental Car - Budget - HF\n  Budget - M
+ ini Van\n
+  Pick-up and drop-off\n
+  Thu\, Apr 9\, 1:30pm - Tue\, Apr 14\, 1:30pm\n
+  Confirmation #43757039US4\n
+  Itinerary#73414928871037\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - ONT>SJC - Southwest - CFARW8 - AG - Southwest\n
+    106\n
+    DEPART: Ontario 4/9/2026 10:30 AM PDT\n
+    ARRIVE: San Jose 4/9/2026 11:45 AM PDT\n
+    \n----------------------------------------\n
+    Flight - BUR>SJC - Southwest - AZRSHB - JM - Southwest\n
+    1001\n
+    DEPART: Hollywood Burbank Airport 4/9/2026 12:55 PM PDT\n
+    ARRIVE: San Jose Mineta International Airport 4/9/2026 2:10 PM PDT\n
+    \n----------------------------------------\n
+    Flight - BUR>SJC - Southwest - CEYUDH - JJ\, MB - Southwest\n
+    1001\n
+    DEPART: Burbank 4/9/2026 12:55 PM PDT\n
+    ARRIVE: San Jose 4/9/2026 2:10 PM PDT\n
+    \n----------------------------------------\n
+    Flight - LGB>SJC - Southwest - CEXBJM - DC\, HF - Southwest\n
+    1390\n
+    DEPART: Long Beach 4/9/2026 1:00 PM PDT\n
+    ARRIVE: San Jose 4/9/2026 2:15 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260406T230514
+LAST-MODIFIED:20260407T010839
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:6da0f8ec-057c-4088-bbfd-ab6287d005f8
+DTSTAMP:20260401T023953
+SUMMARY:Day off in San Francisco
+DTSTART;VALUE=DATE:20260410
+DTEND;VALUE=DATE:20260411
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    Hotel - The Phoenix Hotel\n
+    San Francisco\, CA\, 94109\, US\n
+    ARRIVE: 4/10/2026 3:00 PM PDT\n
+    DEPART: 4/12/2026 12:00 PM PDT\n
+    Rooms:\n
+  1 Denise Carlos\n
+    2    Hector Flores\n
+    3    Moises Baqueiro & Jonny Jyemo\n
+    4    Angela Gonzalez& Alih Jey de Pena\n
+    5    Jorge Mijangos & Hector Lopez\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260401T023953
+LAST-MODIFIED:20260401T023953
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:9121bf76-0deb-4f90-a84a-80e4682a25ff
+DTSTAMP:20260211T003658
+SUMMARY:Brick & Mortar
+DTSTART;VALUE=DATE:20260411
+DTEND;VALUE=DATE:20260412
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:NO BACKLINE (we can rent out of pocket)
+  Venue Contacts:\n
+  Venue Manager: AJ (510) 262-6100 (Venue point of contact day of show)\n
+  Production Manager: Donovan (510) 306-1928\n
+  Load in at 1710 Mission St.\n
+  WIFI\n
+  NW: B+M GUEST\n
+  PW: guest1710!\n
+  Merch: 2 Grids\, 6ft & 3ft Table\, Power and Lamp available\n
+  A merch seller may be provided with at least 1 week notice. Rate is $15
+ 0 + cash/digital tips at artist's expense.\n
+  \nVENUE INFO:\n
+    tel:+1 415-678-5099\n
+    http://brickandmortarmusic.com/\n
+  \n*************************************\nSCHEDULE:\n
+  4:00 PM PDT: DOS Schedule\n  PROPOSED RUN OF SHOW: *Subject to change\n
+  4-6pm - LOAD & Soundcheck\n
+  6pm DJ Sizzle Soundcheck\n
+  08:00 PM - DOORS (60 MINS)\n
+  8-10pm DJ Sizzle\n
+  10:00 PM - LAS CAFETERAS (90 MINS)\n
+  11:30 PM - MERCH  & DJ(30 MINS)\n
+  12:00 AM - SOUND CURFEW\n
+  LOAD OUT / CLEAR VENUE\n
+  01:00 AM - HARD CURFEW\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://brickandmortarmusic.com/
+GEO:37.76972689999999;-122.42041
+LOCATION:Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA  94
+ 103 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA 94103
+  United States":geo:37.76972689999999,-122.42041
+CREATED:20260211T003658
+LAST-MODIFIED:20260331T194555
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:abee23f0-0a79-40d5-8975-bcdfec47c390
+DTSTAMP:20260327T054719
+SUMMARY:Modesto hotel: Doubletree
+DTSTART;VALUE=DATE:20260412
+DTEND;VALUE=DATE:20260414
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Hotel Rooming assignments:
+  Denise Carlos\n
+  Hector Flores\n
+  Angela Gonzalez\n
+  Moises Baqueiro\n
+  Jonny Jyemo\n
+  Jorge Mijangos\n
+  Hector Lopez\n
+  \nVENUE INFO:\n
+    tel:+1 209-526-6000\n
+    https://www.hilton.com/en/hotels/dsto-dt-doubletree-modesto/?SEO_id=G
+ MB-AMER-DT-DSTODT&y_source=1_MTM3MjY4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3
+ D\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.hilton.com/en/hotels/dsto-dt-double
+ tree-modesto/?SEO_id=GMB-AMER-DT-DSTODT&y_source=1_MTM3MjY4OC03MTUtbG9jY
+ XRpb24ud2Vic2l0ZQ%3D%3D
+GEO:37.6413422;-121.0025536
+LOCATION:DoubleTree by Hilton Hotel Modesto\n1150 9th St\nModesto CA  953
+ 54 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="DoubleTree by Hilton Hotel Modesto\n1150 9th St\nModesto CA 95354
+ United States":geo:37.6413422,-121.0025536
+CREATED:20260327T054719
+LAST-MODIFIED:20260327T054734
+X-HECTOR-TYPE:LOCATION
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:5d44042d-8327-45b3-9ddf-c37fa69a239e
+DTSTAMP:20251125T034430
+SUMMARY:2  Student shows (Modesto\, CA)
+DTSTART;TZID=America/Los_Angeles:20260413T080000
+DTEND;TZID=America/Los_Angeles:20260413T130000
+DESCRIPTION:Monday\, April 13\, 2026\, 9:30 AM
+  Monday\, April 13\, 2026\, 11:30 AM\n
+  Mary Stuart Rogers Theater\n
+  Recommended for grades 7+\n
+  \nVENUE INFO:\n
+    tel:+1 209-338-2100\n
+    http://www.galloarts.org/\n
+  \n*************************************\nSCHEDULE:\n
+  8:30 AM - 12:30 PM PDT: Student show schedule\n  Monday April 13\, 2026
+ \n
+  ·         0830 Building access / show crew call\n
+  ·         0900 Doors\n
+  ·         0930 STUDENT SHOW 1\n
+  ·         1030 End of Show 1 (must be 60 minutes or less)\n
+  ·         1100 Doors\n
+  ·         1130 STUDENT SHOW 2\n
+  ·         1230 End of Show 2 (must be 60 minutes or less) /
+ Load out\n
+  \n----------------------------------------\n
+  1:00 PM PDT: Drive home\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.galloarts.org/
+GEO:37.6396361;-120.9983935
+LOCATION:Gallo Center for the Arts\n1000 I St\nModesto CA  95354 United S
+ tates
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Gallo Center for the Arts\n1000 I St\nModesto CA 95354 United Stat
+ es":geo:37.6396361,-120.9983935
+CREATED:20251125T034430
+LAST-MODIFIED:20251125T034430
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:bef74288-486d-4b09-950d-e7aeb8a91423
+DTSTAMP:20260403T204033
+SUMMARY:Drive to Visalia
+DTSTART;TZID=America/Los_Angeles:20260416T150000
+DTEND;TZID=America/Los_Angeles:20260416T150000
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 559-713-2113\n
+    https://www.thedarlingvisalia.com/?utm_source=google&utm_medium=organ
+ ic&utm_campaign=business_listing\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Visalia Hotel: The Darling Hotel\n
+    210 N Court St\, Visalia\, CA\, 93291\, US\n
+    ARRIVE: 4/16/2026 3:00 PM PDT\n
+    DEPART: 4/17/2026 7:45 AM PDT\n
+    5 rooms\n
+  denise\n
+  hector\n
+  moi\n
+  john\n
+  julio & david\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.thedarlingvisalia.com/?utm_source=g
+ oogle&utm_medium=organic&utm_campaign=business_listing
+GEO:36.3315702;-119.2920813
+LOCATION:The Darling Hotel\n210 N Court St\nVisalia CA  93291 United Stat
+ es
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Darling Hotel\n210 N Court St\nVisalia CA 93291 United States"
+ :geo:36.3315702,-119.2920813
+CREATED:20260403T204033
+LAST-MODIFIED:20260415T204800
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:fcecf5bf-2007-4f4d-a71a-0edcf9d20cbd
+DTSTAMP:20260219T220151
+SUMMARY:Full band-Puente Program Conference
+DTSTART:20260417T150000Z
+DTEND:20260417T203000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:College of the Sequoias Puente Program\, a transfer readiness
+  cohort program that helps students move from community colleges to fini
+ sh their bachelor’s degrees. We are planning a mini-conference for our
+  local Tulare county high school students and wanted to inquire about th
+ e availability of booking Las Cafeteras.
+  Audience: high school and early college students primarily.\n
+  Morning keynote and lunch 1 hour workshop\n
+  Time: a lunch/ early afternoon activity\n
+  Themes:\n
+  activism\, music/creative expression and using your voice\n
+  music-movement based workshop that encourages student expression and vo
+ ice\n
+  to get them energized and engaged in imaging their college futures.\n
+  \nVENUE INFO:\n
+    tel:+1 559-730-3700\n
+    https://www.cos.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  8:00 AM PDT: Load in- Ponderosa (lecture hall)\n  COLLEGE OF THE SEQUOI
+ AS\n
+  Parking lot 4\n
+  We will get parking passes once we arrive\n
+  The pass should be placed on the dashboard of your cars and it's for pa
+ rking in the white stalls (yellow are reserved for faculty and staff).\n
+  \n----------------------------------------\n
+  9:00 AM PDT: Doors\n----------------------------------------\n
+  9:30 AM - 10:30 AM PDT: Keynote- Know where you come from\, Know where
+ you’re going\n  Play: Caravana & Presidente\n
+  \n----------------------------------------\n
+  10:30 AM - 11:30 AM PDT: Set-up & line check (bring your amps & backlin
+ e)\n----------------------------------------\n
+  12:30 PM - 1:30 PM PDT: Viva La Cultura/ Music sharing  -LUNCH TIME. (6
+ 0min)\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.cos.edu/
+GEO:36.325102;-119.3149754
+LOCATION:College of the Sequoias\n915 S Mooney Blvd\nVisalia CA  93277 Un
+ ited States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="College of the Sequoias\n915 S Mooney Blvd\nVisalia CA 93277 Unite
+ d States":geo:36.325102,-119.3149754
+CREATED:20260219T220151
+LAST-MODIFIED:20260403T203934
+X-HECTOR-SCHED:20260417 → 480–810 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0a2119f2-9fb2-4b61-a9d4-880b21e481de
+DTSTAMP:20260206T013324
+SUMMARY:Hector in Sacramento
+DTSTART;VALUE=DATE:20260420
+DTEND;VALUE=DATE:20260421
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260206T013324
+LAST-MODIFIED:20260206T013324
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:5d62468d-6d7a-4076-9477-9cad0dd7d9a6
+DTSTAMP:20260307T004748
+SUMMARY:Fly to Lafayette\, LA
+DTSTART;VALUE=DATE:20260423
+DTEND;VALUE=DATE:20260424
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flights - LAX> LFT - United - ENHH3V - JJ\, AD\, HF\, DC\, MB - Unite
+ d\n
+    4842\n
+    DEPART: Los Angeles International Airport 4/23/2026 12:01 PM PDT\n
+    ARRIVE: Lafayette Regional Airport 4/23/2026 7:33 PM CDT\n
+    \n----------------------------------------\n
+    Flight -BFL>LFT - American Airlines -ABXNQG - JC - American\n
+    AA6218\n
+    DEPART: Bakersfield 4/23/2026 12:17 PM PDT\n
+    Bakersfield to Phoenix\n
+  Thu\, Apr 23 • 12:17 PM - 1:55 PM\n
+  Phoenix to Dallas\n
+  Thu\, Apr 23 • 4:00 PM - 8:30 PM\n
+  Dallas to Lafayette\n
+  Thu\, Apr 23 • 9:32 PM - 10:59 PM\n
+  \n
+    ARRIVE: Lafayette 4/23/2026 10:59 PM CDT\n
+    \n----------------------------------------\n
+    Flight - ONT>LFT - Delta - G7TC9U - AG - Delta\n
+    665\n
+    DEPART: Ontario International Airport 4/23/2026 12:49 PM PDT\n
+    ARRIVE: Lafayette Regional Airport 4/23/2026 10:12 PM CDT\n
+    \n----------------------------------------\n
+    Flight - SBA>LFT - united - H1M75W - JM - United\n
+    1790\n
+    DEPART: Santa Barbara Airport 4/23/2026 1:05 PM PDT\n
+    ARRIVE: Lafayette Regional Airport 4/23/2026 10:58 PM CDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260307T004748
+LAST-MODIFIED:20260307T004748
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:e26dfb2f-78dd-4b5d-8793-c2f36b712e36
+DTSTAMP:20260418T194648
+SUMMARY:Lafayette Hotel
+DTSTART;TZID=America/Chicago:20260423T200000
+DTEND;TZID=America/Chicago:20260426T170000
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 337-706-8199\n
+    https://www.ihg.com/holidayinn/hotels/us/en/lafayette/lftlf/hoteldeta
+ il?cm_mmc=GoogleMaps-_-HI-_-US-_-LFTLF\n
+  \n*************************************\nSCHEDULE:\n
+  8:00 PM CDT: Check in\n  HOTEL ROOMING LIST (Double)\n
+  DENISE CARLOS\n
+  HECTOR FLORES\n
+  MOISES BAQUEIRO/ JONNY JYEMO\n
+  JORGE MIJANGOS/ JOHN CALANCHINI\n
+  ANGELA GONZALEZ/ ALIH JEY DE PENA\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.ihg.com/holidayinn/hotels/us/en/laf
+ ayette/lftlf/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-LFTLF
+GEO:30.2531609;-92.0169475
+LOCATION:Holiday Inn & Suites Lafayette North by IHG\n2219 NW Evangeline
+ Thruway\nLafayette LA  70501 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Holiday Inn & Suites Lafayette North by IHG\n2219 NW Evangeline Th
+ ruway\nLafayette LA 70501 United States":geo:30.2531609,-92.0169475
+CREATED:20260418T194648
+LAST-MODIFIED:20260418T194806
+X-HECTOR-TYPE:LOCATION
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:afaf8d46-64ea-4a70-9c2b-b0764707d3e2
+DTSTAMP:20250522T172539
+SUMMARY:Festival International
+DTSTART;VALUE=DATE:20260424
+DTEND;VALUE=DATE:20260426
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:SOUND/STAGE/LIGHTING:
+  Greg Robertson - greg.robertson@dorfketal.com\n
+  TRANSPORTATION:\n
+  Transportation@festivalinternational.org\n
+  \nVENUE INFO:\n
+    http://www.lafayettela.gov/\n
+  \n*************************************\nSCHEDULE:\n
+  7:00 PM - 10:15 PM CDT: SCÈNE WELLCARE LAFAYETTE STAGE (75MIN)\n  STAG
+ E: SCÈNE WELLCARE LAFAYETTE\n
+  lobby 7pm\n
+  LOAD 7:30PM\n
+  CHANGEOVER 8:30PM\n
+  SET TIME: 9:00pm- 10:15pm (75MIN)\n
+  \n----------------------------------------\n
+  4/25/2026 4:30 PM - 4/25/2026 7:15 PM CDT: MAINSTAGE SHOWTIME (75MIN)\n
+   STAGE: SCÈNE LUS INTERNATIONALE\n
+  LOAD: 4:30PM\n
+  CHANGEOVER: 5:30PM\n
+  SET TIME: 6:00pm-7:15pm\n
+  \n----------------------------------------\n
+  4/25/2026 7:30 PM CDT: Dinner backstage (Kara will order)\n------------
+ ----------------------------\n
+  4/25/2026 8:30 PM - 4/25/2026 11:55 PM CDT: BLUE MOON SHOW\n  Walk or c
+ art over to Blue Moon\n
+  10pm showtime (1 hr)\n
+  11pm changeover\n
+  11:15pm (sit in on 2 songs)\n
+  Bayou Ramblers\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.lafayettela.gov/
+GEO:30.2240897;-92.0198427
+LOCATION:Lafayette\nLafayette LA United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Lafaye
+ tte\nLafayette LA United States":geo:30.2240897,-92.0198427
+CREATED:20250522T172539
+LAST-MODIFIED:20260401T031822
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:9e322a11-b9c1-4a7e-ab00-0bfdaaf1585f
+DTSTAMP:20260307T004814
+SUMMARY:Fly Home
+DTSTART;VALUE=DATE:20260426
+DTEND;VALUE=DATE:20260427
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - LFT>SBA - United - H1M75W - JM - United\n
+    4000\n
+    DEPART: Lafayette Regional Airport 4/26/2026 5:15 AM CDT\n
+    ARRIVE: Santa Barbara Airport 4/26/2026 12:05 PM PDT\n
+    \n----------------------------------------\n
+    Flight -  LFT>BFL - American Airlines -ABXNQG - JC - American\n
+    AA6299\n
+    DEPART: Lafayette 4/26/2026 5:07 PM CDT\n
+    Lafayette to Dallas\n
+  Sun\, Apr 26 • 5:07 PM - 6:49 PM\n
+  Dallas to Bakersfield\n
+  Sun\, Apr 26 • 8:09 PM - 9:33 PM\n
+  \n
+    ARRIVE: Bakersfield 4/26/2026 9:33 PM PDT\n
+    \n----------------------------------------\n
+    Flight -  LFT>ONT - American Airlines - ITRQUT - AG - American Airlin
+ es\n
+    5614\n
+    DEPART: Lafayette Regional Airport 4/26/2026 6:12 PM CDT\n
+    ARRIVE: Ontario International Airport 4/26/2026 10:36 PM PDT\n
+    \n----------------------------------------\n
+    Flight - LFT>LAX - United - H2SR98 - DC\, AD\, MB\, HF\, JJ - United\
+ n
+    4292\n
+    DEPART: Lafayette Regional Airport 4/26/2026 7:29 PM CDT\n
+    ARRIVE: Los Angeles International Airport 4/26/2026 11:44 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260307T004814
+LAST-MODIFIED:20260307T004814
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:abd86390-932b-433c-bf18-4d24953bd572
+DTSTAMP:20260408T193149
+SUMMARY:Ritchie Committe Mtg (HF\,DC\,MB)
+DTSTART;TZID=America/Los_Angeles:20260427T200000
+DTEND;TZID=America/Los_Angeles:20260427T213000
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260408T193149
+LAST-MODIFIED:20260408T193149
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:07b5665a-da65-44d8-8059-ce56a4f93394
+DTSTAMP:20260415T200523
+SUMMARY:Fly to Seattle
+DTSTART;VALUE=DATE:20260429
+DTEND;VALUE=DATE:20260430
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Rental Car - Hertz - DC\n  hertz - Mini van\n
+  <h4>Pick-up</h4>\n
+  Wed\, Apr 29\n
+  10:30am\n
+  <h4>Drop-off : BLF</h4>\n
+  Wed\, May 6\n
+  8:00pm\n
+  Confirmation: #L57223773B0\n
+  Expedia itinerary: 73434581125644\n
+  \n----------------------------------------\n
+  12:00 AM -  PDT: Rental Car - Hertz - HF\n  Hertz - Mini Van\n
+  <h4>Pick-up</h4>\n
+  Wed\, Apr 29\n
+  10:30am\n
+  <h4>Drop-off - SMF</h4>\n
+  Wed\, May 6\n
+  8:00pm\n
+  Confirmation: #L57204804E4\n
+  Expedia itinerary: 73434583721425\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - BFL>SEA - American Airlines - WIJCYW - JC - American Airline
+ s\n
+    4923\n
+    DEPART: Meadows Field Airport 4/29/2026 6:00 AM PDT\n
+    ARRIVE: Seattle-Tacoma International Airport 4/29/2026 1:54 PM PDT\n
+    \n----------------------------------------\n
+    Flight - SBA>SEA - UNITED -  JSZ3Z6- XOCO - UNITED\n
+    UA 2340\n
+    DEPART: Santa Barbara Airport 4/29/2026 6:00 AM PDT\n
+    Antonio Moraza\n
+  eTicket number: 01623931157144\n
+  Seats:\n
+  SBA to SFO: 30F\n
+  SFO to SEA: 22F\n
+  Preferred Seat\n
+  \n
+    ARRIVE: Seattle-Tacoma International Airport 4/29/2026 10:39 AM PDT\n
+    \n----------------------------------------\n
+    Flight - LAX>SEA - DVRH2V- DC\, HF\, JL\, JDP - United\n
+    UA5873\n
+    DEPART: Los Angeles International Airport 4/29/2026 8:30 AM PDT\n
+    ARRIVE: Seattle-Tacoma International Airport 4/29/2026 11:37 AM PDT\n
+    \n----------------------------------------\n
+    Flight - ONT>SEA - United - B7PGVK - AG - United\n
+    3676\n
+    DEPART: Ontario International Airport 4/29/2026 9:05 AM PDT\n
+    ARRIVE: Seattle-Tacoma International Airport 4/29/2026 1:25 PM PDT\n
+    \n----------------------------------------\n
+    Flight - SBA>SEA - United - F84Q3R - CSL - United\n
+    4715\n
+    DEPART: Santa Barbara Airport 4/29/2026 9:45 AM PDT\n
+    ARRIVE: Seattle-Tacoma International Airport 4/29/2026 2:42 PM PDT\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Graduation by Hilton Seattle\n
+    ARRIVE: 4/29/2026 4:00 PM PDT\n
+    DEPART: 4/30/2026 11:00 AM PDT\n
+    1-Denise Carlos\n
+  2-Hector Flores\n
+  3-Jasmine Lopez\n
+  4-Julio de Paz/John Calanchini\n
+  5-Xocoyotzin Moraza/ Chuy Salgado Leon\n
+  6-Angela Gonzalez Gomez\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260415T200523
+LAST-MODIFIED:20260415T200523
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:861a68a5-09ac-4423-8ffc-28c559ad2a18
+DTSTAMP:20260219T220751
+SUMMARY:Nectar Lounge (Seattle\, WA)
+DTSTART:20260429T224500Z
+DTEND:20260430T050000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:SOUND ENGINEER:  Dylan Johnson dylanchase1994@gmail.com (253)
+  389-9786
+  PRODUCTION MANAGER: Gina Cervantes gina@nectarlounge.com (425) 213-832
+ 3\n
+  \nVENUE INFO:\n
+    tel:+1 206-632-2020\n
+    http://nectarlounge.com/\n
+  \n*************************************\nSCHEDULE:\n
+  3:45 PM - 5:45 PM PDT: Load/in & Sound\n   Please check in with the Sou
+ nd Engineer or DOS Production upon arrival. Once you arrive at the venue
+  you can load your gear in but must wait to load it onto the stage until
+  the Sound Engineer is in the venue\, which will be at your scheduled lo
+ ad in time.\n
+  \n----------------------------------------\n
+  7:00 PM PDT: Doors\n----------------------------------------\n
+  8:30 PM - 10:00 PM PDT: Showtime!\n------------------------------------
+ ----\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://nectarlounge.com/
+GEO:47.65236970000001;-122.3538481
+LOCATION:Nectar Lounge\n412 N 36th St\nSeattle WA  98103 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Nectar Lounge\n412 N 36th St\nSeattle WA 98103 United States":geo:
+ 47.65236970000001,-122.3538481
+CREATED:20260219T220751
+LAST-MODIFIED:20260425T162504
+X-HECTOR-SCHED:20260429 → 945–1320 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:20db0925-4ba2-4fcc-8d16-d87d565f1c35
+DTSTAMP:20251203T015925
+SUMMARY:VOCES de la Communidad Conference- Portland
+DTSTART;TZID=America/Los_Angeles:20260430T070000
+DTEND;TZID=America/Los_Angeles:20260430T150000
+DESCRIPTION:Organizer: Perla Estrada. 503 708 6441              pestrada@
+ elprograma.org
+  Devon and John with Portland Productions (  portlandproductionsmgmt@g
+ mail.com ) are the points of contact for all AV needs (cc'd on this ema
+ il)\n
+  1 hour from 1-2pm and is between conference workshops. The entire confe
+ rence and band performance will remain in the same room\, so sound check
+  might be tricky.\n
+  VOCES de la Comunidad\, where we bring together Latine advocates and al
+ lys from across Oregon and Washington to learn\, share\, and be in commu
+ nity in support of each other and the Latine survivors they serve everyd
+ ay. The entire conference is presented in Spanish (non-spanish speakers
+ are provided with interpretation services) and rooted in the healing pow
+ er of our cultura.\n
+  The UNICA program\, which provides services to survivors of domestic\,
+ sexual\, and trafficking violence serves between 300-350 survivors and t
+ heir families annually. UNICA is the first and only\, fully bilingual Cr
+ isis Line for survivors in the state of Oregon. Our advocates answer tha
+ t line 24/7 to provide emotional support\, safety planning\, information
+  and referral\, emergency hotel vouchers and/or transportation for anyon
+ e fleeing iminent violence. Our case management advocates can provide in
+ tensive wrap around support for survivors and their families\, from fili
+ ng reports all the way through support with long term housing.\n
+  \nVENUE INFO:\n
+    tel:+1 503-281-6111\n
+    https://www.hilton.com/en/hotels/rllc-dt-doubletree-portland/?SEO_id=
+ GMB-AMER-DT-RLLCDT&y_source=1_MTM3MjY5Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%
+ 3D\n
+  \n*************************************\nSCHEDULE:\n
+  7:15 AM PDT: Lobby (get breakfast at cafe in lobby)/load\n-------------
+ ---------------------------\n
+  7:45 AM - 11:00 AM PDT: Drive out\n------------------------------------
+ ----\n
+  9:00 AM PDT: Conference starts\n---------------------------------------
+ -\n
+  11:15 AM - 12:00 PM PDT: Load/set up\n---------------------------------
+ -------\n
+  12:00 PM - 12:30 PM PDT: Personal prep in green room\n-----------------
+ -----------------------\n
+  12:30 PM - 1:00 PM PDT: Line check (lunch starts)\n--------------------
+ --------------------\n
+  1:15 PM - 2:15 PM PDT: Showtime (1 hr)\n-------------------------------
+ ---------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.hilton.com/en/hotels/rllc-dt-double
+ tree-portland/?SEO_id=GMB-AMER-DT-RLLCDT&y_source=1_MTM3MjY5Mi03MTUtbG9j
+ YXRpb24ud2Vic2l0ZQ%3D%3D
+GEO:45.53070719999999;-122.6555577
+LOCATION:DoubleTree by Hilton Hotel Portland\n1000 NE Multnomah St\nPortl
+ and OR  97232 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="DoubleTree by Hilton Hotel Portland\n1000 NE Multnomah St\nPortlan
+ d OR 97232 United States":geo:45.53070719999999,-122.6555577
+CREATED:20251203T015925
+LAST-MODIFIED:20260430T115445
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0e20a62e-0afb-41f8-bac9-cee8924beabe
+DTSTAMP:20260226T001225
+SUMMARY:Alberta Abbey Night #1 (Portland\,Wa)
+DTSTART:20260501T220000Z
+DTEND:20260502T050000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    http://www.albertaabbey.org/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM - 5:30 PM PDT: Load/ sound\n-----------------------------------
+ -----\n
+  7:00 PM PDT: Doors\n----------------------------------------\n
+  8:00 PM - 9:30 PM PDT: Showtime 90min\n--------------------------------
+ --------\n
+  9:30 PM - 10:00 PM PDT: Lobby meet & greet\n---------------------------
+ -------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.albertaabbey.org/
+GEO:45.5588994;-122.6639046
+LOCATION:Alberta Abbey\n126 NE Alberta St\nPortland OR  97211 United Stat
+ es
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Alberta Abbey\n126 NE Alberta St\nPortland OR 97211 United States"
+ :geo:45.5588994,-122.6639046
+CREATED:20260226T001225
+LAST-MODIFIED:20260415T200229
+X-HECTOR-SCHED:20260501 → 900–1320 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0fa69139-da36-4644-8b00-c8a1de88d5e0
+DTSTAMP:20260415T200309
+SUMMARY:Alberta Abbey Night #2 (Portland\,Wa)
+DTSTART:20260502T231500Z
+DTEND:20260503T050000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    http://www.albertaabbey.org/\n
+  \n*************************************\nSCHEDULE:\n
+  4:15 PM PDT: Lobby\n----------------------------------------\n
+  4:30 PM PDT: Load and line check (Crisia joining today)\n--------------
+ --------------------------\n
+  7:00 PM PDT: Doors\n----------------------------------------\n
+  8:00 PM - 9:30 PM PDT: Show time\n-------------------------------------
+ ---\n
+  9:30 PM - 10:00 PM PDT: Lobby meet & greet\n---------------------------
+ -------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.albertaabbey.org/
+GEO:45.5588994;-122.6639046
+LOCATION:Alberta Abbey\n126 NE Alberta St\nPortland OR  97211 United Stat
+ es
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Alberta Abbey\n126 NE Alberta St\nPortland OR 97211 United States"
+ :geo:45.5588994,-122.6639046
+CREATED:20260415T200309
+LAST-MODIFIED:20260501T232152
+X-HECTOR-SCHED:20260502 → 975–1320 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7b56ff09-88b6-4ca4-a033-a588b2d4bb77
+DTSTAMP:20260305T193137
+SUMMARY:Alberta Abbey Night #3 (Portland\,Wa)
+DTSTART:20260503T204500Z
+DTEND:20260504T010000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    http://www.albertaabbey.org/\n
+  \n*************************************\nSCHEDULE:\n
+  1:45 PM PDT: Lobby\n----------------------------------------\n
+  2:00 PM PDT: Load/line check\n----------------------------------------\
+ n
+  3:00 PM PDT: Doors\n----------------------------------------\n
+  4:00 PM - 5:30 PM PDT: Showtime\n--------------------------------------
+ --\n
+  5:30 PM - 6:00 PM PDT: Meet n greet\n----------------------------------
+ ------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.albertaabbey.org/
+GEO:45.5588994;-122.6639046
+LOCATION:Alberta Abbey\n126 NE Alberta St\nPortland OR  97211 United Stat
+ es
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Alberta Abbey\n126 NE Alberta St\nPortland OR 97211 United States"
+ :geo:45.5588994,-122.6639046
+CREATED:20260305T193137
+LAST-MODIFIED:20260415T200353
+X-HECTOR-SCHED:20260503 → 825–1080 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:af479b39-1df2-4c8c-bd01-f5ad316e7235
+DTSTAMP:20260415T200733
+SUMMARY:Crisia flight home (after Show)
+DTSTART;TZID=America/Los_Angeles:20260503T181500
+DTEND;TZID=America/Los_Angeles:20260503T181500
+DESCRIPTION:6:15pm arrive airport (UNITED \, conf # ENBZ64)
+  7:45pm-12:31am flight\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260415T200733
+LAST-MODIFIED:20260503T155702
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:d154af6e-034a-4a9e-a045-06b1c205ecb2
+DTSTAMP:20260206T022737
+SUMMARY:Travel day\, Drive 7hours south
+DTSTART;VALUE=DATE:20260504
+DTEND;VALUE=DATE:20260505
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    Hotel - Red Lion Hotel Eureka\n
+    Eureka\, CA\, 95501\, US\n
+    ARRIVE: 5/4/2026 3:00 PM PDT\n
+    DEPART: 5/5/2026 11:00 AM PDT\n
+    Rooms:\n
+  1-DENISE\n
+  2-HECTOR\n
+  3-ANGIE\n
+  4- MIJANGOS\n
+  5- JOHN & JULIO\n
+  Confirmation number37045SG090185\n
+  Expedia itinerary73440093026661\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260206T022737
+LAST-MODIFIED:20260503T200904
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:63aaccd9-030e-4289-88f5-5227a2677e57
+DTSTAMP:20251203T020619
+SUMMARY:Cal-Poly Humboldt- The Depot
+DTSTART;TZID=America/Los_Angeles:20260505T120000
+DTEND;TZID=America/Los_Angeles:20260505T180000
+DESCRIPTION:Santiago
+  707-826-5983\n
+  University Quad\, Cal Poly Humboldt (The Depot)\n
+  Here's the link to the event: https://www.humboldt.edu/events/all?trum
+ baEmbed=view%3Devent%26eventid%3D1377409636.\n
+  Yes\, it will be the same stage as last year.\n
+  Michael Moore\, Jr.\n
+  (707) 826-5685\n
+  \nVENUE INFO:\n
+    tel:+1 707-826-5503\n
+    https://dineoncampus.com/calpolyhumboldt\n
+  \n*************************************\nSCHEDULE:\n
+  10:30 AM PDT: 10:30am lobby\n----------------------------------------\n
+  11:00 AM - 11:30 AM PDT: 11am radio interview\n  Getting to our studios
+ :\n
+  Address: 517 3rd Street\, Eureka Unit 22\, Second Floor\n
+  There is a pin pad at the door on the street level. The guest code is *
+ 4310.\n
+  Unit 22 is up the stairs\, on the 2nd floor and when you get there\, ri
+ ng the doorbell and our office assistant will meet you!\n
+  The phone number is 707.786.5104 if you have any trouble.\n
+  \n----------------------------------------\n
+  12:00 PM - 2:00 PM PDT: Load/ Soundcheck (Enter through LK Wood BLVD an
+ d Plaza Ave)\n  When arrive\, Call Santiago  707-826-5983\n
+  \n----------------------------------------\n
+  2:00 PM PDT: Event start\n----------------------------------------\n
+  4:30 PM - 6:00 PM PDT: SHOWTIME! 90 min\n------------------------------
+ ----------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://dineoncampus.com/calpolyhumboldt
+GEO:40.877464;-124.0786011
+LOCATION:The Depot at Cal Poly Humboldt\n1 Harpst St\nArcata CA  95521 Un
+ ited States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Depot at Cal Poly Humboldt\n1 Harpst St\nArcata CA 95521 Unite
+ d States":geo:40.877464,-124.0786011
+CREATED:20251203T020619
+LAST-MODIFIED:20260504T220842
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:6bec78a9-a4a2-4c1d-8f60-32f53a9cc45c
+DTSTAMP:20260422T001727
+SUMMARY:Fly Home
+DTSTART;VALUE=DATE:20260506
+DTEND;VALUE=DATE:20260507
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SMF>LGB - Southwest Airlines - C6Q532 - JDP - Southwest\n
+    WN2948\n
+    DEPART: Sacramento International Airport 5/6/2026 7:10 AM PDT\n
+    FLIGHT\n
+  #2948\n
+  DEPARTS\n
+  SMF 07:10AM\n
+  Sacramento\n
+  ARRIVES\n
+  LGB 08:35AM\n
+  Long Beach\n
+  \n
+    ARRIVE: Long Beach Airport 5/6/2026 8:35 AM PDT\n
+    \n----------------------------------------\n
+    Flight - SMF>SBA- Southwest Airlines - BHU209- JM - SOUTHWEST\n
+    WN4184\n
+    DEPART: Sacramento 5/6/2026 8:15 AM PDT\n
+    ARRIVE: Santa Barbara 5/6/2026 9:35 AM PDT\n
+    \n----------------------------------------\n
+    Flight - SMF>BUR - Southwest Airlines - BHNGE2- DC\,HF\,MB - SOUTHWES
+ T\n
+    WN4254\n
+    DEPART: Sacramento 5/6/2026 1:25 PM PDT\n
+    ARRIVE: Burbank 5/6/2026 2:40 PM PDT\n
+    \n----------------------------------------\n
+    Flight - SMF>ONT- Southwest Airlines - BHWOIU - AG - SOUTHWEST\n
+    4570\n
+    DEPART: Sacramento 5/6/2026 2:30 PM PDT\n
+    ARRIVE: Ontario 5/6/2026 3:50 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260422T001727
+LAST-MODIFIED:20260422T001727
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:008738ab-44b7-4eff-87a3-ec0344de9110
+DTSTAMP:20260330T165748
+SUMMARY:Hector BLACKOUT DAY
+DTSTART;VALUE=DATE:20260511
+DTEND;VALUE=DATE:20260512
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260330T165748
+LAST-MODIFIED:20260330T165748
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:04c171dc-f2e3-4a7e-b88f-34673936c055
+DTSTAMP:20251118T222757
+SUMMARY:Strawberry Music Festival (Grass Valley\, CA)
+DTSTART;VALUE=DATE:20260521
+DTEND;VALUE=DATE:20260523
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Strawberry Music Festival
+  May 21st–May 24th\n
+  Nevada County Fairgrounds\n
+  Grass Valley\, CA\n
+  Thursday\, 5/21/2026\, 3:00 pm\, 40 minutes.\n
+  Friday 5/22 Mainstage\, 9:00 pm\, 90 minutes total\n
+  Rachael Gabriel\n
+  Promotions & Volunteer Coordinator\n
+  rachael@strawberrymusic.com\n
+  \nVENUE INFO:\n
+    tel:+1 530-273-6217\n
+    http://nevadacountyfair.com/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM - 4:00 PM PDT: 3pm SHOWTIME (40 min)\n-------------------------
+ ---------------\n
+  5/22/2026 1:45 PM - 5/22/2026 3:30 PM PDT: 5/22 Workshop (Viva Cultura)
+  40min\n  1:45pm arrive/set up (light PA)\n
+  2:30-3:10pm  40 min workshop\n
+  \n----------------------------------------\n
+  5/22/2026 9:00 PM - 5/22/2026 10:30 PM PDT: 5/22. 9pm Showtime (Mainsta
+ ge)\n  5/22 Mainstage\, 9:00 pm\, 90 minutes total\n
+  \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://nevadacountyfair.com/
+GEO:39.2064063;-121.077104
+LOCATION:Nevada County Fairgrounds\n11228 McCourtney Rd\nGrass Valley CA
+  95949 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Nevada County Fairgrounds\n11228 McCourtney Rd\nGrass Valley CA 95
+ 949 United States":geo:39.2064063,-121.077104
+CREATED:20251118T222757
+LAST-MODIFIED:20260206T022520
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:e709e962-a50c-4cee-9281-7610b84e99ed
+DTSTAMP:20260323T212733
+SUMMARY:Fly to Sacramento & Drive 1 hour to Festival
+DTSTART;VALUE=DATE:20260521
+DTEND;VALUE=DATE:20260522
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - BUR>SMF - Southwest - CSHJN5 - DC\, HF\, MB\, JJ\,AD - South
+ west\n
+    768\n
+    DEPART: Hollywood Burbank Airport 5/21/2026 9:00 AM PDT\n
+    ARRIVE: Sacramento International Airport 5/21/2026 10:25 AM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260323T212733
+LAST-MODIFIED:20260323T212812
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:8f781112-c8c4-4238-84c3-87eaac4745e0
+DTSTAMP:20260221T203859
+SUMMARY:Yerba Buena
+DTSTART:20260523T140000Z
+DTEND:20260523T233000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:2pm show start\, approx 3pm performance time\, 75-90 min set.
+  \nVENUE INFO:\n
+    tel:+1 415-651-3684\n
+    http://yerbabuenagardens.com/\n
+  \n*************************************\nSCHEDULE:\n
+  7:00 AM - 11:00 AM PDT: 7am lobby\, drive 3 hours)\n-------------------
+ ---------------------\n
+  11:00 AM - 1:00 PM PDT: Lead/ soundcheck\n-----------------------------
+ -----------\n
+  1:00 PM PDT: Lunch- send order to Denise\n  https://www.tropisueno.com/
+ popmenu-order/san-francisco/menus/taqueria-menu\n
+  \n----------------------------------------\n
+  2:00 PM - 2:30 PM PDT: Opening Act: Discos Resaca Collective\n---------
+ -------------------------------\n
+  2:30 PM - 3:00 PM PDT: Change Over\n-----------------------------------
+ -----\n
+  3:00 PM - 4:30 PM PDT: 3pm Showtime (75-90min)\n-----------------------
+ -----------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://yerbabuenagardens.com/
+GEO:37.7849884;-122.4023514
+LOCATION:Yerba Buena Gardens\n750 Howard St\nSan Francisco CA  94103 Unit
+ ed States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Yerba Buena Gardens\n750 Howard St\nSan Francisco CA 94103 United
+ States":geo:37.7849884,-122.4023514
+CREATED:20260221T203859
+LAST-MODIFIED:20260221T203859
+X-HECTOR-SCHED:20260523 → 420–990 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:b3e894b7-d2a7-488c-a642-9887ba6ff7e9
+DTSTAMP:20260401T205300
+SUMMARY:FLY HOME AFTER SF SHOW
+DTSTART;TZID=America/Los_Angeles:20260523T210000
+DTEND;TZID=America/Los_Angeles:20260523T210000
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SFO>ONT - United -  H0KYS8 - AG - United\n
+    552\n
+    DEPART: San Francisco International Airport 5/23/2026 9:13 PM PDT\n
+    ARRIVE: Ontario International Airport 5/23/2026 10:50 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260401T205300
+LAST-MODIFIED:20260401T205300
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:2da51269-be76-4abc-9ed1-7e258108eda1
+DTSTAMP:20260307T182402
+SUMMARY:Hector BLACKOUT DAY
+DTSTART;VALUE=DATE:20260526
+DTEND;VALUE=DATE:20260530
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260307T182402
+LAST-MODIFIED:20260307T182402
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:023594b1-e6bc-4ec2-8f1b-4681720d0ede
+DTSTAMP:20260307T184600
+SUMMARY:Hector BLACKOUT DAY
+DTSTART;VALUE=DATE:20260614
+DTEND;VALUE=DATE:20260615
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:TENTATIVE
+CLASS:PUBLIC
+CREATED:20260307T184600
+LAST-MODIFIED:20260307T184600
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:74968380-3ee5-4a32-af9b-86985956962a
+DTSTAMP:20260103T052410
+SUMMARY:Live Oak Fest  (San Luis Obispo)
+DTSTART:20260619T180000Z
+DTEND:20260620T031500Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Friday June 19th for a 7-8:15pm set.
+  NO HOTEL\n
+  \n*************************************\nSCHEDULE:\n
+  11:00 AM - 4:00 PM PDT: 11am carpool meet up/ drive out\n--------------
+ --------------------------\n
+  4:00 PM PDT: 4pm arrival\n----------------------------------------\n
+  6:00 PM PDT: 6pm changeover (45min)\n----------------------------------
+ ------\n
+  7:00 PM - 8:15 PM PDT: Show time (75min)\n-----------------------------
+ -----------\n
+  9:00 PM PDT: Drive home\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260103T052410
+LAST-MODIFIED:20260419T055446
+X-HECTOR-SCHED:20260619 → 660–1215 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:67582e54-a778-4486-bc68-fae8506f0cc5
+DTSTAMP:20251203T021827
+SUMMARY:Ten Mile Creek Revival '26
+DTSTART;VALUE=DATE:20260626
+DTEND;VALUE=DATE:20260628
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Friday\, June 26: approx 90 minute Main Stage slot around 8:3
+ 0PM
+  Saturday\, June 27: approx 45 min Front Porch Set around 7:45PM\n
+  Merch 75/25\n
+  Production Coordinator  Nancy 707-832-9963\; Nancy.festivalproductions@
+ gmail.com\n
+  Matt Lawsky\, Production Lead. 510-915-3325\; Matt@taylorstreetproducti
+ on.com\n
+  \nVENUE INFO:\n
+    http://www.blackoakranch.com/\n
+  \n*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Travel to Laytonville\n-------------------------------
+ ---------\n
+  6:00 PM PDT: 6pm Friday Load in (Take performance clothes)\n  Pull in t
+ he main gate\, we'll direct you to the the mainstage for unloading. Park
+ ing is a short walk from the stage.\n
+  \n----------------------------------------\n
+  8:30 PM - 10:00 PM PDT: Show time!  90 min (Main stage)\n  Friday\, Jun
+ e 26: approx 90 minute Main Stage slot around 8:30PM\n
+  \n----------------------------------------\n
+  6/27/2026 7:45 PM - 6/27/2026 8:30 PM PDT: Showtime! 45 min (Front Porc
+ h Set)\n  Saturday\, June 27: approx 45 min Front Porch Set around 7:45P
+ M\n
+  \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Laytonville Hotel: Baechtel Creek Inn\n
+    101 Gregory Ln\, Willits\, CA\, 95490\, US\n
+    ARRIVE: 6/26/2026 12:00 AM PDT\n
+    DEPART: 6/28/2026 11:00 AM PDT\n
+    5 rooms\n
+  Denise Carlos\n
+  Hector Flores\n
+  Moises Baqueiro & Jonny Jyemo\n
+  Angela Gonzalez & Alih Jey\n
+  Jorge Mijangos & John Calinchini\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.blackoakranch.com/
+GEO:39.745264;-123.523188
+LOCATION:Black Oak Ranch\nUS-101\nLaytonville CA  95454 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Black Oak Ranch\nUS-101\nLaytonville CA 95454 United States":geo:3
+ 9.745264,-123.523188
+CREATED:20251203T021827
+LAST-MODIFIED:20260407T012348
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:00f9cf2b-0d75-4ff5-b515-78392c23730b
+DTSTAMP:20260404T214419
+SUMMARY:Camp WinnaRainbow - Viva La Cultura (youth)
+DTSTART;TZID=America/Los_Angeles:20260626T160000
+DTEND;TZID=America/Los_Angeles:20260626T170000
+DESCRIPTION:Camp WinnaRainbow - Viva La Cultura (youth)
+  7pm arrive/line check\n
+  8pm- show time (45min) Viva La Cultura\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+GEO:39.74814629999999;-123.5355184
+LOCATION:50350 US-101\nLaytonville CA  95454 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="50350 US-101\nLaytonville CA 95454 United States":geo:39.748146299
+ 99999,-123.5355184
+CREATED:20260404T214419
+LAST-MODIFIED:20260429T181423
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7d8767f4-513f-4f90-9ed4-92595c74dddc
+DTSTAMP:20260206T023339
+SUMMARY:Denver Levitt
+DTSTART:20260718T000000Z
+DTEND:20260718T023000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:no hotel\, no ground
+  \nVENUE INFO:\n
+    tel:+1 303-578-0488\n
+    http://levittdenver.org/\n
+  \n*************************************\nSCHEDULE:\n
+  6:00 PM MDT: Doors\n----------------------------------------\n
+  7:00 PM - 8:30 PM MDT: Show time (90min)\n-----------------------------
+ -----------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://levittdenver.org/
+GEO:39.6864166;-105.0030082
+LOCATION:Levitt Pavilion Denver\n1380 W Florida Ave\nDenver CO  80223 Uni
+ ted States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Levitt Pavilion Denver\n1380 W Florida Ave\nDenver CO 80223 United
+  States":geo:39.6864166,-105.0030082
+CREATED:20260206T023339
+LAST-MODIFIED:20260217T213237
+X-HECTOR-SCHED:20260717 → 1080–1230 min (MDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7ce25660-0658-485a-b714-6e2ca51ca04c
+DTSTAMP:20260217T213153
+SUMMARY:Concert of Colors (Detroit\, MI)
+DTSTART;VALUE=DATE:20260719
+DTEND;VALUE=DATE:20260720
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:2 nights hotel
+  \nVENUE INFO:\n
+    tel:+1 313-582-2266\n
+    http://concertofcolors.com/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://concertofcolors.com/
+GEO:42.3485731;-83.05893449999999
+LOCATION:Concert of Colors\n3711 Woodward Ave\nDetroit MI  48201 United S
+ tates
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Concert of Colors\n3711 Woodward Ave\nDetroit MI 48201 United Stat
+ es":geo:42.3485731,-83.05893449999999
+CREATED:20260217T213153
+LAST-MODIFIED:20260217T213153
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:a5ec1c7e-822d-468d-9801-c3be422ca3c3
+DTSTAMP:20260401T041713
+SUMMARY:HECTOR BLACKPUT DAY
+DTSTART;VALUE=DATE:20260808
+DTEND;VALUE=DATE:20260809
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260401T041713
+LAST-MODIFIED:20260401T041713
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0b5d3384-23ea-4347-9128-ff77060f2c9c
+DTSTAMP:20260206T023811
+SUMMARY:Ritchie Tribute Show (GRAND PERFORMANCES)
+DTSTART;VALUE=DATE:20260822
+DTEND;VALUE=DATE:20260823
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 213-687-2190\n
+    http://www.grandperformances.org/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.grandperformances.org/
+GEO:34.0515109;-118.2514493
+LOCATION:Grand Performances\nTwo California Plaza\n350 S Grand Ave\nLos A
+ ngeles CA  90071 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Grand Performances\nTwo California Plaza\n350 S Grand Ave\nLos Ang
+ eles CA 90071 United States":geo:34.0515109,-118.2514493
+CREATED:20260206T023811
+LAST-MODIFIED:20260206T023811
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:6091e7fe-1058-47a8-a5bc-0f4b2764bb2d
+DTSTAMP:20260408T190823
+SUMMARY:Remembering Ritchie Show (The Silouettes cast)
+DTSTART;VALUE=DATE:20260901
+DTEND;VALUE=DATE:20260903
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 858-534-2230\n
+    http://www.ucsd.edu/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.ucsd.edu/
+GEO:32.881168;-117.2343605
+LOCATION:University of California San Diego\n9500 Gilman Dr\nLa Jolla\nSa
+ n Diego CA  92093 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="University of California San Diego\n9500 Gilman Dr\nLa Jolla\nSan
+ Diego CA 92093 United States":geo:32.881168,-117.2343605
+CREATED:20260408T190823
+LAST-MODIFIED:20260408T190857
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:4016b9bb-a552-48d5-b073-b19983e1f0ac
+DTSTAMP:20260425T181522
+SUMMARY:Hector BLACKOUT DATES
+DTSTART;VALUE=DATE:20260903
+DTEND;VALUE=DATE:20260908
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260425T181522
+LAST-MODIFIED:20260425T181546
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:9c0a261e-f8bf-45a8-a2a9-b2a6c30ecb9b
+DTSTAMP:20231024T004249
+SUMMARY:WAA 2026 | OAKLAND\, CA September 8 - 11\, 2026 (Denise/ Hector)
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260911
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:WAA 2026 | OAKLAND\, CA
+  September 8 - 11\, 2026\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20231024T004249
+LAST-MODIFIED:20260425T181609
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:34dbc493-6b13-4a3b-8823-27ecc9a74f7f
+DTSTAMP:20260113T070007
+SUMMARY:2026 Wheatland  Festival in Michigan
+DTSTART;VALUE=DATE:20260911
+DTEND;VALUE=DATE:20260914
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+GEO:43.5965285;-85.1454554
+LOCATION:Remus\nRemus MI  49340 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Remus\
+ nRemus MI 49340 United States":geo:43.5965285,-85.1454554
+CREATED:20260113T070007
+LAST-MODIFIED:20260113T070007
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:f0d0dd22-c3b9-4dd2-aa5e-821ecb307047
+DTSTAMP:20260425T181919
+SUMMARY:Ogden Dia De Los Muertos Concert (Ogden\, UT)
+DTSTART;VALUE=DATE:20261011
+DTEND;VALUE=DATE:20261012
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260425T181919
+LAST-MODIFIED:20260503T085012
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:fc30e244-ce13-4d76-93a3-fe13c508c875
+DTSTAMP:20260425T182249
+SUMMARY:Dia de Muertos Concert (Scottsdale\, AZ)
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 480-850-7777\n
+    https://www.talkingstickresort.com/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.talkingstickresort.com/
+GEO:33.5410221;-111.8694239
+LOCATION:Talking Stick Resort Hotel\n9800 E Talking Stick Wy\nScottsdale
+ AZ  85256 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Talking Stick Resort Hotel\n9800 E Talking Stick Wy\nScottsdale AZ
+  85256 United States":geo:33.5410221,-111.8694239
+CREATED:20260425T182249
+LAST-MODIFIED:20260425T182249
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:341f793f-6165-4402-b364-cd6c3596bfa9
+DTSTAMP:20260310T223402
+SUMMARY:LC concert- Vivan los Muertos (Henderson\, NV)
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Hotels = no.
+  Backlin\, yes\n
+  Hospo\, yes\n
+  1 x90\n
+  7pm show\n
+  Load in at 3pm.\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260310T223402
+LAST-MODIFIED:20260310T223402
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:2d8abad3-72a4-46e6-b3f2-f05e812957a4
+DTSTAMP:20260416T175005
+SUMMARY:Hector (BLACKOUT DAY)
+DTSTART;VALUE=DATE:20270212
+DTEND;VALUE=DATE:20270221
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:TENTATIVE
+CLASS:PUBLIC
+CREATED:20260416T175005
+LAST-MODIFIED:20260416T175005
 END:VEVENT
 END:VCALENDAR
