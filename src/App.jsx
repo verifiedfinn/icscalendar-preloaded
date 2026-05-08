@@ -320,6 +320,29 @@ function parseICSText(text, sourceId, sourceName){
 /* =========================
    UI
 ========================= */
+function ThemeToggle({ theme, onChange }) {
+  const opts = [
+    { id: 'light', icon: '☀️', label: 'Light' },
+    { id: 'dark',  icon: '🌙', label: 'Dark' },
+    { id: 'lc',    icon: '🌺', label: 'Las Cafeteras' },
+  ];
+  return (
+    <div style={{ display:'flex', border:'1px solid var(--border)', borderRadius:10, overflow:'hidden', fontSize:13 }}>
+      {opts.map(o => (
+        <button key={o.id} title={o.label} onClick={() => onChange(o.id)} style={{
+          padding:'4px 9px', border:'none',
+          borderRight: '1px solid var(--border)',
+          background: theme === o.id ? 'var(--text)' : 'var(--surface)',
+          color:       theme === o.id ? 'var(--bg)'   : 'var(--muted)',
+          cursor:'pointer', transition:'background 0.2s, color 0.2s',
+        }}>
+          {o.icon}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 function UnlockForm({ onUnlock, onCancel }) {
   const [pw, setPw] = useState('');
   const [err, setErr] = useState('');
@@ -359,6 +382,14 @@ export default function App(){
   const today = new Date();
   const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
   const [showUnlock, setShowUnlock] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    const cl = document.documentElement.classList;
+    cl.remove('theme-dark', 'theme-lc');
+    if (theme !== 'light') cl.add(`theme-${theme}`);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const TZ_OPTS = [
     { id: "system", label: "System (auto)" },
@@ -779,100 +810,84 @@ export default function App(){
   return (
     <div className="app-root">
       <style>{`
-        /* Whole window light theme */
-        html, body, #root, .app-root { height: 100%; min-height: 100vh; background: #f8fafc; color: #111827; }
+        html, body, #root, .app-root { min-height: 100vh; background: var(--bg); color: var(--text); transition: background 0.4s ease, color 0.25s ease; }
 
-        input, select, textarea, button { background:#fff !important; color:#111827 !important; }
-        input[type="date"], input[type="number"] { background:#fff !important; color:#111827 !important; border: 1px solid #e5e7eb; }
+        input, select, textarea { background: var(--input-bg) !important; color: var(--text) !important; border-color: var(--border) !important; }
+        input[type="date"], input[type="number"] { background: var(--input-bg) !important; color: var(--text) !important; border: 1px solid var(--border); }
 
-        .chip{display:inline-block;padding:2px 8px;border:1px solid #e5e7eb;border-radius:9999px;font-size:12px;line-height:18px;margin-left:6px;background:#f3f4f6;color:#111827;}
-        .muted{color:#6b7280;}
-        .mono{font-variant-numeric: tabular-nums;}
+        .chip { display:inline-block; padding:2px 8px; border:1px solid var(--border); border-radius:9999px; font-size:12px; line-height:18px; margin-left:6px; background:var(--chip); color:var(--text); }
+        .muted { color: var(--muted); }
+        .mono  { font-variant-numeric: tabular-nums; }
 
-        /* % label colors: black by default, white on podcast cells */
         .ep-label-percent { color: #262626; text-shadow: 0 1px 0 rgba(255,255,255,.55); }
         .ep-label-episode { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); letter-spacing: .2px; }
 
-        /* RAINBOW border (UPCOMING podcast): thicker */
-        @keyframes rainbowShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+        /* RAINBOW border (UPCOMING podcast) */
         .rainbow-outline {
           position: relative; border: 3px solid transparent; border-radius: 1rem;
-          background: linear-gradient(#ffffff,#ffffff) padding-box,
+          background: linear-gradient(var(--surface),var(--surface)) padding-box,
                       linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55) border-box;
           background-size: auto, 400% 400%;
           animation: rainbowShift 6s linear infinite;
         }
-        /* RECORDED border (AFTER podcast day): solid readable teal/blue */
+        /* RECORDED border */
         .recorded-outline {
-          position: relative; border: 3px solid #0ea5e9; background:#ffffff; border-radius:1rem;
+          position: relative; border: 3px solid #0ea5e9; background: var(--surface); border-radius:1rem;
         }
 
-        /* Animated inner blue for podcast tile; muted when recorded */
+        /* Podcast tile animated fill */
         @keyframes softBlue {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+          0%, 100% { background-position: 0% 50%; }
+          50%       { background-position: 100% 50%; }
         }
         .podcast-fill {
           position:absolute; inset:2px; border-radius: 14px;
           background: linear-gradient(135deg,#0ea5e9aa,#2563eb66,#1d4ed899,#3b82f655);
           background-size: 260% 260%;
           animation: softBlue 8s ease-in-out infinite;
-          pointer-events: none;
-          z-index: 0;
+          pointer-events: none; z-index: 0;
         }
         .podcast-fill-muted { animation-duration: 14s; filter: saturate(0.75) brightness(0.98); }
 
-        /* keep content above film */
         .day-num   { position:absolute; top: 4px; right: 8px; z-index: 2; }
         .ep-label  { position:absolute; left: 8px; bottom: 6px; z-index: 2; }
 
-        .day-cell { transition: box-shadow .15s ease; }
-        .divider { height:1px; background:#eee; margin:8px 0; }
-        .day-selected { outline: 2px solid #111; outline-offset: -2px; }
-        .spinner { width:14px;height:14px;border:2px solid #93c5fd; border-top-color: transparent; border-radius:50%; display:inline-block; animation: spin .8s linear infinite; vertical-align: -2px;}
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .day-cell     { transition: box-shadow .15s ease; }
+        .divider      { height:1px; background: var(--border-light); margin:8px 0; }
+        .day-selected { outline: 2px solid var(--text); outline-offset: -2px; }
 
-        .btn { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid #e5e7eb; border-radius:10px; font-size:13px; background:#fff; color:#111; }
-        .btn:hover { filter: brightness(0.98); }
-        .btn-toggle-on { background:#111; color:#fff; border-color:#111; }
-        .nav-btn { padding:2px 8px; border:1px solid #e5e7eb; background:#fff; color:#111; border-radius:8px; }
-        .nav-btn:hover { filter:brightness(0.98); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { width:14px; height:14px; border:2px solid var(--spin); border-top-color: transparent; border-radius:50%; display:inline-block; animation: spin .8s linear infinite; vertical-align: -2px; }
+
+        .btn          { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--border); border-radius:10px; font-size:13px; background:var(--surface); color:var(--text); }
+        .btn:hover    { filter: brightness(0.97); }
+        .btn-toggle-on { background:var(--text); color:var(--bg); border-color:var(--text); }
+        .nav-btn      { padding:2px 8px; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:8px; }
+        .nav-btn:hover { filter: brightness(0.97); }
 
         .urgent-outline { outline: 2px solid ${PURPLE_URGENT}; outline-offset: -2px; }
-        .urgent-faint { box-shadow: inset 0 0 0 9999px rgba(109, 40, 217, 0.07); }
-        .tag { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid #e5e7eb; background:#f3f4f6; color:#111; }
-        .tag-urgent { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
+        .urgent-faint   { box-shadow: inset 0 0 0 9999px rgba(109,40,217,0.07); }
+        .tag            { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid var(--border); background:var(--chip); color:var(--text); }
+        .tag-urgent     { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
 
-        /* Sidebar gradient text labels */
         .rainbow-text {
           font-weight: 800;
           background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
-          background-size: 400% 400%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          background-size: 400% 400%; -webkit-background-clip: text; background-clip: text; color: transparent;
           animation: rainbowShift 6s linear infinite;
         }
         .blue-text-grad {
           font-weight: 800;
           background: linear-gradient(90deg,#0ea5e9,#60a5fa,#93c5fd);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          -webkit-background-clip: text; background-clip: text; color: transparent;
         }
 
         /* === Holidays === */
         .holiday-icon {
-          position: absolute;
-          left: 6px; top: 4px;
-          z-index: 2;
-          font-size: 12px;
-          filter: drop-shadow(0 1px 0 rgba(255,255,255,.65))
-                  drop-shadow(0 0 2px rgba(0,0,0,.12));
+          position: absolute; left: 6px; top: 4px; z-index: 2; font-size: 12px;
+          filter: drop-shadow(0 1px 0 rgba(255,255,255,.65)) drop-shadow(0 0 2px rgba(0,0,0,.12));
           pointer-events: none;
         }
-        /* Accents only for NON-podcast days */
         .holiday-usa      { box-shadow: inset 0 0 0 2px rgba(220,38,38,.10), inset 0 0 0 4px rgba(37,99,235,.06); }
         .holiday-thanks   { box-shadow: inset 0 0 0 3px rgba(217,119,6,.12); }
         .holiday-halloween{ box-shadow: inset 0 0 0 3px rgba(245,158,11,.14); }
@@ -889,6 +904,7 @@ export default function App(){
         .holiday-pastel   { box-shadow: inset 0 0 0 3px rgba(99,102,241,.10); }
       `}</style>
 
+      <div className="lc-top-bar" />
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
         {/* Top toolbar: title + status + TZ */}
         <div className="flex items-center gap-3 flex-wrap mb-2">
@@ -905,6 +921,7 @@ export default function App(){
           {err && <div className="text-xs" style={{color:"#ef4444"}}>Error: {err}</div>}
 
           <div className="ml-auto flex items-center gap-2">
+            <ThemeToggle theme={theme} onChange={setTheme} />
             <label className="text-sm muted">Display time zone:</label>
             <select className="border rounded-lg p-2 text-sm" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
               {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
@@ -916,7 +933,7 @@ export default function App(){
         <div className="text-xs muted mb-3">
           {sources.map(s => (
             <div key={s.id}>
-              <b style={{color:"#111827"}}>{s.name}</b>: {sourceCounts[s.id] ?? 0} events
+              <b style={{color:"var(--text)"}}>{s.name}</b>: {sourceCounts[s.id] ?? 0} events
               {lastFetchAt[s.id] && <> · updated {new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second:'2-digit' }).format(lastFetchAt[s.id])}</>}
               {fetchErrors[s.id] && <span style={{color:"#ef4444"}}> · err: {fetchErrors[s.id]}</span>}
             </div>
@@ -935,19 +952,19 @@ export default function App(){
                   {s.name}
                 </label>
               ))}
-              {!appPassword && (
-                <button
-                  onClick={() => setShowUnlock(v => !v)}
-                  title="Unlock private calendar"
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', opacity: 0.35, padding: 0, lineHeight: 1 }}
-                >🔒</button>
-              )}
             </div>
             {showUnlock && !appPassword && (
               <UnlockForm onUnlock={pw => { setAppPassword(pw); localStorage.setItem('app_pw', pw); setShowUnlock(false); }} onCancel={() => setShowUnlock(false)} />
             )}
 
             <div className="divider" />
+            {/* discreet private-calendar tab — bottom of panel */}
+            {!appPassword && (
+              <div style={{ display:'flex', justifyContent:'flex-end', marginTop:'-4px' }}>
+                <button onClick={() => setShowUnlock(v => !v)}
+                  style={{ background:'none', border:'none', cursor:'pointer', color:'var(--muted)', opacity:0.35, fontSize:'11px', padding:'2px 4px', letterSpacing:'1px' }}>···</button>
+              </div>
+            )}
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
               <input
@@ -1008,7 +1025,7 @@ export default function App(){
               {viewMode==='single' && (
                 <div className="flex items-center gap-2">
                   <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))} aria-label="Previous month">‹</button>
-                  <div className="text-sm muted w-32 text-center" style={{color:"#111827"}}>
+                  <div className="text-sm muted w-32 text-center" style={{color:"var(--text)"}}>
                     {new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}
                   </div>
                   <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))} aria-label="Next month">›</button>
@@ -1033,7 +1050,7 @@ export default function App(){
               Not available
             </div>
             <span className="text-xs muted ml-1">"!" = Need more info.</span>
-            <span className="text-sm muted ml-auto">Loaded events: <b style={{color:"#111827"}}>{events.length}</b></span>
+            <span className="text-sm muted ml-auto">Loaded events: <b style={{color:"var(--text)"}}>{events.length}</b></span>
           </div>
         )}
 
@@ -1104,7 +1121,7 @@ export default function App(){
                     })() : null}
 
                     <p className="text-sm muted">
-                      Group free: <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono" style={{color:"#111827"}}>{Math.round(activeInfo.totalMinutes)}</span> min
+                      Group free: <span className="mono" style={{color:"var(--text)"}}>{Math.round(activeInfo.freeMinutes)}</span> / <span className="mono" style={{color:"var(--text)"}}>{Math.round(activeInfo.totalMinutes)}</span> min
                       <span className="chip">{pct(activeInfo.freeMinutes, activeInfo.totalMinutes)}% free</span>
                     </p>
 
@@ -1285,7 +1302,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
           urgentDecor ? "urgent-outline urgent-faint" : "",
           holidayAccentClass
         ].join(" ")}
-        style={{ backgroundColor: hasPodcast ? "transparent" : colorForRatio(r), border: hasPodcast ? undefined : `1px solid #e5e7eb` }}
+        style={{ backgroundColor: hasPodcast ? "transparent" : colorForRatio(r), border: hasPodcast ? undefined : `1px solid var(--border)` }}
         title={title}
       >
         {/* animated podcast inner fill */}
@@ -1301,7 +1318,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
         )}
 
         {/* day number (top-right) */}
-        <div className="day-num font-semibold" style={{ color:"#0f172a", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
+        <div className="day-num font-semibold" style={{ color:"var(--day-num)", opacity:0.9, fontSize: Math.max(8, dayNumSize) }}>
           {day}
         </div>
 

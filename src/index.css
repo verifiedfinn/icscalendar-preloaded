@@ -1,103 +1,162 @@
+/* ── Base ─────────────────────────────────────────────────────── */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* ── Light theme (default) ── */
+  --bg:           #f8fafc;
+  --surface:      #ffffff;
+  --text:         #111827;
+  --muted:        #6b7280;
+  --border:       #e5e7eb;
+  --border-light: #eeeeee;
+  --chip:         #f3f4f6;
+  --input-bg:     #ffffff;
+  --spin:         #93c5fd;
+  --day-num:      #0f172a;
+  --shadow-card:  0 1px 3px rgba(0,0,0,.08);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* ── Dark theme ─────────────────────────────────────────────── */
+.theme-dark {
+  --bg:           #0f172a;
+  --surface:      #1e293b;
+  --text:         #f1f5f9;
+  --muted:        #94a3b8;
+  --border:       #334155;
+  --border-light: #243045;
+  --chip:         #334155;
+  --input-bg:     #1e293b;
+  --spin:         #60a5fa;
+  --day-num:      #e2e8f0;
+  --shadow-card:  0 2px 8px rgba(0,0,0,.4);
 }
 
+/* ── Las Cafeteras theme ─────────────────────────────────────── */
+.theme-lc {
+  --bg:           #fef9e7;
+  --surface:      #fffdf5;
+  --text:         #1a0800;
+  --muted:        #92400e;
+  --border:       #fcd9a0;
+  --border-light: #fde68a;
+  --chip:         #fef3c7;
+  --input-bg:     #fffdf5;
+  --spin:         #f97316;
+  --day-num:      #1a0800;
+  --shadow-card:  0 2px 16px rgba(251,146,60,.10);
+}
+
+/* ── Base reset ─────────────────────────────────────────────── */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s ease, color 0.25s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* ── Tailwind color-class overrides (theme-aware) ───────────── */
+.theme-dark .bg-white,
+.theme-lc   .bg-white {
+  background-color: var(--surface) !important;
 }
 
-/* Label readability + lighter weight */
-.ep-label-percent { 
-  font-weight: 600;            /* was extra-bold; slimmer now */
-  color: #111; 
+/* ── Dark: card shadows ─────────────────────────────────────── */
+.theme-dark .shadow,
+.theme-dark .shadow-sm {
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* ── Las Cafeteras: animated warm background ────────────────── */
+@keyframes lcWarm {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+.theme-lc body {
+  background: linear-gradient(135deg, #fef9e7 0%, #fff7ed 25%, #fef3c7 50%, #fff7ed 75%, #fef9e7 100%);
+  background-size: 400% 400%;
+  animation: lcWarm 18s ease infinite;
+}
+
+/* ── LC colorful top stripe ─────────────────────────────────── */
+@keyframes stripeShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.lc-top-bar { display: none; }
+
+.theme-lc .lc-top-bar {
+  display: block;
+  height: 5px;
+  background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #06b6d4, #22c55e, #eab308, #f97316);
+  background-size: 300% 100%;
+  animation: stripeShift 5s linear infinite;
+  border-radius: 0 0 3px 3px;
+}
+
+/* ── Las Cafeteras: warm card glow ──────────────────────────── */
+.theme-lc .bg-white {
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: box-shadow 0.3s ease !important;
+}
+.theme-lc .bg-white:hover {
+  box-shadow: 0 6px 28px rgba(251,146,60,.22) !important;
+}
+
+/* ── EP labels ──────────────────────────────────────────────── */
+.ep-label-percent {
+  font-weight: 600;
+  color: #111;
   text-shadow: 0 1px 0 rgba(255,255,255,.45);
 }
-
-.ep-label-episode { 
-  font-weight: 800;            /* keep EP punchy */
-  color: #fff; 
-  text-shadow: 0 1px 2px rgba(0,0,0,.45); 
-  letter-spacing: .2px; 
+.ep-label-episode {
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.45);
+  letter-spacing: .2px;
 }
 
-/* Animated rainbow pill (readable on white) */
+/* ── Pills ──────────────────────────────────────────────────── */
+@keyframes rainbowShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .rainbow-pill {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 10px;
   font-weight: 800;
-  color: #fff; /* WHITE text for readability */
+  color: #fff;
   border: 1px solid rgba(0,0,0,.08);
   background: linear-gradient(90deg,#ff004c,#ff8a00,#ffe600,#4cd964,#1ecfff,#5856d6,#ff2d55);
   background-size: 400% 400%;
   animation: rainbowShift 6s linear infinite;
 }
 
-/* Blue pill (recorded) – keeps good contrast */
 .blue-pill {
-  display:inline-block; padding:4px 10px; border-radius:10px; font-weight:800;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: 800;
   background: linear-gradient(90deg, #1e40af, #2563eb, #0ea5e9);
-  color:#fff;
+  color: #fff;
   border: 1px solid rgba(0,0,0,.08);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
