@@ -964,17 +964,22 @@ export default function App(){
                 onClick={() => setShowUnlock(v => !v)}
                 title="Private calendar"
                 style={{
-                  position: 'absolute', right: -13, top: '50%', transform: 'translateY(-50%)',
-                  width: 13, height: 48, cursor: 'pointer',
-                  background: 'var(--border)', borderRadius: '0 8px 8px 0',
+                  position: 'absolute', right: -26, top: '50%', transform: 'translateY(-50%)',
+                  width: 26, height: 64, cursor: 'pointer',
+                  background: 'var(--surface)',
+                  border: '1px solid var(--border)',
+                  borderLeft: 'none',
+                  borderRadius: '0 10px 10px 0',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '2px 0 6px rgba(0,0,0,.12)',
-                  opacity: 0.7,
-                  transition: 'opacity 0.15s, width 0.15s',
+                  boxShadow: '3px 0 8px rgba(0,0,0,.15)',
+                  transition: 'background 0.15s, box-shadow 0.15s',
+                  userSelect: 'none',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.width = '16px'; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.width = '13px'; }}
-              />
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--chip)'; e.currentTarget.style.boxShadow = '4px 0 12px rgba(0,0,0,.22)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)'; e.currentTarget.style.boxShadow = '3px 0 8px rgba(0,0,0,.15)'; }}
+              >
+                <span style={{ fontSize: 10, color: 'var(--muted)', writingMode: 'vertical-rl', letterSpacing: 2, opacity: 0.6 }}>···</span>
+              </div>
             )}
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
