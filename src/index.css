@@ -113,21 +113,6 @@ html, body {
 /* ── LC top stripe hidden ───────────────────────────────────── */
 .lc-top-bar { display: none; }
 
-/* ── LC: marigold ornaments dripping off select day cells ───── */
-.theme-lc .day-cell:nth-child(7n+2)::after,
-.theme-lc .day-cell:nth-child(7n+5)::after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 15px;
-  height: 15px;
-  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15'><g transform='translate(7.5,7.5)'><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23f97316' transform='rotate(0)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23eab308' transform='rotate(45)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23f97316' transform='rotate(90)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23eab308' transform='rotate(135)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23f97316' transform='rotate(180)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23eab308' transform='rotate(225)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23f97316' transform='rotate(270)'/><ellipse cx='0' cy='-3.2' rx='2' ry='3.2' fill='%23eab308' transform='rotate(315)'/><circle r='2.8' fill='%23fde68a'/></g></svg>") center/contain no-repeat;
-  pointer-events: none;
-  z-index: 5;
-  opacity: 0.85;
-}
 
 /* ── Keyframes ──────────────────────────────────────────────── */
 @keyframes lcNight {
