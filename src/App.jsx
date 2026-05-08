@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
-import LoginPage from "./LoginPage.jsx";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (ICALns && ICALns.parse) ? ICALns
@@ -321,18 +320,45 @@ function parseICSText(text, sourceId, sourceName){
 /* =========================
    UI
 ========================= */
-export default function App(){
-  const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
+function UnlockForm({ onUnlock, onCancel }) {
+  const [pw, setPw] = useState('');
+  const [err, setErr] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  if (!appPassword) {
-    return <LoginPage onLogin={pw => setAppPassword(pw)} />;
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setErr('');
+    setLoading(true);
+    try {
+      const resp = await fetch('/api/hector-personal', { headers: { Authorization: `Bearer ${pw}` } });
+      if (resp.ok) { onUnlock(pw); }
+      else { setErr('Wrong password.'); }
+    } catch { setErr('Network error.'); }
+    finally { setLoading(false); }
   }
 
-  return <AuthedApp appPassword={appPassword} onLogout={() => { localStorage.removeItem('app_pw'); setAppPassword(null); }} />;
+  return (
+    <form onSubmit={handleSubmit} style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+      <input
+        type="password" placeholder="Password" value={pw} onChange={e => setPw(e.target.value)}
+        style={{ padding: '0.3rem 0.5rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', width: '100%', boxSizing: 'border-box' }}
+        autoFocus
+      />
+      {err && <div style={{ color: '#dc2626', fontSize: '0.78rem' }}>{err}</div>}
+      <div style={{ display: 'flex', gap: '0.4rem' }}>
+        <button type="submit" disabled={loading || !pw} style={{ flex: 1, padding: '0.3rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer' }}>
+          {loading ? '…' : 'Unlock'}
+        </button>
+        <button type="button" onClick={onCancel} style={{ padding: '0.3rem 0.6rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer', background: '#fff' }}>✕</button>
+      </div>
+    </form>
+  );
 }
 
-function AuthedApp({ appPassword, onLogout }) {
+export default function App(){
   const today = new Date();
+  const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
+  const [showUnlock, setShowUnlock] = useState(false);
 
   const TZ_OPTS = [
     { id: "system", label: "System (auto)" },
@@ -403,16 +429,15 @@ function AuthedApp({ appPassword, onLogout }) {
         const loadedEvents  = [];
 
         for (const p of PRESET_CALENDARS) {
+          if (p.requiresAuth && !appPassword) continue; // load after unlock
           try {
-            const token = p.requiresAuth ? appPassword : null;
-            const raw = await fetchText(p.url, { bust: !p.requiresAuth, authToken: token });
+            const raw = await fetchText(p.url, { bust: !p.requiresAuth, authToken: p.requiresAuth ? appPassword : null });
             const evs = parseICSText(raw, p.id, p.name);
             loadedSources.push({ id: p.id, name: p.name });
             loadedEvents.push(...evs);
             setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
             setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
           } catch (e) {
-            if (String(e?.message).includes('401')) { onLogout(); return; }
             setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
           }
         }
@@ -442,6 +467,34 @@ function AuthedApp({ appPassword, onLogout }) {
     })();
     return () => { cancelled = true; };
   }, []);
+
+  // Load personal calendar when password is first unlocked
+  useEffect(() => {
+    if (!appPassword) return;
+    const p = PRESET_CALENDARS.find(c => c.requiresAuth);
+    if (!p) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const raw = await fetchText(p.url, { authToken: appPassword });
+        if (cancelled) return;
+        const evs = parseICSText(raw, p.id, p.name);
+        setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
+        setRawEvents(prev => [...prev.filter(e => e.sourceId !== p.id), ...evs]);
+        setSelectedIds(prev => new Set([...prev, p.id]));
+        setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
+        setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
+      } catch (e) {
+        if (String(e?.message).includes('401')) {
+          localStorage.removeItem('app_pw');
+          setAppPassword(null);
+        } else {
+          setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
+        }
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [appPassword]);
 
   // Auto-refresh every 6 hours
   useEffect(() => {
@@ -882,7 +935,17 @@ function AuthedApp({ appPassword, onLogout }) {
                   {s.name}
                 </label>
               ))}
+              {!appPassword && (
+                <button
+                  onClick={() => setShowUnlock(v => !v)}
+                  title="Unlock private calendar"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', opacity: 0.35, padding: 0, lineHeight: 1 }}
+                >🔒</button>
+              )}
             </div>
+            {showUnlock && !appPassword && (
+              <UnlockForm onUnlock={pw => { setAppPassword(pw); localStorage.setItem('app_pw', pw); setShowUnlock(false); }} onCancel={() => setShowUnlock(false)} />
+            )}
 
             <div className="divider" />
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
