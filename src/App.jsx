@@ -382,9 +382,27 @@ function LCPetals() {
     resize();
     window.addEventListener('resize', resize);
 
-    const FLOOR = 108; // where flowers pool — just below the garland
-    const colors = ['#f97316', '#eab308', '#fb923c', '#fde68a', '#f59e0b'];
+    const petalColors = ['#f97316', '#eab308', '#ec4899', '#fde68a', '#f59e0b', '#fb923c'];
+    const flowerColors = ['#f97316', '#eab308', '#fb923c', '#fde68a', '#f59e0b'];
+    const FLOOR = 108;
 
+    // ── Falling petals (full screen) ──────────────────────────────
+    function makePetal(fromTop) {
+      return {
+        x: Math.random() * (canvas.width || 1200),
+        y: fromTop ? -12 : Math.random() * (canvas.height || 800),
+        vy: 0.4 + Math.random() * 1.2,
+        vx: (Math.random() - 0.5) * 0.6,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.06,
+        size: 5 + Math.random() * 7,
+        color: petalColors[Math.floor(Math.random() * petalColors.length)],
+        alpha: 0.55 + Math.random() * 0.35,
+      };
+    }
+    const petals = Array.from({ length: 55 }, () => makePetal(false));
+
+    // ── Pooling flowers (garland base only) ───────────────────────
     function makeFlower(settled) {
       const floor = FLOOR + (Math.random() * 14 - 7);
       return {
@@ -393,16 +411,25 @@ function LCPetals() {
         vy: 0.6 + Math.random() * 1.0,
         vx: (Math.random() - 0.5) * 0.35,
         size: 4 + Math.random() * 5,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: flowerColors[Math.floor(Math.random() * flowerColors.length)],
         rot: Math.random() * Math.PI * 2,
         alpha: settled ? (0.6 + Math.random() * 0.35) : 0,
-        floor,
-        settled,
+        floor, settled,
       };
     }
-
-    // pre-fill pool
     const flowers = Array.from({ length: 70 }, () => makeFlower(true));
+
+    function drawPetal(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, -p.size * 0.55, p.size * 0.32, p.size * 0.65, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
 
     function drawFlower(f) {
       ctx.save();
@@ -425,10 +452,17 @@ function LCPetals() {
     function tick() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       timer++;
-      // drip a new flower every ~10 frames if pool isn't swamped
+
+      // falling petals
+      petals.forEach(p => {
+        p.y += p.vy; p.x += p.vx; p.angle += p.spin;
+        if (p.y > canvas.height + 20) Object.assign(p, makePetal(true));
+        drawPetal(p);
+      });
+
+      // pooling flowers at garland base
       if (timer % 10 === 0 && flowers.filter(f => !f.settled).length < 15)
         flowers.push(makeFlower(false));
-
       flowers.forEach(f => {
         if (!f.settled) {
           f.y += f.vy; f.x += f.vx;
@@ -437,6 +471,7 @@ function LCPetals() {
         }
         drawFlower(f);
       });
+
       animId = requestAnimationFrame(tick);
     }
     tick();
