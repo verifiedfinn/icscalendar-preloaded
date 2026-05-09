@@ -376,47 +376,73 @@ function LCPetals() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    let animId;
+    let animId, timer = 0;
+
     const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
     resize();
     window.addEventListener('resize', resize);
 
-    const colors = ['#f97316', '#eab308', '#ec4899', '#fde68a', '#f59e0b', '#fb923c'];
-    class Petal {
-      reset(fromTop) {
-        this.x = Math.random() * canvas.width;
-        this.y = fromTop ? -12 : Math.random() * canvas.height;
-        this.size = 5 + Math.random() * 7;
-        this.vy = 0.4 + Math.random() * 1.2;
-        this.vx = (Math.random() - 0.5) * 0.6;
-        this.angle = Math.random() * Math.PI * 2;
-        this.spin = (Math.random() - 0.5) * 0.06;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.alpha = 0.55 + Math.random() * 0.35;
-      }
-      constructor() { this.reset(false); }
-      update() {
-        this.y += this.vy; this.x += this.vx; this.angle += this.spin;
-        if (this.y > canvas.height + 20) this.reset(true);
-      }
-      draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle);
-        ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.ellipse(0, -this.size * 0.55, this.size * 0.32, this.size * 0.65, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
+    const FLOOR = 108; // where flowers pool — just below the garland
+    const colors = ['#f97316', '#eab308', '#fb923c', '#fde68a', '#f59e0b'];
+
+    function makeFlower(settled) {
+      const floor = FLOOR + (Math.random() * 14 - 7);
+      return {
+        x: Math.random() * (canvas.width || 1200),
+        y: settled ? floor : (5 + Math.random() * 55),
+        vy: 0.6 + Math.random() * 1.0,
+        vx: (Math.random() - 0.5) * 0.35,
+        size: 4 + Math.random() * 5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rot: Math.random() * Math.PI * 2,
+        alpha: settled ? (0.6 + Math.random() * 0.35) : 0,
+        floor,
+        settled,
+      };
     }
-    const petals = Array.from({ length: 55 }, () => new Petal());
-    const tick = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); petals.forEach(p => { p.update(); p.draw(); }); animId = requestAnimationFrame(tick); };
+
+    // pre-fill pool
+    const flowers = Array.from({ length: 70 }, () => makeFlower(true));
+
+    function drawFlower(f) {
+      ctx.save();
+      ctx.translate(f.x, f.y);
+      ctx.rotate(f.rot);
+      ctx.globalAlpha = f.alpha;
+      for (let i = 0; i < 6; i++) {
+        ctx.fillStyle = f.color;
+        ctx.beginPath();
+        ctx.ellipse(0, -f.size * 0.62, f.size * 0.22, f.size * 0.62, (i * Math.PI) / 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.fillStyle = '#fde68a';
+      ctx.beginPath();
+      ctx.arc(0, 0, f.size * 0.28, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      timer++;
+      // drip a new flower every ~10 frames if pool isn't swamped
+      if (timer % 10 === 0 && flowers.filter(f => !f.settled).length < 15)
+        flowers.push(makeFlower(false));
+
+      flowers.forEach(f => {
+        if (!f.settled) {
+          f.y += f.vy; f.x += f.vx;
+          f.alpha = Math.min(0.9, f.alpha + 0.05);
+          if (f.y >= f.floor) { f.y = f.floor; f.settled = true; }
+        }
+        drawFlower(f);
+      });
+      animId = requestAnimationFrame(tick);
+    }
     tick();
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
   }, []);
-  return <canvas ref={canvasRef} style={{ position:'fixed', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none', zIndex:9, opacity:0.55 }} />;
+  return <canvas ref={canvasRef} style={{ position:'fixed', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none', zIndex:9 }} />;
 }
 
 function LCGarland({ theme }) {
