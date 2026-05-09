@@ -712,12 +712,9 @@ export default function App(){
     let cancelled = false;
     (async () => {
       try {
-        console.log('[personal cal] fetching…');
         const raw = await fetchText(p.url, { authToken: appPassword });
         if (cancelled) return;
-        console.log('[personal cal] got response, first 300 chars:', raw.slice(0, 300));
         const evs = parseICSText(raw, p.id, p.name);
-        console.log('[personal cal] parsed', evs.length, 'events — adding source');
         setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
         setRawEvents(prev => [...prev.filter(e => e.sourceId !== p.id), ...evs]);
         setSelectedIds(prev => new Set([...prev, p.id]));
@@ -725,7 +722,6 @@ export default function App(){
         setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
       } catch (e) {
         const msg = String(e?.message || e);
-        console.error('[personal cal] failed:', msg);
         if (msg.includes('401')) {
           localStorage.removeItem('app_pw');
           setAppPassword(null);
