@@ -371,13 +371,61 @@ function ThemeToggle({ theme, onChange }) {
   );
 }
 
+function LCPetals() {
+  const canvasRef = useRef(null);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    let animId;
+    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const colors = ['#f97316', '#eab308', '#ec4899', '#fde68a', '#f59e0b', '#fb923c'];
+    class Petal {
+      reset(fromTop) {
+        this.x = Math.random() * canvas.width;
+        this.y = fromTop ? -12 : Math.random() * canvas.height;
+        this.size = 5 + Math.random() * 7;
+        this.vy = 0.4 + Math.random() * 1.2;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.06;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.alpha = 0.55 + Math.random() * 0.35;
+      }
+      constructor() { this.reset(false); }
+      update() {
+        this.y += this.vy; this.x += this.vx; this.angle += this.spin;
+        if (this.y > canvas.height + 20) this.reset(true);
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.ellipse(0, -this.size * 0.55, this.size * 0.32, this.size * 0.65, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    const petals = Array.from({ length: 55 }, () => new Petal());
+    const tick = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); petals.forEach(p => { p.update(); p.draw(); }); animId = requestAnimationFrame(tick); };
+    tick();
+    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
+  }, []);
+  return <canvas ref={canvasRef} style={{ position:'fixed', top:0, left:0, width:'100%', height:'100%', pointerEvents:'none', zIndex:9, opacity:0.55 }} />;
+}
+
 function LCGarland({ theme }) {
   const ref = useRef(null);
   const width = useResizeWidth(ref);
 
   if (theme !== 'lc') return <div className="lc-top-bar" ref={ref} />;
 
-  const H = 72;
+  const H = 90;
   const spacing = 52;
   const count = width > 0 ? Math.ceil(width / spacing) + 1 : 0;
   const strandHeights = [22, 46, 30, 54, 18, 42, 28, 50, 34, 44];
@@ -390,9 +438,9 @@ function LCGarland({ theme }) {
   const delays = [0, 0.5, 1.0, 0.25, 0.75, 1.25, 0.4, 0.9, 0.1, 0.6];
 
   return (
-    <div ref={ref} style={{ width: '100%', height: H, overflow: 'hidden' }}>
+    <div ref={ref} style={{ width: '100%', height: H }}>
       {width > 0 && (
-        <svg width={width} height={H} style={{ display: 'block' }}>
+        <svg width={width} height={H} style={{ display: 'block', overflow: 'visible' }}>
           <line x1={0} y1={5} x2={width} y2={5} stroke="#a16207" strokeWidth="1.5" opacity="0.7" />
           {Array.from({ length: count }, (_, i) => {
             const x = i * spacing + 10;
@@ -983,6 +1031,7 @@ export default function App(){
       `}</style>
 
       <LCGarland theme={theme} />
+      {theme === 'lc' && <LCPetals />}
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
         {/* Top toolbar: title + status + TZ */}
         <div className="flex items-center gap-3 flex-wrap mb-2">
