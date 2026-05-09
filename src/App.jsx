@@ -1167,12 +1167,12 @@ export default function App(){
               ))}
             </div>
 
-            {showUnlock && !appPassword && (
+            {showUnlock && !sources.some(s => s.id === HECTOR_PERSONAL_ID) && (
               <UnlockForm onUnlock={pw => { setAppPassword(pw); localStorage.setItem('app_pw', pw); setShowUnlock(false); }} onCancel={() => setShowUnlock(false)} />
             )}
 
             <div className="divider" />
-            {!appPassword && (
+            {!sources.some(s => s.id === HECTOR_PERSONAL_ID) && (
               <div
                 onClick={() => setShowUnlock(v => !v)}
                 title="Unlock personal calendar"
