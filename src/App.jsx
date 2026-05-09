@@ -722,7 +722,7 @@ export default function App(){
         setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
       } catch (e) {
         const msg = String(e?.message || e);
-        if (msg.includes('401') || msg.includes('404')) {
+        if (msg.includes('401')) {
           localStorage.removeItem('app_pw');
           setAppPassword(null);
         } else {
