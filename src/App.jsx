@@ -384,7 +384,8 @@ function LCPetals() {
 
     const petalColors = ['#f97316', '#eab308', '#ec4899', '#fde68a', '#f59e0b', '#fb923c'];
     const flowerColors = ['#f97316', '#eab308', '#fb923c', '#fde68a', '#f59e0b'];
-    const FLOOR = 108;
+    const FLOOR = 78;
+    const CEIL_Y = 90; // nothing drawn below this — keeps buttons clear
     const MAX_CONTENT = 1280;
 
     // x bounds matching the centered #root (max-width 1280px)
@@ -409,10 +410,10 @@ function LCPetals() {
 
     // ── Pooling flowers (garland base only) ───────────────────────
     function makeFlower(settled) {
-      const floor = FLOOR + (Math.random() * 14 - 7);
+      const floor = Math.min(CEIL_Y - 6, FLOOR + (Math.random() * 10 - 5));
       return {
         x: contentLeft() + Math.random() * contentWidth(),
-        y: settled ? floor : (5 + Math.random() * 55),
+        y: settled ? floor : (5 + Math.random() * 45),
         vy: 0.6 + Math.random() * 1.0,
         vx: (Math.random() - 0.5) * 0.35,
         size: 4 + Math.random() * 5,
@@ -474,7 +475,7 @@ function LCPetals() {
           f.alpha = Math.min(0.9, f.alpha + 0.05);
           if (f.y >= f.floor) { f.y = f.floor; f.settled = true; }
         }
-        drawFlower(f);
+        if (f.y < CEIL_Y) drawFlower(f);
       });
 
       animId = requestAnimationFrame(tick);
