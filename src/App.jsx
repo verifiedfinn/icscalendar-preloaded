@@ -539,20 +539,11 @@ function LCGarland({ theme }) {
 function UnlockForm({ onUnlock, onCancel }) {
   const [pw, setPw] = useState('');
   const [show, setShow] = useState(false);
-  const [err, setErr] = useState('');
-  const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    setErr('');
-    setLoading(true);
-    try {
-      const resp = await fetch('/api/hector-personal', { headers: { Authorization: `Bearer ${pw}` } });
-      if (resp.ok) { onUnlock(pw); }
-      else if (resp.status === 404) { setErr('Personal calendar not available on this deployment.'); }
-      else { setErr('Wrong password.'); }
-    } catch { setErr('Network error.'); }
-    finally { setLoading(false); }
+    if (!pw) return;
+    onUnlock(pw);
   }
 
   return (
@@ -571,10 +562,9 @@ function UnlockForm({ onUnlock, onCancel }) {
           }
         </button>
       </div>
-      {err && <div style={{ color: '#dc2626', fontSize: '0.78rem' }}>{err}</div>}
       <div style={{ display: 'flex', gap: '0.4rem' }}>
-        <button type="submit" disabled={loading || !pw} style={{ flex: 1, padding: '0.3rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer' }}>
-          {loading ? '…' : 'Unlock'}
+        <button type="submit" disabled={!pw} style={{ flex: 1, padding: '0.3rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer' }}>
+          Unlock
         </button>
         <button type="button" onClick={onCancel} style={{ padding: '0.3rem 0.6rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer', background: '#fff' }}>✕</button>
       </div>
@@ -709,22 +699,29 @@ export default function App(){
     if (!appPassword) return;
     const p = PRESET_CALENDARS.find(c => c.requiresAuth);
     if (!p) return;
+
+    // Add source immediately so checkbox + tab state update right away
+    setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
+    setSelectedIds(prev => new Set([...prev, p.id]));
+
     let cancelled = false;
     (async () => {
       try {
         const raw = await fetchText(p.url, { authToken: appPassword });
         if (cancelled) return;
         const evs = parseICSText(raw, p.id, p.name);
-        setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
         setRawEvents(prev => [...prev.filter(e => e.sourceId !== p.id), ...evs]);
-        setSelectedIds(prev => new Set([...prev, p.id]));
         setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
         setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
       } catch (e) {
+        if (cancelled) return;
         const msg = String(e?.message || e);
         if (msg.includes('401')) {
+          // Wrong password — roll back
           localStorage.removeItem('app_pw');
           setAppPassword(null);
+          setSources(prev => prev.filter(s => s.id !== p.id));
+          setSelectedIds(prev => { const n = new Set(prev); n.delete(p.id); return n; });
         } else {
           setFetchErrors(prev => ({ ...prev, [p.id]: msg }));
         }
