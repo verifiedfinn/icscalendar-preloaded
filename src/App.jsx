@@ -385,6 +385,11 @@ function LCPetals() {
     const petalColors = ['#f97316', '#eab308', '#ec4899', '#fde68a', '#f59e0b', '#fb923c'];
     const flowerColors = ['#f97316', '#eab308', '#fb923c', '#fde68a', '#f59e0b'];
     const FLOOR = 108;
+    const MAX_CONTENT = 1280;
+
+    // x bounds matching the centered #root (max-width 1280px)
+    const contentLeft  = () => Math.max(0, (canvas.width - MAX_CONTENT) / 2);
+    const contentWidth = () => Math.min(canvas.width, MAX_CONTENT);
 
     // ── Falling petals (full screen) ──────────────────────────────
     function makePetal(fromTop) {
@@ -400,13 +405,13 @@ function LCPetals() {
         alpha: 0.55 + Math.random() * 0.35,
       };
     }
-    const petals = Array.from({ length: 55 }, () => makePetal(false));
+    const petals = Array.from({ length: 35 }, () => makePetal(false));
 
     // ── Pooling flowers (garland base only) ───────────────────────
     function makeFlower(settled) {
       const floor = FLOOR + (Math.random() * 14 - 7);
       return {
-        x: Math.random() * (canvas.width || 1200),
+        x: contentLeft() + Math.random() * contentWidth(),
         y: settled ? floor : (5 + Math.random() * 55),
         vy: 0.6 + Math.random() * 1.0,
         vx: (Math.random() - 0.5) * 0.35,
