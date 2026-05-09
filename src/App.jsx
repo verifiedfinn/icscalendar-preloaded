@@ -720,7 +720,10 @@ export default function App(){
         setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
         setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
       } catch (e) {
-        if (String(e?.message).includes('401')) {
+        if (String(e?.message).includes('404')) {
+          localStorage.removeItem('app_pw');
+          setAppPassword(null); // API not available on this deployment — clear silently
+        } else if (String(e?.message).includes('401')) {
           localStorage.removeItem('app_pw');
           setAppPassword(null);
         } else {
