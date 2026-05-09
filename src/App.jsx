@@ -548,6 +548,7 @@ function UnlockForm({ onUnlock, onCancel }) {
     try {
       const resp = await fetch('/api/hector-personal', { headers: { Authorization: `Bearer ${pw}` } });
       if (resp.ok) { onUnlock(pw); }
+      else if (resp.status === 404) { setErr('Personal calendar not available on this deployment.'); }
       else { setErr('Wrong password.'); }
     } catch { setErr('Network error.'); }
     finally { setLoading(false); }
@@ -809,26 +810,29 @@ export default function App(){
     for (const e of rawEvents) {
       if (!want.size || !want.has(e.sourceId)) continue;
       if (e.isRecurring) {
-        const evt = new ICAL.Event(e.component);
-        theIter: {
-          const it = evt.iterator();
-          let next; let i = 0;
-          while ((next = it.next())) {
-            const s  = next.toJSDate();
-            const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
-                                    : new Date(s.getTime() + 30 * 60000);
-            if (ee < rangeStart) { if (++i > 5000) break theIter; continue; }
-            if (s  > rangeEnd) break;
-            const summary = evt.summary || "Event";
-            out.push({
-              sourceId:e.sourceId, sourceName:e.sourceName, summary,
-              isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
-              isLocation: e.isLocation,
-              start:s, end:ee, allDay:next.isDate
-            });
-            if (++i > 5000) break;
+        try {
+          const evt = new ICAL.Event(e.component);
+          theIter: {
+            const it = evt.iterator();
+            let next; let i = 0;
+            while ((next = it.next())) {
+              const s  = next.toJSDate();
+              const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
+                                      : new Date(s.getTime() + 30 * 60000);
+              if (!s || !ee || isNaN(s.getTime()) || isNaN(ee.getTime())) { if (++i > 5000) break theIter; continue; }
+              if (ee < rangeStart) { if (++i > 5000) break theIter; continue; }
+              if (s  > rangeEnd) break;
+              const summary = evt.summary || "Event";
+              out.push({
+                sourceId:e.sourceId, sourceName:e.sourceName, summary,
+                isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
+                isLocation: e.isLocation,
+                start:s, end:ee, allDay:next.isDate
+              });
+              if (++i > 5000) break;
+            }
           }
-        }
+        } catch { /* skip malformed recurring event */ }
       } else if (!(e.end < rangeStart || e.start > rangeEnd)) {
         out.push(e);
       }
