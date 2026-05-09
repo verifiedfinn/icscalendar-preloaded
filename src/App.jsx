@@ -210,7 +210,11 @@ async function fetchText(url, { bust = false, authToken = null } = {}) {
   const final = bust ? (url + (url.includes("?") ? "&" : "?") + "t=" + Date.now()) : url;
   const headers = authToken ? { Authorization: `Bearer ${authToken}` } : undefined;
   const resp = await fetch(final, { cache: "no-store", ...(headers && { headers }) });
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  if (!resp.ok) {
+    let detail = '';
+    try { const j = await resp.clone().json(); detail = j.error || ''; } catch {}
+    throw new Error(`HTTP ${resp.status}${detail ? `: ${detail}` : ''}`);
+  }
   return resp.text();
 }
 function sliceCalendar(raw) {

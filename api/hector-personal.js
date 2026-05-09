@@ -39,12 +39,15 @@ export default async function handler(req, res) {
 
   let upstream;
   try {
-    upstream = await fetch(url);
+    upstream = await fetch(url, {
+      redirect: 'follow',
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; CalendarFetcher/1.0)' },
+    });
   } catch (err) {
     return res.status(502).json({ error: `Upstream fetch failed: ${err.message}` });
   }
   if (!upstream.ok) {
-    return res.status(502).json({ error: `Upstream returned ${upstream.status}` });
+    return res.status(502).json({ error: `Upstream returned ${upstream.status}: ${upstream.statusText}` });
   }
 
   const ics = await upstream.text();
