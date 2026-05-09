@@ -715,7 +715,7 @@ export default function App(){
         console.log('[personal cal] fetching…');
         const raw = await fetchText(p.url, { authToken: appPassword });
         if (cancelled) return;
-        console.log('[personal cal] got response, parsing…');
+        console.log('[personal cal] got response, first 300 chars:', raw.slice(0, 300));
         const evs = parseICSText(raw, p.id, p.name);
         console.log('[personal cal] parsed', evs.length, 'events — adding source');
         setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
