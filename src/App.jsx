@@ -1005,7 +1005,7 @@ export default function App(){
       <style>{`
         html, body, #root, .app-root { min-height: 100vh; background: var(--bg); color: var(--text); transition: background 0.4s ease, color 0.25s ease; }
 
-        input, select, textarea { background: var(--input-bg) !important; color: var(--text) !important; border-color: var(--border) !important; }
+        input:not([type="checkbox"]):not([type="radio"]), select, textarea { background: var(--input-bg) !important; color: var(--text) !important; border-color: var(--border) !important; }
         input[type="date"], input[type="number"] { background: var(--input-bg) !important; color: var(--text) !important; border: 1px solid var(--border); }
 
         .chip { display:inline-block; padding:2px 8px; border:1px solid var(--border); border-radius:9999px; font-size:12px; line-height:18px; margin-left:6px; background:var(--chip); color:var(--text); }
