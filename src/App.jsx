@@ -360,13 +360,63 @@ function ThemeToggle({ theme, onChange }) {
           padding:'5px 10px', border:'none',
           borderRight: '1px solid var(--border)',
           background: theme === o.id ? 'var(--text)' : 'var(--surface)',
-          color:       theme === o.id ? 'var(--bg)'   : 'var(--muted)',
+          color:       theme === o.id ? 'var(--surface)' : 'var(--muted)',
           cursor:'pointer', transition:'background 0.2s, color 0.2s',
           display:'flex', alignItems:'center', justifyContent:'center',
         }}>
           {o.icon}
         </button>
       ))}
+    </div>
+  );
+}
+
+function LCGarland({ theme }) {
+  const ref = useRef(null);
+  const width = useResizeWidth(ref);
+
+  if (theme !== 'lc') return <div className="lc-top-bar" ref={ref} />;
+
+  const H = 72;
+  const spacing = 52;
+  const count = width > 0 ? Math.ceil(width / spacing) + 1 : 0;
+  const strandHeights = [22, 46, 30, 54, 18, 42, 28, 50, 34, 44];
+  const colorPairs = [
+    ['#f97316', '#eab308'],
+    ['#ec4899', '#f97316'],
+    ['#eab308', '#f97316'],
+    ['#f97316', '#ec4899'],
+  ];
+  const delays = [0, 0.5, 1.0, 0.25, 0.75, 1.25, 0.4, 0.9, 0.1, 0.6];
+
+  return (
+    <div ref={ref} style={{ width: '100%', height: H, overflow: 'hidden' }}>
+      {width > 0 && (
+        <svg width={width} height={H} style={{ display: 'block' }}>
+          <line x1={0} y1={5} x2={width} y2={5} stroke="#a16207" strokeWidth="1.5" opacity="0.7" />
+          {Array.from({ length: count }, (_, i) => {
+            const x = i * spacing + 10;
+            const sh = strandHeights[i % strandHeights.length];
+            const [p1, p2] = colorPairs[i % colorPairs.length];
+            const delay = delays[i % delays.length];
+            const fy = sh + 8;
+            return (
+              <g key={i} style={{ animation: `lcDrip 2.8s ease-in-out ${delay}s infinite` }}>
+                <line x1={x} y1={-5} x2={x} y2={fy - 6} stroke="#a16207" strokeWidth="1" opacity="0.5" />
+                <g transform={`translate(${x},${fy})`}>
+                  {[0, 72, 144, 216, 288].map((rot, j) => (
+                    <ellipse key={rot} cx="0" cy="-7" rx="5" ry="7"
+                      fill={j % 2 === 0 ? p1 : p2}
+                      transform={`rotate(${rot})`}
+                    />
+                  ))}
+                  <circle r="5" fill="#fde68a" />
+                </g>
+              </g>
+            );
+          })}
+        </svg>
+      )}
     </div>
   );
 }
@@ -932,7 +982,7 @@ export default function App(){
         .holiday-pastel   { box-shadow: inset 0 0 0 3px rgba(99,102,241,.10); }
       `}</style>
 
-      <div className="lc-top-bar" />
+      <LCGarland theme={theme} />
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
         {/* Top toolbar: title + status + TZ */}
         <div className="flex items-center gap-3 flex-wrap mb-2">
