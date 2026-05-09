@@ -586,13 +586,6 @@ export default function App(){
   const today = new Date();
   const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
   const [showUnlock, setShowUnlock] = useState(false);
-  const [apiAvailable, setApiAvailable] = useState(null); // null=unknown, true/false
-
-  useEffect(() => {
-    fetch('/api/hector-personal', { method: 'HEAD' })
-      .then(r => setApiAvailable(r.status !== 404))
-      .catch(() => setApiAvailable(false));
-  }, []);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
@@ -1177,7 +1170,7 @@ export default function App(){
 
             <div className="divider" />
             {/* side tab for private calendar — sits on the right edge of the card */}
-            {!appPassword && apiAvailable && (
+            {!appPassword && (
               <div
                 onClick={() => setShowUnlock(v => !v)}
                 title="Private calendar"
