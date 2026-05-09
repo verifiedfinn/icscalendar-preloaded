@@ -1109,7 +1109,7 @@ export default function App(){
               <span className="spinner" /> <span>Loading calendars…</span>
             </div>
           ) : (
-            notice && <div className="text-xs" style={{padding:"3px 8px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:9999}}>ℹ️ {notice}</div>
+            notice && <div className="text-xs" style={{padding:"3px 8px", background:"#ecfeff", border:"1px solid #a5f3fc", borderRadius:9999, color:"#0c4a6e"}}>ℹ️ {notice}</div>
           )}
 
           {err && <div className="text-xs" style={{color:"#ef4444"}}>Error: {err}</div>}
