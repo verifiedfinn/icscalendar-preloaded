@@ -1102,7 +1102,7 @@ export default function App(){
       <div className="max-w-screen-xl mx-auto px-3 sm:px-4 lg:px-6 py-3">
         {/* Top toolbar: title + status + TZ */}
         <div className="flex items-center gap-3 flex-wrap mb-2">
-          <h1 className="text-2xl font-bold mr-2">Dawn's F2T Heat Map</h1>
+          <h1 className="text-2xl font-bold mr-2">F2T Recording Avails</h1>
 
           {isLoading ? (
             <div className="text-sm text-blue-700 flex items-center gap-2">
