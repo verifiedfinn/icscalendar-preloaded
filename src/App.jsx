@@ -161,7 +161,7 @@ const HECTOR_PERSONAL_ID = "hector_personal";
 // Hector Personal is proxied by the Vercel API route /api/hector-personal.
 const PRESET_CALENDARS = [
   { id: HECTOR_SOURCE_ID,   name: "Hector (Shows)",    url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: false },
-  { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `/api/hector-personal`, availabilityMode: false, requiresAuth: true },
+  { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `/api/hector-personal`, availabilityMode: false },
 ];
 const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
 
@@ -584,8 +584,6 @@ function UnlockForm({ onUnlock, onCancel }) {
 
 export default function App(){
   const today = new Date();
-  const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
-  const [showUnlock, setShowUnlock] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
@@ -664,16 +662,17 @@ export default function App(){
         const loadedEvents  = [];
 
         for (const p of PRESET_CALENDARS) {
-          if (p.requiresAuth && !appPassword) continue; // load after unlock
           try {
-            const raw = await fetchText(p.url, { bust: !p.requiresAuth, authToken: p.requiresAuth ? appPassword : null });
+            const raw = await fetchText(p.url, { bust: true });
             const evs = parseICSText(raw, p.id, p.name);
             loadedSources.push({ id: p.id, name: p.name });
             loadedEvents.push(...evs);
             setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
             setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
           } catch (e) {
-            setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
+            if (!String(e?.message).includes('404')) {
+              setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
+            }
           }
         }
         for (const r of REMOTE_CALENDARS) {
@@ -703,36 +702,6 @@ export default function App(){
     return () => { cancelled = true; };
   }, []);
 
-  // Load personal calendar when password is first unlocked
-  useEffect(() => {
-    if (!appPassword) return;
-    const p = PRESET_CALENDARS.find(c => c.requiresAuth);
-    if (!p) return;
-    let cancelled = false;
-    (async () => {
-      try {
-        const raw = await fetchText(p.url, { authToken: appPassword });
-        if (cancelled) return;
-        const evs = parseICSText(raw, p.id, p.name);
-        setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
-        setRawEvents(prev => [...prev.filter(e => e.sourceId !== p.id), ...evs]);
-        setSelectedIds(prev => new Set([...prev, p.id]));
-        setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
-        setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
-      } catch (e) {
-        if (String(e?.message).includes('404')) {
-          localStorage.removeItem('app_pw');
-          setAppPassword(null); // API not available on this deployment — clear silently
-        } else if (String(e?.message).includes('401')) {
-          localStorage.removeItem('app_pw');
-          setAppPassword(null);
-        } else {
-          setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
-        }
-      }
-    })();
-    return () => { cancelled = true; };
-  }, [appPassword]);
 
   // Auto-refresh every 6 hours
   useEffect(() => {
@@ -1167,34 +1136,8 @@ export default function App(){
                 </label>
               ))}
             </div>
-            {showUnlock && !appPassword && (
-              <UnlockForm onUnlock={pw => { setAppPassword(pw); localStorage.setItem('app_pw', pw); setShowUnlock(false); }} onCancel={() => setShowUnlock(false)} />
-            )}
 
             <div className="divider" />
-            {/* side tab for private calendar — sits on the right edge of the card */}
-            {!appPassword && (
-              <div
-                onClick={() => setShowUnlock(v => !v)}
-                title="Private calendar"
-                style={{
-                  position: 'absolute', right: -16, top: '50%', transform: 'translateY(-50%)',
-                  width: 16, height: 48, cursor: 'pointer',
-                  background: 'var(--surface)',
-                  border: '1px solid var(--border)',
-                  borderLeft: 'none',
-                  borderRadius: '0 10px 10px 0',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '3px 0 8px rgba(0,0,0,.15)',
-                  transition: 'background 0.15s, box-shadow 0.15s',
-                  userSelect: 'none',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--chip)'; e.currentTarget.style.boxShadow = '4px 0 12px rgba(0,0,0,.22)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)'; e.currentTarget.style.boxShadow = '3px 0 8px rgba(0,0,0,.15)'; }}
-              >
-                <span style={{ fontSize: 10, color: 'var(--muted)', writingMode: 'vertical-rl', letterSpacing: 2, opacity: 0.6 }}>···</span>
-              </div>
-            )}
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
               <input
