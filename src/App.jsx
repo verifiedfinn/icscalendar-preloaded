@@ -538,6 +538,7 @@ function LCGarland({ theme }) {
 
 function UnlockForm({ onUnlock, onCancel }) {
   const [pw, setPw] = useState('');
+  const [show, setShow] = useState(false);
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -556,11 +557,20 @@ function UnlockForm({ onUnlock, onCancel }) {
 
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-      <input
-        type="password" placeholder="Password" value={pw} onChange={e => setPw(e.target.value)}
-        style={{ padding: '0.3rem 0.5rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', width: '100%', boxSizing: 'border-box' }}
-        autoFocus
-      />
+      <div style={{ position: 'relative' }}>
+        <input
+          type={show ? 'text' : 'password'} placeholder="Password" value={pw} onChange={e => setPw(e.target.value)}
+          style={{ padding: '0.3rem 2rem 0.3rem 0.5rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', width: '100%', boxSizing: 'border-box' }}
+          autoFocus
+        />
+        <button type="button" onClick={() => setShow(v => !v)} tabIndex={-1}
+          style={{ position: 'absolute', right: 4, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', padding: '2px', color: '#6b7280', lineHeight: 1 }}>
+          {show
+            ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            : <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          }
+        </button>
+      </div>
       {err && <div style={{ color: '#dc2626', fontSize: '0.78rem' }}>{err}</div>}
       <div style={{ display: 'flex', gap: '0.4rem' }}>
         <button type="submit" disabled={loading || !pw} style={{ flex: 1, padding: '0.3rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer' }}>
@@ -576,6 +586,13 @@ export default function App(){
   const today = new Date();
   const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
   const [showUnlock, setShowUnlock] = useState(false);
+  const [apiAvailable, setApiAvailable] = useState(null); // null=unknown, true/false
+
+  useEffect(() => {
+    fetch('/api/hector-personal', { method: 'HEAD' })
+      .then(r => setApiAvailable(r.status !== 404))
+      .catch(() => setApiAvailable(false));
+  }, []);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
@@ -1160,7 +1177,7 @@ export default function App(){
 
             <div className="divider" />
             {/* side tab for private calendar — sits on the right edge of the card */}
-            {!appPassword && (
+            {!appPassword && apiAvailable && (
               <div
                 onClick={() => setShowUnlock(v => !v)}
                 title="Private calendar"
