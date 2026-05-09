@@ -847,14 +847,16 @@ export default function App(){
   );
 
   // Aggregate per-day
-  const dayStats = useMemo(()=>{
+  const dayStats = useMemo(()=>{ try {
     const perDayUnion = new Map();
     const perDayBySrc = new Map();
     const podcastByDay = new Map();
     const urgentByDay = new Map();
 
     for(const ev of events){
+      if (!ev.start || !ev.end) continue;
       const s = ev.start.getTime(), e = ev.end.getTime();
+      if (isNaN(s) || isNaN(e) || e <= s) continue;
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
 
@@ -961,6 +963,7 @@ export default function App(){
       };
     }
     return res;
+  } catch(e) { console.error("dayStats crash:", e); return {}; }
   }, [events, sources, selectedIds, rangeStart, rangeEnd, workStart, workEnd]);
 
   const colorForRatio = (r)=>{ const hue = r*120, sat=70, light=90 - r*40; return `hsl(${hue}, ${sat}%, ${light}%)`; };
