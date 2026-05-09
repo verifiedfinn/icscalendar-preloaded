@@ -573,7 +573,7 @@ function UnlockForm({ onUnlock, onCancel }) {
         <button type="submit" disabled={!pw} style={{ flex: 1, padding: '0.3rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer' }}>
           Unlock
         </button>
-        <button type="button" onClick={onCancel} style={{ padding: '0.3rem 0.6rem', border: '1px solid #d1d5db', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer', background: '#fff' }}>✕</button>
+        <button type="button" onClick={onCancel} style={{ padding: '0.3rem 0.6rem', border: '1px solid var(--border)', borderRadius: 4, fontSize: '0.85rem', cursor: 'pointer', background: 'var(--surface)', color: 'var(--text)' }}>✕</button>
       </div>
     </form>
   );
