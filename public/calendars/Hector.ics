@@ -2,39 +2,16 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:21752ab4-d4e5-418e-92b4-f6b46299d522
-DTSTAMP:20260211T002622
-SUMMARY:DC/HF Walktthrough-  The Wallis
-DTSTART;TZID=America/Los_Angeles:20260211T110000
-DTEND;TZID=America/Los_Angeles:20260211T120000
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 310-246-3800\n
-    http://www.thewallis.org/\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.thewallis.org/
-GEO:34.0724741;-118.4017355
-LOCATION:Wallis Annenberg Center for the Performing Arts\n9390 N Santa Mo
- nica Blvd\nBeverly Hills CA  90210 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Wallis Annenberg Center for the Performing Arts\n9390 N Santa Moni
- ca Blvd\nBeverly Hills CA 90210 United States":geo:34.0724741,-118.40173
- 55
-CREATED:20260211T002622
-LAST-MODIFIED:20260211T002622
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:c2fa75cf-b35a-4d87-b307-865e31696615
@@ -1544,7 +1521,8 @@ DESCRIPTION:Strawberry Music Festival
   May 21st–May 24th\n
   Nevada County Fairgrounds\n
   Grass Valley\, CA\n
-  Thursday\, 5/21/2026\, 3:00 pm\, 40 minutes.\n
+  Thursday\, 5/21/2026\, 3:00 pm\, 40 minutes WORKSHOP 3:30-4:30pm PLAY S
+ TAGE\n
   Friday 5/22 Mainstage\, 9:00 pm\, 90 minutes total\n
   Rachael Gabriel\n
   Promotions & Volunteer Coordinator\n
@@ -1572,7 +1550,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Nevada County Fairgrounds\n11228 McCourtney Rd\nGrass Valley CA 95
  949 United States":geo:39.2064063,-121.077104
 CREATED:20251118T222757
-LAST-MODIFIED:20260206T022520
+LAST-MODIFIED:20260513T003029
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -1609,13 +1587,14 @@ DESCRIPTION:2pm show start\, approx 3pm performance time\, 75-90 min set.
     tel:+1 415-651-3684\n
     http://yerbabuenagardens.com/\n
   \n*************************************\nSCHEDULE:\n
-  7:00 AM - 11:00 AM PDT: 7am lobby\, drive 3 hours)\n-------------------
+  7:00 AM - 10:30 AM PDT: 7am lobby\, drive 3 hours)\n-------------------
  ---------------------\n
-  11:00 AM - 1:00 PM PDT: Lead/ soundcheck\n-----------------------------
- -----------\n
+  10:30 AM - 12:00 PM PDT: Load/ soundcheck\n----------------------------
+ ------------\n
   1:00 PM PDT: Lunch- send order to Denise\n  https://www.tropisueno.com/
  popmenu-order/san-francisco/menus/taqueria-menu\n
   \n----------------------------------------\n
+  2:00 PM PDT: Call time\n----------------------------------------\n
   2:00 PM - 2:30 PM PDT: Opening Act: Discos Resaca Collective\n---------
  -------------------------------\n
   2:30 PM - 3:00 PM PDT: Change Over\n-----------------------------------
@@ -1729,15 +1708,22 @@ DESCRIPTION:Friday\, June 26: approx 90 minute Main Stage slot around 8:3
   \nVENUE INFO:\n
     http://www.blackoakranch.com/\n
   \n*************************************\nSCHEDULE:\n
-  12:00 AM -  PDT: Travel to Laytonville\n-------------------------------
- ---------\n
-  6:00 PM PDT: 6pm Friday Load in (Take performance clothes)\n  Pull in t
- he main gate\, we'll direct you to the the mainstage for unloading. Park
- ing is a short walk from the stage.\n
+  12:00 AM -  PDT: Fly to SF\,  then 3 hr drive to Laytonville\n---------
+ -------------------------------\n
+  6:00 PM PDT: 6pm Friday Load in (Take performance clothes)- unload & pr
+ estage during the previous set.\n  Pull in the main gate\, we'll direct
+ you to the the mainstage for unloading. Parking is a short walk from the
+  stage.\n
   \n----------------------------------------\n
+  7:30 PM - 8:30 PM PDT: Friday changeover/ linecheck\n------------------
+ ----------------------\n
   8:30 PM - 10:00 PM PDT: Show time!  90 min (Main stage)\n  Friday\, Jun
  e 26: approx 90 minute Main Stage slot around 8:30PM\n
   \n----------------------------------------\n
+  6/27/2026 5:30 PM PDT: Saturday Load-in/ Already dressed (no green room
+ )\n----------------------------------------\n
+  6/27/2026 6:15 PM - 6/27/2026 7:40 PM PDT: Change-over / line check\n--
+ --------------------------------------\n
   6/27/2026 7:45 PM - 6/27/2026 8:30 PM PDT: Showtime! 45 min (Front Porc
  h Set)\n  Saturday\, June 27: approx 45 min Front Porch Set around 7:45P
  M\n
