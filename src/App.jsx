@@ -155,6 +155,7 @@ const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
 const MATT_SOURCE_ID = "matt_live";
 const HECTOR_SOURCE_ID = "hector";
 const HECTOR_PERSONAL_ID = "hector_personal";
+const JASMINE_SOURCE_ID = "jasmine";
 
 // Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
 // from the Artist Growth live feed. Events = Hector busy (availabilityMode:false).
@@ -165,6 +166,7 @@ const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '');
 const PRESET_CALENDARS = [
   { id: HECTOR_SOURCE_ID,   name: "Hector (Shows)",    url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: false },
   { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `${API_BASE}/api/hector-personal`, availabilityMode: false, requiresAuth: true },
+  { id: JASMINE_SOURCE_ID,  name: "Jasmine",           url: `${import.meta.env.BASE_URL}calendars/Jasmine.ics`, availabilityMode: false },
 ];
 const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
 
