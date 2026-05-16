@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1562,10 +1562,25 @@ DTEND;VALUE=DATE:20260522
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SBA>SMF - Southwest - A4MXNQ -JM - Southwest\n
+    2602\n
+    DEPART: Santa Barbara Airport 5/21/2026 5:20 AM PDT\n
+    ARRIVE: Sacramento International Airport 5/21/2026 10:20 AM PDT\n
+    \n----------------------------------------\n
+    Flight - BFL>SMF - UNITED - D8NS9T -JC - UNITED\n
+    UA 4724\n
+    DEPART: Meadows Field Airport 5/21/2026 6:00 AM PDT\n
+    ARRIVE: Sacramento International Airport 5/21/2026 9:25 AM PDT\n
+    \n----------------------------------------\n
     Flight - BUR>SMF - Southwest - CSHJN5 - DC\, HF\, MB\, JJ\,AD - South
  west\n
     768\n
     DEPART: Hollywood Burbank Airport 5/21/2026 9:00 AM PDT\n
+    ARRIVE: Sacramento International Airport 5/21/2026 10:25 AM PDT\n
+    \n----------------------------------------\n
+    Flight - ONT>SMF - Southwest - A54PU3-AG - Southwest\n
+    3676\n
+    DEPART: Ontario International Airport 5/21/2026 9:00 AM PDT\n
     ARRIVE: Sacramento International Airport 5/21/2026 10:25 AM PDT\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
