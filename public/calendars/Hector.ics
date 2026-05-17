@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1531,11 +1531,21 @@ DESCRIPTION:Strawberry Music Festival
     tel:+1 530-273-6217\n
     http://nevadacountyfair.com/\n
   \n*************************************\nSCHEDULE:\n
-  3:00 PM - 4:00 PM PDT: 3pm SHOWTIME (40 min)\n-------------------------
- ---------------\n
-  5/22/2026 1:45 PM - 5/22/2026 3:30 PM PDT: 5/22 Workshop (Viva Cultura)
-  40min\n  1:45pm arrive/set up (light PA)\n
-  2:30-3:10pm  40 min workshop\n
+  2:00 PM PDT: 5/21 Arrive & Badge Check in Fairgrounds\n----------------
+ ------------------------\n
+  2:30 PM - 4:10 PM PDT: 5/21  PLAY STAGE Workshop (Viva Cultura) 40min\n
+   2:30pm stage call/set up (light PA)\n
+  3:30-4:10pm 40 min workshop\n
+  Sound Enginner: Kyle will be your sound engineer\n
+  \n----------------------------------------\n
+  2:30 PM PDT: Angie head to main stage: discuss with the main stage engi
+ neers patching your console for front of house and IEM.\n  Stage Manager
+ : Jeremiah O'Neill\n
+  707-479-0144\n
+  \n----------------------------------------\n
+  5/22/2026 2:45 PM - 5/22/2026 4:10 PM PDT: 5/22 Load/ Soundcheck\n  arr
+ ive by 2:50 to load in\n
+  3:20-4:10 Soundcheck\n
   \n----------------------------------------\n
   5/22/2026 9:00 PM - 5/22/2026 10:30 PM PDT: 5/22. 9pm Showtime (Mainsta
  ge)\n  5/22 Mainstage\, 9:00 pm\, 90 minutes total\n
@@ -1637,10 +1647,20 @@ SUMMARY:FLY HOME AFTER SF SHOW
 DTSTART;TZID=America/Los_Angeles:20260523T210000
 DTEND;TZID=America/Los_Angeles:20260523T210000
 DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SFO>BUR - UNITED - HJFQMN - HF\, MB\, JJ\,AD - UNITED\n
+    UA 442\n
+    DEPART: San Francisco International Airport 5/23/2026 8:20 PM PDT\n
+    ARRIVE: Hollywood Burbank Airport 5/23/2026 9:47 PM PDT\n
+    \n----------------------------------------\n
     Flight - SFO>ONT - United -  H0KYS8 - AG - United\n
     552\n
     DEPART: San Francisco International Airport 5/23/2026 9:13 PM PDT\n
     ARRIVE: Ontario International Airport 5/23/2026 10:50 PM PDT\n
+    \n----------------------------------------\n
+    Flight - SFO>SBA - United -DP3XHG - JM - UNITED\n
+    UA 2866\n
+    DEPART: San Francisco International Airport 5/23/2026 9:23 PM PDT\n
+    ARRIVE: Santa Barbara Airport 5/23/2026 10:45 PM PDT\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
@@ -1681,27 +1701,49 @@ BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:74968380-3ee5-4a32-af9b-86985956962a
 DTSTAMP:20260103T052410
-SUMMARY:Live Oak Fest  (San Luis Obispo)
-DTSTART:20260619T180000Z
+SUMMARY:Live Oak Fest  (San Luis Obispo)- LA Carpool/ mijangos & john dri
+ ve on your own
+DTSTART:20260619T183000Z
 DTEND:20260620T031500Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:Friday June 19th for a 7-8:15pm set.
-  NO HOTEL\n
+  NO HOTEL- CAMPING OFFERED\n
+  DOS Contacts:\n
+  Production: Ben Bellizzi- (805) 888-7940\n
+  Hospitality: Karen Duggan (805) 540-8851\n
+  El Chorro Regional Park\, San Luis Obispo CA\n
+  KCBX Stage (mainstage)\n
+  Arrival/Load in: 4:30pm\n
+  Changeover/Soundcheck: 6:30-7:00pm (30min)\n
+  Performance: 7:00-8:15pm (75min)\n
+  Festival Sound Limit: 95 DBA @ FOH (please respect this limit\, it is
+ extremely important to this festival's long-standing crowd)\n
+  *All artists perform in front of the Live Oak Music Festival backdrop\n
+  \nVENUE INFO:\n
+    tel:+1 805-781-5930\n
+    https://slocountyparks.com/camp/el-chorro/\n
   \n*************************************\nSCHEDULE:\n
-  11:00 AM - 4:00 PM PDT: 11am carpool meet up/ drive out\n--------------
- --------------------------\n
-  4:00 PM PDT: 4pm arrival\n----------------------------------------\n
-  6:00 PM PDT: 6pm changeover (45min)\n----------------------------------
- ------\n
-  7:00 PM - 8:15 PM PDT: Show time (75min)\n-----------------------------
- -----------\n
+  11:30 AM - 4:30 PM PDT: 11:30amm LA carpool meet up/ drive out\n-------
+ ---------------------------------\n
+  4:30 PM PDT: 4:30pm arrival\n----------------------------------------\n
+  6:30 PM PDT: 6:30pm  Changeover/Soundcheck (30min)\n-------------------
+ ---------------------\n
+  7:00 PM - 8:15 PM PDT: 7PM SHOWTIME (75min)\n--------------------------
+ --------------\n
   9:00 PM PDT: Drive home\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
+URL;VALUE=URI:https://slocountyparks.com/camp/el-chorro/
+GEO:35.3308993;-120.7325286
+LOCATION:El Chorro Regional Campground\nState Highway 1 @\nDairy Creek Rd
+ \nSan Luis Obispo CA  93405 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="El Chorro Regional Campground\nState Highway 1 @\nDairy Creek Rd\n
+ San Luis Obispo CA 93405 United States":geo:35.3308993,-120.7325286
 CREATED:20260103T052410
-LAST-MODIFIED:20260419T055446
-X-HECTOR-SCHED:20260619 → 660–1215 min (PDT)
+LAST-MODIFIED:20260516T194752
+X-HECTOR-SCHED:20260619 → 690–1215 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
