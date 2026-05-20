@@ -176,7 +176,7 @@ const REMOTE_CALENDARS = [
     id: MATT_SOURCE_ID,
     name: "Matt (Live)",
     urls: [
-      "https://r.jina.ai/https://calendar.google.com/calendar/ical/c_30bddbc5906cde0880bde664af52861bd707468edcadd75e921e8dabc6d6fd56%40group.calendar.google.com/public/basic.ics",
+      `${API_BASE}/api/matt-live`,
     ],
   },
   {
@@ -627,6 +627,7 @@ export default function App(){
   const [sourceCounts, setSourceCounts] = useState({});
   const [lastFetchAt, setLastFetchAt] = useState({});
   const [fetchErrors, setFetchErrors] = useState({});
+  const [dismissedErrors, setDismissedErrors] = useState(new Set());
   const [selectedIds, setSelectedIds] = useState(new Set());
 
   // Dual time-slot view
@@ -641,6 +642,24 @@ export default function App(){
       return next;
     });
   };
+
+  async function retryRemote(id) {
+    const r = REMOTE_CALENDARS.find(rc => rc.id === id);
+    if (!r) return;
+    setDismissedErrors(prev => { const n = new Set(prev); n.delete(id); return n; });
+    setFetchErrors(prev => ({ ...prev, [id]: undefined }));
+    try {
+      const fixed = await fetchFixedICS(r.name, r.urls);
+      const evs = parseICSText(fixed, r.id, r.name);
+      setSources(prev => prev.some(s => s.id === r.id) ? prev : [...prev, { id: r.id, name: r.name }]);
+      setRawEvents(prev => [...prev.filter(e => e.sourceId !== r.id), ...evs]);
+      setSourceCounts(prev => ({ ...prev, [r.id]: evs.length }));
+      setLastFetchAt(prev => ({ ...prev, [r.id]: new Date() }));
+      setSelectedIds(prev => new Set([...prev, r.id]));
+    } catch (e) {
+      setFetchErrors(prev => ({ ...prev, [id]: String(e?.message || e) }));
+    }
+  }
 
   // Ensure Matt & Hector selected when slot view is on
   useEffect(() => {
@@ -676,10 +695,10 @@ export default function App(){
           }
         }
         for (const r of REMOTE_CALENDARS) {
+          loadedSources.push({ id: r.id, name: r.name });
           try {
             const fixed = await fetchFixedICS(r.name, r.urls);
             const evs = parseICSText(fixed, r.id, r.name);
-            loadedSources.push({ id: r.id, name: r.name });
             loadedEvents.push(...evs);
             setSourceCounts(prev => ({ ...prev, [r.id]: evs.length }));
             setLastFetchAt(prev => ({ ...prev, [r.id]: new Date() }));
@@ -784,6 +803,7 @@ export default function App(){
         try {
           const fixed = await fetchFixedICS(r.name, r.urls);
           const evs = parseICSText(fixed, r.id, r.name);
+          setSources(prev => prev.some(s => s.id === r.id) ? prev : [...prev, { id: r.id, name: r.name }]);
           setRawEvents(prev => {
             const others = prev.filter(e => e.sourceId !== r.id);
             return [...others, ...evs];
@@ -1148,6 +1168,26 @@ export default function App(){
           </div>
         </div>
 
+        {/* Calendar load error banners */}
+        {sources.filter(s => fetchErrors[s.id] && !dismissedErrors.has(s.id)).map(s => (
+          <div key={s.id} style={{background:"#fef2f2", border:"1px solid #fecaca", borderRadius:8, padding:"8px 14px", display:"flex", alignItems:"center", gap:10, fontSize:"0.85rem", color:"#b91c1c", marginBottom:8}}>
+            <span style={{flex:1}}>⚠ {s.name} failed to load</span>
+            <button
+              onClick={() => retryRemote(s.id)}
+              style={{background:"#b91c1c", color:"#fff", border:"none", borderRadius:6, padding:"3px 10px", cursor:"pointer", fontSize:"0.8rem", fontWeight:600}}
+            >
+              Retry
+            </button>
+            <button
+              onClick={() => setDismissedErrors(prev => new Set([...prev, s.id]))}
+              style={{background:"none", border:"none", color:"#b91c1c", cursor:"pointer", fontSize:"1rem", lineHeight:1, padding:"0 2px"}}
+              aria-label="Dismiss"
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+
         {/* Per-source status */}
         <div className="text-xs muted mb-3">
           {sources.map(s => (
@@ -1166,10 +1206,23 @@ export default function App(){
             <div className="text-sm">Show calendars</div>
             <div className="flex flex-wrap gap-3 text-sm mt-2">
               {sources.filter(s => s.id !== PODCAST_ID).map(s => (
-                <label key={s.id} className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" checked={selectedIds.has(s.id)} onChange={() => toggleSelected(s.id)} />
-                  {s.name}
-                </label>
+                <div key={s.id} className="flex flex-col">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" checked={selectedIds.has(s.id)} onChange={() => toggleSelected(s.id)} />
+                    {s.name}
+                  </label>
+                  {fetchErrors[s.id] && (
+                    <div style={{color:"#ef4444", fontSize:"0.7rem", marginLeft:"1.25rem"}}>
+                      Failed to load ·{" "}
+                      <button
+                        onClick={() => retryRemote(s.id)}
+                        style={{background:"none",border:"none",color:"#ef4444",cursor:"pointer",padding:0,fontSize:"inherit",textDecoration:"underline"}}
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
 
