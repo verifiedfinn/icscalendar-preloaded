@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1571,7 +1571,35 @@ DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  10:30 AM - 5/22/2026 10:30 AM PDT: Rental Car - Budget- DC\n  <h4>Budge
+ t : Mini Van</h4>Reserved for\n
+  Denise Carlos\n
+  <h4>Pick-up</h4>\n
+  Thu\, May 21\n
+  10:30am\n
+  Drop-off - 1659 Airport Boulevard\, Suite 3 San Jose\n
+  <h4></h4>\n
+  Mon\, May 25\n
+  8:00pm\n
+  Confirmation: #46357074US1\n
+  Expedia itinerary: 73453294445457\n
+  \n----------------------------------------\n
+  10:30 AM - 5/22/2026 10:30 AM PDT: Rental Car - Hertz - HF\n  <h4>Hertz
+  Fullsize SUV</h4>\n
+  Reserved for\n
+  Hector Flores\n
+  <h4>Pick-up</h4>\n
+  Thu\, May 21\n
+  10:30am\n
+  Drop-off - Meadows Field Airport\, 3701 Wings Way\, Suite 205\n
+  <h4></h4>\n
+  Mon\, May 25\n
+  8:00pm\n
+  Confirmation: #L5932480321\n
+  Expedia itinerary: 73453314426047\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - SBA>SMF - Southwest - A4MXNQ -JM - Southwest\n
     2602\n
     DEPART: Santa Barbara Airport 5/21/2026 5:20 AM PDT\n
@@ -1647,7 +1675,7 @@ SUMMARY:FLY HOME AFTER SF SHOW
 DTSTART;TZID=America/Los_Angeles:20260523T210000
 DTEND;TZID=America/Los_Angeles:20260523T210000
 DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - SFO>BUR - UNITED - HJFQMN - HF\, MB\, JJ\,AD - UNITED\n
+    Flight - SFO>BUR - UNITED - HJFQMN - MB\, JJ\,AD - UNITED\n
     UA 442\n
     DEPART: San Francisco International Airport 5/23/2026 8:20 PM PDT\n
     ARRIVE: Hollywood Burbank Airport 5/23/2026 9:47 PM PDT\n
@@ -1666,6 +1694,26 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260401T205300
 LAST-MODIFIED:20260401T205300
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:ed301bce-c4bb-42ee-b51f-e4d8351108b5
+DTSTAMP:20260520T014129
+SUMMARY:Hector & Cynthia Fly Home
+DTSTART;VALUE=DATE:20260524
+DTEND;VALUE=DATE:20260525
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SFO>BUR - UNITED - IPE0RM - HF - UNITED\n
+    UA 2611\n
+    DEPART: San Francisco International Airport 5/24/2026 5:54 PM PDT\n
+    ARRIVE: Hollywood Burbank Airport 5/24/2026 7:20 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260520T014129
+LAST-MODIFIED:20260520T014129
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
