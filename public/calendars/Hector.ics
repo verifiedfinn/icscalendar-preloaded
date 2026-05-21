@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1531,8 +1531,9 @@ DESCRIPTION:Strawberry Music Festival
     tel:+1 530-273-6217\n
     http://nevadacountyfair.com/\n
   \n*************************************\nSCHEDULE:\n
-  2:00 PM PDT: 5/21 Arrive & Badge Check in Fairgrounds\n----------------
- ------------------------\n
+  2:00 PM PDT: 5/21 Arrive & Badge Check in Fairgrounds\n  the parking ar
+ ea is adjacent to back stage\n
+  \n----------------------------------------\n
   2:30 PM - 4:10 PM PDT: 5/21  PLAY STAGE Workshop (Viva Cultura) 40min\n
    2:30pm stage call/set up (light PA)\n
   3:30-4:10pm 40 min workshop\n
