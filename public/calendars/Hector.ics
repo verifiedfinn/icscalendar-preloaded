@@ -2,11 +2,11 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -1644,9 +1644,9 @@ DESCRIPTION:2pm show start\, approx 3pm performance time\, 75-90 min set.
     tel:+1 415-651-3684\n
     http://yerbabuenagardens.com/\n
   \n*************************************\nSCHEDULE:\n
-  7:00 AM - 10:30 AM PDT: 7am lobby\, drive 3 hours)\n-------------------
- ---------------------\n
-  10:30 AM - 12:00 PM PDT: Load/ soundcheck\n----------------------------
+  7:00 AM PDT: 7am lobby\, drive 2.5 hours\n  Grab hotel breakfast\n
+  \n----------------------------------------\n
+  10:00 AM - 12:00 PM PDT: Load/ soundcheck\n----------------------------
  ------------\n
   1:00 PM PDT: Lunch- send order to Denise\n  https://www.tropisueno.com/
  popmenu-order/san-francisco/menus/taqueria-menu\n
