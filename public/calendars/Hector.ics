@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1658,6 +1658,21 @@ DESCRIPTION:2pm show start\, approx 3pm performance time\, 75-90 min set.
  -----\n
   3:00 PM - 4:30 PM PDT: 3pm Showtime (75-90min)\n-----------------------
  -----------------\n
+  6:15 PM PDT: Uber/Lyft to airport\n------------------------------------
+ ----\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel : San Francisco Marriott Marquis\n
+    780 Mission St\, San Francisco\, CA\, 94103\, US\n
+    ARRIVE: 5/23/2026 3:00 PM PDT\n
+    DEPART: 5/24/2026 11:00 AM PDT\n
+    Denise Carlos - 90279399\n
+  Hector Flores - 90279418\n
+  Moises Baqueiro & Jonny Jyemo (double) - 90279422\n
+  Angela Gonzalez - 90279423\n
+  Jorge Mijangos & John Calinchini (double) - 90279424\n
+  Alih De Pena- 90279448\n
+  \n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://yerbabuenagardens.com/
@@ -1676,8 +1691,8 @@ TRANSP:OPAQUE
 UID:b3e894b7-d2a7-488c-a642-9887ba6ff7e9
 DTSTAMP:20260401T205300
 SUMMARY:FLY HOME AFTER SF SHOW
-DTSTART;TZID=America/Los_Angeles:20260523T210000
-DTEND;TZID=America/Los_Angeles:20260523T210000
+DTSTART;TZID=America/Los_Angeles:20260523T200000
+DTEND;TZID=America/Los_Angeles:20260523T200000
 DESCRIPTION:*************************************\nFLIGHTS:
     Flight - SFO>BUR - UNITED - HJFQMN - MB\, JJ\,AD - UNITED\n
     UA 442\n
@@ -1697,7 +1712,7 @@ DESCRIPTION:*************************************\nFLIGHTS:
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260401T205300
-LAST-MODIFIED:20260401T205300
+LAST-MODIFIED:20260523T163539
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
