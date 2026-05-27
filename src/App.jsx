@@ -1159,10 +1159,10 @@ export default function App(){
 
           {err && <div className="text-xs" style={{color:"#ef4444"}}>Error: {err}</div>}
 
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-2 flex-wrap justify-end">
             <ThemeToggle theme={theme} onChange={setTheme} />
-            <label className="text-sm muted">Display time zone:</label>
-            <select className="border rounded-lg p-2 text-sm" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
+            <label className="text-sm muted hidden sm:inline">Display time zone:</label>
+            <select className="border rounded-lg p-2 text-sm max-w-[12rem] sm:max-w-none" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
               {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
             </select>
           </div>
@@ -1232,21 +1232,34 @@ export default function App(){
 
             <div className="divider" />
             {!sources.some(s => s.id === HECTOR_PERSONAL_ID) && (
-              <div
-                onClick={() => setShowUnlock(v => !v)}
-                title="Unlock personal calendar"
-                style={{
-                  position: 'absolute', right: -16, top: '50%', transform: 'translateY(-50%)',
-                  width: 16, height: 48, cursor: 'pointer',
-                  background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: 'none',
-                  borderRadius: '0 10px 10px 0', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '3px 0 8px rgba(0,0,0,.15)', transition: 'background 0.15s, box-shadow 0.15s', userSelect: 'none',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--chip)'; e.currentTarget.style.boxShadow = '4px 0 12px rgba(0,0,0,.22)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)'; e.currentTarget.style.boxShadow = '3px 0 8px rgba(0,0,0,.15)'; }}
-              >
-                <span style={{ fontSize: 10, color: 'var(--muted)', writingMode: 'vertical-rl', letterSpacing: 2, opacity: 0.6 }}>···</span>
-              </div>
+              <>
+                {/* Desktop pull-tab (hidden on xs) */}
+                <div
+                  className="hidden sm:flex"
+                  onClick={() => setShowUnlock(v => !v)}
+                  title="Unlock personal calendar"
+                  style={{
+                    position: 'absolute', right: -16, top: '50%', transform: 'translateY(-50%)',
+                    width: 16, height: 48, cursor: 'pointer',
+                    background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: 'none',
+                    borderRadius: '0 10px 10px 0', alignItems: 'center', justifyContent: 'center',
+                    boxShadow: '3px 0 8px rgba(0,0,0,.15)', transition: 'background 0.15s, box-shadow 0.15s', userSelect: 'none',
+                    /* display intentionally omitted — Tailwind hidden/sm:flex controls this */
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--chip)'; e.currentTarget.style.boxShadow = '4px 0 12px rgba(0,0,0,.22)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--surface)'; e.currentTarget.style.boxShadow = '3px 0 8px rgba(0,0,0,.15)'; }}
+                >
+                  <span style={{ fontSize: 10, color: 'var(--muted)', writingMode: 'vertical-rl', letterSpacing: 2, opacity: 0.6 }}>···</span>
+                </div>
+                {/* Mobile inline unlock link */}
+                <button
+                  className="sm:hidden text-xs muted underline cursor-pointer mt-1 mb-1"
+                  style={{ background: 'none', border: 'none', padding: 0, color: 'var(--muted)', textAlign: 'left' }}
+                  onClick={() => setShowUnlock(v => !v)}
+                >
+                  🔒 Unlock personal calendar
+                </button>
+              </>
             )}
             <div className="text-sm font-medium mb-1">Permanent Schedule</div>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
@@ -1261,15 +1274,15 @@ export default function App(){
 
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">2) Date range</h2>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
               <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
-              <span className="muted">to</span>
+              <span className="muted text-sm text-center sm:text-left">to</span>
               <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
             <div className="text-xs muted mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
 
             {/* Time slot view toggle (Matt & Hector) */}
-            <div className="mt-3 flex items-center justify-between">
+            <div className="mt-3 flex items-center justify-between gap-2 flex-wrap">
               <div className="text-sm">Time slot view (Matt & Hector)</div>
               <button
                 className={`btn ${slotViewOn ? "btn-toggle-on" : ""}`}
@@ -1280,7 +1293,7 @@ export default function App(){
             </div>
 
             {/* Need more info toggle (purple day outline) */}
-            <div className="mt-2 flex items-center justify-between">
+            <div className="mt-2 flex items-center justify-between gap-2 flex-wrap">
               <div className="text-sm">Need more information days ("!")</div>
               <button
                 className={`btn ${outlineUrgent ? "btn-toggle-on" : ""}`}
@@ -1300,15 +1313,15 @@ export default function App(){
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
               <span className="muted">o'clock</span>
             </div>
-            <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div className="flex items-center gap-3 text-sm">
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
               </div>
               {viewMode==='single' && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 justify-between sm:justify-start">
                   <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))} aria-label="Previous month">‹</button>
-                  <div className="text-sm muted w-32 text-center" style={{color:"var(--text)"}}>
+                  <div className="text-sm muted flex-1 sm:flex-none sm:w-32 text-center" style={{color:"var(--text)"}}>
                     {new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}
                   </div>
                   <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))} aria-label="Next month">›</button>
@@ -1320,7 +1333,7 @@ export default function App(){
 
         {/* Legend + counts (hidden when slot view is on) */}
         {!slotViewOn && (
-          <div className="flex items-center gap-2 sm:gap-3 mb-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
             <span className="text-sm font-medium">Legend:</span>
             <div className="flex items-center gap-1">
               {Array.from({length:10},(_,i)=>i/9).map(r=> (
@@ -1332,12 +1345,12 @@ export default function App(){
               <div style={{height:12,width:24,borderRadius:4,background:"#fee2e2",border:"1px solid #fca5a5"}}></div>
               Not available
             </div>
-            <span className="text-xs muted ml-1">"!" = Need more info.</span>
-            <span className="text-sm muted ml-auto">Loaded events: <b style={{color:"var(--text)"}}>{events.length}</b></span>
+            <span className="text-xs muted">"!" = Need more info.</span>
+            <span className="text-sm muted w-full sm:w-auto sm:ml-auto">Loaded events: <b style={{color:"var(--text)"}}>{events.length}</b></span>
           </div>
         )}
 
-        <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-6 items-start">
+        <div className="grid md:grid-cols-[1fr_minmax(300px,360px)] gap-4 md:gap-6 items-start">
           <div>
             {/* EITHER Dual time-slot agenda OR Heat map */}
             {slotViewOn ? (

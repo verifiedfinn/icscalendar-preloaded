@@ -78,6 +78,23 @@ html, body {
   transition: background-color 0.4s ease, color 0.25s ease;
 }
 
+@media (max-width: 767px) {
+  /* Prevent horizontal scroll bleed on mobile */
+  html, body { overflow-x: hidden; }
+
+  /* Prevent iOS double-tap zoom */
+  button, input, select, textarea { touch-action: manipulation; }
+
+  /* Prevent iOS auto-zoom on focus (needs font-size >= 16px) */
+  input[type="date"],
+  input[type="number"],
+  input[type="password"],
+  input[type="text"],
+  select {
+    font-size: 16px !important;
+  }
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
