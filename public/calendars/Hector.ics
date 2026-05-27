@@ -2,37 +2,16 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:c2fa75cf-b35a-4d87-b307-865e31696615
-DTSTAMP:20260221T202355
-SUMMARY:DC/ HF Fly to Minneapolis
-DTSTART;VALUE=DATE:20260226
-DTEND;VALUE=DATE:20260227
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flights - LAX>MSP - United - D6TN65 - DC\,HF - United\n
-    1912\n
-    DEPART: Los Angeles International Airport 2/26/2026 9:01 AM PST\n
-    ARRIVE: Minneapolis–Saint Paul International Airport 2/26/2026 4:33
-  PM CST\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260221T202355
-LAST-MODIFIED:20260221T202355
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:f8d5cb11-f226-430a-8f57-43d13c7b12cb
