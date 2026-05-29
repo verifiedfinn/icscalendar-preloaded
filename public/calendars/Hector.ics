@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1855,6 +1855,36 @@ LAST-MODIFIED:20260407T012348
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:de233b9c-abbf-4895-b5f3-30be3744a235
+DTSTAMP:20260206T022927
+SUMMARY:Fly to San Francisco & Drive 3 hrs to Laytonville
+DTSTART;VALUE=DATE:20260626
+DTEND;VALUE=DATE:20260627
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - ONT>SFO - SOUTHWEST - ABYHJZ -AG - SOUTHWEST\n
+    WN4421\n
+    DEPART: Ontario International Airport 6/26/2026 8:00 AM PDT\n
+    Ontario to Phoenix\n
+  Fri\, Jun 26 • 8:00 AM - 9:15 AM\n
+  Phoenix to San Francisco\n
+  Fri\, Jun 26 • 9:55 AM - 12:00 PM\n
+  \n
+    ARRIVE: San Francisco International Airport 6/26/2026 12:00 PM PDT\n
+    \n----------------------------------------\n
+    Flight - BUR>SFO - UNITED - HX59BQ -DC\,HF\,MB\,JM\,JJ\,JC - UNITED\n
+    UA 2386\n
+    DEPART: Hollywood Burbank Airport 6/26/2026 10:53 AM PDT\n
+    ARRIVE: San Francisco International Airport 6/26/2026 12:21 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260206T022927
+LAST-MODIFIED:20260529T025846
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:00f9cf2b-0d75-4ff5-b515-78392c23730b
 DTSTAMP:20260404T214419
 SUMMARY:Camp WinnaRainbow - Viva La Cultura (youth)
@@ -1872,6 +1902,40 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  99999,-123.5355184
 CREATED:20260404T214419
 LAST-MODIFIED:20260514T163622
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:2ced255f-e831-4955-a847-46243eb62f27
+DTSTAMP:20260529T032329
+SUMMARY:FLY HOME
+DTSTART;VALUE=DATE:20260629
+DTEND;VALUE=DATE:20260630
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - SFO>ONT- SOUTHWEST- ABYHJZ-AG - SOUTHWEST\n
+    WN4249\n
+    DEPART: San Francisco International Airport 6/29/2026 9:45 AM PDT\n
+    San Francisco to Las Vegas\n
+  Mon\, Jun 29 • 9:45 AM - 11:20 AM\n
+  Las Vegas to Ontario\n
+  Mon\, Jun 29 • 2:20 PM - 3:25 PM\n
+  \n
+    ARRIVE: Ontario International Airport 6/29/2026 3:25 PM PDT\n
+    \n----------------------------------------\n
+    Flight - SFO>BUR- UNITED - HZ5NWP-HF\,MB\,JJ\,JC - UA 2115\n
+    DEPART: San Francisco International Airport 6/29/2026 10:23 AM PDT\n
+    ARRIVE: Hollywood Burbank Airport 6/29/2026 11:49 AM PDT\n
+    \n----------------------------------------\n
+    Flight - SFO>SBA- UNITED - HY2K64 -JM - UNITED\n
+    UA1578\n
+    DEPART: San Francisco International Airport 6/29/2026 10:29 AM PDT\n
+    ARRIVE: Santa Barbara Airport 6/29/2026 11:52 AM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260529T032329
+LAST-MODIFIED:20260529T032329
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
