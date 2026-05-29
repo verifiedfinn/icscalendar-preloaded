@@ -2,94 +2,16 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:f8d5cb11-f226-430a-8f57-43d13c7b12cb
-DTSTAMP:20260226T032009
-SUMMARY:Saturday Lunch & Workshop Activity
-DTSTART;TZID=America/Chicago:20260228T120000
-DTEND;TZID=America/Chicago:20260228T151500
-DESCRIPTION:Saturday\, February 28
-  12:00 pm Lunch at IRoots (gallery)\n
-  1:00 pm Buffalo Ceremony at IRoots (Bodega)\n
-  2:00pm “My Story/ Our Legacy” Community Story Sharing Workshop (gal
- lery)\n
-  4:00 pm Food by Isaac’s Blessings (gallery)\n
-  5:00 pm Bring the Heat Screenprinting with Myles Designs/Skoden Studio
- (gallery)\n
-  6:00 pm Dinner at IRoots (gallery)\n
-  7:00 pm Bring the Heat Block Party with DJ\, Live Music and Las Cafeter
- as! (Bodega)\n
-  \nVENUE INFO:\n
-    tel:+1 651-395-7145\n
-    http://indigenous-roots.org/\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://indigenous-roots.org/
-GEO:44.9608391;-93.0677189
-LOCATION:Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSa
- int Paul MN  55106 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSain
- t Paul MN 55106 United States":geo:44.9608391,-93.0677189
-CREATED:20260226T032009
-LAST-MODIFIED:20260226T032152
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:e7133078-9e1b-4160-ba79-29fe0bb88332
-DTSTAMP:20260221T202432
-SUMMARY:Block Party Show
-DTSTART;TZID=America/Chicago:20260228T130000
-DTEND;TZID=America/Chicago:20260228T230000
-DESCRIPTION:1pm LC Musicians Arrive from Airport
-  2pm set up Angie/ Moi set-up IEM\n
-  3-5pm soundcheck\n
-  Artist Line Up\n
-  5:00 pm DJ QueenDuinn (gallery)\n
-  7:00 pm\n
-  7:30 pm Youth Band\n
-  8:00 pm\n
-  8:30 pm LAS CAFETERAS SHOW TIME (90MIN)\n
-  \nVENUE INFO:\n
-    tel:+1 651-395-7145\n
-    http://indigenous-roots.org/\n
-  \n*************************************\nSCHEDULE:\n
-  12:30 PM CST: 12:30 Mijangos and John land/ head to IRoots\n-----------
- -----------------------------\n
-  2:00 PM - 3:00 PM CST: Tech set up/ Angie & Moi  (IEM)\n---------------
- -------------------------\n
-  3:00 PM CST: Jonny lands/ head to IRoots\n-----------------------------
- -----------\n
-  3:00 PM - 5:00 PM CST: Musician set-up/soundcheck\n--------------------
- --------------------\n
-  5:00 PM CST: Doors\n----------------------------------------\n
-  7:00 PM CST: CALL TIME\n----------------------------------------\n
-  8:00 PM CST: Changeover\n----------------------------------------\n
-  8:30 PM - 10:00 PM CST: Show time (90min)\n----------------------------
- ------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://indigenous-roots.org/
-GEO:44.9608391;-93.0677189
-LOCATION:Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSa
- int Paul MN  55106 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Indigenous Roots Cultural Arts Center\n788 E 7th St\nSt Paul\nSain
- t Paul MN 55106 United States":geo:44.9608391,-93.0677189
-CREATED:20260221T202432
-LAST-MODIFIED:20260226T021707
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:2625b0ce-d987-41d8-9574-c8fcf3d28d2f
