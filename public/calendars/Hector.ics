@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1731,12 +1731,16 @@ DESCRIPTION:Friday\, June 26: approx 90 minute Main Stage slot around 8:3
   \nVENUE INFO:\n
     http://www.blackoakranch.com/\n
   \n*************************************\nSCHEDULE:\n
-  12:00 AM -  PDT: Fly to SF\,  then 3 hr drive to Laytonville\n---------
- -------------------------------\n
-  6:00 PM PDT: 6pm Friday Load in (Take performance clothes)- unload & pr
- estage during the previous set.\n  Pull in the main gate\, we'll direct
- you to the the mainstage for unloading. Parking is a short walk from the
-  stage.\n
+  1:00 PM PDT: Fly to SF\,  then 3 hr drive to Laytonville\n-------------
+ ---------------------------\n
+  5:00 PM PDT: Friday- Drop of Angie for Console Prep\n  Pull in the main
+  gate\, we'll direct you to the the mainstage for unloading. Parking is
+ a short walk from the stage.\n
+  \n----------------------------------------\n
+  6:30 PM PDT: 6:30 pm Friday Load in (Take performance clothes)- unload
+ & prestage during the previous set.\n  Pull in the main gate\, we'll dir
+ ect you to the the mainstage for unloading. Parking is a short walk from
+  the stage.\n
   \n----------------------------------------\n
   7:30 PM - 8:30 PM PDT: Friday changeover/ linecheck\n------------------
  ----------------------\n
@@ -1807,26 +1811,6 @@ LAST-MODIFIED:20260529T025846
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:00f9cf2b-0d75-4ff5-b515-78392c23730b
-DTSTAMP:20260404T214419
-SUMMARY:Camp WinnaRainbow - Viva La Cultura (youth)
-DTSTART;TZID=America/Los_Angeles:20260627T100000
-DTEND;TZID=America/Los_Angeles:20260627T120000
-DESCRIPTION:Camp WinnaRainbow - Viva La Cultura (youth)
-  7pm arrive/line check\n
-  8pm- show time (45min) Viva La Cultura\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-GEO:39.74814629999999;-123.5355184
-LOCATION:50350 US-101\nLaytonville CA  95454 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="50350 US-101\nLaytonville CA 95454 United States":geo:39.748146299
- 99999,-123.5355184
-CREATED:20260404T214419
-LAST-MODIFIED:20260514T163622
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:2ced255f-e831-4955-a847-46243eb62f27
 DTSTAMP:20260529T032329
 SUMMARY:FLY HOME
@@ -1894,14 +1878,19 @@ TRANSP:OPAQUE
 UID:7ce25660-0658-485a-b714-6e2ca51ca04c
 DTSTAMP:20260217T213153
 SUMMARY:Concert of Colors (Detroit\, MI)
-DTSTART;VALUE=DATE:20260719
-DTEND;VALUE=DATE:20260720
+DTSTART:20260719T213000Z
+DTEND:20260719T230000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:2 nights hotel
+DESCRIPTION:Detroit Institute of Arts at:North Lawn Stage
+  5:30-7pm show time\n
+  2 nights hotel\n
   \nVENUE INFO:\n
     tel:+1 313-582-2266\n
     http://concertofcolors.com/\n
+  \n*************************************\nSCHEDULE:\n
+  5:30 PM - 7:00 PM EDT: Showtime 90 min\n-------------------------------
+ ---------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://concertofcolors.com/
@@ -1912,7 +1901,57 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Concert of Colors\n3711 Woodward Ave\nDetroit MI 48201 United Stat
  es":geo:42.3485731,-83.05893449999999
 CREATED:20260217T213153
-LAST-MODIFIED:20260217T213153
+LAST-MODIFIED:20260530T002110
+X-HECTOR-SCHED:20260719 → 1050–1140 min (EDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:bb4797c2-0468-4180-868c-0d0db001f781
+DTSTAMP:20260530T002449
+SUMMARY:Fly to Reno\,NV
+DTSTART;TZID=America/Los_Angeles:20260722T080000
+DTEND;TZID=America/Los_Angeles:20260722T133000
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - ONT>RNO - SOUTHWEST - ARJD99 -AG - SOUTHWEST\n
+    WN #3580\n
+    DEPART: Ontario International Airport 7/22/2026 8:30 AM PDT\n
+    ARRIVE: Reno-Tahoe International Airport 7/22/2026 8:30 AM PDT\n
+    \n----------------------------------------\n
+    Flight - BUR>RNO - SOUTHWEST - ARB4DX-DC\,HF\,MB\,JM\,JJ\,JC - SOUTHW
+ EST\n
+    DEPART: Hollywood Burbank Airport 7/22/2026 10:35 AM PDT\n
+    ARRIVE: Reno-Tahoe International Airport 7/22/2026 11:55 AM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260530T002449
+LAST-MODIFIED:20260530T002458
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:c7e86970-9827-4d60-9769-9c05448df7a3
+DTSTAMP:20260530T002831
+SUMMARY:FLY HOME
+DTSTART;VALUE=DATE:20260723
+DTEND;VALUE=DATE:20260724
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - RNO> BUR- SOUTHWEST - ARB4DX- DC\, HF\, MB\,JM\,JJ\, JC - SO
+ UTHWEST\n
+    WN #2272\n
+    DEPART: Reno-Tahoe International Airport 7/23/2026 9:30 AM PDT\n
+    ARRIVE: Hollywood Burbank Airport 7/23/2026 1:10 PM PDT\n
+    \n----------------------------------------\n
+    Flight - RNO> ONT - SOUTHWEST - ARJD99 -AG - SOUTHWEST\n
+    WN #2272\n
+    DEPART: Reno-Tahoe International Airport 7/23/2026 9:30 AM PDT\n
+    ARRIVE: Ontario International Airport 7/23/2026 12:45 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260530T002831
+LAST-MODIFIED:20260530T002831
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
