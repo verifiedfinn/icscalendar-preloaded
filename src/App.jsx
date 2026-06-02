@@ -661,6 +661,29 @@ export default function App(){
     }
   }
 
+  async function retryPreset(id) {
+    const p = PRESET_CALENDARS.find(pc => pc.id === id);
+    if (!p) return;
+    setDismissedErrors(prev => { const n = new Set(prev); n.delete(id); return n; });
+    setFetchErrors(prev => ({ ...prev, [id]: undefined }));
+    try {
+      const raw = await fetchText(p.url, { bust: !p.requiresAuth, authToken: p.requiresAuth ? appPassword : null });
+      const evs = parseICSText(raw, p.id, p.name);
+      setSources(prev => prev.some(s => s.id === p.id) ? prev : [...prev, { id: p.id, name: p.name }]);
+      setRawEvents(prev => [...prev.filter(e => e.sourceId !== p.id), ...evs]);
+      setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
+      setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
+      setSelectedIds(prev => new Set([...prev, p.id]));
+    } catch (e) {
+      setFetchErrors(prev => ({ ...prev, [id]: String(e?.message || e) }));
+    }
+  }
+
+  function retrySource(id) {
+    if (PRESET_CALENDARS.some(p => p.id === id)) return retryPreset(id);
+    return retryRemote(id);
+  }
+
   // Ensure Matt & Hector selected when slot view is on
   useEffect(() => {
     if (!slotViewOn) return;
@@ -691,6 +714,8 @@ export default function App(){
             setSourceCounts(prev => ({ ...prev, [p.id]: evs.length }));
             setLastFetchAt(prev => ({ ...prev, [p.id]: new Date() }));
           } catch (e) {
+            // Still add to sources so the error banner can surface it
+            if (!p.requiresAuth) loadedSources.push({ id: p.id, name: p.name });
             setFetchErrors(prev => ({ ...prev, [p.id]: String(e?.message || e) }));
           }
         }
@@ -1170,21 +1195,32 @@ export default function App(){
 
         {/* Calendar load error banners */}
         {sources.filter(s => fetchErrors[s.id] && !dismissedErrors.has(s.id)).map(s => (
-          <div key={s.id} style={{background:"#fef2f2", border:"1px solid #fecaca", borderRadius:8, padding:"8px 14px", display:"flex", alignItems:"center", gap:10, fontSize:"0.85rem", color:"#b91c1c", marginBottom:8}}>
-            <span style={{flex:1}}>⚠ {s.name} failed to load</span>
-            <button
-              onClick={() => retryRemote(s.id)}
-              style={{background:"#b91c1c", color:"#fff", border:"none", borderRadius:6, padding:"3px 10px", cursor:"pointer", fontSize:"0.8rem", fontWeight:600}}
-            >
-              Retry
-            </button>
-            <button
-              onClick={() => setDismissedErrors(prev => new Set([...prev, s.id]))}
-              style={{background:"none", border:"none", color:"#b91c1c", cursor:"pointer", fontSize:"1rem", lineHeight:1, padding:"0 2px"}}
-              aria-label="Dismiss"
-            >
-              ✕
-            </button>
+          <div key={s.id} style={{background:"#fef2f2", border:"1px solid #fecaca", borderRadius:8, padding:"8px 14px", display:"flex", alignItems:"flex-start", gap:10, fontSize:"0.85rem", color:"#b91c1c", marginBottom:8, flexWrap:"wrap"}}>
+            <div style={{flex:1, minWidth:0}}>
+              <div>⚠ <b>{s.name}</b> failed to load</div>
+              <div style={{fontSize:"0.75rem", opacity:0.8, marginTop:2, fontFamily:"monospace", wordBreak:"break-all"}}>{fetchErrors[s.id]}</div>
+            </div>
+            <div style={{display:"flex", gap:6, flexShrink:0, alignItems:"center"}}>
+              <button
+                onClick={() => retrySource(s.id)}
+                style={{background:"#b91c1c", color:"#fff", border:"none", borderRadius:6, padding:"3px 10px", cursor:"pointer", fontSize:"0.8rem", fontWeight:600}}
+              >
+                Retry
+              </button>
+              <button
+                onClick={() => window.location.reload()}
+                style={{background:"none", border:"1px solid #fca5a5", borderRadius:6, padding:"3px 10px", cursor:"pointer", fontSize:"0.8rem", color:"#b91c1c"}}
+              >
+                Reload page
+              </button>
+              <button
+                onClick={() => setDismissedErrors(prev => new Set([...prev, s.id]))}
+                style={{background:"none", border:"none", color:"#b91c1c", cursor:"pointer", fontSize:"1rem", lineHeight:1, padding:"0 2px"}}
+                aria-label="Dismiss"
+              >
+                ✕
+              </button>
+            </div>
           </div>
         ))}
 
@@ -1215,7 +1251,7 @@ export default function App(){
                     <div style={{color:"#ef4444", fontSize:"0.7rem", marginLeft:"1.25rem"}}>
                       Failed to load ·{" "}
                       <button
-                        onClick={() => retryRemote(s.id)}
+                        onClick={() => retrySource(s.id)}
                         style={{background:"none",border:"none",color:"#ef4444",cursor:"pointer",padding:0,fontSize:"inherit",textDecoration:"underline"}}
                       >
                         Retry
@@ -1574,7 +1610,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const urgentDecor = outlineUrgent && info?.hasUrgent;
 
     const firstPod = hasPodcast ? info.podcastItems[0] : null;
-    const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "Episode") : null;
+    const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "EP") : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
 
     // Holiday (icon + optional accent if NOT a podcast day)
