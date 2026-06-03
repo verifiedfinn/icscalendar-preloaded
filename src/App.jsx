@@ -60,6 +60,21 @@ function parseEpisode(summary="") {
     s.match(/#\s*(\d{1,4})\b/);
   return m ? `Ep ${m[1]}` : null;
 }
+// Extract guest name from F2T podcast summary, eg: "Dread Scott Ep.205 Freedom To Thrive Podcast" → "Dread Scott"
+function parseGuest(summary="") {
+  let s = String(summary);
+  s = s.replace(/\bep\.?\s*\d{1,4}\b/gi, '');
+  s = s.replace(/#\s*\d{1,4}\b/g, '');
+  s = s.replace(/\bfreedom\b.*/i, '');
+  s = s.replace(/\bnilc\b.*/i, '');
+  s = s.replace(/\bpodcast\b.*/i, '');
+  s = s.replace(/\brecording\b.*/i, '');
+  s = s.trim().replace(/\s+/g, ' ');
+  return s.length >= 2 ? s : null;
+}
+function getInitials(name) {
+  return name.split(/\s+/).filter(Boolean).map(w => w[0].toUpperCase()).join('');
+}
 
 /* ========= US Holiday helpers ========= */
 // weekday: 0=Sun..6=Sat
@@ -183,7 +198,7 @@ const REMOTE_CALENDARS = [
     id: PODCAST_ID,
     name: PODCAST_NAME,
     urls: [
-      "https://r.jina.ai/https://calendar.google.com/calendar/ical/13a4368be555f7c3c3046a21be8e01dc698839e43160cb25d3385d50b3d1c0a5%40group.calendar.google.com/public/basic.ics",
+      `${API_BASE}/api/podcast-live`,
     ],
   },
 ];
@@ -310,16 +325,17 @@ function parseICSText(text, sourceId, sourceName){
       const summary = e.summary || "Event";
       const isUrgent = /!/.test(summary); // "need more info" marker
       const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
+      const guest = sourceId === PODCAST_ID ? parseGuest(summary) : null;
       // X-HECTOR-TYPE:LOCATION marks hotel/lodging entries — show as location
       // context in the sidebar but do not count toward busy time.
       const isLocation = (v.getFirstPropertyValue("x-hector-type") || "").toUpperCase() === "LOCATION";
 
       if (e.isRecurring()) {
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, isLocation, isRecurring: true, component: v });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, guest, isLocation, isRecurring: true, component: v });
       } else {
         const s = e.startDate.toJSDate();
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        events.push({ sourceId, sourceName, summary, isUrgent, ep, guest, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
     } catch {}
   }
@@ -634,6 +650,8 @@ export default function App(){
   const [slotViewOn, setSlotViewOn] = useState(false);
   // "Need more info" outline toggle
   const [outlineUrgent, setOutlineUrgent] = useState(false);
+  // Podcast day cell label: "initials" (default) or "ep"
+  const [podLabelMode, setPodLabelMode] = useState("initials");
 
   const toggleSelected = (id) => {
     setSelectedIds(prev => {
@@ -889,6 +907,7 @@ export default function App(){
               out.push({
                 sourceId:e.sourceId, sourceName:e.sourceName, summary,
                 isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
+                guest: e.sourceId===PODCAST_ID ? parseGuest(summary) : null,
                 isLocation: e.isLocation,
                 start:s, end:ee, allDay:next.isDate
               });
@@ -943,7 +962,7 @@ export default function App(){
 
         if (ev.sourceId === PODCAST_ID) {
           if (!podcastByDay.has(k)) podcastByDay.set(k, []);
-          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast", ep: ev.ep || null });
+          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast", ep: ev.ep || null, guest: ev.guest || null });
         }
       }
     }
@@ -1012,7 +1031,7 @@ export default function App(){
       dayEventTitles.sort((a,b)=> a.start - b.start);
 
       const podcastItems = (podcastByDay.get(k) || [])
-        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary, ep: it.ep || null }))
+        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary, ep: it.ep || null, guest: it.guest || null }))
         .filter(it => it.end > it.start)
         .sort((a,b) => a.start - b.start);
 
@@ -1063,6 +1082,7 @@ export default function App(){
           fmtTime={fmtTime}
           podcastOn={selectedIds.has(PODCAST_ID)}
           outlineUrgent={outlineUrgent}
+          podLabelMode={podLabelMode}
         />
       );
       cur = addDays(mEnd, 1);
@@ -1184,12 +1204,30 @@ export default function App(){
 
           {err && <div className="text-xs" style={{color:"#ef4444"}}>Error: {err}</div>}
 
-          <div className="ml-auto flex items-center gap-2 flex-wrap justify-end">
-            <ThemeToggle theme={theme} onChange={setTheme} />
-            <label className="text-sm muted hidden sm:inline">Display time zone:</label>
-            <select className="border rounded-lg p-2 text-sm max-w-[12rem] sm:max-w-none" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
-              {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
-            </select>
+          <div className="ml-auto flex flex-col items-end gap-1">
+            <div className="flex items-center gap-2 flex-wrap justify-end">
+              <ThemeToggle theme={theme} onChange={setTheme} />
+              <label className="text-sm muted hidden sm:inline">Display time zone:</label>
+              <select className="border rounded-lg p-2 text-sm max-w-[12rem] sm:max-w-none" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
+                {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
+              </select>
+            </div>
+            {selectedIds.has(PODCAST_ID) && (
+              <div className="flex items-center gap-2 text-xs">
+                <span className="muted hidden sm:inline">Pod day label:</span>
+                <div style={{ display:'flex', border:'1px solid var(--border)', borderRadius:8, overflow:'hidden' }}>
+                  {[['initials','Initials'],['ep','Ep #']].map(([mode, label]) => (
+                    <button key={mode} onClick={() => setPodLabelMode(mode)} style={{
+                      padding:'3px 10px', border:'none',
+                      borderRight: mode==='initials' ? '1px solid var(--border)' : 'none',
+                      background: podLabelMode===mode ? 'var(--text)' : 'var(--surface)',
+                      color:       podLabelMode===mode ? 'var(--surface)' : 'var(--muted)',
+                      cursor:'pointer', fontSize:11,
+                    }}>{label}</button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -1412,6 +1450,7 @@ export default function App(){
                     fmtTime={fmtTime}
                     podcastOn={selectedIds.has(PODCAST_ID)}
                     outlineUrgent={outlineUrgent}
+                    podLabelMode={podLabelMode}
                   />
                 : renderMonthGrid(new Date(dateFrom), new Date(dateTo))
             )}
@@ -1578,7 +1617,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
 }
 
 /* ===== Calendar Grid ===== */
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent }){
+function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent, podLabelMode = "initials" }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
@@ -1611,6 +1650,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
 
     const firstPod = hasPodcast ? info.podcastItems[0] : null;
     const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "EP") : null;
+    const guestInitials = hasPodcast && firstPod?.guest ? getInitials(firstPod.guest) : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
 
     // Holiday (icon + optional accent if NOT a podcast day)
@@ -1618,7 +1658,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const holidayAccentClass = (!hasPodcast && holiday?.accentClass) ? holiday.accentClass : "";
 
     const title = hasPodcast
-      ? `${fmt(date)} — ${epTag || "Podcast"}`
+      ? `${fmt(date)} — ${epTag || "Podcast"}${guestInitials ? ` · ${guestInitials}` : ""}`
       : `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free${holiday ? ` • ${holiday.name}` : ""}`;
 
     cells.push(
@@ -1659,7 +1699,11 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
           className={`ep-label ${hasPodcast ? 'ep-label-episode' : 'ep-label-percent'}`}
           style={{ fontSize: Math.max(11, pctSize) }}
         >
-          {hasPodcast ? epTag : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
+          {hasPodcast
+            ? (podLabelMode === 'initials'
+                ? (guestInitials || epTag || "EP")
+                : `${epTag || "EP"}${guestInitials ? ` · ${guestInitials}` : ""}`)
+            : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
         </div>
 
         {/* If past podcast day, corner "Recorded" badge */}
