@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1903,6 +1903,56 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
 CREATED:20260217T213153
 LAST-MODIFIED:20260530T002110
 X-HECTOR-SCHED:20260719 → 1050–1140 min (EDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:c2e3b6d8-8dd1-4e9b-97c9-0f0edba54ed2
+DTSTAMP:20251022T225718
+SUMMARY:ART TOWN (Reno\, NV)
+DTSTART:20260722T213000Z
+DTEND:20260723T040000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Tenessa Ripple
+  775-546-3319\n
+  The Helaine Greenberg Stage at Rancho San Rafael Regional Park\n
+  \nVENUE INFO:\n
+    tel:+1 775-785-4512\n
+    https://www.washoecounty.gov/parks/parks/park_directory_pages/north_r
+ egion/rancho_san_rafael_regional_park.php\n
+  \n*************************************\nSCHEDULE:\n
+  2:30 PM - 5:00 PM PDT: Load/Soundcheck\n-------------------------------
+ ---------\n
+  5:30 PM - 7:00 PM PDT: DInner and Dress\n------------------------------
+ ----------\n
+  6:30 PM PDT: Doors\n----------------------------------------\n
+  7:30 PM - 9:00 PM PDT: Showtime 90 min\n-------------------------------
+ ---------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Reno Hotel: Circus Circus\n
+    ARRIVE: 7/22/2026 3:00 PM PDT\n
+    DEPART: 7/23/2026 8:00 AM PDT\n
+    HOTEL ROOMING LIST\n
+  DENISE CARLOS\n
+  HECTOR FLORES\n
+  ANGELA GONZALEZ\n
+  JORGE MIJANGOS/ JOHN CALANCHINI\n
+  MOISES BAQUEIRO/ JONNY JYEMO\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.washoecounty.gov/parks/parks/park_d
+ irectory_pages/north_region/rancho_san_rafael_regional_park.php
+GEO:39.5456988;-119.8239912
+LOCATION:Rancho San Rafael Regional Park\n1595 N Sierra St\nReno NV  8950
+ 3 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Rancho San Rafael Regional Park\n1595 N Sierra St\nReno NV 89503 U
+ nited States":geo:39.5456988,-119.8239912
+CREATED:20251022T225718
+LAST-MODIFIED:20260604T022740
+X-HECTOR-SCHED:20260722 → 870–1260 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
