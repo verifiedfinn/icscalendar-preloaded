@@ -2,12 +2,12 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
