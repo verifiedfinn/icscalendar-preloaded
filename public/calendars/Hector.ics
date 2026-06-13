@@ -2,12 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1804,6 +1805,11 @@ DESCRIPTION:*************************************\nFLIGHTS:
     DEPART: Hollywood Burbank Airport 6/26/2026 10:53 AM PDT\n
     ARRIVE: San Francisco International Airport 6/26/2026 12:21 PM PDT\n
     \n----------------------------------------\n
+    Flight - BUR>SFO - UNITED - NWC9QD -DD - UNITED\n
+    UA2386\n
+    DEPART: Hollywood Burbank Airport 6/26/2026 10:53 AM PDT\n
+    ARRIVE: San Francisco International Airport 6/26/2026 12:21 PM PDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260206T022927
@@ -1830,6 +1836,11 @@ DESCRIPTION:*************************************\nFLIGHTS:
     ARRIVE: Ontario International Airport 6/29/2026 3:25 PM PDT\n
     \n----------------------------------------\n
     Flight - SFO>BUR- UNITED - HZ5NWP-HF\,MB\,JJ\,JC - UA 2115\n
+    DEPART: San Francisco International Airport 6/29/2026 10:23 AM PDT\n
+    ARRIVE: Hollywood Burbank Airport 6/29/2026 11:49 AM PDT\n
+    \n----------------------------------------\n
+    Flight - SFO>BUR- UNITED - NWC9QD-DD - UNITED\n
+    UA2115\n
     DEPART: San Francisco International Airport 6/29/2026 10:23 AM PDT\n
     ARRIVE: Hollywood Burbank Airport 6/29/2026 11:49 AM PDT\n
     \n----------------------------------------\n
@@ -2109,12 +2120,13 @@ X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:
 STATUS:CONFIRMED
 CLASS:PUBLIC
-GEO:43.5965285;-85.1454554
-LOCATION:Remus\nRemus MI  49340 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Remus\
- nRemus MI 49340 United States":geo:43.5965285,-85.1454554
+GEO:43.5714777;-85.18897869999999
+LOCATION:7251 50th Ave\nRemus MI  49340 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="7251 50th Ave\nRemus MI 49340 United States":geo:43.5714777,-85.18
+ 897869999999
 CREATED:20260113T070007
-LAST-MODIFIED:20260113T070007
+LAST-MODIFIED:20260613T000801
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -2174,6 +2186,84 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260310T223402
 LAST-MODIFIED:20260310T223402
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:f1ce0e99-13d2-449d-af54-753ed0a262a8
+DTSTAMP:20260211T023853
+SUMMARY:DDM Concert  (Nevada State University)
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE: Nevada State University/LOCATION: 1125 Nevada State Dr
+ ive\, Henderson\, Nevada 89002
+  Performance Length: 60–90-minute set\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260211T023853
+LAST-MODIFIED:20260613T003729
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:5ab6106c-dc51-4f93-bd5c-de9298576eeb
+DTSTAMP:20260613T004204
+SUMMARY:HLM Allied Solutions CPA (Carmel\, IN)
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Event Details
+  Date: Thursday\, October 29\, 2026\n
+  Time: 7:30 PM ET (Evening performance)\n
+  Venue: Payne & Mencias Palladium\n
+  Location: Allied Solutions Center for the Performing Arts\, 1 Carter Gr
+ een\, Carmel\, IN 46032\n
+  \nVENUE INFO:\n
+    tel:+1 317-843-3800\n
+    https://thecenterpresents.org/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://thecenterpresents.org/
+GEO:39.969549;-86.13041819999999
+LOCATION:Allied Solutions Center for the Performing Arts\n1 Carter Green\
+ nCarmel IN  46032 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Allied Solutions Center for the Performing Arts\n1 Carter Green\nC
+ armel IN 46032 United States":geo:39.969549,-86.13041819999999
+CREATED:20260613T004204
+LAST-MODIFIED:20260613T004233
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:c95338b8-8830-48c9-a284-0722d160d2ac
+DTSTAMP:20251120T210242
+SUMMARY:HLM Elgin
+DTSTART:20261101T163000Z
+DTEND:20261102T003000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 847-931-5900\n
+    https://elginil.gov/2538/Hemmens-Cultural-Center\n
+  \n*************************************\nSCHEDULE:\n
+  10:30 AM - 1:30 PM CST: Load/Soundcheck\n------------------------------
+ ----------\n
+  3:30 PM CST: Doors\n----------------------------------------\n
+  4:30 PM - 6:30 PM CST: Showtime!\n-------------------------------------
+ ---\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://elginil.gov/2538/Hemmens-Cultural-Cente
+ r
+GEO:42.039737;-88.286914
+LOCATION:The Hemmens\n45 Symphony Way\nElgin IL  60120 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Hemmens\n45 Symphony Way\nElgin IL 60120 United States":geo:42
+ .039737,-88.286914
+CREATED:20251120T210242
+LAST-MODIFIED:20251120T210242
+X-HECTOR-SCHED:20261101 → 630–1110 min (CST)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
