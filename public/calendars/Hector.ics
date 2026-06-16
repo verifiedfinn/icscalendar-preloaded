@@ -15,32 +15,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:2625b0ce-d987-41d8-9574-c8fcf3d28d2f
-DTSTAMP:20260212T191306
-SUMMARY:SEIU Music Video & Rally
-DTSTART;TZID=America/Los_Angeles:20260318T090000
-DTEND;TZID=America/Los_Angeles:20260318T180000
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  9:00 AM - 1:00 PM PDT: Musician call time (Music video)\n--------------
- --------------------------\n
-  12:00 PM PDT: 12pm Angie Call time for set up (Grand Park stage)\n-----
- -----------------------------------\n
-  1:00 PM - 2:30 PM PDT: Band call time- set up/ soundcheck\n------------
- ----------------------------\n
-  2:45 PM - 3:15 PM PDT: LC Changeover & 2:30 min set\n  3:30pm DJ\n
-  4-4:30 Jornaleros del Norte\n
-  4-4:45pm Changeover\n
-  4:45-5:15pm Las Cafeteras\n
-  5:15-6:15pm RALLY\n
-  **WHAT TIME CAN WE STRIKE??**\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260212T191306
-LAST-MODIFIED:20260313T213817
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:576d47dc-2e0c-4cf9-8c78-b71b4d520e90
 DTSTAMP:20250618T215649
 SUMMARY:Viva el Arte de Santa Bárbara
