@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1545,8 +1545,8 @@ BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:74968380-3ee5-4a32-af9b-86985956962a
 DTSTAMP:20260103T052410
-SUMMARY:Live Oak Fest  (San Luis Obispo)- LA Carpool/ mijangos & john dri
- ve on your own
+SUMMARY:Live Oak Fest -SLO (sub David)- LA Carpool/  john & David drive o
+ n your own
 DTSTART:20260619T183000Z
 DTEND:20260620T031500Z
 X-FUNAMBOL-ALLDAY:1
@@ -1568,8 +1568,8 @@ DESCRIPTION:Friday June 19th for a 7-8:15pm set.
     tel:+1 805-781-5930\n
     https://slocountyparks.com/camp/el-chorro/\n
   \n*************************************\nSCHEDULE:\n
-  11:30 AM - 4:30 PM PDT: 11:30amm LA carpool meet up/ drive out\n-------
- ---------------------------------\n
+  11:30 AM - 4:30 PM PDT: 11:30am LA carpool meet up at Jonny's / drive o
+ ut\n----------------------------------------\n
   4:30 PM PDT: 4:30pm arrival\n----------------------------------------\n
   6:30 PM PDT: 6:30pm  Changeover/Soundcheck (30min)\n-------------------
  ---------------------\n
@@ -1586,14 +1586,14 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="El Chorro Regional Campground\nState Highway 1 @\nDairy Creek Rd\n
  San Luis Obispo CA 93405 United States":geo:35.3308993,-120.7325286
 CREATED:20260103T052410
-LAST-MODIFIED:20260516T194752
+LAST-MODIFIED:20260617T191443
 X-HECTOR-SCHED:20260619 → 690–1215 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:67582e54-a778-4486-bc68-fae8506f0cc5
 DTSTAMP:20251203T021827
-SUMMARY:Ten Mile Creek Revival '26
+SUMMARY:Ten Mile Creek Revival (sub David)
 DTSTART;VALUE=DATE:20260626
 DTEND;VALUE=DATE:20260628
 X-FUNAMBOL-ALLDAY:1
@@ -1655,7 +1655,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Black Oak Ranch\nUS-101\nLaytonville CA 95454 United States":geo:3
  9.745264,-123.523188
 CREATED:20251203T021827
-LAST-MODIFIED:20260407T012348
+LAST-MODIFIED:20260617T191542
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
