@@ -15,52 +15,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:bcfa2179-c35c-45c2-b7e7-e343f538cd72
-DTSTAMP:20260104T225152
-SUMMARY:DC/ HF Fly to Chicago
-DTSTART;VALUE=DATE:20260324
-DTEND;VALUE=DATE:20260325
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  12:00 AM -  PDT: Rental Car - Budget - DC\n  Budget : Mini Van\n
-  Itinerary#73395050720888\n
-  Confirmation #42222327US0\n
-  Budget Phone Number: 773 894 1900\n
-  Pick-up\n
-  Tue\, Mar 24\, 5:00pm\n
-  Ohare International Apo-10255 West Zemke Blvd\, Chicago\, Illinois\, US
- A\, ORD\n
-  Drop-off\n
-  Mon\, Mar 30\, 5:00pm\n
-  5500 44Th St Se Unit 9\, Grand Rapids\, Michigan\, USA\, GRR\n
-  \n----------------------------------------\n
-  5:00 PM - 3/25/2026 5:00 PM PDT: Rental Car - Budget - HF\n  Budget: Mi
- ni Van\n
-  Itinerary#73395049334404\n
-  Confirmation #42222218US3\n
-  Budget Phone Number: 773 894 1900\n
-  Pick-up\n
-  Tue\, Mar 24\, 5:00pm\n
-  Ohare International Apo-10255 West Zemke Blvd\, Chicago\, Illinois\, US
- A\, ORD\n
-  Drop-off\n
-  Mon\, Mar 30\, 5:00pm\n
-  5500 44Th St Se Unit 9\, Grand Rapids\, Michigan\, USA\, GRR\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - LAX>ORD - United - EKFQ7D  - CM\,DC\,HF - United\n
-    2113\n
-    DEPART: Los Angeles International Airport 3/24/2026 10:55 AM PDT\n
-    ARRIVE: Chicago O'Hare International Airport 3/24/2026 5:05 PM CDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260104T225152
-LAST-MODIFIED:20260304T195747
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:e25e76c2-aa05-40cb-82e1-0152213117bc
 DTSTAMP:20260223T203719
 SUMMARY:Elgin Hotel: Best Western Plus Elgin
