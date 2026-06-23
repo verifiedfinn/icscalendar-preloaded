@@ -3,49 +3,16 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:e25e76c2-aa05-40cb-82e1-0152213117bc
-DTSTAMP:20260223T203719
-SUMMARY:Elgin Hotel: Best Western Plus Elgin
-DTSTART;TZID=America/Chicago:20260325T150000
-DTEND;TZID=America/Chicago:20260328T110000
-DESCRIPTION:Denise Carlos (single) - 20852
-  Hector Flores (single) - 20853\n
-  Diego Chi & Jonny Jyemo (double) - 20854\n
-  Angela Gonzalez& Alih Jey (double) - 20855\n
-  Jorge Mijangos & John Calinchini (double) - 20856\n
-  Checking in from March 25 through March 28\, 2026.\n
-            Breakfast is included.\n
-  \nVENUE INFO:\n
-    tel:+1 847-429-0300\n
-    https://www.bestwestern.com/en_US/book/hotel-rooms.14237.html?iata=00
- 171880&ssob=BLBWI0004G&cid=BLBWI0004G:google:gmb:14237\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.bestwestern.com/en_US/book/hotel-ro
- oms.14237.html?iata=00171880&ssob=BLBWI0004G&cid=BLBWI0004G:google:gmb:1
- 4237
-GEO:42.07479499999999;-88.2885
-LOCATION:Best Western Plus Elgin - Chicago\n2175 Marriott Dr\nWest Dundee
-  IL  60118 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Best Western Plus Elgin - Chicago\n2175 Marriott Dr\nWest Dundee I
- L 60118 United States":geo:42.07479499999999,-88.2885
-CREATED:20260223T203719
-LAST-MODIFIED:20260313T212927
-X-HECTOR-TYPE:LOCATION
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:dbc83529-93c5-452c-8eb6-1c5bd3a8d517
