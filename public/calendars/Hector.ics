@@ -2,72 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:dbc83529-93c5-452c-8eb6-1c5bd3a8d517
-DTSTAMP:20250413T030145
-SUMMARY:Elgin Community College\, Blizzard Theatre
-DTSTART;VALUE=DATE:20260326
-DTEND;VALUE=DATE:20260328
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Thursday\, March 26 - (2) educational outreach activities
-  Friday\, March 27 - one (1) public performance with a 15 – 20 minute
- intermission.  Meet/greet with audience after the performance.\n
-  Elgin Community College Arts Center\, Blizzard Theatre\n
-  \nVENUE INFO:\n
-    tel:+1 847-622-0300\n
-    https://eccartscenter.org/?utm_source=google&utm_medium=organic&utm_c
- ampaign=GMB-BFB-Arts-Center\n
-  \n*************************************\nSCHEDULE:\n
-  10:30 AM - 1:45 PM CDT: DC/HF “A peoples History of Music” (2 works
- hops)\n  ECC ART CENTER (Bldg H/ Dock H)\n
-  Workshops will be in room H123. Entry can be made through the backstag
- e door\n
-  Music of the World classes. 75min each\n
-  Meeting: Thurs. Mar 26 11am – 12:15  AND   12:30pm – 1:45pm\
- n
-  Arrive: 10:30am\n
-  Workshop contact:\n
-  Cindy Gaspardo   l  Mgr. of Performing Arts\n
-  (847) 214-7140 l cgaspardo@elgin.edu\n
-  \n----------------------------------------\n
-  2:30 PM CDT: 2:30pm lobby\n----------------------------------------\n
-  3/27/2026 3:00 PM - 3/27/2026 5:30 PM CDT: Load/Soundcheck\n-----------
- -----------------------------\n
-  3/27/2026 5:30 PM CDT: Dinner\n----------------------------------------
- \n
-  3/27/2026 7:00 PM CDT: Doors\n----------------------------------------\
- n
-  3/27/2026 7:30 PM - 3/27/2026 9:30 PM CDT: Show time! (2x 45min. w/ int
- ermission)\n  Friday\, March 27 \; one (1) public performance with a 15
- – 20 minute intermission. If possible\, meet/greet with audience after
-  the performance.\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://eccartscenter.org/?utm_source=google&ut
- m_medium=organic&utm_campaign=GMB-BFB-Arts-Center
-GEO:42.018573;-88.32426599999999
-LOCATION:Elgin Community College Arts Center\n1700 Spartan Dr Building H\
- nElgin IL  60123 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Elgin Community College Arts Center\n1700 Spartan Dr Building H\nE
- lgin IL 60123 United States":geo:42.018573,-88.32426599999999
-CREATED:20250413T030145
-LAST-MODIFIED:20260310T064030
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:96722dbc-556f-4bbc-84a8-2ad93430c371
