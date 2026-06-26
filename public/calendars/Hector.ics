@@ -3,12 +3,12 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1523,13 +1523,20 @@ TRANSP:OPAQUE
 UID:3eda5ea8-0548-455d-ba64-e5143e599a9a
 DTSTAMP:20260206T023115
 SUMMARY:Sweetwater Music Hall (Mill Valley\, CA)
-DTSTART;VALUE=DATE:20260628
-DTEND;VALUE=DATE:20260629
+DTSTART:20260628T220000Z
+DTEND:20260629T043000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE INFO:\n
     tel:+1 415-388-3850\n
     http://www.sweetwatermusichall.com/\n
+  \n*************************************\nSCHEDULE:\n
+  3:00 PM - 6:00 PM PDT: Load in & soundcheck\n--------------------------
+ --------------\n
+  6:00 PM PDT: Dinner\n----------------------------------------\n
+  7:00 PM PDT: Doors\n----------------------------------------\n
+  8:00 PM - 9:30 PM PDT: Showtime! 90min\n-------------------------------
+ ---------\n
   \n*************************************\nACCOMMODATIONS:\n
     Hotel - Soma House\n
     San Francisco\, CA\, 94103\, US\n
@@ -1554,6 +1561,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  nited States":geo:37.90703009999999,-122.5480921
 CREATED:20260206T023115
 LAST-MODIFIED:20260206T023115
+X-HECTOR-SCHED:20260628 → 900–1290 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
