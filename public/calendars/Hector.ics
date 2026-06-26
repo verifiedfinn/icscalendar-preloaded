@@ -15,61 +15,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:96722dbc-556f-4bbc-84a8-2ad93430c371
-DTSTAMP:20260103T045753
-SUMMARY:Grayslake\, IL
-DTSTART:20260328T170000Z
-DTEND:20260329T013000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:¡Vívela! Marquee Series
-  Mainstage Theatre\n
-  Jeremy Eiden\, Production Manager (Cell) 262-496-4351\n
-  Dave Unger\, head of audio.\n
-  HOTEL BUYOUT\n
-  \nVENUE INFO:\n
-    tel:+1 847-543-2300\n
-    https://www.jlcenter.clcillinois.edu/\n
-  \n*************************************\nSCHEDULE:\n
-  12:00 PM CDT: Lobby & breakfast at Alexander’s & 1 hr drive\n--------
- --------------------------------\n
-  3:00 PM - 5:15 PM CDT: Load-in/Set-up & Soundcheck\n-------------------
- ---------------------\n
-  5:30 PM CDT: Dinner served\n----------------------------------------\n
-  6:30 PM CDT: Doors\n----------------------------------------\n
-  7:00 PM - 8:30 PM CDT: Showtime! 90MIN\n-------------------------------
- ---------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel - Sonesta CHICAGO O'HARE\n
-    Rosemont\, IL\, 60018\, US\n
-    ARRIVE: 3/28/2026 11:00 PM CDT\n
-    DEPART: 3/29/2026 8:00 AM CDT\n
-    1 Denise Carlos\n
-  2 Hector Flores\n
-  Confirmation number\n
-  73407200328683\n
-  3 Jorge Mijangos & Diego Chi\n
-  4 Angela Gonzalez & Alih Jey De Pena\n
-  5 Jonny Jyemo  & John Calinchini\n
-  Confirmation number\n
-  73407202191077\n
-  \n
-    tel:1 847-954-8600\n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.jlcenter.clcillinois.edu/
-GEO:42.3543672;-88.01110009999999
-LOCATION:James Lumber Center for the Performing Arts\n19351 W Washington
- St\nGrayslake IL  60030 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="James Lumber Center for the Performing Arts\n19351 W Washington St
- \nGrayslake IL 60030 United States":geo:42.3543672,-88.01110009999999
-CREATED:20260103T045753
-LAST-MODIFIED:20260313T211813
-X-HECTOR-SCHED:20260328 → 720–1230 min (CDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:24afe073-57a8-4d91-9b5d-8aa69d317a9b
 DTSTAMP:20260104T225742
 SUMMARY:Connecting Chords Music Festival (Kalamazoo\, IL)
