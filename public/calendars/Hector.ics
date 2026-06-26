@@ -1509,7 +1509,7 @@ DESCRIPTION:Friday\, June 26: approx 90 minute Main Stage slot around 8:3
   Hector Flores\n
   Moises Baqueiro & Jonny Jyemo\n
   Angela Gonzalez & Alih Jey\n
-  Jorge Mijangos & John Calinchini\n
+  John Calinchini & Carlos David Durán\n
   \n
     \n----------------------------------------\n
 STATUS:CONFIRMED
@@ -1532,7 +1532,22 @@ DTSTART;VALUE=DATE:20260626
 DTEND;VALUE=DATE:20260627
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  1:00 PM PDT: Rental Car - Enterprise - DC\n  Denise Carlos: Fullsize SU
+ V\n
+  Confirmation #2119295719\n
+  Enterprise Phone Number: 833 6350431\n
+  Itinerary#73482179634249\n
+  \n----------------------------------------\n
+  1:00 PM - 6/27/2026 1:00 PM PDT: Rental Car - Enterprise - HF\n  Enterp
+ rise - Fullsize SUV\n
+  Pick up : 1pm\n
+  Drop off: 10am\n
+  Confirmation #2119295493\n
+  Enterprise Phone Number: 833 6350431\n
+  Itinerary#73482179189438\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - ONT>SFO - SOUTHWEST - ABYHJZ -AG - SOUTHWEST\n
     WN4421\n
     DEPART: Ontario International Airport 6/26/2026 8:00 AM PDT\n
@@ -1557,6 +1572,43 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260206T022927
 LAST-MODIFIED:20260529T025846
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:3eda5ea8-0548-455d-ba64-e5143e599a9a
+DTSTAMP:20260206T023115
+SUMMARY:Sweetwater Music Hall (Mill Valley\, CA)
+DTSTART;VALUE=DATE:20260628
+DTEND;VALUE=DATE:20260629
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 415-388-3850\n
+    http://www.sweetwatermusichall.com/\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Soma House\n
+    San Francisco\, CA\, 94103\, US\n
+    ARRIVE: 6/28/2026 4:00 PM PDT\n
+    DEPART: 6/29/2026 11:00 AM PDT\n
+    Hotel:\n
+  1-Hector\n
+  2-Denise\n
+  3-Moi/jonny\n
+  4-John/David\n
+  5-Angie\n
+  \n
+    tel:(415) 626-0200\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.sweetwatermusichall.com/
+GEO:37.90703009999999;-122.5480921
+LOCATION:Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA  9494
+ 1 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA 94941 U
+ nited States":geo:37.90703009999999,-122.5480921
+CREATED:20260206T023115
+LAST-MODIFIED:20260206T023115
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
