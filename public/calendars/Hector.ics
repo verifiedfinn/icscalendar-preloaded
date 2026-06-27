@@ -5,88 +5,14 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:24afe073-57a8-4d91-9b5d-8aa69d317a9b
-DTSTAMP:20260104T225742
-SUMMARY:Connecting Chords Music Festival (Kalamazoo\, IL)
-DTSTART:20260329T120000Z
-DTEND:20260329T213000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:4pm- 75-90min
-  post show meet & greet\n
-  Contact:\n
-  Elizabeth Start\n
-  269-598-5090\n
-  es@elizabethstart.com\n
-  \nVENUE INFO:\n
-    tel:+1 269-250-8783\n
-    http://www.comstockps.org/community/comstock_community_auditorium\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 AM EDT: Lobby & Drive out (2.5hrs)- Time change/ we lose an hour\n
- ----------------------------------------\n
-  12:30 PM EDT: Load 12:30pm\n----------------------------------------\n
-  1:30 PM - 3:15 PM EDT: Set-up /Soundcheck\n----------------------------
- ------------\n
-  2:30 PM EDT: Lunch served\n----------------------------------------\n
-  3:00 PM EDT: Building opens\n----------------------------------------\n
-  3:30 PM EDT: Doors\n----------------------------------------\n
-  4:00 PM - 5:30 PM EDT: SHOWTIME! 90 mi\n-------------------------------
- ---------\n
-  5:45 PM EDT: Diego Lyft to Grand Rapids Airport (1 hr commute)\n-------
- ---------------------------------\n
-  7:00 PM EDT: Head to dinner then drive to Grand Rapids hotel\n---------
- -------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.comstockps.org/community/comstock_co
- mmunity_auditorium
-GEO:42.30689599999999;-85.51898910000001
-LOCATION:Comstock Community Auditorium\n2107 N 26th St\nKalamazoo MI  490
- 48 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Comstock Community Auditorium\n2107 N 26th St\nKalamazoo MI 49048
- United States":geo:42.30689599999999,-85.51898910000001
-CREATED:20260104T225742
-LAST-MODIFIED:20260310T190707
-X-HECTOR-SCHED:20260329 → 480–1050 min (EDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:096d597f-9d0e-4c3b-812c-8a2413258489
-DTSTAMP:20260313T213539
-SUMMARY:Grand Rapids Hotel
-DTSTART;VALUE=DATE:20260329
-DTEND;VALUE=DATE:20260330
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nACCOMMODATIONS:
-    Hotel - Sonesta Hotel Grand Rapids Airport\n
-    Grand Rapids\, MI\, 49512\, US\n
-    ARRIVE: 3/29/2026 3:00 PM EDT\n
-    DEPART: 3/30/2026 11:00 AM EDT\n
-    1    Denise Carlos\n
-    2    Hector Flores\n
-    3    Jorge Mijangos & Diego Chi\n
-    4    Angela Gonzalez & Alih Jey De Pena\n
-    5     Jonny Jyemo  & John Calinchini\n
-  \n
-    tel:1 616-949-9222\n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260313T213539
-LAST-MODIFIED:20260313T213539
-X-HECTOR-TYPE:LOCATION
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:55c1d330-1836-41e7-b0d0-7c404e9cb26b
