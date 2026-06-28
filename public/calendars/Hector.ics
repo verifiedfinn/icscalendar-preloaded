@@ -5,54 +5,14 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:55c1d330-1836-41e7-b0d0-7c404e9cb26b
-DTSTAMP:20260221T204150
-SUMMARY:Travel home
-DTSTART;VALUE=DATE:20260330
-DTEND;VALUE=DATE:20260331
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - GRR> ONT - United - GJ16YK - AG - United\n
-    1102\n
-    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
-    ARRIVE: Ontario International Airport 3/30/2026 12:38 PM PDT\n
-    \n----------------------------------------\n
-    Flight - GRR>LAX - United - E736BG - HF\, AD\, JJ - United\n
-    1102\n
-    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
-    ARRIVE: Hollywood Burbank Airport 3/30/2026 12:58 PM PDT\n
-    \n----------------------------------------\n
-    Flight - GRR>LAX - United - EJVEKQ - JC - United\n
-    1102\n
-    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
-    ARRIVE: Meadows Field Airport 3/30/2026 1:20 PM PDT\n
-    \n----------------------------------------\n
-    Flight - GRR>SBA - United - GJPFSV - JM - United\n
-    1102\n
-    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
-    ARRIVE: Santa Barbara Airport 3/30/2026 1:14 PM PDT\n
-    \n----------------------------------------\n
-    Flights - GRR>BUR - United - E7GWLV - DC - United\n
-    1102\n
-    DEPART: Gerald R. Ford International Airport 3/30/2026 9:00 AM EDT\n
-    ARRIVE: Hollywood Burbank Airport 3/30/2026 12:58 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260221T204150
-LAST-MODIFIED:20260221T204150
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:95398443-7cb1-4f0d-8fe7-cd3dc15889cc
