@@ -5,10 +5,10 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1517,6 +1517,31 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
 CREATED:20260206T023339
 LAST-MODIFIED:20260217T213237
 X-HECTOR-SCHED:20260717 → 1080–1230 min (MDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:370dfa38-a2c5-4667-b6e4-8b0fbef3694a
+DTSTAMP:20260219T213928
+SUMMARY:Travel to Denver
+DTSTART;VALUE=DATE:20260717
+DTEND;VALUE=DATE:20260718
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - ONT>DEN- SOUTHWEST - BFY8LQ -AG - Southwest\n
+    WN3145\n
+    DEPART: Ontario International Airport 7/17/2026 8:00 AM PDT\n
+    ARRIVE: Denver International Airport 7/17/2026 11:10 AM MDT\n
+    \n----------------------------------------\n
+    Flight - BUR>DEN - UNITED - F88JSV -DC\,HF\,MB\,JM\,JJ\,JC - UNITED\n
+    UA1191\n
+    DEPART: Hollywood Burbank Airport 7/17/2026 9:08 AM PDT\n
+    ARRIVE: Denver International Airport 7/17/2026 12:35 PM MDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260219T213928
+LAST-MODIFIED:20260702T025445
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
