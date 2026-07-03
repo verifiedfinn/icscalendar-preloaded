@@ -5,10 +5,10 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1776,7 +1776,21 @@ DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260914
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
+DESCRIPTION:Township Park\, 7251 50th Ave\, Remus\, MI 49340
+  Hotel Provided\n
+  Two (2) Main Stage sets and one (1) Centennial Stage set\n
+  Friday 9/11\n
+  10:40-11:30pm MAINSTAGE\n
+  Saturday 9/12\n
+  6:30-7:20pm MAINSTAGE\n
+  11:10pm-12am CENTENNIAL STAGE\n
+  \n*************************************\nSCHEDULE:\n
+  10:40 PM - 11:30 PM EDT: Friday Mainstage Show (50min)\n---------------
+ -------------------------\n
+  9/12/2026 6:30 PM - 9/12/2026 7:20 PM EDT: Saturday Mainstage Show (50m
+ in)\n----------------------------------------\n
+  9/12/2026 11:10 PM - 9/13/2026 12:00 AM EDT: Saturaday Centennial Show
+ (50min)\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 GEO:43.5714777;-85.18897869999999
@@ -1785,7 +1799,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="7251 50th Ave\nRemus MI 49340 United States":geo:43.5714777,-85.18
  897869999999
 CREATED:20260113T070007
-LAST-MODIFIED:20260613T000801
+LAST-MODIFIED:20260703T002232
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
