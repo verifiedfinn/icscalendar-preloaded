@@ -5,10 +5,10 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1493,7 +1493,7 @@ TRANSP:OPAQUE
 UID:7d8767f4-513f-4f90-9ed4-92595c74dddc
 DTSTAMP:20260206T023339
 SUMMARY:Denver Levitt
-DTSTART:20260718T000000Z
+DTSTART:20260717T200000Z
 DTEND:20260718T023000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
@@ -1502,6 +1502,9 @@ DESCRIPTION:no hotel\, no ground
     tel:+1 303-578-0488\n
     http://levittdenver.org/\n
   \n*************************************\nSCHEDULE:\n
+  2:00 PM - 5:00 PM MDT: Load & Sound\n----------------------------------
+ ------\n
+  5:30 PM MDT: VIP DOORS\n----------------------------------------\n
   6:00 PM MDT: Doors\n----------------------------------------\n
   7:00 PM - 8:30 PM MDT: Show time (90min)\n-----------------------------
  -----------\n
@@ -1516,7 +1519,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
   States":geo:39.6864166,-105.0030082
 CREATED:20260206T023339
 LAST-MODIFIED:20260217T213237
-X-HECTOR-SCHED:20260717 → 1080–1230 min (MDT)
+X-HECTOR-SCHED:20260717 → 840–1230 min (MDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -1560,8 +1563,8 @@ DESCRIPTION:Steve Heath
     tel:+1 313-582-2266\n
     http://concertofcolors.com/\n
   \n*************************************\nSCHEDULE:\n
-  5:30 PM - 7:00 PM EDT: Showtime 90 min\n-------------------------------
- ---------\n
+  5:30 PM - 7:00 PM EDT: Showtime 90 min (DIA NORTH LAWN STAGE)\n--------
+ --------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://concertofcolors.com/
@@ -1764,6 +1767,34 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20231024T004249
 LAST-MODIFIED:20260425T181609
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:60725347-2a19-4832-b9b6-a7b9b6c4be60
+DTSTAMP:20260706T234659
+SUMMARY:WAA AWARDS LUNCHEON- HECTOR AWARDEE
+DTSTART;TZID=America/Los_Angeles:20260910T120000
+DTEND;TZID=America/Los_Angeles:20260910T133000
+DESCRIPTION:The 2026 Awards Annual Luncheon\, taking place on Thursday\,
+ September 10 @12-1:30PM
+  Skyline Room of the Oakland Marriott City Center in Oakland\, CA\n
+  \nVENUE INFO:\n
+    tel:+1 510-451-4000\n
+    https://www.marriott.com/en-us/hotels/oakdt-oakland-marriott-city-cen
+ ter/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.marriott.com/en-us/hotels/oakdt-oak
+ land-marriott-city-center/overview/?scid=f2ae0541-1279-4f24-b197-a979c79
+ 310b0
+GEO:37.80219;-122.2730771
+LOCATION:Oakland Marriott City Center\n1001 Broadway\nOakland CA  94607 U
+ nited States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Oakland Marriott City Center\n1001 Broadway\nOakland CA 94607 Unit
+ ed States":geo:37.80219,-122.2730771
+CREATED:20260706T234659
+LAST-MODIFIED:20260706T234659
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
