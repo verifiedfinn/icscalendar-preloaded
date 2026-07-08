@@ -5,119 +5,14 @@ CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:95398443-7cb1-4f0d-8fe7-cd3dc15889cc
-DTSTAMP:20250402T005549
-SUMMARY:Montalvo Arts Center (Saratoga\, CA)
-DTSTART:20260409T220000Z
-DTEND:20260410T043000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Contact: Tim Reeve
-  408-961-5855\n
-  Production:Robert Garrett will work with you regarding schedule for the
-  day\, backline arrangements\, audio\, 408-961-5855 / rgarrett@montalvo
- arts.org.\n
-  VENUE: The Carriage House Theatre @ Montalvo Arts Center\n
-  Montalvo to provide backline per rider submitted with Contract\n
-  Montalvo does not provide travel or local transportation\n
-  Hotel- 1 night\n
-  \nVENUE INFO:\n
-    tel:+1 408-961-5858\n
-    http://montalvoarts.org/\n
-  \n*************************************\nSCHEDULE:\n
-  3:00 PM - 5:30 PM PDT: Load/Sound\n------------------------------------
- ----\n
-  5:30 PM PDT: Dinner Served (Send order to Denise)\n  Order link:  https
- ://www.dropbox.com/scl/fo/1as9bstfgg9q3qc4uti50/AMd5-0UO9FgWpWPUkfym5iU/
- Andale%20Taqueria%20Menu.jpg?rlkey=4bh7zltcmxh8qjm7dyimuusx2&st=dhloae7r
- &dl=0\n
-  \n----------------------------------------\n
-  7:00 PM PDT: Doors\n----------------------------------------\n
-  7:30 PM - 9:30 PM PDT: Showtime (90min)\n------------------------------
- ----------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Saratoga Hotel: Toll House Hotel\n
-    140 S Santa Cruz Ave\, Los Gatos\, CA\, 95030\, US\n
-    ARRIVE: 4/9/2026 3:00 PM PDT\n
-    DEPART: 4/10/2026 11:00 AM PDT\n
-    Toll House Hotel\n
-  140 S. Santa Cruz Ave.\n
-  Los Gatos\, CA  95060\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://montalvoarts.org/
-GEO:37.2438887;-122.0308382
-LOCATION:Montalvo Arts Center\n15400 Montalvo Rd\nSaratoga CA  95070 Unit
- ed States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Montalvo Arts Center\n15400 Montalvo Rd\nSaratoga CA 95070 United
- States":geo:37.2438887,-122.0308382
-CREATED:20250402T005549
-LAST-MODIFIED:20260401T015208
-X-HECTOR-SCHED:20260409 → 900–1290 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:bde85a9c-e627-4a2b-bcb9-678e02f2c7be
-DTSTAMP:20260406T230514
-SUMMARY:Flight to San Jose\, Drive to venue (John drives himself)
-DTSTART;VALUE=DATE:20260409
-DTEND;VALUE=DATE:20260410
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  1:30 PM - 4/10/2026 1:30 PM PDT: Rental Car - Budget - DC\n  Budget - M
- ini Van\n
-  Pick-up and drop-off\n
-  Thu\, Apr 9\, 1:30pm - Tue\, Apr 14\, 1:30pm\n
-  Confirmation #43757155US1\n
-  Itinerary#73414929793698\n
-  \n----------------------------------------\n
-  1:30 PM - 4/10/2026 1:30 PM PDT: Rental Car - Budget - HF\n  Budget - M
- ini Van\n
-  Pick-up and drop-off\n
-  Thu\, Apr 9\, 1:30pm - Tue\, Apr 14\, 1:30pm\n
-  Confirmation #43757039US4\n
-  Itinerary#73414928871037\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - ONT>SJC - Southwest - CFARW8 - AG - Southwest\n
-    106\n
-    DEPART: Ontario 4/9/2026 10:30 AM PDT\n
-    ARRIVE: San Jose 4/9/2026 11:45 AM PDT\n
-    \n----------------------------------------\n
-    Flight - BUR>SJC - Southwest - AZRSHB - JM - Southwest\n
-    1001\n
-    DEPART: Hollywood Burbank Airport 4/9/2026 12:55 PM PDT\n
-    ARRIVE: San Jose Mineta International Airport 4/9/2026 2:10 PM PDT\n
-    \n----------------------------------------\n
-    Flight - BUR>SJC - Southwest - CEYUDH - JJ\, MB - Southwest\n
-    1001\n
-    DEPART: Burbank 4/9/2026 12:55 PM PDT\n
-    ARRIVE: San Jose 4/9/2026 2:10 PM PDT\n
-    \n----------------------------------------\n
-    Flight - LGB>SJC - Southwest - CEXBJM - DC\, HF - Southwest\n
-    1390\n
-    DEPART: Long Beach 4/9/2026 1:00 PM PDT\n
-    ARRIVE: San Jose 4/9/2026 2:15 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260406T230514
-LAST-MODIFIED:20260407T010839
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:6da0f8ec-057c-4088-bbfd-ab6287d005f8
