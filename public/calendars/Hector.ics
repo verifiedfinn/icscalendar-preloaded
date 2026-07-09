@@ -15,33 +15,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:6da0f8ec-057c-4088-bbfd-ab6287d005f8
-DTSTAMP:20260401T023953
-SUMMARY:Day off in San Francisco
-DTSTART;VALUE=DATE:20260410
-DTEND;VALUE=DATE:20260411
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nACCOMMODATIONS:
-    Hotel - The Phoenix Hotel\n
-    San Francisco\, CA\, 94109\, US\n
-    ARRIVE: 4/10/2026 3:00 PM PDT\n
-    DEPART: 4/12/2026 12:00 PM PDT\n
-    Rooms:\n
-  1 Denise Carlos\n
-    2    Hector Flores\n
-    3    Moises Baqueiro & Jonny Jyemo\n
-    4    Angela Gonzalez& Alih Jey de Pena\n
-    5    Jorge Mijangos & Hector Lopez\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260401T023953
-LAST-MODIFIED:20260401T023953
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:9121bf76-0deb-4f90-a84a-80e4682a25ff
 DTSTAMP:20260211T003658
 SUMMARY:Brick & Mortar
