@@ -15,53 +15,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:9121bf76-0deb-4f90-a84a-80e4682a25ff
-DTSTAMP:20260211T003658
-SUMMARY:Brick & Mortar
-DTSTART;VALUE=DATE:20260411
-DTEND;VALUE=DATE:20260412
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:NO BACKLINE (we can rent out of pocket)
-  Venue Contacts:\n
-  Venue Manager: AJ (510) 262-6100 (Venue point of contact day of show)\n
-  Production Manager: Donovan (510) 306-1928\n
-  Load in at 1710 Mission St.\n
-  WIFI\n
-  NW: B+M GUEST\n
-  PW: guest1710!\n
-  Merch: 2 Grids\, 6ft & 3ft Table\, Power and Lamp available\n
-  A merch seller may be provided with at least 1 week notice. Rate is $15
- 0 + cash/digital tips at artist's expense.\n
-  \nVENUE INFO:\n
-    tel:+1 415-678-5099\n
-    http://brickandmortarmusic.com/\n
-  \n*************************************\nSCHEDULE:\n
-  4:00 PM PDT: DOS Schedule\n  PROPOSED RUN OF SHOW: *Subject to change\n
-  4-6pm - LOAD & Soundcheck\n
-  6pm DJ Sizzle Soundcheck\n
-  08:00 PM - DOORS (60 MINS)\n
-  8-10pm DJ Sizzle\n
-  10:00 PM - LAS CAFETERAS (90 MINS)\n
-  11:30 PM - MERCH  & DJ(30 MINS)\n
-  12:00 AM - SOUND CURFEW\n
-  LOAD OUT / CLEAR VENUE\n
-  01:00 AM - HARD CURFEW\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://brickandmortarmusic.com/
-GEO:37.76972689999999;-122.42041
-LOCATION:Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA  94
- 103 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA 94103
-  United States":geo:37.76972689999999,-122.42041
-CREATED:20260211T003658
-LAST-MODIFIED:20260331T194555
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:abee23f0-0a79-40d5-8975-bcdfec47c390
 DTSTAMP:20260327T054719
 SUMMARY:Modesto hotel: Doubletree
@@ -1445,6 +1398,27 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
 CREATED:20260217T213153
 LAST-MODIFIED:20260616T034646
 X-HECTOR-SCHED:20260719 → 1050–1140 min (EDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:f35ad3e8-2835-4e74-ba5b-465c890c054c
+DTSTAMP:20260624T032609
+SUMMARY:FLY HOME
+DTSTART;VALUE=DATE:20260720
+DTEND;VALUE=DATE:20260721
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - DTW> BUR- UNITED- O632X2- DC\, HF\, MB\,JJ\, JC - UNITED\n
+    UA 1863\n
+    DEPART: Detroit Metropolitan Wayne County Airport 7/20/2026 5:29 PM E
+ DT\n
+    ARRIVE: Hollywood Burbank Airport 7/20/2026 9:47 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260624T032609
+LAST-MODIFIED:20260624T032609
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
