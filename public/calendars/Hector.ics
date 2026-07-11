@@ -2,54 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:abee23f0-0a79-40d5-8975-bcdfec47c390
-DTSTAMP:20260327T054719
-SUMMARY:Modesto hotel: Doubletree
-DTSTART;VALUE=DATE:20260412
-DTEND;VALUE=DATE:20260414
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Hotel Rooming assignments:
-  Denise Carlos\n
-  Hector Flores\n
-  Angela Gonzalez\n
-  Moises Baqueiro\n
-  Jonny Jyemo\n
-  Jorge Mijangos\n
-  Hector Lopez\n
-  \nVENUE INFO:\n
-    tel:+1 209-526-6000\n
-    https://www.hilton.com/en/hotels/dsto-dt-doubletree-modesto/?SEO_id=G
- MB-AMER-DT-DSTODT&y_source=1_MTM3MjY4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3
- D\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.hilton.com/en/hotels/dsto-dt-double
- tree-modesto/?SEO_id=GMB-AMER-DT-DSTODT&y_source=1_MTM3MjY4OC03MTUtbG9jY
- XRpb24ud2Vic2l0ZQ%3D%3D
-GEO:37.6413422;-121.0025536
-LOCATION:DoubleTree by Hilton Hotel Modesto\n1150 9th St\nModesto CA  953
- 54 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="DoubleTree by Hilton Hotel Modesto\n1150 9th St\nModesto CA 95354
- United States":geo:37.6413422,-121.0025536
-CREATED:20260327T054719
-LAST-MODIFIED:20260327T054734
-X-HECTOR-TYPE:LOCATION
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:5d44042d-8327-45b3-9ddf-c37fa69a239e
