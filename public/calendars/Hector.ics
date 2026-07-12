@@ -2,56 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:5d44042d-8327-45b3-9ddf-c37fa69a239e
-DTSTAMP:20251125T034430
-SUMMARY:2  Student shows (Modesto\, CA)
-DTSTART;TZID=America/Los_Angeles:20260413T080000
-DTEND;TZID=America/Los_Angeles:20260413T130000
-DESCRIPTION:Monday\, April 13\, 2026\, 9:30 AM
-  Monday\, April 13\, 2026\, 11:30 AM\n
-  Mary Stuart Rogers Theater\n
-  Recommended for grades 7+\n
-  \nVENUE INFO:\n
-    tel:+1 209-338-2100\n
-    http://www.galloarts.org/\n
-  \n*************************************\nSCHEDULE:\n
-  8:30 AM - 12:30 PM PDT: Student show schedule\n  Monday April 13\, 2026
- \n
-  ·         0830 Building access / show crew call\n
-  ·         0900 Doors\n
-  ·         0930 STUDENT SHOW 1\n
-  ·         1030 End of Show 1 (must be 60 minutes or less)\n
-  ·         1100 Doors\n
-  ·         1130 STUDENT SHOW 2\n
-  ·         1230 End of Show 2 (must be 60 minutes or less) /
- Load out\n
-  \n----------------------------------------\n
-  1:00 PM PDT: Drive home\n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.galloarts.org/
-GEO:37.6396361;-120.9983935
-LOCATION:Gallo Center for the Arts\n1000 I St\nModesto CA  95354 United S
- tates
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Gallo Center for the Arts\n1000 I St\nModesto CA 95354 United Stat
- es":geo:37.6396361,-120.9983935
-CREATED:20251125T034430
-LAST-MODIFIED:20251125T034430
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:bef74288-486d-4b09-950d-e7aeb8a91423
