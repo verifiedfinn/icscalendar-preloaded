@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1291,6 +1291,34 @@ LAST-MODIFIED:20260705T185405
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:42862f35-0773-443a-95f3-c37cbe5a1156
+DTSTAMP:20260217T213306
+SUMMARY:Travel to Detroit
+DTSTART;VALUE=DATE:20260718
+DTEND;VALUE=DATE:20260719
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight -DEN > DTW- UNITED - ED40EE -DC\,HF\,MB\,JM\,JJ\,JC\,AG - UNIT
+ ED\n
+    UA 1220\n
+    DEPART: Denver International Airport 7/18/2026 5:47 PM MDT\n
+    ARRIVE: Detroit Metropolitan Wayne County Airport 7/18/2026 10:43 PM
+ EDT\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Detroit Hotel:Westin Book Cadillac. (2 nights)\n
+    1114 Washington Blvd\, Detroit\, MI\, 48226\, US\n
+    ARRIVE: 7/18/2026 12:00 AM EDT\n
+    DEPART: 7/20/2026 11:59 PM EDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260217T213306
+LAST-MODIFIED:20260217T213306
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:7ce25660-0658-485a-b714-6e2ca51ca04c
 DTSTAMP:20260217T213153
 SUMMARY:Concert of Colors (Detroit\, MI)
@@ -1466,6 +1494,39 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260401T041713
 LAST-MODIFIED:20260601T215939
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:67d667be-6b10-420f-b111-d2ae5e9bcd7e
+DTSTAMP:20260708T053755
+SUMMARY:Palmdale\, CA
+DTSTART:20260816T010000Z
+DTEND:20260816T033000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:NO BACKLINE PROVIDED
+  \nVENUE INFO:\n
+    tel:+1 661-264-1249\n
+    https://parks.lacounty.gov/stephen-sorensen-park/\n
+  \n*************************************\nSCHEDULE:\n
+  6:00 PM PDT: Event start\n----------------------------------------\n
+  6:30 PM - 8:00 PM PDT: Showtime (90 min)\n-----------------------------
+ -----------\n
+  8:00 PM - 8:30 PM PDT: Meet & Greet at Merc\n--------------------------
+ --------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://parks.lacounty.gov/stephen-sorensen-par
+ k/
+GEO:34.6033948;-117.8296458
+LOCATION:Stephen Sorensen Park\n16801 E Ave P\nPalmdale CA  93591 United
+ States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Stephen Sorensen Park\n16801 E Ave P\nPalmdale CA 93591 United Sta
+ tes":geo:34.6033948,-117.8296458
+CREATED:20260708T053755
+LAST-MODIFIED:20260713T190043
+X-HECTOR-SCHED:20260815 → 1080–1230 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
