@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1422,11 +1422,16 @@ DESCRIPTION:Tenessa Ripple
     https://www.washoecounty.gov/parks/parks/park_directory_pages/north_r
  egion/rancho_san_rafael_regional_park.php\n
   \n*************************************\nSCHEDULE:\n
-  2:30 PM - 5:00 PM PDT: Load/Soundcheck\n-------------------------------
- ---------\n
+  2:30 PM - 5:00 PM PDT: Load/Soundcheck\n   No music during these time f
+ rames:\n
+  4:15 pm-4:25 pm\n
+  5:15 pm-5:25 pm\n
+  6:15 pm-6:25 pm\n
+  6:40 pm-6:55 pm\n
+  \n----------------------------------------\n
   5:30 PM - 7:00 PM PDT: DInner and Dress\n------------------------------
  ----------\n
-  6:30 PM PDT: Doors\n----------------------------------------\n
+  6:00 PM PDT: Doors\n----------------------------------------\n
   7:30 PM - 9:00 PM PDT: Showtime 90 min\n-------------------------------
  ---------\n
   \n*************************************\nACCOMMODATIONS:\n
@@ -1434,11 +1439,11 @@ DESCRIPTION:Tenessa Ripple
     ARRIVE: 7/22/2026 3:00 PM PDT\n
     DEPART: 7/23/2026 8:00 AM PDT\n
     HOTEL ROOMING LIST\n
-  DENISE CARLOS\n
-  HECTOR FLORES\n
-  ANGELA GONZALEZ\n
-  JORGE MIJANGOS/ JOHN CALANCHINI\n
-  MOISES BAQUEIRO/ JONNY JYEMO\n
+  DENISE CARLOS (SFDTM)\n
+  HECTOR FLORES (6SPF5)\n
+  ANGELA GONZALEZ (F3HWY)\n
+  JORGE MIJANGOS/ JOHN CALANCHINI (YCRYT)\n
+  MOISES BAQUEIRO/ JONNY JYEMO. (SMTZL)\n
   \n
     \n----------------------------------------\n
 STATUS:CONFIRMED
