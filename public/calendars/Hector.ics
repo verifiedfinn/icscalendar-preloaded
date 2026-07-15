@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1322,7 +1322,7 @@ TRANSP:OPAQUE
 UID:7ce25660-0658-485a-b714-6e2ca51ca04c
 DTSTAMP:20260217T213153
 SUMMARY:Concert of Colors (Detroit\, MI)
-DTSTART:20260719T213000Z
+DTSTART:20260719T190000Z
 DTEND:20260719T230000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
@@ -1336,8 +1336,10 @@ DESCRIPTION:Steve Heath
     tel:+1 313-582-2266\n
     http://concertofcolors.com/\n
   \n*************************************\nSCHEDULE:\n
-  5:30 PM - 7:00 PM EDT: Showtime 90 min (DIA NORTH LAWN STAGE)\n--------
- --------------------------------\n
+  3:00 PM EDT: Load-in/ tech set-up\n------------------------------------
+ ----\n
+  5:30 PM - 7:00 PM EDT: Showtime 75-80 minutes(DIA NORTH LAWN STAGE)\n--
+ --------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://concertofcolors.com/
@@ -1349,7 +1351,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  es":geo:42.3485731,-83.05893449999999
 CREATED:20260217T213153
 LAST-MODIFIED:20260616T034646
-X-HECTOR-SCHED:20260719 → 1050–1140 min (EDT)
+X-HECTOR-SCHED:20260719 → 900–1140 min (EDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -1417,19 +1419,29 @@ DTEND;TZID=America/Los_Angeles:20260722T230000
 DESCRIPTION:Tenessa Ripple
   775-546-3319\n
   The Helaine Greenberg Stage at Rancho San Rafael Regional Park\n
+  There are no private dressing rooms.\n
+  There is one greenroom on one side of the stage and an artist's only ba
+ throom with one stall on the other side of the stage.\n
   \nVENUE INFO:\n
     tel:+1 775-785-4512\n
     https://www.washoecounty.gov/parks/parks/park_directory_pages/north_r
  egion/rancho_san_rafael_regional_park.php\n
   \n*************************************\nSCHEDULE:\n
-  2:30 PM - 5:00 PM PDT: Load/Soundcheck\n   No music during these time f
- rames:\n
+  2:30 PM - 5:00 PM PDT: Load/Soundcheck- CALL TENNESSA 775-546-3319\n
+ No music during these time frames:\n
   4:15 pm-4:25 pm\n
   5:15 pm-5:25 pm\n
   6:15 pm-6:25 pm\n
   6:40 pm-6:55 pm\n
+  When you arrive at the venue\, please follow the signs to the ADA parki
+ ng lot. From there\, you will drive directly into the park to the green
+ room area\, where parking is available for up to two vehicles.  Please g
+ ive me a call when you arrive\, and I can meet you at the ADA parking lo
+ t to guide you in. The route may feel unusual\, as you'll be driving alo
+ ng a dirt path\, but that is the correct way to access the green room ar
+ ea. (Tenessa Ripple)\n
   \n----------------------------------------\n
-  5:30 PM - 7:00 PM PDT: DInner and Dress\n------------------------------
+  5:00 PM - 7:00 PM PDT: DInner and Dress\n------------------------------
  ----------\n
   6:00 PM PDT: Doors\n----------------------------------------\n
   7:30 PM - 9:00 PM PDT: Showtime 90 min\n-------------------------------
@@ -1457,7 +1469,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Rancho San Rafael Regional Park\n1595 N Sierra St\nReno NV 89503 U
  nited States":geo:39.5456988,-119.8239912
 CREATED:20251022T225718
-LAST-MODIFIED:20260702T025711
+LAST-MODIFIED:20260715T025057
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -1504,9 +1516,9 @@ BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:67d667be-6b10-420f-b111-d2ae5e9bcd7e
 DTSTAMP:20260708T053755
-SUMMARY:Palmdale\, CA
+SUMMARY:NEXT FEST Palmdale (NO BACKLINE)
 DTSTART:20260816T010000Z
-DTEND:20260816T033000Z
+DTEND:20260816T035000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:NO BACKLINE PROVIDED
@@ -1514,10 +1526,9 @@ DESCRIPTION:NO BACKLINE PROVIDED
     tel:+1 661-264-1249\n
     https://parks.lacounty.gov/stephen-sorensen-park/\n
   \n*************************************\nSCHEDULE:\n
-  6:00 PM PDT: Event start\n----------------------------------------\n
-  6:30 PM - 8:00 PM PDT: Showtime (90 min)\n-----------------------------
- -----------\n
-  8:00 PM - 8:30 PM PDT: Meet & Greet at Merc\n--------------------------
+  6:00 PM - 7:00 PM PDT: ECNO\n----------------------------------------\n
+  7:00 PM PDT: Changeover\n----------------------------------------\n
+  7:20 PM - 8:50 PM PDT: LC Showtime (90 min)\n--------------------------
  --------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
@@ -1530,8 +1541,8 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Stephen Sorensen Park\n16801 E Ave P\nPalmdale CA 93591 United Sta
  tes":geo:34.6033948,-117.8296458
 CREATED:20260708T053755
-LAST-MODIFIED:20260713T190043
-X-HECTOR-SCHED:20260815 → 1080–1230 min (PDT)
+LAST-MODIFIED:20260715T032921
+X-HECTOR-SCHED:20260815 → 1080–1250 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
