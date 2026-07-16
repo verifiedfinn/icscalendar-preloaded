@@ -2,54 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:bef74288-486d-4b09-950d-e7aeb8a91423
-DTSTAMP:20260403T204033
-SUMMARY:Drive to Visalia
-DTSTART;TZID=America/Los_Angeles:20260416T150000
-DTEND;TZID=America/Los_Angeles:20260416T150000
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 559-713-2113\n
-    https://www.thedarlingvisalia.com/?utm_source=google&utm_medium=organ
- ic&utm_campaign=business_listing\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Visalia Hotel: The Darling Hotel\n
-    210 N Court St\, Visalia\, CA\, 93291\, US\n
-    ARRIVE: 4/16/2026 3:00 PM PDT\n
-    DEPART: 4/17/2026 7:45 AM PDT\n
-    5 rooms\n
-  denise\n
-  hector\n
-  moi\n
-  john\n
-  julio & david\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.thedarlingvisalia.com/?utm_source=g
- oogle&utm_medium=organic&utm_campaign=business_listing
-GEO:36.3315702;-119.2920813
-LOCATION:The Darling Hotel\n210 N Court St\nVisalia CA  93291 United Stat
- es
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="The Darling Hotel\n210 N Court St\nVisalia CA 93291 United States"
- :geo:36.3315702,-119.2920813
-CREATED:20260403T204033
-LAST-MODIFIED:20260415T204800
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:fcecf5bf-2007-4f4d-a71a-0edcf9d20cbd
