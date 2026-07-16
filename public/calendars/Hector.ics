@@ -2,71 +2,17 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:fcecf5bf-2007-4f4d-a71a-0edcf9d20cbd
-DTSTAMP:20260219T220151
-SUMMARY:Full band-Puente Program Conference
-DTSTART:20260417T150000Z
-DTEND:20260417T203000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:College of the Sequoias Puente Program\, a transfer readiness
-  cohort program that helps students move from community colleges to fini
- sh their bachelor’s degrees. We are planning a mini-conference for our
-  local Tulare county high school students and wanted to inquire about th
- e availability of booking Las Cafeteras.
-  Audience: high school and early college students primarily.\n
-  Morning keynote and lunch 1 hour workshop\n
-  Time: a lunch/ early afternoon activity\n
-  Themes:\n
-  activism\, music/creative expression and using your voice\n
-  music-movement based workshop that encourages student expression and vo
- ice\n
-  to get them energized and engaged in imaging their college futures.\n
-  \nVENUE INFO:\n
-    tel:+1 559-730-3700\n
-    https://www.cos.edu/\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 AM PDT: Load in- Ponderosa (lecture hall)\n  COLLEGE OF THE SEQUOI
- AS\n
-  Parking lot 4\n
-  We will get parking passes once we arrive\n
-  The pass should be placed on the dashboard of your cars and it's for pa
- rking in the white stalls (yellow are reserved for faculty and staff).\n
-  \n----------------------------------------\n
-  9:00 AM PDT: Doors\n----------------------------------------\n
-  9:30 AM - 10:30 AM PDT: Keynote- Know where you come from\, Know where
- you’re going\n  Play: Caravana & Presidente\n
-  \n----------------------------------------\n
-  10:30 AM - 11:30 AM PDT: Set-up & line check (bring your amps & backlin
- e)\n----------------------------------------\n
-  12:30 PM - 1:30 PM PDT: Viva La Cultura/ Music sharing  -LUNCH TIME. (6
- 0min)\n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.cos.edu/
-GEO:36.325102;-119.3149754
-LOCATION:College of the Sequoias\n915 S Mooney Blvd\nVisalia CA  93277 Un
- ited States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="College of the Sequoias\n915 S Mooney Blvd\nVisalia CA 93277 Unite
- d States":geo:36.325102,-119.3149754
-CREATED:20260219T220151
-LAST-MODIFIED:20260403T203934
-X-HECTOR-SCHED:20260417 → 480–810 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:0a2119f2-9fb2-4b61-a9d4-880b21e481de
