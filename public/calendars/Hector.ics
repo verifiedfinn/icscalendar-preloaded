@@ -1353,6 +1353,8 @@ DESCRIPTION:Tenessa Ripple
   5:00 PM - 7:00 PM PDT: DInner and Dress\n------------------------------
  ----------\n
   6:00 PM PDT: Doors\n----------------------------------------\n
+  6:30 PM - 7:00 PM PDT: LIVE INTERVIEWS (by the stage)\n----------------
+ ------------------------\n
   7:30 PM - 9:00 PM PDT: Showtime 90 min\n-------------------------------
  ---------\n
   \n*************************************\nACCOMMODATIONS:\n
@@ -1426,8 +1428,8 @@ TRANSP:OPAQUE
 UID:67d667be-6b10-420f-b111-d2ae5e9bcd7e
 DTSTAMP:20260708T053755
 SUMMARY:NEXT FEST Palmdale (NO BACKLINE)
-DTSTART:20260816T010000Z
-DTEND:20260816T035000Z
+DTSTART:20260815T200000Z
+DTEND:20260816T040000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:NO BACKLINE PROVIDED
@@ -1435,9 +1437,19 @@ DESCRIPTION:NO BACKLINE PROVIDED
     tel:+1 661-264-1249\n
     https://parks.lacounty.gov/stephen-sorensen-park/\n
   \n*************************************\nSCHEDULE:\n
-  6:00 PM - 7:00 PM PDT: ECNO\n----------------------------------------\n
-  7:00 PM PDT: Changeover\n----------------------------------------\n
-  7:20 PM - 8:50 PM PDT: LC Showtime (90 min)\n--------------------------
+  1:00 PM - 3:30 PM PDT: Load/ Soundcheck\n------------------------------
+ ----------\n
+  3:30 PM - 4:00 PM PDT: Changeover\n------------------------------------
+ ----\n
+  4:00 PM - 5:00 PM PDT: ECNO Soundcheck\n-------------------------------
+ ---------\n
+  5:00 PM PDT: Doors\n----------------------------------------\n
+  6:00 PM - 6:30 PM PDT: DJ URBANO\n-------------------------------------
+ ---\n
+  6:30 PM - 7:30 PM PDT: ECNO\n----------------------------------------\n
+  7:30 PM - 7:45 PM PDT: Changeover\n------------------------------------
+ ----\n
+  7:45 PM - 9:00 PM PDT: LC Showtime (75 min)\n--------------------------
  --------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
@@ -1451,7 +1463,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  tes":geo:34.6033948,-117.8296458
 CREATED:20260708T053755
 LAST-MODIFIED:20260715T032921
-X-HECTOR-SCHED:20260815 → 1080–1250 min (PDT)
+X-HECTOR-SCHED:20260815 → 780–1260 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
