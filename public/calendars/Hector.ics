@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1162,6 +1162,52 @@ DESCRIPTION:no hotel\, no ground
   6:00 PM MDT: Doors\n----------------------------------------\n
   7:00 PM - 8:30 PM MDT: Show time (90min)\n-----------------------------
  -----------\n
+  \n*************************************\nGROUND:\n
+    Rental Car - Denise - Sixt -\n
+    DEPART: SIXT Car Rental - Denver International Airport (DEN) 7/17/202
+ 6 1:00 PM MDT\n
+    Sixt - Mini Van\n
+  Confirmation: #9944220500\n
+  Expedia itinerary: 73497695209634\n
+  Reservation details<h4>Pick-up</h4>\n
+  Fri\, Jul 17\n
+  1:00pm\n
+  <h4>Drop-off</h4>\n
+  Sat\, Jul 18\n
+  5:00pm\n
+  \n
+    ARRIVE:  7/18/2026 5:00 PM MDT\n
+    \n----------------------------------------\n
+    Rental car - Hector -Sixt -\n
+    DEPART: SIXT Car Rental - Denver International Airport (DEN) 7/17/202
+ 6 1:00 PM MDT\n
+    Sixt - Mini Van\n
+  Confirmation: #9944220497\n
+  Expedia itinerary: 73497694561030\n
+  Reservation details<h4>Pick-up</h4>\n
+  Fri\, Jul 17\n
+  1:00pm\n
+  <h4>Drop-off</h4>\n
+  Sat\, Jul 18\n
+  5:00pm\n
+  \n
+    ARRIVE:  7/17/2026 11:59 PM MDT\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Double Tree by Hilton Hotel Denver\n
+    Denver\, CO\, 80231\, US\n
+    ARRIVE: 7/17/2026 4:00 PM MDT\n
+    DEPART: 7/18/2026 11:00 AM MDT\n
+    alias: 1 (303) 321-3333\n
+    Hector/ moi\n
+  Denise\n
+  jonny\n
+  Jon/ mijangos\n
+  Angie\n
+  Confirmation number\n
+  73497775420057\n
+  \n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://levittdenver.org/
