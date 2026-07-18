@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1148,7 +1148,7 @@ UID:7d8767f4-513f-4f90-9ed4-92595c74dddc
 DTSTAMP:20260206T023339
 SUMMARY:Denver Levitt
 DTSTART:20260717T200000Z
-DTEND:20260718T023000Z
+DTEND:20260718T034500Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:no hotel\, no ground
@@ -1160,7 +1160,7 @@ DESCRIPTION:no hotel\, no ground
  ------\n
   5:30 PM MDT: VIP DOORS\n----------------------------------------\n
   6:00 PM MDT: Doors\n----------------------------------------\n
-  7:00 PM - 8:30 PM MDT: Show time (90min)\n-----------------------------
+  8:15 PM - 9:45 PM MDT: Show time (90min)\n-----------------------------
  -----------\n
   \n*************************************\nGROUND:\n
     Rental Car - Denise - Sixt -\n
@@ -1219,7 +1219,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
   States":geo:39.6864166,-105.0030082
 CREATED:20260206T023339
 LAST-MODIFIED:20260217T213237
-X-HECTOR-SCHED:20260717 → 840–1230 min (MDT)
+X-HECTOR-SCHED:20260717 → 840–1305 min (MDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
