@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1293,7 +1293,29 @@ DTSTAMP:20260530T002449
 SUMMARY:Fly to Reno\,NV
 DTSTART;TZID=America/Los_Angeles:20260722T083000
 DTEND;TZID=America/Los_Angeles:20260722T113000
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Rental Car - Enterprise - DC\n  Enterprise\n
+  Confirmation: #75251189\n
+  Expedia itinerary: 73501893181035\n
+  Reservation details<h4>Pick-up</h4>\n
+  Wed\, Jul 22\n
+  1:00pm\n
+  <h4>Drop-off</h4>\n
+  Thu\, Jul 23\n
+  1:00pm\n
+  \n----------------------------------------\n
+  12:00 AM -  PDT: Rental Car - Enterprise - HF\n  Enterprise - Mini Van\
+ n
+  Confirmation: #75251138\n
+  Expedia itinerary: 73501892188001\n
+  Reservation details<h4>Pick-up</h4>\n
+  Wed\, Jul 22\n
+  1:00pm\n
+  <h4>Drop-off</h4>\n
+  Thu\, Jul 23\n
+  1:00pm\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - ONT>RNO - SOUTHWEST - ARJD99 -AG - SOUTHWEST\n
     WN #3580\n
     DEPART: Ontario International Airport 7/22/2026 8:30 AM PDT\n
