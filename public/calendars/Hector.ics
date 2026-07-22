@@ -2,61 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Monterrey
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:5d62468d-6d7a-4076-9477-9cad0dd7d9a6
-DTSTAMP:20260307T004748
-SUMMARY:Fly to Lafayette\, LA
-DTSTART;VALUE=DATE:20260423
-DTEND;VALUE=DATE:20260424
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flights - LAX> LFT - United - ENHH3V - JJ\, AD\, HF\, DC\, MB - Unite
- d\n
-    4842\n
-    DEPART: Los Angeles International Airport 4/23/2026 12:01 PM PDT\n
-    ARRIVE: Lafayette Regional Airport 4/23/2026 7:33 PM CDT\n
-    \n----------------------------------------\n
-    Flight -BFL>LFT - American Airlines -ABXNQG - JC - American\n
-    AA6218\n
-    DEPART: Bakersfield 4/23/2026 12:17 PM PDT\n
-    Bakersfield to Phoenix\n
-  Thu\, Apr 23 • 12:17 PM - 1:55 PM\n
-  Phoenix to Dallas\n
-  Thu\, Apr 23 • 4:00 PM - 8:30 PM\n
-  Dallas to Lafayette\n
-  Thu\, Apr 23 • 9:32 PM - 10:59 PM\n
-  \n
-    ARRIVE: Lafayette 4/23/2026 10:59 PM CDT\n
-    \n----------------------------------------\n
-    Flight - ONT>LFT - Delta - G7TC9U - AG - Delta\n
-    665\n
-    DEPART: Ontario International Airport 4/23/2026 12:49 PM PDT\n
-    ARRIVE: Lafayette Regional Airport 4/23/2026 10:12 PM CDT\n
-    \n----------------------------------------\n
-    Flight - SBA>LFT - united - H1M75W - JM - United\n
-    1790\n
-    DEPART: Santa Barbara Airport 4/23/2026 1:05 PM PDT\n
-    ARRIVE: Lafayette Regional Airport 4/23/2026 10:58 PM CDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260307T004748
-LAST-MODIFIED:20260307T004748
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:e26dfb2f-78dd-4b5d-8793-c2f36b712e36
