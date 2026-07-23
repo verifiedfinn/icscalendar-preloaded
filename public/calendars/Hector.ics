@@ -16,39 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:e26dfb2f-78dd-4b5d-8793-c2f36b712e36
-DTSTAMP:20260418T194648
-SUMMARY:Lafayette Hotel
-DTSTART;TZID=America/Chicago:20260423T200000
-DTEND;TZID=America/Chicago:20260426T170000
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 337-706-8199\n
-    https://www.ihg.com/holidayinn/hotels/us/en/lafayette/lftlf/hoteldeta
- il?cm_mmc=GoogleMaps-_-HI-_-US-_-LFTLF\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 PM CDT: Check in\n  HOTEL ROOMING LIST (Double)\n
-  DENISE CARLOS\n
-  HECTOR FLORES\n
-  MOISES BAQUEIRO/ JONNY JYEMO\n
-  JORGE MIJANGOS/ JOHN CALANCHINI\n
-  ANGELA GONZALEZ/ ALIH JEY DE PENA\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.ihg.com/holidayinn/hotels/us/en/laf
- ayette/lftlf/hoteldetail?cm_mmc=GoogleMaps-_-HI-_-US-_-LFTLF
-GEO:30.2531609;-92.0169475
-LOCATION:Holiday Inn & Suites Lafayette North by IHG\n2219 NW Evangeline
- Thruway\nLafayette LA  70501 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Holiday Inn & Suites Lafayette North by IHG\n2219 NW Evangeline Th
- ruway\nLafayette LA 70501 United States":geo:30.2531609,-92.0169475
-CREATED:20260418T194648
-LAST-MODIFIED:20260418T194806
-X-HECTOR-TYPE:LOCATION
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:afaf8d46-64ea-4a70-9c2b-b0764707d3e2
 DTSTAMP:20250522T172539
 SUMMARY:Festival International
