@@ -2,66 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:afaf8d46-64ea-4a70-9c2b-b0764707d3e2
-DTSTAMP:20250522T172539
-SUMMARY:Festival International
-DTSTART;VALUE=DATE:20260424
-DTEND;VALUE=DATE:20260426
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:SOUND/STAGE/LIGHTING:
-  Greg Robertson - greg.robertson@dorfketal.com\n
-  TRANSPORTATION:\n
-  Transportation@festivalinternational.org\n
-  \nVENUE INFO:\n
-    http://www.lafayettela.gov/\n
-  \n*************************************\nSCHEDULE:\n
-  7:00 PM - 10:15 PM CDT: SCÈNE WELLCARE LAFAYETTE STAGE (75MIN)\n  STAG
- E: SCÈNE WELLCARE LAFAYETTE\n
-  lobby 7pm\n
-  LOAD 7:30PM\n
-  CHANGEOVER 8:30PM\n
-  SET TIME: 9:00pm- 10:15pm (75MIN)\n
-  \n----------------------------------------\n
-  4/25/2026 4:30 PM - 4/25/2026 7:15 PM CDT: MAINSTAGE SHOWTIME (75MIN)\n
-   STAGE: SCÈNE LUS INTERNATIONALE\n
-  LOAD: 4:30PM\n
-  CHANGEOVER: 5:30PM\n
-  SET TIME: 6:00pm-7:15pm\n
-  \n----------------------------------------\n
-  4/25/2026 7:30 PM CDT: Dinner backstage (Kara will order)\n------------
- ----------------------------\n
-  4/25/2026 8:30 PM - 4/25/2026 11:55 PM CDT: BLUE MOON SHOW\n  Walk or c
- art over to Blue Moon\n
-  10pm showtime (1 hr)\n
-  11pm changeover\n
-  11:15pm (sit in on 2 songs)\n
-  Bayou Ramblers\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.lafayettela.gov/
-GEO:30.2240897;-92.0198427
-LOCATION:Lafayette\nLafayette LA United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Lafaye
- tte\nLafayette LA United States":geo:30.2240897,-92.0198427
-CREATED:20250522T172539
-LAST-MODIFIED:20260401T031822
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:9e322a11-b9c1-4a7e-ab00-0bfdaaf1585f
