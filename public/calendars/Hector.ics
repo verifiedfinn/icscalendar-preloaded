@@ -2,90 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:7fba1666-5ac4-47d5-82fd-f02843ffb44c
-DTSTAMP:20240213T205942
-SUMMARY:Santa Fe Railyard (Santa Fe\, NM)
-DTSTART:20240726T183000Z
-DTEND:20240727T050000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Tim Franke - 505-920-2591
-  tfranke@lensic.org\n
-  Hotel: Yes (Doubles)\n
-  Transport: No\n
-  GPS use Sky Coffee and it will pull you right in front of thecae we nee
- d to pull you in.\n
-  Nikki - Hopso\n
-  Caleb Tech\n
-  Josh - On-site Rep\n
-  Deb L - Merch\n
-  \n*************************************\nSCHEDULE:\n
-  11:30 AM - 7/27/2024 11:30 AM PDT: Hector Rental car - Hertz\n
-  Confirmation: #K92811138E6\n
-  Expedia itinerary: 72882502942041\n
-  3400 Albuequerque International Airport\, University Se\n
-  \n----------------------------------------\n
-  2:30 PM PDT: Angie preps console\n-------------------------------------
- ---\n
-  3:15 PM - 4:30 PM PDT: Band load/soundcheck\n  green room will be in Sk
- y coffee right across from back stage.\n
-  \n----------------------------------------\n
-  5:00 PM - 6:00 PM PDT: Opener soundchek\n------------------------------
- ----------\n
-  6:00 PM PDT: Doors\n----------------------------------------\n
-  7:00 PM - 8:00 PM PDT: Opener\n----------------------------------------
- \n
-  8:00 PM - 8:30 PM PDT: Changeover 30min\n------------------------------
- ----------\n
-  8:30 PM - 10:00 PM PDT: LC SHOWTIME! 90min\n---------------------------
- -------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - ONT>SAF - United - C6XWE2 - AG - United\n
-    1451\n
-    DEPART: Ontario International Airport 7/26/2024 5:10 AM PDT\n
-    ARRIVE: Santa Fe Regional Airport 7/26/2024 12:48 PM MDT\n
-    \n----------------------------------------\n
-    Flight - LAX>ABQ - Southwest - 3E4Q6B - JC\,DC\,HF\,MB\,JM\,JG - sout
- hwest\n
-    0699\n
-    DEPART: Los Angeles International Airport 7/26/2024 8:05 AM PDT\n
-    ARRIVE: Albuquerque International Sunport 7/26/2024 11:00 AM MDT\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Santa Fe Hotel: El Rey Court\n
-    1862 Cerrillos Rd\, Santa Fe\, NM\, 87505\, US\n
-    ARRIVE: 7/26/2024 3:00 PM MDT\n
-    DEPART: 7/27/2024 11:00 AM MDT\n
-    HOTEL ROOMING LIST\n
-  DENISE CARLOS\n
-  HECTOR FLORES\n
-  JOSE CANO\n
-  JORGE MIJANGOS\n
-  MOISES BAQUEIRO/ JESUS GONZALEZ\n
-  ANGELA GONZALEZ\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240213T205942
-LAST-MODIFIED:20240724T211321
-X-HECTOR-SCHED:20240726 → 690–1320 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:00a23fa4-bb1f-43c5-8f67-bac037678baf
