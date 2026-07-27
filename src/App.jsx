@@ -275,11 +275,15 @@ function repairIcs(raw) {
   });
   return refolded.join("\r\n") + "\r\n";
 }
-async function fetchFixedICS(name, urls) {
+async function fetchFixedICS(name, urls, { fresh = false } = {}) {
   let lastErr;
   for (const u of urls) {
     try {
-      const raw = await fetchText(u, { bust: false });
+      // fresh=true adds ?fresh=1 so the serverless proxy bypasses its 30-min
+      // cache and re-pulls from Google; bust adds a unique t= to defeat any
+      // browser/CDN cache too.
+      const target = fresh ? (u + (u.includes("?") ? "&" : "?") + "fresh=1") : u;
+      const raw = await fetchText(target, { bust: fresh });
       if (looksHtml(raw) || looksJson(raw)) throw new Error("not ICS (HTML/JSON)");
       const fixed = repairIcs(raw);
       if (!/BEGIN:VCALENDAR[\s\S]*END:VCALENDAR/i.test(fixed)) throw new Error("no VCALENDAR after repair");
@@ -844,7 +848,7 @@ export default function App(){
     try {
       for (const r of REMOTE_CALENDARS) {
         try {
-          const fixed = await fetchFixedICS(r.name, r.urls);
+          const fixed = await fetchFixedICS(r.name, r.urls, { fresh: true });
           const evs = parseICSText(fixed, r.id, r.name);
           setSources(prev => prev.some(s => s.id === r.id) ? prev : [...prev, { id: r.id, name: r.name }]);
           setRawEvents(prev => {

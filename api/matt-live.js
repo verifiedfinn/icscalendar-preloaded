@@ -20,8 +20,11 @@ export default async function handler(req, res) {
 
   Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
 
+  // ?fresh=1 forces a live pull from Google, bypassing the in-memory cache.
+  const bypass = req.query?.fresh === '1';
+
   const now = Date.now();
-  if (cache.ics && now - cache.at < CACHE_MS) {
+  if (!bypass && cache.ics && now - cache.at < CACHE_MS) {
     res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
     res.setHeader('Cache-Control', 'public, max-age=1800');
     return res.send(cache.ics);
@@ -45,6 +48,6 @@ export default async function handler(req, res) {
   cache = { ics, at: now };
 
   res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
-  res.setHeader('Cache-Control', 'public, max-age=1800');
+  res.setHeader('Cache-Control', bypass ? 'no-store' : 'public, max-age=1800');
   res.send(ics);
 }
