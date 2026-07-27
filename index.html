@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>F2T Recording Avails</title>
+
+    <!-- Open Graph / link-preview (shows the podcast logo when the link is shared).
+         og:image points at /api/podcast-image, which resolves the CURRENT Podbean
+         artwork live, so the preview follows logo changes automatically. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Freedom to Thrive" />
+    <meta property="og:title" content="F2T Recording Avails" />
+    <meta property="og:description" content="Recording availability heat map for the Freedom to Thrive podcast." />
+    <meta property="og:url" content="https://nilcpod.vercel.app/" />
+    <meta property="og:image" content="https://nilcpod.vercel.app/api/podcast-image" />
+    <meta property="og:image:alt" content="Freedom to Thrive podcast logo" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="F2T Recording Avails" />
+    <meta name="twitter:description" content="Recording availability heat map for the Freedom to Thrive podcast." />
+    <meta name="twitter:image" content="https://nilcpod.vercel.app/api/podcast-image" />
+
     <!-- Load Tailwind (quick CDN way) -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
