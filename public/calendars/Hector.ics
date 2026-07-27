@@ -17,45 +17,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:00a23fa4-bb1f-43c5-8f67-bac037678baf
-DTSTAMP:20240213T210106
-SUMMARY:Taos Mesa Brewing Mothership (Taos\, NM)
-DTSTART:20240727T210000Z
-DTEND:20240728T044500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Support: Local Only
-  Merch Rate: 80/20 Artist Sells\n
-  Hospitality: Dinner and drink only\n
-  Transportation: no\n
-  Hotel: yes\n
-  \n*************************************\nSCHEDULE:\n
-  2:00 PM PDT: Angie load/ set-up console\n------------------------------
- ----------\n
-  3:00 PM - 4:30 PM PDT: Band Load & Soundcheck\n------------------------
- ----------------\n
-  7:00 PM PDT: Doors\n----------------------------------------\n
-  8:00 PM - 8:15 PM PDT: Changeover\n------------------------------------
- ----\n
-  8:15 PM - 9:45 PM PDT: Showtime (90min)\n------------------------------
- ----------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Taos Hotel: Sage Brush Inn\n
-    1508 Paseo Del Pueblo Sur\, Taos\, NM\, 87571\, US\n
-    ARRIVE: 7/27/2024 3:00 PM MDT\n
-    DEPART: 7/28/2024 11:00 AM MDT\n
-    Sage Brush Inn\n
-  Single Rooms\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240213T210106
-LAST-MODIFIED:20240727T211735
-X-HECTOR-SCHED:20240727 → 840–1305 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:07425c78-6f32-4a38-b4b9-c10cface076f
 DTSTAMP:20240502T215727
 SUMMARY:Travel day
