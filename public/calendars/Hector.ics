@@ -3,57 +3,18 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:07425c78-6f32-4a38-b4b9-c10cface076f
-DTSTAMP:20240502T215727
-SUMMARY:Travel day
-DTSTART;VALUE=DATE:20240728
-DTEND;VALUE=DATE:20240729
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  1:00 PM - 7/29/2024 1:00 PM PDT: Rental car Cano - Hertz - full size\n
-  Expedia itinerary number: 72884884577275\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - ABQ> LAX - Southwest - 3CS7W6 - DC - Southwest\n
-    3840\n
-    DEPART: Albuquerque International Sunport 7/28/2024 12:55 PM MDT\n
-    ARRIVE: Long Beach Airport 7/28/2024 3:45 PM PDT\n
-    \n----------------------------------------\n
-    Flight - ABQ>LAX - United - AZTC9S - JC\,JM\, JG - United\n
-    312\n
-    DEPART: Albuquerque International Sunport 7/28/2024 6:10 PM MDT\n
-    ARRIVE: Los Angeles International Airport 7/28/2024 10:55 PM PDT\n
-    \n----------------------------------------\n
-    Flight - ABQ>LAX - United - AZW0HD - HF\,MB - United\n
-    312\n
-    DEPART: Albuquerque International Sunport 7/28/2024 6:10 PM MDT\n
-    ARRIVE: Los Angeles International Airport 7/28/2024 10:55 PM PDT\n
-    \n----------------------------------------\n
-    Flight - ABQ > ONT - Southwest - 4IBKAZ - AG - southwest\n
-    1456\n
-    DEPART: Albuquerque International Sunport 7/28/2024 7:45 PM MDT\n
-    ARRIVE:  7/28/2024 6:45 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240502T215727
-LAST-MODIFIED:20240502T215727
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:7bf80b99-42dc-43fb-8b56-e5ded12eadd3
