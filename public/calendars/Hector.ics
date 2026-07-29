@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -11196,6 +11196,35 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260425T182249
 LAST-MODIFIED:20260722T021912
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:d8c3e2c1-e51f-4766-86b2-91c27ae3713d
+DTSTAMP:20251125T020607
+SUMMARY:DDM Youth Matinee  (Tempe\, AZ)
+DTSTART;TZID=America/Phoenix:20261020T080000
+DTEND;TZID=America/Phoenix:20261020T120000
+DESCRIPTION:Tuesday\, October 20\, 2026 @ 10–11 a.m.
+  Grades: K–12\n
+  \nVENUE INFO:\n
+    tel:+1 480-965-3434\n
+    https://www.asugammage.com/\n
+  \n*************************************\nSCHEDULE:\n
+  8:30 AM MST: Load/line check\n----------------------------------------\
+ n
+  9:30 AM MST: Doors\n----------------------------------------\n
+  10:00 AM - 11:00 AM MST: 10am Showtime\n-------------------------------
+ ---------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.asugammage.com/
+GEO:33.416291;-111.9379382
+LOCATION:ASU Gammage\n1200 S Forest Ave\nTempe AZ  85281 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="ASU Gammage\n1200 S Forest Ave\nTempe AZ 85281 United States":geo:
+ 33.416291,-111.9379382
+CREATED:20251125T020607
+LAST-MODIFIED:20260728T225255
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
