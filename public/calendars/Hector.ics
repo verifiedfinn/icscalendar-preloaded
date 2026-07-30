@@ -2,93 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:7bf80b99-42dc-43fb-8b56-e5ded12eadd3
-DTSTAMP:20240213T210252
-SUMMARY:Denver Botanical Gardens\,Denver\, CO
-DTSTART:20240730T190000Z
-DTEND:20240731T040000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Allen Noftall - Swallow Hill Production Manager – 303-875-017
- 5 – allen@spacerecording.com
-  Promoter Contact: Shauna Sweeney. Cell Number: 954-770-9473\n
-  ** Tour - Artist arrival / parking address: 1001 York St.**\n
-  Dressing Rooms: Dressing rooms are located approximately 150 yards from
-  the stage. There is\n
-  no backstage area due to the “in the round” logistics. Artist acces
- s to stage is a cement pathway\n
-  through the audience (see photo above). We will supply security personn
- el to assist artist to and\n
-  from stage.\n
-  Mitchell Hall: Is where the dressing rooms / hospitality / “Green Roo
- m” areas are located.\n
-  It is a large room (100’ x 100’) set up into 3 private areas (dress
- ing rooms) with pipe and\n
-  drape. Each of these areas (10’ x 20’) has tables\, chairs and mirr
- ors. There is a large open\n
-  area used for hospitality with tables and chairs. A production office c
- an also be setup in this\n
-  area. This room has a security person stationed at main door and is not
-  open to the public.\n
-  No private restrooms directly in this area. Public restrooms are locate
- d across lobby. There\n
-  are no showers\, laundry\, or office facilities. See layout below.\n
-  Wi-Fi Information: Network Name- “DBG-PUB” -WiFi. Password- None.\n
-  Promoter will also provide a tour “Hot Spot”. Network name and pass
- word will be provided\n
-  DOS.\n
-  ! Parking: Tour bus/vehicle parking is on the west side of York St. at
- front of venue in a parking\n
-  lane located on west side of street. For GPS purposes\, this parking is
-  at 1001 York St. There will beproduction staff available to help direct
-  (See maps below). There is no shore power.\n
-  ! Runner: We will have a runner with a 15-passenger van available all d
- ay for the tour’s use.\n
-  \n*************************************\nSCHEDULE:\n
-  12:00 PM PDT: Angie Load/ Console set up\n-----------------------------
- -----------\n
-  1:30 PM - 3:00 PM PDT: Band load/soundcheck\n--------------------------
- --------------\n
-  3:30 PM - 5:00 PM PDT: Flor Soundcheck\n-------------------------------
- ---------\n
-  5:30 PM PDT: Doors\n----------------------------------------\n
-  6:30 PM - 7:30 PM PDT: Flor de Toloache\n------------------------------
- ----------\n
-  7:00 PM PDT: Dinner set\n  Tommy's Thai\n
-  SEND DENISE ORDER\n
-  \n----------------------------------------\n
-  7:30 PM - 7:50 PM PDT: changeove\n-------------------------------------
- ---\n
-  7:45 PM - 9:00 PM PDT: Showtime 70min\n--------------------------------
- --------\n
-  9:30 PM PDT: Curfew\n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - LGA> DEN - Southwest - 46ZW9J - LJ - southwest\n
-    3749\n
-    DEPART:  7/30/2024 7:00 AM PDT\n
-    ARRIVE:  7/30/2024 10:15 AM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240213T210252
-LAST-MODIFIED:20240703T030952
-X-HECTOR-SCHED:20240730 → 720–1260 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:35c5e353-70e8-45de-afa7-ce1d99aa452d
