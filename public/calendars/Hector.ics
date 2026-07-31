@@ -2,63 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:35c5e353-70e8-45de-afa7-ce1d99aa452d
-DTSTAMP:20240614T033537
-SUMMARY:Travel DEN >LAX/ONT
-DTSTART;VALUE=DATE:20240731
-DTEND;VALUE=DATE:20240801
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - DEN>LAX - United - E7YC1G - DC - United\n
-    DEPART:  7/31/2024 9:55 AM PDT\n
-    ARRIVE:  7/31/2024 11:24 AM PDT\n
-    \n----------------------------------------\n
-    Flight - DEN>LAX - United - NQKN2N - JL - United\n
-    405\n
-    DEPART:  7/31/2024 9:55 AM PDT\n
-    ARRIVE:  7/31/2024 11:24 AM PDT\n
-    \n----------------------------------------\n
-    Flight - DEN>LAX - Untied - E7K7P7 - JC\,JG - United\n
-    1252\n
-    DEPART: Denver International Airport 7/31/2024 1:45 PM MDT\n
-    ARRIVE:  7/31/2024 3:15 PM PDT\n
-    \n----------------------------------------\n
-    Flight - DEN>LAX - Untied - E7P2BH - HF\,MB\,JM - United\n
-    1252\n
-    DEPART: Denver International Airport 7/31/2024 1:45 PM MDT\n
-    ARRIVE:  7/31/2024 3:15 PM PDT\n
-    \n----------------------------------------\n
-    Flight - DEN>LAX - Untied - E7YC1G - DC - United\n
-    1252\n
-    DEPART: Denver International Airport 7/31/2024 1:45 PM MDT\n
-    ARRIVE:  7/31/2024 3:15 PM PDT\n
-    \n----------------------------------------\n
-    Flight - DEN>ONT - Southwest -  3IQHGT - AG - southwest\n
-    0359\n
-    DEPART: Denver International Airport 7/31/2024 3:00 PM MDT\n
-    ARRIVE:  7/31/2024 6:15 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240614T033537
-LAST-MODIFIED:20240614T033537
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:17772d9b-2fba-421e-ae5e-1949ff127430
