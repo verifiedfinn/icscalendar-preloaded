@@ -2,77 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:17772d9b-2fba-421e-ae5e-1949ff127430
-DTSTAMP:20240423T200801
-SUMMARY:LA ÁLBUM RELEASE SHOW!!!!
-DTSTART:20240802T230000Z
-DTEND:20240803T060000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Greenroom/ Dressing Room
-  BHAC on the first floor will serve as general green room for everyone\n
-  Denise/ Alih dressing room: private room with bathroom for the women up
-  on the third floor\n
-  MEAL $ BUYOUT- Denise will distribute\n
-  LOAD IN\n
-  Band & Crew Load-In is located behind the venue thru the alley (accessi
- ble from Mott St.)\n
-  Stage is located on the 2nd Floor of 2708 E. Cesar Chavez Ave. LA\, CA
-  90033.\n
-  Venue does not provide Loaders or Stagehands for Load In.\n
-  ARTIST PARKING:\n
-  Band & Crew must move their cars immediately after Load-In to our Free
- Lot located at\n
-  2530 E. Cesar Chavez Ave (Corner of Fickett & Cesar Chavez).\n
-  \nVENUE INFO:\n
-    tel:+1 323-262-9300\n
-    http://www.paramountla.com/\n
-  \n*************************************\nSCHEDULE:\n
-  4:00 PM PDT: Angie load/ set-up console\n------------------------------
- ----------\n
-  4:30 PM - 6:15 PM PDT: Band Load & Soundcheck\n------------------------
- ----------------\n
-  6:30 PM - 7:00 PM PDT: QVLN soundcheck\n-------------------------------
- ---------\n
-  7:00 PM - 7:30 PM PDT: LA JUNTA soundcheck\n---------------------------
- -------------\n
-  7:30 PM - 8:00 PM PDT: CREW BREAK- ROOM DARK\n-------------------------
- ---------------\n
-  8:00 PM - 8:30 PM PDT: Doors/ LA JUNTA DJ\n----------------------------
- ------------\n
-  8:30 PM - 9:00 PM PDT: QVLN\n----------------------------------------\n
-  9:00 PM - 9:15 PM PDT: Changeover/ DJ\n--------------------------------
- --------\n
-  9:15 PM - 11:00 PM PDT: Showtime 90 min\n------------------------------
- ----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.paramountla.com/
-GEO:34.0448726;-118.203907
-LOCATION:The Paramount\n2708 E Cesar E Chavez Ave\nLos Angeles CA  90033
- United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="The Paramount\n2708 E Cesar E Chavez Ave\nLos Angeles CA 90033 Uni
- ted States":geo:34.0448726,-118.203907
-CREATED:20240423T200801
-LAST-MODIFIED:20240802T195721
-X-HECTOR-SCHED:20240802 → 960–1380 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:39f10bb5-ac89-42e0-b31d-0e6cd7490879
