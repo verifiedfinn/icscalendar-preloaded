@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10876,6 +10876,37 @@ LAST-MODIFIED:20260616T014353
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:104cca40-fe4b-48c8-a8a5-c25e9160e993
+DTSTAMP:20260103T052737
+SUMMARY:TACOS AND TEQUILA Fest (Spokane\, WA)
+DTSTART:20260830T010000Z
+DTEND:20260830T050000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:We will provide ground transportation
+  hotel\n
+  Green room Festival Setting\, shared with other artists\n
+  \n*************************************\nSCHEDULE:\n
+  6:00 PM PDT: Load-in\n----------------------------------------\n
+  7:00 PM PDT: Set up audio side stage\n---------------------------------
+ -------\n
+  8:00 PM PDT: Changeover/line check\n-----------------------------------
+ -----\n
+  8:30 PM - 10:00 PM PDT: SHOWTIME! 90 mi\n------------------------------
+ ----------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+GEO:47.7031565;-117.3642288
+LOCATION:3112 E Olympic Ave\nSpokane WA  99217 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="3112 E Olympic Ave\nSpokane WA 99217 United States":geo:47.7031565
+ ,-117.3642288
+CREATED:20260103T052737
+LAST-MODIFIED:20260805T202144
+X-HECTOR-SCHED:20260829 → 1080–1320 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:6f998fa3-c582-4cf9-acdc-371fda61cb98
 DTSTAMP:20260616T014750
 SUMMARY:Denise & Hector- UCSD Season Promo event
@@ -10897,6 +10928,40 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  Diego CA 92093 United States":geo:32.881168,-117.2343605
 CREATED:20260616T014750
 LAST-MODIFIED:20260616T014750
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:6091e7fe-1058-47a8-a5bc-0f4b2764bb2d
+DTSTAMP:20260408T190823
+SUMMARY:Ritchie 4 Ever (The Silouettes cast)
+DTSTART:20260902T203000Z
+DTEND:20260903T043000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    https://amphitheater.ucsd.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  1:30 PM - 3:30 PM PDT: Load-in/line check\n----------------------------
+ ------------\n
+  3:30 PM - 5:00 PM PDT: Soundcheck/ Rehearsal\n-------------------------
+ ---------------\n
+  5:00 PM - 6:00 PM PDT: STAGE DARK (CREW BREAK)\n-----------------------
+ -----------------\n
+  6:30 PM PDT: Doors\n----------------------------------------\n
+  7:30 PM - 9:30 PM PDT: Showtime!\n-------------------------------------
+ ---\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://amphitheater.ucsd.edu/
+GEO:32.879024;-117.2332434
+LOCATION:Epstein Family Amphitheater\n9500 Gilman Dr MC 0029\nLa Jolla\nS
+ an Diego CA  92093 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Epstein Family Amphitheater\n9500 Gilman Dr MC 0029\nLa Jolla\nSan
+  Diego CA 92093 United States":geo:32.879024,-117.2332434
+CREATED:20260408T190823
+LAST-MODIFIED:20260616T014824
+X-HECTOR-SCHED:20260902 → 810–1290 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10966,7 +11031,9 @@ DTSTART;VALUE=DATE:20260911
 DTEND;VALUE=DATE:20260914
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Township Park\, 7251 50th Ave\, Remus\, MI 49340
+DESCRIPTION:Contact: Greg Hoff. 989-560-8564
+  greg4hoff@gmail.com\n
+  Township Park\, 7251 50th Ave\, Remus\, MI 49340\n
   Hotel Provided\n
   Two (2) Main Stage sets and one (1) Centennial Stage set\n
   Friday 9/11\n
@@ -10981,6 +11048,14 @@ DESCRIPTION:Township Park\, 7251 50th Ave\, Remus\, MI 49340
  in)\n----------------------------------------\n
   9/12/2026 11:10 PM - 9/13/2026 12:00 AM EDT: Saturaday Centennial Show
  (50min)\n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Remus Hotel: Edmore Inn\n
+    1106 E Main St\, Edmore\, MI\, 48829\, US\n
+    ARRIVE: 9/11/2026 12:00 AM EDT\n
+    DEPART: 9/13/2026 11:59 PM EDT\n
+    Edmore Inn    7 rooms     confirmation #90170\n
+  \n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 GEO:43.5714777;-85.18897869999999
@@ -10989,7 +11064,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="7251 50th Ave\nRemus MI 49340 United States":geo:43.5714777,-85.18
  897869999999
 CREATED:20260113T070007
-LAST-MODIFIED:20260703T002232
+LAST-MODIFIED:20260805T195544
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
