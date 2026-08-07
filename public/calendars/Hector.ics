@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -8150,8 +8150,8 @@ DESCRIPTION:LOAD-IN
  and we will assist in setting up a 6-foot table with a black tablecloth.
   We do not take any percentage of the merch sales.\n
   \nVENUE INFO:\n
-    tel:+1 212-539-8778\n
-    http://www.joespub.com/\n
+    tel:+1 212-967-7555\n
+    https://joespub.org/\n
   \n*************************************\nSCHEDULE:\n
   11:30 AM - 2:30 PM EST: Load-in & Sound Check (2hrs MAX)\n  PLEASE NOTE
  : there is another show before yours\, so you will need to strike all yo
@@ -8186,12 +8186,12 @@ DESCRIPTION:LOAD-IN
   11:00 PM EST: Curfew\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.joespub.com/
-GEO:40.72901779999999;-73.9917494
+URL;VALUE=URI:https://joespub.org/
+GEO:40.7289652;-73.9917504
 LOCATION:Joe's Pub\n425 Lafayette St\nNew York NY  10003 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Joe's Pub\n425 Lafayette St\nNew York NY 10003 United States":geo:
- 40.72901779999999,-73.9917494
+ 40.7289652,-73.9917504
 CREATED:20250522T171927
 LAST-MODIFIED:20260105T073223
 X-HECTOR-SCHED:20260110 → 690–1380 min (EST)
@@ -10849,6 +10849,19 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
 CREATED:20260708T053755
 LAST-MODIFIED:20260715T032921
 X-HECTOR-SCHED:20260815 → 780–1260 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:58d914ba-b520-4332-b653-b26ec38f3ffb
+DTSTAMP:20260806T222823
+SUMMARY:Ritchie Show Rehearsal  FULL CAST
+DTSTART;TZID=America/Los_Angeles:20260817T193000
+DTEND;TZID=America/Los_Angeles:20260817T230000
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260806T222823
+LAST-MODIFIED:20260806T222858
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
