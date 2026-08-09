@@ -3,122 +3,18 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:39f10bb5-ac89-42e0-b31d-0e6cd7490879
-DTSTAMP:20240222T013657
-SUMMARY:San Jose Jazz Summer Fest
-DTSTART:20240809T150000Z
-DTEND:20240810T034500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:FRIDAY AUG 9
-  7:30PM\n
-  Location of Latin Tropical stage---\n
-  Corner of Park Ave and Almaden St \, downtown San Jose CA. 95113\n
-  There will be parking behind stage\,\n
-  There be a dressing room tent for group\,directly behind stage\,with ho
- spitality\n
-  We have you hospitality info\, buyout to be given to denise\n
-  Production Manager\n
-  christianv@sanjosejazz.org\n
-  Hotels...Lauren Labadie\n
-  laurenl@sanjosejazz.org\n
-  Sound Company..DV Sound\,Vern Brooks\n
-  dv_sound@sbcglobal.net\n
-  408-640-2704\n
-  San Jose Jazz office...408-288-7557.\n
-  Producer .. Bruce Labadie\n
-  brucel@sanjosejazz.org\n
-  \n*************************************\nSCHEDULE:\n
-  11:00 AM PDT: JASMINE & ANGIE PICK-UP\, TO HOTEL\n  Driver\n
-  Michael Hyman\n
-  408.355.0383\n
-  \n----------------------------------------\n
-  2:35 PM PDT: DC\, HF\, MB\, JG PICKUP- TO HOTEL\n  Driver\n
-  William Martin\n
-  +19164701185\n
-  \n----------------------------------------\n
-  5:40 PM PDT: 5:40pm Shuttle pick up for festival\n---------------------
- -------------------\n
-  6:00 PM PDT: Load in/ Arrive performance ready\n-----------------------
- -----------------\n
-  6:20 PM PDT: Set up merch/ train merch seller\n------------------------
- ----------------\n
-  7:00 PM - 7:30 PM PDT: Line check 30 min\n-----------------------------
- -----------\n
-  7:30 PM - 8:45 PM PDT: Showtime! 75min\n-------------------------------
- ---------\n
-  8/10/2024 8:00 AM PDT: DRIVE HOTEL TO AIRPORT  (VAN PICKUP)\n  Driver\n
-  Thaddeus Laffitte\n
-  +14158194381\n
-  \n----------------------------------------\n
-  8/10/2024 9:45 AM PDT: ANGEL PICK UP- HOTEL TO AIPORT\n  Driver\n
-  William Martin\n
-  +19164701185\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - LAS>SJC - Southwest - 3DE8LA - JL - southwest\n
-    3566\n
-    DEPART:  8/9/2024 9:00 AM PDT\n
-    ARRIVE:  8/9/2024 10:30 AM PDT\n
-    \n----------------------------------------\n
-    Flight - ONT>SJC - Southwest - 3E48DN - AG - southwest\n
-    1806\n
-    DEPART: Ontario International Airport 8/9/2024 12:10 PM PDT\n
-    ARRIVE: San Jose Mineta International Airport 8/9/2024 1:20 PM PDT\n
-    \n----------------------------------------\n
-    Flight- LGB> SJC (Denise) - Southwest\n
-    3859\n
-    DEPART: Long Beach Airport 8/9/2024 12:50 PM PDT\n
-    Conf # 3I4AEH\n
-  \n
-    ARRIVE: San Jose Mineta International Airport 8/9/2024 2:05 PM PDT\n
-    \n----------------------------------------\n
-    Flight - LAX>SJC - Southwest - 3E328C - HF\,MB\,JG - southwest\n
-    2958\n
-    DEPART: Los Angeles International Airport 8/9/2024 12:55 PM PDT\n
-    ARRIVE: San Jose Mineta International Airport 8/9/2024 2:10 PM PDT\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    San Jose Hotel: SpringHill Suites Airport\n
-    10 Skyport Dr\, San Jose\, CA\, 95110\, US\n
-    ARRIVE: 8/9/2024 3:00 PM PDT\n
-    DEPART: 8/10/2024 11:00 AM PDT\n
-    SpringHill Suites Airport San Jose\; 10 Skyport Dr\, San Jose\, CA 95
- 110\n
-  Confirmation #'s: these will be provided once available from the hotel
- \n
-  HOTEL ROOMING LIST (Double)\n
-  DENISE CARLOS\n
-  HECTOR FLORES\n
-  JOSE CANO/ JESUS GONZALEZ\n
-  MOISES BAQUEIRO/ JORGE MIJANGOS\n
-  ANGELA GONZALEZ/ JASMINE LOPEZ\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-GEO:37.33874;-121.8852525
-LOCATION:San Jose\nSan Jose CA United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="San Jo
- se\nSan Jose CA United States":geo:37.33874,-121.8852525
-CREATED:20240222T013657
-LAST-MODIFIED:20240808T043514
-X-HECTOR-SCHED:20240809 → 480–1245 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:4f97d604-ca3a-4033-8217-13c51e82d526
