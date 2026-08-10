@@ -2,50 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:4f97d604-ca3a-4033-8217-13c51e82d526
-DTSTAMP:20240527T224418
-SUMMARY:Travel SJC>BUR/ONT/805
-DTSTART;VALUE=DATE:20240810
-DTEND;VALUE=DATE:20240811
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - SJC>BUR - 3DD9QH - JL - southwest\n
-    397\n
-    DEPART:  8/10/2024 9:45 AM PDT\n
-    ARRIVE:  8/10/2024 10:55 AM PDT\n
-    \n----------------------------------------\n
-    Flight - SJC>BUR - Southwest -  3AN6LG - HF\,DC\,MB\,JG - Southwest\n
-    0397\n
-    DEPART: San Jose Mineta International Airport 8/10/2024 9:45 AM PDT\n
-    ARRIVE: Hollywood Burbank Airport 8/10/2024 10:55 AM PDT\n
-    \n----------------------------------------\n
-    Flight - SJC>ONT - Southwest - 3AOC5N - AG - southwest\n
-    3625\n
-    DEPART: San Jose Mineta International Airport 8/10/2024 11:25 AM PDT\
- n
-    ARRIVE: Ontario International Airport 8/10/2024 12:45 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240527T224418
-LAST-MODIFIED:20240527T224507
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:41028005-513d-4d88-82d7-3942578da4b9
