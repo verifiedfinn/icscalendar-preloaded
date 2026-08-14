@@ -3,39 +3,18 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:41028005-513d-4d88-82d7-3942578da4b9
-DTSTAMP:20240808T061719
-SUMMARY:HLM Showcase Dancer rehearsal
-DTSTART;TZID=America/Los_Angeles:20240813T180000
-DTEND;TZID=America/Los_Angeles:20240813T200000
-DESCRIPTION:VENUE INFO:\n
-    https://pieterpasd.com/\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://pieterpasd.com/
-GEO:34.0739852;-118.2141474
-LOCATION:Pieter Performance Space\n2701 N Broadway\nLos Angeles CA  90031
-  United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Pieter Performance Space\n2701 N Broadway\nLos Angeles CA 90031 Un
- ited States":geo:34.0739852,-118.2141474
-CREATED:20240808T061719
-LAST-MODIFIED:20240813T005910
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:64e30ecd-17e8-47cb-abb7-c81bca12382e
