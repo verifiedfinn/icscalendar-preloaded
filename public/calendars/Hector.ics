@@ -2,76 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:64e30ecd-17e8-47cb-abb7-c81bca12382e
-DTSTAMP:20240812T195931
-SUMMARY:CNN INTERVIEW- Denise & Hector
-DTSTART;TZID=America/Los_Angeles:20240816T160000
-DTEND;TZID=America/Los_Angeles:20240816T180000
-DESCRIPTION:VENUE INFO:\n
-    http://eastsideluv.com/\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://eastsideluv.com/
-GEO:34.0471912;-118.2184634
-LOCATION:Eastside Luv Wine Bar\n1835 1st St\nLos Angeles CA  90033 United
-  States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Eastside Luv Wine Bar\n1835 1st St\nLos Angeles CA 90033 United St
- ates":geo:34.0471912,-118.2184634
-CREATED:20240812T195931
-LAST-MODIFIED:20240812T195931
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:aaea9516-e450-4d70-ab77-830217140250
-DTSTAMP:20240729T220909
-SUMMARY:CNN POP-UP PERFORMANCE
-DTSTART;TZID=America/Los_Angeles:20240816T180000
-DTEND;TZID=America/Los_Angeles:20240816T220000
-DESCRIPTION:VENUE INFO:\n
-    http://eastsideluv.com/\n
-  \n*************************************\nSCHEDULE:\n
-  6:00 PM PDT: Tech team preps\n----------------------------------------\
- n
-  6:30 PM - 7:30 PM PDT: Band load/soundcheck\n--------------------------
- --------------\n
-  8:00 PM PDT: Doors\n----------------------------------------\n
-  8:30 PM - 9:30 PM PDT: Showtime\n  Ltc\n
-  Chuchis\n
-  Ya me\n
-  Cum\n
-  Vivas\n
-  Oaxaca\n
-  Tia\n
-  Bamba\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://eastsideluv.com/
-GEO:34.0471912;-118.2184634
-LOCATION:Eastside Luv Wine Bar\n1835 1st St\nLos Angeles CA  90033 United
-  States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Eastside Luv Wine Bar\n1835 1st St\nLos Angeles CA 90033 United St
- ates":geo:34.0471912,-118.2184634
-CREATED:20240729T220909
-LAST-MODIFIED:20240812T195813
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:54a08ca7-1a23-4f7d-8c6b-d186a23ecc60
