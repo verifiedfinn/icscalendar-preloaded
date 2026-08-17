@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10694,6 +10694,11 @@ DESCRIPTION:We will provide ground transportation
  -----\n
   8:30 PM - 10:00 PM PDT: SHOWTIME! 90 mi\n------------------------------
  ----------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel\n
+    ARRIVE: 8/29/2026 2:30 PM PDT\n
+    DEPART: 8/30/2026 11:00 AM PDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 GEO:47.7031565;-117.3642288
@@ -10797,6 +10802,13 @@ X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:KYLE (PRODUCTION MANAGER)
   (760)-213-1080\n
+  ---\n
+  Contacts:\n
+  PM: Kyle Knightford\, kknightford@ucsd.edu\n
+  Artist Liaison: Kathryn Sturch ksturch@ucsd.edu\n
+  Head of Audio: Heidi Gaare HGaare@ucsd.edu\n
+  Head of Lighting: Brent McDannald Bmcdannald@ucsd.edu\n
+  Head of Video: Austin Clifford CoClifford@ucsd.edu\n
   \nVENUE INFO:\n
     https://amphitheater.ucsd.edu/\n
   \n*************************************\nSCHEDULE:\n
@@ -10819,7 +10831,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Epstein Family Amphitheater\n9500 Gilman Dr MC 0029\nLa Jolla\nSan
   Diego CA 92093 United States":geo:32.879024,-117.2332434
 CREATED:20260408T190823
-LAST-MODIFIED:20260811T200637
+LAST-MODIFIED:20260817T055456
 X-HECTOR-SCHED:20260902 → 810–1290 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
@@ -10894,7 +10906,7 @@ UID:34dbc493-6b13-4a3b-8823-27ecc9a74f7f
 DTSTAMP:20260113T070007
 SUMMARY:2026 Wheatland  Festival in Michigan
 DTSTART;VALUE=DATE:20260911
-DTEND;VALUE=DATE:20260914
+DTEND;VALUE=DATE:20260913
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:Contact: Greg Hoff. 989-560-8564
@@ -10930,7 +10942,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="7251 50th Ave\nRemus MI 49340 United States":geo:43.5714777,-85.18
  897869999999
 CREATED:20260113T070007
-LAST-MODIFIED:20260805T195544
+LAST-MODIFIED:20260817T045700
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
