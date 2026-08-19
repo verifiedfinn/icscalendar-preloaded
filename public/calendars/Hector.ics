@@ -10769,16 +10769,44 @@ LAST-MODIFIED:20260814T022631
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:d348efd3-cee0-4e04-947c-e64157e0c030
+DTSTAMP:20260819T000719
+SUMMARY:DC/HF Arrive SD (promo)
+DTSTART;VALUE=DATE:20260831
+DTEND;VALUE=DATE:20260901
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260819T000719
+LAST-MODIFIED:20260819T000719
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:6f998fa3-c582-4cf9-acdc-371fda61cb98
 DTSTAMP:20260616T014750
 SUMMARY:Denise & Hector- UCSD Season Promo event
-DTSTART;VALUE=DATE:20260901
-DTEND;VALUE=DATE:20260902
+DTSTART:20260901T154500Z
+DTEND:20260901T180000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE INFO:\n
     tel:+1 858-534-2230\n
     http://www.ucsd.edu/\n
+  \n*************************************\nSCHEDULE:\n
+  8:45 AM PDT: Load\n----------------------------------------\n
+  9:30 AM PDT: Doors\n----------------------------------------\n
+  10:00 AM - 11:00 AM PDT: Program- EFA Season Announce/ PArtnership\n  9
+ :30am-doors\n
+  10am\n
+  Song 1\n
+  Art power season announce\n
+  Relationship value (form community\, see art as powerful tool\, hold sp
+ ace for artists to tell stories and strentghen community vision\n
+  Create\, collaborate\, cultivate\, community\, culture\n
+  Song 2\n
+  \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.ucsd.edu/
@@ -10790,6 +10818,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  Diego CA 92093 United States":geo:32.881168,-117.2343605
 CREATED:20260616T014750
 LAST-MODIFIED:20260616T014750
+X-HECTOR-SCHED:20260901 → 525–660 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
