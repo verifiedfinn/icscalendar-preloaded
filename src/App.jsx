@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useState, useRef } from "react";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (ICALns && ICALns.parse) ? ICALns
@@ -160,6 +160,157 @@ function getUsHoliday(date) {
     }
   }
   return null;
+}
+
+// Native <input type="date"> opens a browser-positioned calendar popup that
+// isn't clamped to the app's viewport — on a narrow/short window it can render
+// partly (or fully) off-screen and look "hidden". DateField swaps in a small
+// popover we position ourselves, so it always stays inside the visible window.
+function DateField({ value, onChange, className }) {
+  const [open, setOpen] = useState(false);
+  const [viewMonth, setViewMonth] = useState(() => {
+    const d = value ? new Date(value + "T00:00:00") : new Date();
+    return new Date(d.getFullYear(), d.getMonth(), 1);
+  });
+  const [pos, setPos] = useState(null);
+  const btnRef = useRef(null);
+  const popRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const d = value ? new Date(value + "T00:00:00") : new Date();
+    setViewMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Initial placement: anchor under the button, clamped to the viewport.
+  useEffect(() => {
+    if (!open) return;
+    const POP_W = 260, POP_H = 300, PAD = 8;
+    const place = () => {
+      const r = btnRef.current?.getBoundingClientRect();
+      if (!r) return;
+      let left = Math.min(Math.max(PAD, r.left), window.innerWidth - POP_W - PAD);
+      let top = r.bottom + 4;
+      if (top + POP_H > window.innerHeight - PAD) top = Math.max(PAD, r.top - POP_H - 4);
+      setPos({ top, left });
+    };
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+    };
+  }, [open]);
+
+  // Re-clamp once the popover has its real (rendered) size.
+  useLayoutEffect(() => {
+    if (!open || !pos || !popRef.current || !btnRef.current) return;
+    const PAD = 8;
+    const pr = popRef.current.getBoundingClientRect();
+    const br = btnRef.current.getBoundingClientRect();
+    let { top, left } = pos;
+    if (pr.right > window.innerWidth - PAD) left = Math.max(PAD, window.innerWidth - pr.width - PAD);
+    if (pr.left < PAD) left = PAD;
+    if (pr.bottom > window.innerHeight - PAD) top = Math.max(PAD, br.top - pr.height - 4);
+    if (top !== pos.top || left !== pos.left) setPos({ top, left });
+  }, [open, pos]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocDown = (e) => {
+      if (popRef.current?.contains(e.target) || btnRef.current?.contains(e.target)) return;
+      setOpen(false);
+    };
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDocDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const y = viewMonth.getFullYear(), m = viewMonth.getMonth();
+  const startOffset = new Date(y, m, 1).getDay();
+  const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const cells = Array(startOffset).fill(null).concat(
+    Array.from({ length: daysInMonth }, (_, i) => i + 1)
+  );
+  const selected = value ? new Date(value + "T00:00:00") : null;
+  const label = value
+    ? new Date(value + "T00:00:00").toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
+    : "Select date";
+
+  return (
+    <div style={{ position: "relative", width: "100%" }}>
+      <button
+        type="button"
+        ref={btnRef}
+        onClick={() => setOpen(o => !o)}
+        className={className}
+        style={{
+          textAlign: "left", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center",
+          background: "var(--input-bg)", color: "var(--text)", borderColor: "var(--border)",
+        }}
+      >
+        <span>{label}</span>
+        <span aria-hidden style={{ opacity: 0.6 }}>📅</span>
+      </button>
+      {open && (
+        <div
+          ref={popRef}
+          role="dialog"
+          style={{
+            position: "fixed",
+            top: pos ? pos.top : -9999,
+            left: pos ? pos.left : -9999,
+            visibility: pos ? "visible" : "hidden",
+            zIndex: 1000,
+            width: 260,
+            background: "var(--surface)",
+            border: "1px solid var(--border)",
+            borderRadius: 12,
+            boxShadow: "0 8px 24px rgba(0,0,0,.18)",
+            padding: 10,
+            color: "var(--text)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+            <button type="button" className="nav-btn" onClick={() => setViewMonth(new Date(y, m - 1, 1))} aria-label="Previous month">‹</button>
+            <div style={{ fontSize: 14, fontWeight: 600 }}>{viewMonth.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</div>
+            <button type="button" className="nav-btn" onClick={() => setViewMonth(new Date(y, m + 1, 1))} aria-label="Next month">›</button>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2, fontSize: 11, color: "var(--muted)", marginBottom: 4 }}>
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => <div key={i} style={{ textAlign: "center" }}>{d}</div>)}
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
+            {cells.map((d, i) => {
+              if (d == null) return <div key={i} />;
+              const cellDate = new Date(y, m, d);
+              const isSel = selected && sameYMD(selected, cellDate);
+              return (
+                <button
+                  type="button"
+                  key={i}
+                  onClick={() => { onChange(dayKey(cellDate)); setOpen(false); }}
+                  style={{
+                    aspectRatio: "1",
+                    border: "none",
+                    borderRadius: 6,
+                    background: isSel ? "#2563eb" : "transparent",
+                    color: isSel ? "#fff" : "var(--text)",
+                    cursor: "pointer",
+                    fontSize: 12,
+                  }}
+                >{d}</button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 /* =========================
@@ -1353,9 +1504,9 @@ export default function App(){
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">2) Date range</h2>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
+              <DateField value={dateFrom} onChange={setDateFrom} className="border rounded-lg p-2 w-full min-w-0" />
               <span className="muted text-sm text-center sm:text-left">to</span>
-              <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
+              <DateField value={dateTo} onChange={setDateTo} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
             <div className="text-xs muted mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
 
