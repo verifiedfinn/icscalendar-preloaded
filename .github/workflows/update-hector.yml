@@ -29,6 +29,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to Hector.ics — skipping commit."
           else
-            git commit -m "chore: auto-update Hector.ics from Artist Growth [skip ci]"
+            git commit -m "chore: auto-update Hector.ics from Artist Growth"
             git push
           fi
