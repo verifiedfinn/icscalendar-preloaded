@@ -258,6 +258,14 @@ function DateField({ value, onChange, className }) {
         <span aria-hidden style={{ opacity: 0.6 }}>📅</span>
       </button>
       {open && (
+        <>
+        {/* Dimmed backdrop -- makes it read as a floating overlay instead of
+            content spilling out of the card underneath it. */}
+        <div
+          aria-hidden
+          onClick={() => setOpen(false)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.25)", zIndex: 999 }}
+        />
         <div
           ref={popRef}
           role="dialog"
@@ -308,6 +316,7 @@ function DateField({ value, onChange, className }) {
             })}
           </div>
         </div>
+        </>
       )}
     </div>
   );
