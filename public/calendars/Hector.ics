@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -1273,12 +1273,12 @@ DESCRIPTION:Modlin Center for the Arts\, University of Richmond\, VA
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://modlin.richmond.edu/
-GEO:37.573792;-77.542791
-LOCATION:Modlin Center for the Arts\n28 Westhampton Way\nUniversity of Ri
- chmond VA  23173 United States
+GEO:37.57353;-77.5430897
+LOCATION:Modlin Center for the Arts\n453 Westhampton Way\nRichmond VA  23
+ 173 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Modlin Center for the Arts\n28 Westhampton Way\nUniversity of Rich
- mond VA 23173 United States":geo:37.573792,-77.542791
+ ITLE="Modlin Center for the Arts\n453 Westhampton Way\nRichmond VA 23173
+  United States":geo:37.57353,-77.5430897
 CREATED:20240607T014240
 LAST-MODIFIED:20241016T070604
 END:VEVENT
