@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10809,7 +10809,7 @@ TRANSP:OPAQUE
 UID:6091e7fe-1058-47a8-a5bc-0f4b2764bb2d
 DTSTAMP:20260408T190823
 SUMMARY:Ritchie 4 Ever (The Silouettes cast)
-DTSTART:20260902T203000Z
+DTSTART:20260902T193000Z
 DTEND:20260903T043000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
@@ -10825,9 +10825,9 @@ DESCRIPTION:KYLE (PRODUCTION MANAGER)
   \nVENUE INFO:\n
     https://amphitheater.ucsd.edu/\n
   \n*************************************\nSCHEDULE:\n
-  1:30 PM - 3:30 PM PDT: Load-in/line check\n----------------------------
- ------------\n
-  3:30 PM - 5:00 PM PDT: Soundcheck/ Rehearsal\n-------------------------
+  12:30 PM - 2:30 PM PDT: Load-in/line check\n---------------------------
+ -------------\n
+  2:30 PM - 5:00 PM PDT: Soundcheck/ Rehearsal\n-------------------------
  ---------------\n
   5:00 PM - 6:00 PM PDT: STAGE DARK (CREW BREAK)\n-----------------------
  -----------------\n
@@ -10845,7 +10845,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
   Diego CA 92093 United States":geo:32.879024,-117.2332434
 CREATED:20260408T190823
 LAST-MODIFIED:20260817T055456
-X-HECTOR-SCHED:20260902 → 810–1290 min (PDT)
+X-HECTOR-SCHED:20260902 → 750–1290 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
