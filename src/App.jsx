@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState, useRef } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import ICALdefault, * as ICALns from "ical.js";
 const ICAL = (ICALdefault && ICALdefault.parse) ? ICALdefault
            : (ICALns && ICALns.parse) ? ICALns
@@ -52,6 +52,9 @@ function pct(value, total) {
   const p = r * 100;
   return p > 0 && p < 1 ? "<1" : String(Math.round(p));
 }
+// Detect a "CANCELLED"/"cancelled" (or "CANCELED") marker anywhere in a title.
+const isCancelledSummary = (s) => /\bcancell?ed\b/i.test(s || "");
+
 // Parse episode number from summary, eg: "Episode 12", "Ep 7", "E#3", "Ep. 22", "#14"
 function parseEpisode(summary="") {
   const s = String(summary);
@@ -160,166 +163,6 @@ function getUsHoliday(date) {
     }
   }
   return null;
-}
-
-// Native <input type="date"> opens a browser-positioned calendar popup that
-// isn't clamped to the app's viewport — on a narrow/short window it can render
-// partly (or fully) off-screen and look "hidden". DateField swaps in a small
-// popover we position ourselves, so it always stays inside the visible window.
-function DateField({ value, onChange, className }) {
-  const [open, setOpen] = useState(false);
-  const [viewMonth, setViewMonth] = useState(() => {
-    const d = value ? new Date(value + "T00:00:00") : new Date();
-    return new Date(d.getFullYear(), d.getMonth(), 1);
-  });
-  const [pos, setPos] = useState(null);
-  const btnRef = useRef(null);
-  const popRef = useRef(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const d = value ? new Date(value + "T00:00:00") : new Date();
-    setViewMonth(new Date(d.getFullYear(), d.getMonth(), 1));
-  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Initial placement: anchor under the button, clamped to the viewport.
-  useEffect(() => {
-    if (!open) return;
-    const POP_W = 260, POP_H = 300, PAD = 8;
-    const place = () => {
-      const r = btnRef.current?.getBoundingClientRect();
-      if (!r) return;
-      let left = Math.min(Math.max(PAD, r.left), window.innerWidth - POP_W - PAD);
-      let top = r.bottom + 4;
-      if (top + POP_H > window.innerHeight - PAD) top = Math.max(PAD, r.top - POP_H - 4);
-      setPos({ top, left });
-    };
-    place();
-    window.addEventListener("resize", place);
-    window.addEventListener("scroll", place, true);
-    return () => {
-      window.removeEventListener("resize", place);
-      window.removeEventListener("scroll", place, true);
-    };
-  }, [open]);
-
-  // Re-clamp once the popover has its real (rendered) size.
-  useLayoutEffect(() => {
-    if (!open || !pos || !popRef.current || !btnRef.current) return;
-    const PAD = 8;
-    const pr = popRef.current.getBoundingClientRect();
-    const br = btnRef.current.getBoundingClientRect();
-    let { top, left } = pos;
-    if (pr.right > window.innerWidth - PAD) left = Math.max(PAD, window.innerWidth - pr.width - PAD);
-    if (pr.left < PAD) left = PAD;
-    if (pr.bottom > window.innerHeight - PAD) top = Math.max(PAD, br.top - pr.height - 4);
-    if (top !== pos.top || left !== pos.left) setPos({ top, left });
-  }, [open, pos]);
-
-  useEffect(() => {
-    if (!open) return;
-    const onDocDown = (e) => {
-      if (popRef.current?.contains(e.target) || btnRef.current?.contains(e.target)) return;
-      setOpen(false);
-    };
-    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
-    document.addEventListener("mousedown", onDocDown);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDocDown);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
-  const y = viewMonth.getFullYear(), m = viewMonth.getMonth();
-  const startOffset = new Date(y, m, 1).getDay();
-  const daysInMonth = new Date(y, m + 1, 0).getDate();
-  const cells = Array(startOffset).fill(null).concat(
-    Array.from({ length: daysInMonth }, (_, i) => i + 1)
-  );
-  const selected = value ? new Date(value + "T00:00:00") : null;
-  const label = value
-    ? new Date(value + "T00:00:00").toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })
-    : "Select date";
-
-  return (
-    <div style={{ position: "relative", width: "100%" }}>
-      <button
-        type="button"
-        ref={btnRef}
-        onClick={() => setOpen(o => !o)}
-        className={className}
-        style={{
-          textAlign: "left", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center",
-          background: "var(--input-bg)", color: "var(--text)", borderColor: "var(--border)",
-        }}
-      >
-        <span>{label}</span>
-        <span aria-hidden style={{ opacity: 0.6 }}>📅</span>
-      </button>
-      {open && (
-        <>
-        {/* Dimmed backdrop -- makes it read as a floating overlay instead of
-            content spilling out of the card underneath it. */}
-        <div
-          aria-hidden
-          onClick={() => setOpen(false)}
-          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.25)", zIndex: 999 }}
-        />
-        <div
-          ref={popRef}
-          role="dialog"
-          style={{
-            position: "fixed",
-            top: pos ? pos.top : -9999,
-            left: pos ? pos.left : -9999,
-            visibility: pos ? "visible" : "hidden",
-            zIndex: 1000,
-            width: 260,
-            background: "var(--surface)",
-            border: "1px solid var(--border)",
-            borderRadius: 12,
-            boxShadow: "0 8px 24px rgba(0,0,0,.18)",
-            padding: 10,
-            color: "var(--text)",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-            <button type="button" className="nav-btn" onClick={() => setViewMonth(new Date(y, m - 1, 1))} aria-label="Previous month">‹</button>
-            <div style={{ fontSize: 14, fontWeight: 600 }}>{viewMonth.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</div>
-            <button type="button" className="nav-btn" onClick={() => setViewMonth(new Date(y, m + 1, 1))} aria-label="Next month">›</button>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2, fontSize: 11, color: "var(--muted)", marginBottom: 4 }}>
-            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => <div key={i} style={{ textAlign: "center" }}>{d}</div>)}
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2 }}>
-            {cells.map((d, i) => {
-              if (d == null) return <div key={i} />;
-              const cellDate = new Date(y, m, d);
-              const isSel = selected && sameYMD(selected, cellDate);
-              return (
-                <button
-                  type="button"
-                  key={i}
-                  onClick={() => { onChange(dayKey(cellDate)); setOpen(false); }}
-                  style={{
-                    aspectRatio: "1",
-                    border: "none",
-                    borderRadius: 6,
-                    background: isSel ? "#2563eb" : "transparent",
-                    color: isSel ? "#fff" : "var(--text)",
-                    cursor: "pointer",
-                    fontSize: 12,
-                  }}
-                >{d}</button>
-              );
-            })}
-          </div>
-        </div>
-        </>
-      )}
-    </div>
-  );
 }
 
 /* =========================
@@ -488,6 +331,7 @@ function parseICSText(text, sourceId, sourceName){
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
       const isUrgent = /!/.test(summary); // "need more info" marker
+      const isCancelled = isCancelledSummary(summary);
       const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
       const guest = sourceId === PODCAST_ID ? parseGuest(summary) : null;
       // X-HECTOR-TYPE:LOCATION marks hotel/lodging entries — show as location
@@ -495,11 +339,11 @@ function parseICSText(text, sourceId, sourceName){
       const isLocation = (v.getFirstPropertyValue("x-hector-type") || "").toUpperCase() === "LOCATION";
 
       if (e.isRecurring()) {
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, guest, isLocation, isRecurring: true, component: v });
+        events.push({ sourceId, sourceName, summary, isUrgent, isCancelled, ep, guest, isLocation, isRecurring: true, component: v });
       } else {
         const s = e.startDate.toJSDate();
         const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, ep, guest, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        events.push({ sourceId, sourceName, summary, isUrgent, isCancelled, ep, guest, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
       }
     } catch {}
   }
@@ -1070,7 +914,7 @@ export default function App(){
               const summary = evt.summary || "Event";
               out.push({
                 sourceId:e.sourceId, sourceName:e.sourceName, summary,
-                isUrgent:/!/.test(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
+                isUrgent:/!/.test(summary), isCancelled: isCancelledSummary(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
                 guest: e.sourceId===PODCAST_ID ? parseGuest(summary) : null,
                 isLocation: e.isLocation,
                 start:s, end:ee, allDay:next.isDate
@@ -1120,13 +964,13 @@ export default function App(){
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
         if (!ev.isLocation) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isLocation: !!ev.isLocation });
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: !!ev.isLocation });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
         if (ev.sourceId === PODCAST_ID) {
           if (!podcastByDay.has(k)) podcastByDay.set(k, []);
-          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast", ep: ev.ep || null, guest: ev.guest || null });
+          podcastByDay.get(k).push({ start: seg.start, end: seg.end, summary: ev.summary || "Podcast", ep: ev.ep || null, guest: ev.guest || null, isCancelled: !!ev.isCancelled });
         }
       }
     }
@@ -1177,7 +1021,7 @@ export default function App(){
         }
         for (const t of titles) {
           const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isLocation: !!t.isLocation });
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isCancelled: !!t.isCancelled, isLocation: !!t.isLocation });
         }
       }
       for (const s of sources) {
@@ -1195,7 +1039,7 @@ export default function App(){
       dayEventTitles.sort((a,b)=> a.start - b.start);
 
       const podcastItems = (podcastByDay.get(k) || [])
-        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary, ep: it.ep || null, guest: it.guest || null }))
+        .map(it => ({ start: Math.max(it.start, WS), end: Math.min(it.end, WE), summary: it.summary, ep: it.ep || null, guest: it.guest || null, isCancelled: !!it.isCancelled }))
         .filter(it => it.end > it.start)
         .sort((a,b) => a.start - b.start);
 
@@ -1210,6 +1054,7 @@ export default function App(){
         podcastItems,
         titles: dayEventTitles,
         hasUrgent: !!urgentByDay.get(k),
+        hasCancelledPodcast: podcastItems.some(p => p.isCancelled),
       };
     }
     return res;
@@ -1281,6 +1126,10 @@ export default function App(){
         .recorded-outline {
           position: relative; border: 3px solid #0ea5e9; background: var(--surface); border-radius:1rem;
         }
+        /* CANCELLED border (title contains "cancelled"/"canceled") */
+        .cancelled-outline {
+          position: relative; border: 3px solid #dc2626; background: var(--surface); border-radius:1rem;
+        }
 
         /* Podcast tile animated fill */
         @keyframes softBlue {
@@ -1316,6 +1165,7 @@ export default function App(){
         .urgent-faint   { box-shadow: inset 0 0 0 9999px rgba(109,40,217,0.07); }
         .tag            { font-size:11px; padding:2px 6px; border-radius:9999px; border:1px solid var(--border); background:var(--chip); color:var(--text); }
         .tag-urgent     { background:#f5f3ff; border-color:#ddd6fe; color:${PURPLE_URGENT}; }
+        .tag-cancelled  { background:#fef2f2; border-color:#fecaca; color:#dc2626; }
 
         .rainbow-text {
           font-weight: 800;
@@ -1513,9 +1363,9 @@ export default function App(){
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">2) Date range</h2>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <DateField value={dateFrom} onChange={setDateFrom} className="border rounded-lg p-2 w-full min-w-0" />
+              <input type="date" value={dateFrom} onChange={e=>setDateFrom(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
               <span className="muted text-sm text-center sm:text-left">to</span>
-              <DateField value={dateTo} onChange={setDateTo} className="border rounded-lg p-2 w-full min-w-0" />
+              <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
             <div className="text-xs muted mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
 
@@ -1551,18 +1401,22 @@ export default function App(){
               <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
               <span className="muted">o'clock</span>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <div className="flex items-center gap-3 text-sm">
+            {/* flex-wrap (not a breakpoint-gated row/col switch) so this reflows
+                correctly no matter how narrow the card itself is -- the grid
+                puts this card at very different widths depending on how many
+                columns fit, independent of the viewport breakpoint. */}
+            <div className="flex flex-wrap items-center justify-between gap-3" style={{ minWidth: 0 }}>
+              <div className="flex items-center gap-3 text-sm flex-wrap">
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='single'} onChange={()=>setViewMode('single')} /> Single month</label>
                 <label className="flex items-center gap-1 cursor-pointer"><input type="radio" name="v" checked={viewMode==='range'}  onChange={()=>setViewMode('range')} /> Range</label>
               </div>
               {viewMode==='single' && (
-                <div className="flex items-center gap-2 justify-between sm:justify-start">
-                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))} aria-label="Previous month">‹</button>
-                  <div className="text-sm muted flex-1 sm:flex-none sm:w-32 text-center" style={{color:"var(--text)"}}>
+                <div className="flex items-center gap-2" style={{ minWidth: 0 }}>
+                  <button className="nav-btn" style={{ flexShrink: 0 }} onClick={()=>setCurrentMonth(monthStart(addDays(currentMonth,-1)))} aria-label="Previous month">‹</button>
+                  <div className="text-sm muted text-center" style={{ color:"var(--text)", width: 108, flexShrink: 0 }}>
                     {new Date(currentMonth).toLocaleDateString(undefined,{month:'long',year:'numeric'})}
                   </div>
-                  <button className="nav-btn" onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))} aria-label="Next month">›</button>
+                  <button className="nav-btn" style={{ flexShrink: 0 }} onClick={()=>setCurrentMonth(monthStart(addDays(monthEnd(currentMonth),1)))} aria-label="Next month">›</button>
                 </div>
               )}
             </div>
@@ -1623,7 +1477,7 @@ export default function App(){
           {/* Sidebar (hover/click details) */}
           {!slotViewOn && (
             <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey)
-              ? (endOfDay(new Date(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl")
+              ? (activeInfo?.hasCancelledPodcast ? "cancelled-outline rounded-2xl" : (endOfDay(new Date(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl"))
               : ""}>
               {activeInfo
                 ? <div className="bg-white rounded-2xl shadow p-4">
@@ -1632,11 +1486,14 @@ export default function App(){
                     {/* Podcast: rainbow "Recording — Ep ###" before today, blue "Recorded — Ep ###" after */}
                     {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (() => {
                       const isRecorded = endOfDay(activeInfo.date) < new Date();
+                      const isCancelled = activeInfo.hasCancelledPodcast;
                       const first = activeInfo.podcastItems[0];
                       const ep = parseEpisode(first.summary);
                       return (
                         <div className="mt-2 mb-3">
-                          {isRecorded ? (
+                          {isCancelled ? (
+                            <span style={{ color: "#dc2626", fontWeight: 800 }}>Cancelled{ep ? ` — ${ep}` : ""}</span>
+                          ) : isRecorded ? (
                             <span className="blue-text-grad">Recorded{ep ? ` — ${ep}` : ""}</span>
                           ) : (
                             <span className="rainbow-text">Recording{ep ? ` — ${ep}` : ""}</span>
@@ -1646,7 +1503,7 @@ export default function App(){
                               const tag = parseEpisode(it.summary) || it.summary;
                               return (
                                 <div key={i} className="mono">
-                                  {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{tag}</span>
+                                  {fmtTime(new Date(it.start))}–{fmtTime(new Date(it.end))} · <span className="font-semibold">{tag}</span> {it.isCancelled ? <span className="tag tag-cancelled">Cancelled</span> : null}
                                 </div>
                               );
                             })}
@@ -1692,15 +1549,15 @@ export default function App(){
                               <li key={i} className="flex items-start gap-2">
                                 <span
                                   className="mt-1 inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
-                                  style={{ background: t.isLocation ? "#6b7280" : t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
-                                  title={t.isLocation ? "Location / hotel" : t.isUrgent ? "Need more information" : t.sourceName}
+                                  style={{ background: t.isLocation ? "#6b7280" : t.isCancelled ? "#dc2626" : t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
+                                  title={t.isLocation ? "Location / hotel" : t.isCancelled ? "Cancelled" : t.isUrgent ? "Need more information" : t.sourceName}
                                 />
                                 <div>
                                   {t.isLocation
                                     ? <span className="tag" style={{background:"#f0fdf4",borderColor:"#bbf7d0",color:"#166534",marginRight:4}}>📍 Location</span>
                                     : <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
                                   }
-                                  {" "}· <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                                  {" "}· <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isCancelled ? <span className="tag tag-cancelled">Cancelled</span> : null} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
                                 </div>
                               </li>
                             ))}
@@ -1759,11 +1616,11 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
                   <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
                     <div
                       className="w-1.5 rounded h-10"
-                      style={{ background: e.isUrgent ? PURPLE_URGENT : colorForSource(e.sourceId) }}
+                      style={{ background: e.isCancelled ? "#dc2626" : e.isUrgent ? PURPLE_URGENT : colorForSource(e.sourceId) }}
                     />
                     <div className="flex-1">
                       <div className="text-sm font-medium">
-                        {e.summary || "Event"} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                        {e.summary || "Event"} {e.isCancelled ? <span className="tag tag-cancelled">Cancelled</span> : null} {e.isUrgent ? <span className="tag tag-urgent">!</span> : null}
                       </div>
                       <div className="text-xs muted mono">
                         {e.allDay ? "All day" : `${fmtTime(e.start)}–${fmtTime(e.end)}`}
@@ -1816,6 +1673,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "EP") : null;
     const guestInitials = hasPodcast && firstPod?.guest ? getInitials(firstPod.guest) : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
+    const isCancelledPodcastDay = hasPodcast && !!info.hasCancelledPodcast;
 
     // Holiday (icon + optional accent if NOT a podcast day)
     const holiday = getUsHoliday(date);
@@ -1833,7 +1691,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
         onClick={()=> onClickDay?.(k)}
         className={[
           "day-cell aspect-square rounded-2xl shadow-sm relative overflow-hidden cursor-pointer",
-          hasPodcast ? (isPastPodcastDay ? "recorded-outline" : "rainbow-outline") : "",
+          hasPodcast ? (isCancelledPodcastDay ? "cancelled-outline" : (isPastPodcastDay ? "recorded-outline" : "rainbow-outline")) : "",
           selected ? "day-selected" : "",
           urgentDecor ? "urgent-outline urgent-faint" : "",
           holidayAccentClass
@@ -1843,7 +1701,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
       >
         {/* animated podcast inner fill */}
         {hasPodcast && (
-          <div className={`podcast-fill ${isPastPodcastDay ? 'podcast-fill-muted' : ''}`} />
+          <div className={`podcast-fill ${(isPastPodcastDay || isCancelledPodcastDay) ? 'podcast-fill-muted' : ''}`} />
         )}
 
         {/* tiny holiday icon */}
@@ -1870,8 +1728,18 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
             : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
         </div>
 
-        {/* If past podcast day, corner "Recorded" badge */}
-        {isPastPodcastDay && hasPodcast && (
+        {/* Cancelled podcast day: corner "Cancelled" badge (takes priority over "Recorded") */}
+        {isCancelledPodcastDay && hasPodcast && (
+          <div
+            className="absolute top-1 left-2 text-[10px] font-bold"
+            style={{ color:"#7f1d1d", background:"#fee2e2", border:"1px solid #fca5a5", padding:"1px 6px", borderRadius:9999, zIndex:2 }}
+          >
+            Cancelled
+          </div>
+        )}
+
+        {/* If past podcast day (and not cancelled), corner "Recorded" badge */}
+        {isPastPodcastDay && hasPodcast && !isCancelledPodcastDay && (
           <div
             className="absolute top-1 left-2 text-[10px] font-bold"
             style={{ color:"#0b3b3f", background:"#c7f9ff", border:"1px solid #7dd3fc", padding:"1px 6px", borderRadius:9999, zIndex:2 }}
