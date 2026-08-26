@@ -175,6 +175,16 @@ const HECTOR_SOURCE_ID = "hector";
 const HECTOR_PERSONAL_ID = "hector_personal";
 const JASMINE_SOURCE_ID = "jasmine";
 
+// Manual, date-specific availability overrides for Hector. Artist Growth's
+// feed auto-syncs every 6h and can't express "technically busy but reachable"
+// days, so entries here downgrade that day's Hector event(s) to context-only
+// (same treatment as a hotel/LOCATION entry — shown, but not counted as busy).
+// Remove an entry once its date has passed.
+// Format: "YYYY-M-D" (zero-padded), matching dayKey().
+const HECTOR_AVAILABLE_OVERRIDE_DATES = new Set([
+  "2026-09-09", // WAA 2026 (Oakland) multi-day block — available from the hotel
+]);
+
 // Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
 // from the Artist Growth live feed. Events = Hector busy (availabilityMode:false).
 // Hector Personal is proxied by the Vercel API route /api/hector-personal.
@@ -954,8 +964,12 @@ export default function App(){
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
 
+        // Manual override: this day is downgraded to context-only for Hector,
+        // same as a hotel/LOCATION entry (see HECTOR_AVAILABLE_OVERRIDE_DATES).
+        const isLoc = ev.isLocation || (ev.sourceId === HECTOR_SOURCE_ID && HECTOR_AVAILABLE_OVERRIDE_DATES.has(k));
+
         // Location events (hotels) show context only — skip busy-time accounting
-        if (!ev.isLocation && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
+        if (!isLoc && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
           if(!perDayUnion.has(k)) perDayUnion.set(k, []);
           perDayUnion.get(k).push([seg.start, seg.end]);
         }
@@ -963,8 +977,8 @@ export default function App(){
         if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
-        if (!ev.isLocation) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: !!ev.isLocation });
+        if (!isLoc) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
