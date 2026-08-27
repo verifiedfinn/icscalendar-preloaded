@@ -2,68 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Monterrey
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:12e0f550-6ada-4120-8193-f82aeba0b5ed
-DTSTAMP:20240808T062523
-SUMMARY:HLM SHOWCASE
-DTSTART;TZID=America/Los_Angeles:20240826T150000
-DTEND;TZID=America/Los_Angeles:20240827T140000
-DESCRIPTION:SCHEDULE
-  MONDAY\, Aug. 26 - Arrive to San Diego by 3pm\n
-  3pm hotel check in\n
-  3:30pm Mijangos train arrives (hector pick up)\n
-  4pm Prep Altar / Props\n
-  6pm Dinner full cast/ to review & check in\n
-  7:30-9pm Watch Showcases\n
-  TUESDAY\, Aug. 27 - Performance\n
-  7:45 Load In / Arrive\n
-  8:15- 8:30am (Set-up) Sound Check\n
-  8:30 8:45am Rehearse (15 min. rehearsal)\n
-  8:45pm prep/ store props back of stage\n
-  Breakfast\n
-  11am hotel check out\n
-  11:30 am Doors Open\n
-  Performance 12:50 - 1:05pm\n
-  Folks can change in Denise’s room\n
-  Pack up/out by 2pm\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel - Best Western Seven Seas\n
-    San Diego\, CA\, 92108\, US\n
-    ARRIVE: 8/26/2024 3:00 PM PDT\n
-    DEPART: 8/27/2024 11:00 AM PDT\n
-    4 doubles 1 single\n
-  Rooming list:\n
-  Adriana & Lina\n
-  Jasmine & Angela\n
-  Jessica & Jen\n
-  Dante & Juanito\n
-  Mijangos\n
-  \n
-    tel:1 619-291-1300\n----------------------------------------\n
-    Denise Hotel - Town and Country Resort\n
-    San Diego\, CA\, 92108\, US\n
-    ARRIVE: 8/26/2024 4:00 PM PDT\n
-    DEPART: 8/28/2024 11:00 AM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240808T062523
-LAST-MODIFIED:20240826T060832
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:4258b9d1-19e4-4e12-a364-e1563b10a33c
@@ -10809,7 +10760,7 @@ TRANSP:OPAQUE
 UID:6091e7fe-1058-47a8-a5bc-0f4b2764bb2d
 DTSTAMP:20260408T190823
 SUMMARY:Ritchie 4 Ever (The Silouettes cast)
-DTSTART:20260902T193000Z
+DTSTART:20260902T170000Z
 DTEND:20260903T043000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
@@ -10825,8 +10776,10 @@ DESCRIPTION:KYLE (PRODUCTION MANAGER)
   \nVENUE INFO:\n
     https://amphitheater.ucsd.edu/\n
   \n*************************************\nSCHEDULE:\n
-  12:30 PM - 2:30 PM PDT: Load-in/line check\n---------------------------
- -------------\n
+  10:00 AM - 12:00 PM PDT: Angie(only) load/set up audio tech w/ house cr
+ ew\n----------------------------------------\n
+  12:30 PM - 2:30 PM PDT: All Load-in/line check\n-----------------------
+ -----------------\n
   2:30 PM - 5:00 PM PDT: Soundcheck/ Rehearsal\n-------------------------
  ---------------\n
   5:00 PM - 6:00 PM PDT: STAGE DARK (CREW BREAK)\n-----------------------
@@ -10845,7 +10798,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
   Diego CA 92093 United States":geo:32.879024,-117.2332434
 CREATED:20260408T190823
 LAST-MODIFIED:20260817T055456
-X-HECTOR-SCHED:20260902 → 750–1290 min (PDT)
+X-HECTOR-SCHED:20260902 → 600–1290 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
