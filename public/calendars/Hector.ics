@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10618,8 +10618,10 @@ DTSTART:20260830T010000Z
 DTEND:20260830T050000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:We will provide ground transportation
-  hotel\n
+DESCRIPTION:Payment/ Festival Director: Fernanda Mazcot 480 455 9145  fer
+ nanda.m@raiceswa.org
+  Stage Manager/MC : Vic Rodriquez  509 833 0886. vicchurod@gmail.com\
+ n
   Green room Festival Setting\, shared with other artists\n
   \n*************************************\nSCHEDULE:\n
   6:00 PM PDT: Load-in\n----------------------------------------\n
@@ -10630,9 +10632,21 @@ DESCRIPTION:We will provide ground transportation
   8:30 PM - 10:00 PM PDT: SHOWTIME! 90 mi\n------------------------------
  ----------\n
   \n*************************************\nACCOMMODATIONS:\n
-    Hotel\n
-    ARRIVE: 8/29/2026 2:30 PM PDT\n
+    Hotel: Hilton Garden Inn Spokane Airport.\n
+    9015 US-2\, Spokane\, WA\, 99224\, US\n
+    ARRIVE: 8/29/2026 3:00 PM PDT\n
     DEPART: 8/30/2026 11:00 AM PDT\n
+    Confirmation # 3528034707\n
+  Guest Names:\n
+  Hector Flores\n
+  Denise Carlos\n
+  Diego Chi de Chinchilla/ Jonny Jyemo\n
+  Angela Gonzalez\n
+  Jorge Mijangos / John Calanchini\n
+  Guest will not need to "check-in"\; they will simply say that they have
+  already checked in their reservation and just need their room key. (The
+ y will need ID for room key).\n
+  \n
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
@@ -10642,7 +10656,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="3112 E Olympic Ave\nSpokane WA 99217 United States":geo:47.7031565
  ,-117.3642288
 CREATED:20260103T052737
-LAST-MODIFIED:20260805T202144
+LAST-MODIFIED:20260828T041710
 X-HECTOR-SCHED:20260829 → 1080–1320 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
