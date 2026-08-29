@@ -2,15 +2,15 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10668,7 +10668,19 @@ DTSTART;VALUE=DATE:20260829
 DTEND;VALUE=DATE:20260830
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  2:00 PM - 8/30/2026 1:00 PM PDT: Denise -Rental Car- Enterprise\n  Deni
+ se rental car\, enterprise\n
+  Mini van\n
+  Pick up -GEG\n
+  Drop off -GEG 1pm\n
+  \n----------------------------------------\n
+  2:00 PM - 8/30/2026 1:00 PM PDT: Hector -rental car- Enterprise\n  Hect
+ or -rental car - Enterprise\n
+  Pick up GEG : 2pm\n
+  Drop off GEG : 1pm\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - ONT>GEG -SOUTHWEST- AHM8E4 -AG - SOUTHWEST\n
     WN #3092\n
     DEPART: Ontario International Airport 8/29/2026 8:35 AM PDT\n
