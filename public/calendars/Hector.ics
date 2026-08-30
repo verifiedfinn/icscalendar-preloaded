@@ -2,59 +2,19 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Monterrey
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Monterrey
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:4258b9d1-19e4-4e12-a364-e1563b10a33c
-DTSTAMP:20240126T222620
-SUMMARY:Escondido (Full band + Jasmine)
-DTSTART:20240830T220000Z
-DTEND:20240831T040000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Música en la Plaza: Las CafeterasAugust 30 @ 7:00 pm - 9:00 p
- m
-  VENUE\n
-  Lyric Court\n
-  \nVENUE INFO:\n
-    tel:+1 760-839-4138\n
-    http://www.artcenter.org/\n
-  \n*************************************\nSCHEDULE:\n
-  3:00 PM PDT: Angie load/prep\n----------------------------------------\
- n
-  3:30 PM PDT: Band load & Soundcheck\n----------------------------------
- ------\n
-  5:00 PM - 8/31/2024 5:00 PM PDT: Dinner- send Denise order/ taco truck\
- n----------------------------------------\n
-  6:30 PM PDT: CALL Time\n----------------------------------------\n
-  7:00 PM PDT: DOORS\n----------------------------------------\n
-  7:00 PM - 9:00 PM PDT: SHOWTIME! 90 min\n------------------------------
- ----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.artcenter.org/
-GEO:33.122837;-117.085446
-LOCATION:California Center for the Arts\, Escondido\n340 N Escondido Blvd
- \nEscondido CA  92025 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="California Center for the Arts, Escondido\n340 N Escondido Blvd\nE
- scondido CA 92025 United States":geo:33.122837,-117.085446
-CREATED:20240126T222620
-LAST-MODIFIED:20240829T213234
-X-HECTOR-SCHED:20240830 → 900–1260 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:11b6b05f-52f7-404b-b83e-a5826559f8aa
@@ -10942,17 +10902,21 @@ UID:f0d0dd22-c3b9-4dd2-aa5e-821ecb307047
 DTSTAMP:20260425T181919
 SUMMARY:Ogden Dia De Los Muertos Concert (Ogden\, UT)
 DTSTART:20261011T160000Z
-DTEND:20261011T180000Z
+DTEND:20261012T020000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nSCHEDULE:\n
+  9:00 AM - 11:00 AM PDT: Load/sound\n-----------------------------------
+ -----\n
   9:00 AM - 11:00 AM PDT: Load/Soundcheck\n------------------------------
  ----------\n
+  5:45 PM - 7:00 PM PDT: Showtime (75 min)\n-----------------------------
+ -----------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260425T181919
 LAST-MODIFIED:20260503T085012
-X-HECTOR-SCHED:20261011 → 540–660 min (PDT)
+X-HECTOR-SCHED:20261011 → 540–1140 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
