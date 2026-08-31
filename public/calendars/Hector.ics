@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -10696,7 +10696,12 @@ DTSTART;VALUE=DATE:20260831
 DTEND;VALUE=DATE:20260901
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    SD hotel\n
+    720 Camino Del Mar\, Del Mar\, CA\, 92014\, US\n
+    ARRIVE: 8/31/2026 3:00 PM PDT\n
+    DEPART: 9/3/2026 11:00 AM PDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260819T000719
@@ -10763,7 +10768,7 @@ DESCRIPTION:KYLE (PRODUCTION MANAGER)
   \n*************************************\nSCHEDULE:\n
   10:00 AM - 12:00 PM PDT: Angie(only) load/set up audio tech w/ house cr
  ew\n----------------------------------------\n
-  12:30 PM - 2:30 PM PDT: All Load-in/line check\n-----------------------
+  12:00 PM - 2:30 PM PDT: All Load-in/line check\n-----------------------
  -----------------\n
   2:30 PM - 5:00 PM PDT: Soundcheck/ Rehearsal\n-------------------------
  ---------------\n
