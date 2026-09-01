@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10712,14 +10712,32 @@ TRANSP:OPAQUE
 UID:6f998fa3-c582-4cf9-acdc-371fda61cb98
 DTSTAMP:20260616T014750
 SUMMARY:Denise & Hector- UCSD Season Promo event
-DTSTART:20260901T154500Z
-DTEND:20260901T180000Z
+DTSTART:20260901T133000Z
+DTEND:20260901T210000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE INFO:\n
     tel:+1 858-534-2230\n
     http://www.ucsd.edu/\n
   \n*************************************\nSCHEDULE:\n
+  6:30 AM - 8:00 AM PDT: LIVE INTERVIEWS (DC/HF)\n  TV- LOOK LIVE RECORDI
+ NG\n
+  Date: Tuesday\, Sept. 1\, 2026\n
+  Media Outlet: KUSI/Fox 5\n
+  Location: Epstein Family Amphitheater\n
+  Spokesperson Arrival Time: 6:30 am\n
+  Live Interview Start Time: 6:45 am\n
+  Participants: Hector and Denise\n
+  INTERVIEW - LIVE\n
+  Date: Tuesday\, Sept. 1\, 2026\n
+  Media Outlet: KUSI/Fox 5\n
+  Location: Epstein Family Amphitheater\n
+  Spokesperson Arrival Time: (already here)\n
+  Live Interview Start Time: 7:20 am\n
+  Participants: Hector and Denise and either Liz/Colleen\n
+  Note: The station requests that they perform for this interview.\n
+  Clear By Time: 8 am\n
+  \n----------------------------------------\n
   8:45 AM PDT: Load\n----------------------------------------\n
   9:30 AM PDT: Doors\n----------------------------------------\n
   10:00 AM - 11:00 AM PDT: Program- EFA Season Announce/ PArtnership\n  9
@@ -10732,6 +10750,15 @@ DESCRIPTION:VENUE INFO:\n
   Create\, collaborate\, cultivate\, community\, culture\n
   Song 2\n
   \n----------------------------------------\n
+  1:00 PM - 2:00 PM PDT: In-Studio Interview (DC/HF)\n  INTERVIEW #1\n
+  Date: Tuesday\, Sept. 1\, 2026\n
+  Media Outlet: Fox 5\n
+  Location (in-studio): 4575 Viewridge Ave\, San Diego\, CA 92123\n
+  Spokesperson Arrival Time: 1 p.m.\n
+  Live Interview Start Time: 1:30 p.m.\n
+  Clear By Time: 2 p.m. at the very latest\n
+  Participants: Hector\, Denise\, and Liz\n
+  \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.ucsd.edu/
@@ -10742,8 +10769,8 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="University of California San Diego\n9500 Gilman Dr\nLa Jolla\nSan
  Diego CA 92093 United States":geo:32.881168,-117.2343605
 CREATED:20260616T014750
-LAST-MODIFIED:20260616T014750
-X-HECTOR-SCHED:20260901 → 525–660 min (PDT)
+LAST-MODIFIED:20260901T024649
+X-HECTOR-SCHED:20260901 → 390–840 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10789,6 +10816,32 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
 CREATED:20260408T190823
 LAST-MODIFIED:20260817T055456
 X-HECTOR-SCHED:20260902 → 600–1290 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:a38ba33c-7a19-42c0-8f53-3c7fb9b30424
+DTSTAMP:20260901T024626
+SUMMARY:DC/HF LIVE interview (w/ Irene)
+DTSTART;TZID=America/Los_Angeles:20260902T071000
+DTEND;TZID=America/Los_Angeles:20260902T080000
+DESCRIPTION:INTERVIEW #2
+  Date: Wednesday\, Sept. 2\, 2026\n
+  Media Outlet: KUSI\n
+  Location (in-studio): 4575 Viewridge Ave\, San Diego\, CA 92123\n
+  Spokesperson Arrival Time: 7:10 a.m.\n
+  Live Interview Start Time: 7:40 a.m.\n
+  Participants: Hector\, Denise\, and Liz w/Irene\n
+  Clear By Time: 8 a.m. at the very latest\n
+  Note: The station requests that they perform for this interview.\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+GEO:32.8233657;-117.1227298
+LOCATION:4575 Viewridge Ave\nSan Diego CA  92123 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="4575 Viewridge Ave\nSan Diego CA 92123 United States":geo:32.82336
+ 57,-117.1227298
+CREATED:20260901T024626
+LAST-MODIFIED:20260901T024626
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
