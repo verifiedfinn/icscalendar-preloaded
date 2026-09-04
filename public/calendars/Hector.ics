@@ -2,48 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:11b6b05f-52f7-404b-b83e-a5826559f8aa
-DTSTAMP:20240829T192120
-SUMMARY:LA folk> Santa Barbara (DC\, HF\, MB\, JG)
-DTSTART;VALUE=DATE:20240904
-DTEND;VALUE=DATE:20240905
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:4pm hotel check in
-  Best Western Plus South Coast Inn\n
-  5620 Calle Real Goleta\, CA 93117\n
-  (805) 967-3200\n
-  Denise Carlos\n
-  Hector Flores\n
-  Jose Cano/ Jesus Gonzalez\n
-  \n*************************************\nACCOMMODATIONS:\n
-    SB Hotel: Best Western Plus South Coast Inn\n
-    ARRIVE: 9/4/2024 4:00 PM PDT\n
-    DEPART: 9/9/2024 12:00 PM PDT\n
-  DENISE CARLOS\n
-  HECTOR FLORES\n
-  JOSE CANO/ JESÚS GONZALEZ\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240829T192120
-LAST-MODIFIED:20240830T195028
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:5d039e0b-5494-46a7-9209-fcfc2b33609c
