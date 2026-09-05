@@ -2,133 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:5d039e0b-5494-46a7-9209-fcfc2b33609c
-DTSTAMP:20240607T013843
-SUMMARY:VIVA EL ARTE RESIDENCY (Santa Barbara)
-DTSTART;VALUE=DATE:20240905
-DTEND;VALUE=DATE:20240909
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Engagement/ School show tech:
-  2 speaker PA system that has 4-5 inputs\n
-  4 mics\n
-  some groups have brought along additional small amps/monitors for the a
- ssemblies\n
-  do not have the resources to provide additional instruments for the sch
- ool assemblies\n
-  **bring amps\, stands\, and cajon**\n
-  \nVENUE INFO:\n
-    http://www.santabarbaraca.gov/\n
-  \n*************************************\nSCHEDULE:\n
-  7:30 AM - 3:00 PM PDT: Day 1 Residency- School Shows SEE NOTES\n  7am *
- *BREAKFAST AT HOTEL**\n
-  7:30 AM Van pick up at hotel\n
-  8am- Load/ set up PA/ line check\n
-  8:45-9:30AM Adelante Assembly -Viva La Cultura\n
-  10:10-11:45AM Adelante music class workshop ( 4th&5th graders\, Ukulele
-  & recorders) MIJANGOS LEAD\n
-  12-1PM: Lunch (on-site\, provided by Jenna)\n
-  1-1:30 line check if needed/ same site\n
-  1:30pm-2:15PM Franklin Elementary Assembly- Viva La Cultura\n
-  2:15-2:50pm : Youth leaders workshop with Franklin 5th&6th graders\n
-  3pm Back to Hotel\n
-  END OF DAY\n
-  \n----------------------------------------\n
-  8:15 AM PDT: Mijangos arrive to Adelante Charter\n---------------------
- -------------------\n
-  9/6/2024 12:00 PM - 9/6/2024 9:00 PM PDT: Day 2 Residency in (see notes
- )\n  12pm pick up hotel>Isla Vista Elementary (Goleta)\n
-  12:15-1pm PA set up/ line check\n
-  1:00-1:25PM Viva La Cultura  assembly\,(295 students\, ages 4-8)\n
-  1:45-2:15 PM Viva La Cultura assembly\, (200 students\, age 8-11)\n
-  **2:30-4pm BACK TO HOTEL**\n
-  3:30 pm ANGIE PREP CONSOLE etc\n
-  4:30-5:30 PM Sound check\n
-  5:30 PM DINNER Please send me menu so I can get orders\n
-  6:30 PM Doors\n
-  7:00-8:00 PM Performance(families/all ages)\n
-  8:00-9:00 PM Reception\n
-  END OF DAY\n
-  \n----------------------------------------\n
-  9/6/2024 3:00 PM - 9/6/2024 3:30 PM PDT: Angie arrives SB- Isla Vista E
- S\n----------------------------------------\n
-  9/7/2024 1:30 PM - 9/7/2024 9:30 PM PDT: Day 3 Residency: Santa Maria &
-  Guadalupe City Hall\n  9/7 Saturday\, Guadalupe City Hall\, 918 Obispo
- St.\, Guadalupe\n
-  1:30 departure from SB\n
-  2:45 PM Arrival in Santa Maria\n
-  3:00-4:30 PM Band workshop with Mr. G’s music class\, ages 14-17\n
-  3:15 ANGIE/Jose dropped off Guadalupe to PREP CONSOLE @ Guadalupe.\n
-  4:45-5:30 PM Sound check in Guadalupe\n
-  5:30 PM DINNER\n
-  6:30 PM Doors\n
-  7:00 PM Performance\n
-  8:00-9:00 PM Reception\n
-  9:00 PM Departure from Guadalupe back to SB\n
-  END OF DAY\n
-  \n----------------------------------------\n
-  9/8/2024 1:30 PM - 9/8/2024 9:00 PM PDT: Day 4 Residency: Marjorie Luke
-  Theatre (FULL BAND w/ Jasmine)\n  9/8 Sunday Marjorie Luke Theater\, 72
- 1 Cota St.\, Santa Barbara\n
-  1:30 PM- Las Cafeteras arrive at SBJHS/The Luke  (drive on your own)\n
-  Band to workshop area\n
-  Angie prep in theatre\n
-  2-2:35PM - VIVA El FUTURO family college event (30min\n
-  Song 1- Caravana\n
-  Where you from from &  discuss educational backgrounds and careers pa
- ths + Q&A\n
-  Song 2- Bamba\n
-  3:00 PM - LC Load at theatre\n
-  3:30-4:30 PM Sound check\n
-  4:30 PM DINNER\n
-  5:30 PM Doors\n
-  6:00 -7:00 PM Performance\n
-  7:00-7:30 PM Reception/Merch in lobby\n
-  7:45 PM Members of Las Cafeteras departs for donor reception at La P
- aloma\n
-  9pm- END OF VIVA EL ARTE!\n
-  \n----------------------------------------\n
-  9/8/2024 3:00 PM - 9/8/2024 3:30 PM PDT: Jasmine arrives SB- Marjorie L
- uke Theatre\n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Moi/ Mijangos SB Hotel: Best Western Plus South Coast Inn\n
-    ARRIVE: 9/5/2024 3:00 PM PDT\n
-    DEPART: 9/9/2024 12:00 PM PDT\n
-  JORGE MIJANGOS/ moisés Baqueiro\n
-  \n
-    \n----------------------------------------\n
-    Angie  SB Hotel: Best Western Plus South Coast Inn\n
-    5620 Calle Real\, Goleta\, CA\, 93117\, US\n
-    ARRIVE: 9/6/2024 3:00 PM PDT\n
-    DEPART: 9/9/2024 12:00 PM PDT\n
-  Angela Gonzales/ Jasmine Lopez\n
-  (Jasmine only Sunday night)\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.santabarbaraca.gov/
-GEO:34.420285;-119.698935
-LOCATION:Santa Barbara\nSanta Barbara CA United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Santa
- Barbara\nSanta Barbara CA United States":geo:34.420285,-119.698935
-CREATED:20240607T013843
-LAST-MODIFIED:20240830T185950
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:55ee5258-7ab9-482b-b4f3-f0bb1cf847bb
