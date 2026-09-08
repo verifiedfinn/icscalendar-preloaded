@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -2930,12 +2930,12 @@ DESCRIPTION:PA +monitors
     Flight - LGB>OAK - Southwest - 2IIGV4 - DC - Southwest\n
     2397\n
     DEPART: Long Beach Airport 4/9/2025 11:10 AM PDT\n
-    ARRIVE: Oakland International Airport 4/9/2025 12:30 PM PDT\n
+    ARRIVE: Oakland San Francisco Bay Airport 4/9/2025 12:30 PM PDT\n
     \n----------------------------------------\n
     Flight - LGB>OAK - Southwest - 2IMXWL - HF - Southwest\n
     2397\n
     DEPART: Long Beach Airport 4/9/2025 11:10 AM PDT\n
-    ARRIVE: Oakland International Airport 4/9/2025 12:30 PM PDT\n
+    ARRIVE: Oakland San Francisco Bay Airport 4/9/2025 12:30 PM PDT\n
     \n----------------------------------------\n
   \n*************************************\nACCOMMODATIONS:\n
     Hotel: Hawthorn Suites\n
@@ -2971,12 +2971,12 @@ X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nFLIGHTS:
     Flight - OAK>LGB - Southwest - 2IIGV4 - DC - Southwest\n
     0225\n
-    DEPART: Oakland International Airport 4/10/2025 7:45 PM PDT\n
+    DEPART: Oakland San Francisco Bay Airport 4/10/2025 7:45 PM PDT\n
     ARRIVE: Long Beach Airport 4/10/2025 9:10 PM PDT\n
     \n----------------------------------------\n
     Flight - OAK>LGB - Southwest - 2ILDWK - HF - Southwest\n
     0225\n
-    DEPART: Oakland International Airport 4/10/2025 7:45 PM PDT\n
+    DEPART: Oakland San Francisco Bay Airport 4/10/2025 7:45 PM PDT\n
     ARRIVE: Long Beach Airport 4/10/2025 9:10 PM PDT\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
@@ -5218,7 +5218,7 @@ DESCRIPTION:*************************************\nSCHEDULE:\n
     3853\n
     DEPART: General Mitchell International Airport 8/30/2025 2:20 PM CDT\
  n
-    ARRIVE: Oakland International Airport 8/30/2025 4:25 PM PDT\n
+    ARRIVE: Oakland San Francisco Bay Airport 8/30/2025 4:25 PM PDT\n
     \n----------------------------------------\n
     Flight  - MKE>SBA - Southwest - B5MALY - JM - Southwest\n
     DEPART: General Mitchell International Airport 8/30/2025 3:50 PM CDT\
@@ -10698,6 +10698,26 @@ LAST-MODIFIED:20260901T024626
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:36bb5272-5c4b-4882-96c4-9e63ba5dc572
+DTSTAMP:20260908T063242
+SUMMARY:Hector Travel
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260909
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - LAX>OAK - Southwest - ALTO42 - HF - Southwest\n
+    1531\n
+    DEPART: Los Angeles International Airport 9/8/2026 9:10 AM PDT\n
+    ARRIVE: Oakland San Francisco Bay Airport 9/8/2026 10:30 AM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260908T063242
+LAST-MODIFIED:20260908T063242
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:9c0a261e-f8bf-45a8-a2a9-b2a6c30ecb9b
 DTSTAMP:20231024T004249
 SUMMARY:Hector at WAA 2026
@@ -10795,7 +10815,7 @@ BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:1b9cf3e5-6524-4e3e-8815-c79329eca28c
 DTSTAMP:20260814T064809
-SUMMARY:Fly to California
+SUMMARY:Fly home
 DTSTART;VALUE=DATE:20260913
 DTEND;VALUE=DATE:20260914
 X-FUNAMBOL-ALLDAY:1
@@ -10810,7 +10830,7 @@ DESCRIPTION:*************************************\nFLIGHTS:
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260814T064809
-LAST-MODIFIED:20260814T064809
+LAST-MODIFIED:20260908T062206
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10931,34 +10951,6 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  armel IN 46032 United States":geo:39.969549,-86.13041819999999
 CREATED:20260613T004204
 LAST-MODIFIED:20260722T014046
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:75c1403e-fe31-4aa7-9223-9428c07c688b
-DTSTAMP:20260615T223002
-SUMMARY:HLM Elgin
-DTSTART:20261101T223000Z
-DTEND:20261102T003000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 847-931-5900\n
-    https://elginil.gov/2538/Hemmens-Cultural-Center\n
-  \n*************************************\nSCHEDULE:\n
-  4:30 PM - 6:30 PM CST: 4:30pm SHOWTIME\n-------------------------------
- ---------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://elginil.gov/2538/Hemmens-Cultural-Cente
- r
-GEO:42.039737;-88.286914
-LOCATION:The Hemmens\n45 Symphony Way\nElgin IL  60120 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="The Hemmens\n45 Symphony Way\nElgin IL 60120 United States":geo:42
- .039737,-88.286914
-CREATED:20260615T223002
-LAST-MODIFIED:20260722T013724
-X-HECTOR-SCHED:20261101 → 990–1110 min (CST)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
