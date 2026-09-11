@@ -3,13 +3,13 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10738,6 +10738,61 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Oaklan
  d\nOakland CA United States":geo:37.8043514,-122.2711639
 CREATED:20231024T004249
 LAST-MODIFIED:20260814T064643
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:50c934e4-aa6f-4d56-b82f-9fb947f4c5a0
+DTSTAMP:20260814T064447
+SUMMARY:Fly to Michigan
+DTSTART:20260910T163000Z
+DTEND:20260911T060000Z
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  11:00 PM - 9/11/2026 11:00 PM PDT: Rental - Budget - Denise\n  Budget\n
+  Confirmation: #03704444US2\n
+  Expedia itinerary: 73541838973288\n
+  <h4>Pick-up</h4>\n
+  Thu\, Sep 10\n
+  11:00pm\n
+  <h4>Drop-off</h4>\n
+  Sun\, Sep 13\n
+  9:00pm\n
+  \n----------------------------------------\n
+  9/11/2026 9:30 AM - 9/12/2026 9:30 AM PDT: Rental - Enterprise - HF\n
+ Enterprise\n
+  Confirmation: #1597423868\n
+  Expedia itinerary: 73541999608045\n
+  Pick-up\n
+  Fri\, Sep 11\n
+  9:30am\n
+  Drop-off\n
+  Sun\, Sep 13\n
+  2:00pm\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight - BUR>GRR -UNITED- FHKGFZ -DC\,\,JM\,JJ\,JC\,MB - UNITED\n
+    UA2187\n
+    DEPART: Hollywood Burbank Airport 9/10/2026 12:44 PM PDT\n
+    Thu\, Sep 10\, 2026\n
+  12:44 PM Burbank\, CA\, US (BUR)\n
+  04:15 PM Denver\, CO\, US (DEN)\n
+  Flight 2 of 2 UA2121\n
+  05:59 PM  Denver\, CO\, US (DEN)\n
+  10:39 PM Grand Rapids\, MI\, US (GRR)\n
+  \n
+    ARRIVE: Gerald R. Ford International Airport 9/10/2026 10:39 PM EDT\n
+    \n----------------------------------------\n
+    Flight - SFO>GRR - JYH8BR - HF - United\n
+    368\n
+    DEPART: San Francisco International Airport 9/10/2026 11:30 PM PDT\n
+    ARRIVE: Gerald R. Ford International Airport 9/11/2026 9:12 AM EDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260814T064447
+LAST-MODIFIED:20260814T064447
+X-HECTOR-SCHED:20260910 → 570–1380 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
