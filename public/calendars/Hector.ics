@@ -3,13 +3,13 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10847,6 +10847,15 @@ DESCRIPTION:Contact: Greg Hoff. 989-560-8564
   Schafer Song Stage manager/oversight: Dan Bracken: 989-560-4712\n
   Your Festival Liaison: Greg Hoff | 989-560-8564\n
   \n*************************************\nSCHEDULE:\n
+  7:00 PM EDT: Arrive at fest for dinner\n
+  bands will enter through the Main Gate on Pierce Rd. You will have to s
+ top at the Main Gate to get your wristbands. You will then need to go ba
+ ck to Performer Hospitality to get your performer packets.\n
+  Meals: Wheatland provides performers with food coupons which may be us
+ ed at any of the 15 food vendors on location.\n
+  \n----------------------------------------\n
+  9:30 PM EDT: 9:30pm call time backstage\n------------------------------
+ ----------\n
   10:40 PM - 11:30 PM EDT: Friday Mainstage Show (50min)\n---------------
  -------------------------\n
   9/12/2026 6:30 PM - 9/12/2026 7:20 PM EDT: Saturday Mainstage Show (50m
@@ -10863,13 +10872,13 @@ DESCRIPTION:Contact: Greg Hoff. 989-560-8564
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-GEO:43.5714777;-85.18897869999999
-LOCATION:7251 50th Ave\nRemus MI  49340 United States
+GEO:43.5754307;-85.18984859999999
+LOCATION:5245 Pierce Rd\nRemus MI  49340 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="7251 50th Ave\nRemus MI 49340 United States":geo:43.5714777,-85.18
- 897869999999
+ ITLE="5245 Pierce Rd\nRemus MI 49340 United States":geo:43.5754307,-85.1
+ 8984859999999
 CREATED:20260113T070007
-LAST-MODIFIED:20260908T202606
+LAST-MODIFIED:20260911T072636
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
