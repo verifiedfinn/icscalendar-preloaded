@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10847,7 +10847,8 @@ DESCRIPTION:Contact: Greg Hoff. 989-560-8564
   Schafer Song Stage manager/oversight: Dan Bracken: 989-560-4712\n
   Your Festival Liaison: Greg Hoff | 989-560-8564\n
   \n*************************************\nSCHEDULE:\n
-  7:00 PM EDT: Arrive at fest for dinner\n
+  7:00 PM EDT: 7pm lobby\n----------------------------------------\n
+  7:30 PM EDT: Arrive at fest for dinner\n
   bands will enter through the Main Gate on Pierce Rd. You will have to s
  top at the Main Gate to get your wristbands. You will then need to go ba
  ck to Performer Hospitality to get your performer packets.\n
