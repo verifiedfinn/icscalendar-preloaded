@@ -3,65 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:55ee5258-7ab9-482b-b4f3-f0bb1cf847bb
-DTSTAMP:20240716T020149
-SUMMARY:Fullerton College: Puente Center Grand Opening Celebration(Fuller
- ton\, CA)
-DTSTART;TZID=America/Los_Angeles:20240912T090000
-DTEND;TZID=America/Los_Angeles:20240912T140000
-DESCRIPTION:Fullerton College Quad (321 E. Chapman Ave\, Fullerton
-  Contacts for day-of event:\n
-  Primary Contact: Eli Hebert: 714-270-4629\n
-  Secondary Contacts\n
-  (General info): Elisa Latourelle: 626-536-9230\n
-  (General info): Lorena Marquez: 714-726-7889\n
-  (IT/TECH/AUDIO): Ming Chua: 714-732-5585\n
-  No Backline (buyout)\n
-  Cart transportation accommodations for transport between parking lot an
- d venue may be available.\n
-  OUTSIDE QUAD\n
-  \nVENUE INFO:\n
-    tel:+1 714-992-7000\n
-    http://www.fullcoll.edu/\n
-  \n*************************************\nSCHEDULE:\n
-  9:00 AM PDT: Sound team preps (Jose/ Angie)\n  Call Eli when you arrive
-  to give you access and permit.\n
-  “We can make arrangements to pull one vehicle up closer via an altern
- ate route\, provided there are no other construction/delivery vehicles b
- locking it. I can clear that with our campus safety and provide addition
- al instructions. Team members with utility carts will be available to tr
- ansport heavy items.”\n
-  \n----------------------------------------\n
-  10:00 AM - 11:30 AM PDT: Band Load & Soundcheck\n----------------------
- ------------------\n
-  11:45 AM PDT: Doors\n----------------------------------------\n
-  12:00 PM - 1:00 PM PDT: Showtime! 60 min\n-----------------------------
- -----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.fullcoll.edu/
-GEO:33.87585010000001;-117.9176642
-LOCATION:Fullerton College\n321 E Chapman Ave\nFullerton CA  92832 United
-  States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Fullerton College\n321 E Chapman Ave\nFullerton CA 92832 United St
- ates":geo:33.87585010000001,-117.9176642
-CREATED:20240716T020149
-LAST-MODIFIED:20240912T020954
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:638be9de-939c-4102-a93b-c85a58f30650
