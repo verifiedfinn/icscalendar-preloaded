@@ -2,59 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:638be9de-939c-4102-a93b-c85a58f30650
-DTSTAMP:20240716T020412
-SUMMARY:30th Scope Anniversary (LA)
-DTSTART;TZID=America/Los_Angeles:20240912T160000
-DTEND;TZID=America/Los_Angeles:20240912T190000
-DESCRIPTION:20 min show
-  Address: Rolling Green\, 1005 Mateo St\, Los Angeles\, CA. (OUTSIDE)\
- n
-  Load -in : Enter Gate on Bay Entrance Street\n
-  Parking: We will 3 have spots reserved : 1-JOSE CANO\, 2- DENISE CARLO
- S\, 3- HECTOR FLORES\n
-  \nVENUE INFO:\n
-    tel:+1 310-559-8656\n
-    https://www.rollinggreens.com/\n
-  \n*************************************\nSCHEDULE:\n
-  3:00 PM PDT: Cano/ Angie loads and prep at SCOPE event\n  Enter Gate on
-  Bay Entrance Street\n
-  \n----------------------------------------\n
-  4:15 PM - 5:15 PM PDT: Band Load/ Sound\n  4:15pm load\n
-  4:45-5\;15pm soundcheck\n
-  \n----------------------------------------\n
-  6:00 PM PDT: Doors\n----------------------------------------\n
-  6:30 PM PDT: Stage call\n----------------------------------------\n
-  6:40 PM - 7:00 PM PDT: 20min show\n  End of set\, Hector to announce pr
- ogram will start so folks can go inside.\n
-  band is welcome to hang out after performance\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.rollinggreens.com/
-GEO:34.0313899;-118.2323713
-LOCATION:Rolling Greens DTLA\n1005 Mateo St\nLos Angeles CA  90021 United
-  States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Rolling Greens DTLA\n1005 Mateo St\nLos Angeles CA 90021 United St
- ates":geo:34.0313899,-118.2323713
-CREATED:20240716T020412
-LAST-MODIFIED:20240912T034527
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:a48bbfc7-dfd3-4f3d-a52c-d6315fddbc1f
@@ -4946,10 +4905,10 @@ DESCRIPTION:Dennis Franz (Technical Director): td@edmontonfolkfest.org
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.edmonton.ca/
-GEO:53.5461245;-113.4938229
+GEO:53.5461663;-113.4937355
 LOCATION:Edmonton\nEdmonton AB Canada
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Edmont
- on\nEdmonton AB Canada":geo:53.5461245,-113.4938229
+ on\nEdmonton AB Canada":geo:53.5461663,-113.4937355
 CREATED:20250206T222848
 LAST-MODIFIED:20250731T194631
 END:VEVENT
