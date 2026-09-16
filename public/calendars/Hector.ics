@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10975,5 +10975,53 @@ STATUS:TENTATIVE
 CLASS:PUBLIC
 CREATED:20260416T175005
 LAST-MODIFIED:20260416T175005
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:bdfc379a-8130-47e5-8f4c-f38af5af7890
+DTSTAMP:20260915T214836
+SUMMARY:Fete de Marquette (Madison\, WI)
+DTSTART;VALUE=DATE:20270716
+DTEND;VALUE=DATE:20270718
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:3 night hotel
+  PERFORMANCE SITE: McPike Park\, Madison\, Wisconsin’s located on 200
+ block of South Ingersoll St.\n
+  SET(S): Two (2) 90-minute sets on\n
+  Cabaret Stage on Friday\, July 16 and Sun Stage\, Saturday\, July 16\,
+ 2027\,\n
+  Each set is from 9:15 to 10:45 pm\n
+  ARRIVAL: Minimum: 90 minutes prior to set\n
+  CURFEW: Hard Curfew at 11:00 pm\n
+  STAGING/SOUND INTELLASOUND PRODUCTIONS / Tim 608-445-0470 / timw@intell
+ asound.com\n
+  VIDEO & BACKLINE: Intellasound Productions has provided staging and sou
+ nd at Fete de Marquette since our 2006\n
+  inception. The Intellasound team has provided Fete sound for Los Lobos\
+ , the Radiators\, Trombone\n
+  Shorty and many more. Artists are in capable hands with Intellasound.\n
+  Event provides PA system\, House and Monitor Engineers\, Stage Manager\
+ , Stagehands\, and Backline\n
+  gear (Backline gear to be mutually agreed upon between Intellasound Pro
+ ductions and artist rep).\n
+  Fete is a festival setting with 45 minutes between sets. 30 minutes pro
+ vided for line check and go.\n
+  Local DBA ordinances applicable allow for venue appropriate 95 DBA at f
+ ront of house.\n
+  Please send over minimum backline needs (Tech Rider/Stage Plot) and we
+ ’ll get them over to our\n
+  production people asap.\n
+  \nVENUE INFO:\n
+    http://www.cityofmadison.com/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.cityofmadison.com/
+GEO:43.0721661;-89.4007501
+LOCATION:Madison\nMadison WI United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Madiso
+ n\nMadison WI United States":geo:43.0721661,-89.4007501
+CREATED:20260915T214836
+LAST-MODIFIED:20260915T215118
 END:VEVENT
 END:VCALENDAR
