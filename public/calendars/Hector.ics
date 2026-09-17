@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10838,6 +10838,49 @@ X-HECTOR-SCHED:20261009 → 1260–1320 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:adcdd7c2-fc0f-4614-aeb4-11dcbfa9c351
+DTSTAMP:20260612T233406
+SUMMARY:Fly Burbank to Ogden\, UT
+DTSTART;VALUE=DATE:20261010
+DTEND;VALUE=DATE:20261011
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - BUR>SLC-SOUTHWEST- C7WGMH -DC\,HF\,JM\,JJ\,JC\,MB - SOUTHWES
+ T\n
+    WN #0898\n
+    DEPART: Hollywood Burbank Airport 10/10/2026 4:20 PM PDT\n
+    Flight 1:\n
+  Saturday\, 10/10/2026\n
+  Est. Travel Time: 4h 10m\n
+  FLIGHT\n
+  WN #0898\n
+  DEPARTS\n
+  BUR 04:20PM\n
+  Burbank\n
+  ARRIVES\n
+  PHX 05:55PM\n
+  Phoenix\n
+  -\n
+  Stop:   Change planes\n
+  FLIGHT\n
+  WN #1852\n
+  DEPARTS\n
+  PHX 06:50PM\n
+  Phoenix\n
+  ARRIVES\n
+  SLC 09:30PM\n
+  Salt Lake City\n
+  \n
+    ARRIVE: Salt Lake City International Airport 10/10/2026 9:30 PM MDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260612T233406
+LAST-MODIFIED:20260917T042536
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:f0d0dd22-c3b9-4dd2-aa5e-821ecb307047
 DTSTAMP:20260425T181919
 SUMMARY:Ogden Dia De Los Muertos Concert (Ogden\, UT)
@@ -10857,6 +10900,48 @@ CLASS:PUBLIC
 CREATED:20260425T181919
 LAST-MODIFIED:20260503T085012
 X-HECTOR-SCHED:20261011 → 540–1140 min (PDT)
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:1a0174ae-f1b1-41be-9af4-455b8e251eec
+DTSTAMP:20260722T021631
+SUMMARY:Fly Home
+DTSTART;VALUE=DATE:20261012
+DTEND;VALUE=DATE:20261013
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight -SLC> BUR-SOUTHWEST- C7WGMH -DC\,HF\,JM\,JJ\,MB - SOUTHWEST\n
+    WN #2973\n
+    DEPART: Salt Lake City International Airport 10/12/2026 12:35 PM MDT\
+ n
+    Monday\, 10/12/2026\n
+  Est. Travel Time: 5h 15m\n
+  FLIGHT\n
+  WN #2973\n
+  DEPARTS\n
+  SLC 12:35PM\n
+  Salt Lake City\n
+  ARRIVES\n
+  PHX 01:10PM\n
+  Phoenix\n
+  -\n
+  Stop:   Change planes\n
+  FLIGHT\n
+  WN #1436\n
+  DEPARTS\n
+  PHX 03:25PM\n
+  Phoenix\n
+  ARRIVES\n
+  BUR 04:50PM\n
+  Burbank\n
+  \n
+    ARRIVE: Hollywood Burbank Airport 10/12/2026 4:50 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260722T021631
+LAST-MODIFIED:20260722T021631
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
