@@ -3,13 +3,13 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -629,6 +629,7 @@ DESCRIPTION:**FULL BAND W/ JASMINE**
   \nVENUE INFO:\n
     tel:+1 801-629-8000\n
     http://ogdenamphitheater.com/\n
+    capacity: 7300\n
   \n*************************************\nSCHEDULE:\n
   9:30 AM MDT: Angie load/ set-up console\n  FOH load in at Ogden Amphit
  heater\n
@@ -7599,6 +7600,7 @@ DESCRIPTION:LOAD-IN
   \nVENUE INFO:\n
     tel:+1 212-967-7555\n
     https://joespub.org/\n
+    capacity: 187\n
   \n*************************************\nSCHEDULE:\n
   11:30 AM - 2:30 PM EST: Load-in & Sound Check (2hrs MAX)\n  PLEASE NOTE
  : there is another show before yours\, so you will need to strike all yo
@@ -10911,6 +10913,33 @@ DTEND;VALUE=DATE:20261013
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nFLIGHTS:
+    Flight -SLC> BUR-SOUTHWEST- A2U37S-JC - SOUTWEST\n
+    WN #3892\n
+    DEPART: Salt Lake City International Airport 10/12/2026 7:00 AM MDT\n
+    Flight:\n
+  Monday\, 10/12/2026\n
+  Est. Travel Time: 3h 55m\n
+  FLIGHT\n
+  WN #3892\n
+  DEPARTS\n
+  SLC 07:00AM\n
+  Salt Lake City\n
+  ARRIVES\n
+  SMF 07:45AM\n
+  Sacramento\n
+  -\n
+  Stop:   Change planes\n
+  FLIGHT\n
+  WN #3900\n
+  DEPARTS\n
+  SMF 08:40AM\n
+  Sacramento\n
+  ARRIVES\n
+  BUR 09:55AM\n
+  Burbank\n
+  \n
+    ARRIVE: Hollywood Burbank Airport 10/12/2026 9:55 AM PDT\n
+    \n----------------------------------------\n
     Flight -SLC> BUR-SOUTHWEST- C7WGMH -DC\,HF\,JM\,JJ\,MB - SOUTHWEST\n
     WN #2973\n
     DEPART: Salt Lake City International Airport 10/12/2026 12:35 PM MDT\
@@ -10942,21 +10971,6 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260722T021631
 LAST-MODIFIED:20260722T021631
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:fc30e244-ce13-4d76-93a3-fe13c508c875
-DTSTAMP:20260425T182249
-SUMMARY:(Tentative) Dia de Muertos Concert (Scottsdale\, AZ)
-DTSTART;VALUE=DATE:20261017
-DTEND;VALUE=DATE:20261018
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260425T182249
-LAST-MODIFIED:20260814T064913
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
