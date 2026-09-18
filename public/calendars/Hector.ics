@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10886,22 +10886,47 @@ TRANSP:OPAQUE
 UID:f0d0dd22-c3b9-4dd2-aa5e-821ecb307047
 DTSTAMP:20260425T181919
 SUMMARY:Ogden Dia De Los Muertos Concert (Ogden\, UT)
-DTSTART:20261011T160000Z
-DTEND:20261012T020000Z
+DTSTART:20261011T150000Z
+DTEND:20261012T010000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  9:00 AM - 11:00 AM PDT: Load/sound\n-----------------------------------
+DESCRIPTION:An Evening of Remembrance\, Music & Tradition–Día de los Muer
+ tos Celebración
+  Step into a world of color and rhythm for a heartfelt Día de los Mue
+ rtos celebration\, Friday\, October 23. Hosted in partnership with Neva
+ da State University\, this event is a powerful tribute to ancestors and
+  loved ones\, brought to life through art\, music and cultural tradition
+ .\n
+  Wander through the handmade ofrendas (alters) created by students and
+  local community members\, traditional dance and a special performanc
+ e by Las Cafeteras. Bring your family and friends\, everyone is welcome
+ to take part in this vibrant celebration of life!\n
+  📅 Friday\, October 23 | 5-9pm\n
+  🎟️ FREE\n
+  📍 NSU James E. & Beverly Rodgers Student Center\n
+    1300 Nevada State Drive\n
+  \nVENUE INFO:\n
+    tel:+1 801-629-8000\n
+    http://ogdenamphitheater.com/\n
+    capacity: 7300\n
+  \n*************************************\nSCHEDULE:\n
+  9:00 AM - 11:00 AM MDT: Load/sound\n-----------------------------------
  -----\n
-  9:00 AM - 11:00 AM PDT: Load/Soundcheck\n------------------------------
+  9:00 AM - 11:00 AM MDT: Load/Soundcheck\n------------------------------
  ----------\n
-  5:45 PM - 7:00 PM PDT: Showtime (75 min)\n-----------------------------
+  5:45 PM - 7:00 PM MDT: Showtime (75 min)\n-----------------------------
  -----------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
+URL;VALUE=URI:http://ogdenamphitheater.com/
+GEO:41.2198753;-111.9720078
+LOCATION:Ogden Amphitheater\n343 E 25th St\nOgden UT  84401 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Ogden Amphitheater\n343 E 25th St\nOgden UT 84401 United States":g
+ eo:41.2198753,-111.9720078
 CREATED:20260425T181919
-LAST-MODIFIED:20260503T085012
-X-HECTOR-SCHED:20261011 → 540–1140 min (PDT)
+LAST-MODIFIED:20260917T230224
+X-HECTOR-SCHED:20261011 → 540–1140 min (MDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -11054,6 +11079,33 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  armel IN 46032 United States":geo:39.969549,-86.13041819999999
 CREATED:20260613T004204
 LAST-MODIFIED:20260722T014046
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:4953f1cb-317e-4df0-93a0-22929969e3a3
+DTSTAMP:20260917T224436
+SUMMARY:HLM Elgin\, IL
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:Main Stage
+  45 Symphony Way\, Elgin\, 60120\n
+  4:30pm Showtime\n
+  \nVENUE INFO:\n
+    tel:+1 847-931-5900\n
+    https://elginil.gov/2538/Hemmens-Cultural-Center\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://elginil.gov/2538/Hemmens-Cultural-Cente
+ r
+GEO:42.039737;-88.286914
+LOCATION:The Hemmens\n45 Symphony Way\nElgin IL  60120 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Hemmens\n45 Symphony Way\nElgin IL 60120 United States":geo:42
+ .039737,-88.286914
+CREATED:20260917T224436
+LAST-MODIFIED:20260917T224616
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
