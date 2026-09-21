@@ -16,44 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:a48bbfc7-dfd3-4f3d-a52c-d6315fddbc1f
-DTSTAMP:20240801T175415
-SUMMARY:Mercado La Paloma (Alih sub confirmed)
-DTSTART;TZID=America/Los_Angeles:20240920T143000
-DTEND;TZID=America/Los_Angeles:20240920T203000
-DESCRIPTION:Contact:
-  Cyrus Kay (562) 229-6643\n
-  Damon Turner\n
-  678-848-2198\n
-  damon@trapheals.com\n
-  Mercado la Paloma 3655 S. Grand Avenue\, Los Angeles\, CA 90007\n
-  GREEN ROOM/ DRESSING ROOM: conference room to make use of as a dressing
-  room.\n
-  Meal: voucher for meal from mercado vendor\n
-  NO GUEST PASS\n
-  \nVENUE INFO:\n
-    http://www.mercadolapaloma.com/\n
-  \n*************************************\nSCHEDULE:\n
-  2:30 PM PDT: Angie set-up\n----------------------------------------\n
-  3:00 PM - 4:30 PM PDT: Band load & soundcheck\n------------------------
- ----------------\n
-  5:00 PM PDT: Doors\n----------------------------------------\n
-  6:30 PM - 7:30 PM PDT: Showtime! 60 min\n------------------------------
- ----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.mercadolapaloma.com/
-GEO:34.0173555;-118.2784049
-LOCATION:Mercado La Paloma\n3655 S Grand Ave # 280\nLos Angeles CA  90007
-  United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Mercado La Paloma\n3655 S Grand Ave # 280\nLos Angeles CA 90007 Un
- ited States":geo:34.0173555,-118.2784049
-CREATED:20240801T175415
-LAST-MODIFIED:20240829T191712
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:c89aa2ca-3041-46aa-b5db-88bdc2f3aa6e
 DTSTAMP:20240921T220408
 SUMMARY:(DC/ HF) LEAD conference
