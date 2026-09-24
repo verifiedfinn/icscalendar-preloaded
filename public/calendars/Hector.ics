@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -11005,8 +11005,8 @@ TRANSP:OPAQUE
 UID:f1ce0e99-13d2-449d-af54-753ed0a262a8
 DTSTAMP:20260211T023853
 SUMMARY:DDM Concert  (Nevada State University)
-DTSTART;VALUE=DATE:20261023
-DTEND;VALUE=DATE:20261024
+DTSTART:20261024T021500Z
+DTEND:20261024T033000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE: Nevada State University/LOCATION: 1125 Nevada State Dr
@@ -11018,10 +11018,14 @@ DESCRIPTION:VENUE: Nevada State University/LOCATION: 1125 Nevada State Dr
   1 x90\n
   7pm show\n
   Load in at 3pm.\n
+  \n*************************************\nSCHEDULE:\n
+  7:15 PM - 8:30 PM PDT: SHOW TIME! (75MIN)\n  Set Time: 7:15pm-8:30pm\n
+  \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260211T023853
 LAST-MODIFIED:20260722T015521
+X-HECTOR-SCHED:20261023 → 1155–1230 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
