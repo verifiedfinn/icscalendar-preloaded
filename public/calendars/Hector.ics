@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10887,8 +10887,7 @@ DESCRIPTION:An Evening of Remembrance\, Music & Tradition–Día de los Muer
   \n*************************************\nSCHEDULE:\n
   9:00 AM - 11:00 AM MDT: Load/sound\n-----------------------------------
  -----\n
-  9:00 AM - 11:00 AM MDT: Load/Soundcheck\n------------------------------
- ----------\n
+  11:00 AM MDT: Event Starts\n----------------------------------------\n
   5:45 PM - 7:00 PM MDT: Showtime (75 min)\n-----------------------------
  -----------\n
 STATUS:CONFIRMED
