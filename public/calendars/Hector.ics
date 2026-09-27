@@ -2,37 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:c89aa2ca-3041-46aa-b5db-88bdc2f3aa6e
-DTSTAMP:20240921T220408
-SUMMARY:(DC/ HF) LEAD conference
-DTSTART;TZID=America/Los_Angeles:20240927T080000
-DTEND;TZID=America/Los_Angeles:20240927T120000
-DESCRIPTION:
-STATUS:CONFIRMED
-CLASS:PUBLIC
-GEO:34.1821786;-117.3235324
-LOCATION:California State University San Bernardino\n5500 University Pkwy
- \nSan Bernardino CA  92407 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="California State University San Bernardino\n5500 University Pkwy\n
- San Bernardino CA 92407 United States":geo:34.1821786,-117.3235324
-CREATED:20240921T220408
-LAST-MODIFIED:20240921T220408
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:25434760-6b25-4428-93ce-73ca557f637b
