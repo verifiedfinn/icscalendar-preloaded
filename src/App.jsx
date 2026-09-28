@@ -173,7 +173,7 @@ const PODCAST_NAME = "Freedom to Thrive Podcast 2.0";
 const MATT_SOURCE_ID = "matt_live";
 const HECTOR_SOURCE_ID = "hector";
 const HECTOR_PERSONAL_ID = "hector_personal";
-const JASMINE_SOURCE_ID = "jasmine";
+const JASMIN_SOURCE_ID = "jasmin";
 
 // Manual, date-specific availability overrides for Hector. Artist Growth's
 // feed auto-syncs every 6h and can't express "technically busy but reachable"
@@ -185,15 +185,15 @@ const HECTOR_AVAILABLE_OVERRIDE_DATES = new Set([
   "2026-09-09", // WAA 2026 (Oakland) multi-day block — available from the hotel
 ]);
 
-// Same treatment for Jasmine: that day's Jasmine event(s) become context-only,
+// Same treatment for Jasmin: that day's Jasmin event(s) become context-only,
 // so she counts as 100% available.
-const JASMINE_AVAILABLE_OVERRIDE_DATES = new Set([
+const JASMIN_AVAILABLE_OVERRIDE_DATES = new Set([
   "2026-10-19", // inside "Jasmin is Out" Oct 16–20 block — available this day
 ]);
 
 const AVAILABLE_OVERRIDE_DATES = new Map([
   [HECTOR_SOURCE_ID, HECTOR_AVAILABLE_OVERRIDE_DATES],
-  [JASMINE_SOURCE_ID, JASMINE_AVAILABLE_OVERRIDE_DATES],
+  [JASMIN_SOURCE_ID, JASMIN_AVAILABLE_OVERRIDE_DATES],
 ]);
 
 // Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
@@ -205,7 +205,7 @@ const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '');
 const PRESET_CALENDARS = [
   { id: HECTOR_SOURCE_ID,   name: "Hector (Shows)",    url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: false },
   { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `${API_BASE}/api/hector-personal`, availabilityMode: false, requiresAuth: true },
-  { id: JASMINE_SOURCE_ID,  name: "Jasmine",           url: `${import.meta.env.BASE_URL}calendars/Jasmine.ics`, availabilityMode: false },
+  { id: JASMIN_SOURCE_ID,  name: "Jasmin",           url: `${import.meta.env.BASE_URL}calendars/Jasmin.ics`, availabilityMode: false },
 ];
 const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
 
@@ -977,7 +977,8 @@ export default function App(){
 
         // Manual override: this day is downgraded to context-only for the source,
         // same as a hotel/LOCATION entry (see AVAILABLE_OVERRIDE_DATES).
-        const isLoc = ev.isLocation || !!AVAILABLE_OVERRIDE_DATES.get(ev.sourceId)?.has(k);
+        const isOverride = !ev.isLocation && !!AVAILABLE_OVERRIDE_DATES.get(ev.sourceId)?.has(k);
+        const isLoc = ev.isLocation || isOverride;
 
         // Location events (hotels) show context only — skip busy-time accounting
         if (!isLoc && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
@@ -989,7 +990,7 @@ export default function App(){
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
         if (!isLoc) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc });
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc, isOverride });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
@@ -1046,7 +1047,7 @@ export default function App(){
         }
         for (const t of titles) {
           const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isCancelled: !!t.isCancelled, isLocation: !!t.isLocation });
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isCancelled: !!t.isCancelled, isLocation: !!t.isLocation, isOverride: !!t.isOverride });
         }
       }
       for (const s of sources) {
@@ -1575,10 +1576,12 @@ export default function App(){
                                 <span
                                   className="mt-1 inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
                                   style={{ background: t.isLocation ? "#6b7280" : t.isCancelled ? "#dc2626" : t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
-                                  title={t.isLocation ? "Location / hotel" : t.isCancelled ? "Cancelled" : t.isUrgent ? "Need more information" : t.sourceName}
+                                  title={t.isOverride ? "Manual override: available" : t.isLocation ? "Location / hotel" : t.isCancelled ? "Cancelled" : t.isUrgent ? "Need more information" : t.sourceName}
                                 />
                                 <div>
-                                  {t.isLocation
+                                  {t.isOverride
+                                    ? <span className="tag" style={{background:"#eff6ff",borderColor:"#bfdbfe",color:"#1e40af",marginRight:4}}>Override: available</span>
+                                    : t.isLocation
                                     ? <span className="tag" style={{background:"#f0fdf4",borderColor:"#bbf7d0",color:"#166534",marginRight:4}}>📍 Location</span>
                                     : <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
                                   }
