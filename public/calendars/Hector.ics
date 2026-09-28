@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10770,6 +10770,23 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260926T004925
 LAST-MODIFIED:20260926T004925
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:51446f50-174d-4146-ac7a-11ac32c1e722
+DTSTAMP:20260926T001800
+SUMMARY:OGDEN REHEARSAL
+DTSTART;TZID=America/Los_Angeles:20260929T093000
+DTEND;TZID=America/Los_Angeles:20260929T133000
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  9:30 AM - 1:30 PM PDT: Moi\, Jon\, jonny\n-----------------------------
+ -----------\n
+  11:00 AM - 1:30 PM PDT: Denise and hector\n----------------------------
+ ------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260926T001800
+LAST-MODIFIED:20260926T001800
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
