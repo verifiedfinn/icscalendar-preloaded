@@ -185,6 +185,17 @@ const HECTOR_AVAILABLE_OVERRIDE_DATES = new Set([
   "2026-09-09", // WAA 2026 (Oakland) multi-day block — available from the hotel
 ]);
 
+// Same treatment for Jasmine: that day's Jasmine event(s) become context-only,
+// so she counts as 100% available.
+const JASMINE_AVAILABLE_OVERRIDE_DATES = new Set([
+  "2026-10-19", // inside "Jasmin is Out" Oct 16–20 block — available this day
+]);
+
+const AVAILABLE_OVERRIDE_DATES = new Map([
+  [HECTOR_SOURCE_ID, HECTOR_AVAILABLE_OVERRIDE_DATES],
+  [JASMINE_SOURCE_ID, JASMINE_AVAILABLE_OVERRIDE_DATES],
+]);
+
 // Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
 // from the Artist Growth live feed. Events = Hector busy (availabilityMode:false).
 // Hector Personal is proxied by the Vercel API route /api/hector-personal.
@@ -964,9 +975,9 @@ export default function App(){
       for(const seg of splitIntervalByDays(s,e)){
         const k=seg.date;
 
-        // Manual override: this day is downgraded to context-only for Hector,
-        // same as a hotel/LOCATION entry (see HECTOR_AVAILABLE_OVERRIDE_DATES).
-        const isLoc = ev.isLocation || (ev.sourceId === HECTOR_SOURCE_ID && HECTOR_AVAILABLE_OVERRIDE_DATES.has(k));
+        // Manual override: this day is downgraded to context-only for the source,
+        // same as a hotel/LOCATION entry (see AVAILABLE_OVERRIDE_DATES).
+        const isLoc = ev.isLocation || !!AVAILABLE_OVERRIDE_DATES.get(ev.sourceId)?.has(k);
 
         // Location events (hotels) show context only — skip busy-time accounting
         if (!isLoc && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
