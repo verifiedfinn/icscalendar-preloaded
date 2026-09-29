@@ -990,8 +990,8 @@ export default function App(){
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
         if (!isLoc) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
-        // Overridden days are silent: the event isn't listed in the day details.
-        if (!isOverride) m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc });
+        // Overridden days still list the event as a plain note (no tag/emoji).
+        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc, isOverride });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
@@ -1048,7 +1048,7 @@ export default function App(){
         }
         for (const t of titles) {
           const a = Math.max(t.start, WS), b = Math.min(t.end, WE);
-          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isCancelled: !!t.isCancelled, isLocation: !!t.isLocation });
+          if (b > a) dayEventTitles.push({ sourceId: sid, sourceName: name, start: a, end: b, summary: t.summary, isUrgent: !!t.isUrgent, isCancelled: !!t.isCancelled, isLocation: !!t.isLocation, isOverride: !!t.isOverride });
         }
       }
       for (const s of sources) {
@@ -1577,14 +1577,16 @@ export default function App(){
                                 <span
                                   className="mt-1 inline-block w-2.5 h-2.5 rounded-full flex-shrink-0"
                                   style={{ background: t.isLocation ? "#6b7280" : t.isCancelled ? "#dc2626" : t.isUrgent ? PURPLE_URGENT : colorForSource(t.sourceId) }}
-                                  title={t.isLocation ? "Location / hotel" : t.isCancelled ? "Cancelled" : t.isUrgent ? "Need more information" : t.sourceName}
+                                  title={t.isOverride ? "Note" : t.isLocation ? "Location / hotel" : t.isCancelled ? "Cancelled" : t.isUrgent ? "Need more information" : t.sourceName}
                                 />
                                 <div>
-                                  {t.isLocation
+                                  {t.isOverride
+                                    ? null
+                                    : t.isLocation
                                     ? <span className="tag" style={{background:"#f0fdf4",borderColor:"#bbf7d0",color:"#166534",marginRight:4}}>📍 Location</span>
                                     : <span className="mono">{fmtTime(new Date(t.start))}–{fmtTime(new Date(t.end))}</span>
                                   }
-                                  {" "}· <b>{t.sourceName}</b>: {t.summary || "Event"} {t.isCancelled ? <span className="tag tag-cancelled">Cancelled</span> : null} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
+                                  {t.isOverride ? null : " · "}<b>{t.sourceName}</b>: {t.summary || "Event"} {t.isCancelled ? <span className="tag tag-cancelled">Cancelled</span> : null} {t.isUrgent ? <span className="tag tag-urgent">!</span> : null}
                                 </div>
                               </li>
                             ))}
