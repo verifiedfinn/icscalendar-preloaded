@@ -2,48 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:25434760-6b25-4428-93ce-73ca557f637b
-DTSTAMP:20240921T220721
-SUMMARY:Ysabel Campaign party (Private show)
-DTSTART;TZID=America/Los_Angeles:20240928T210000
-DTEND;TZID=America/Los_Angeles:20240928T230000
-DESCRIPTION:Core + Jasmine\, Jesus\, Chuy (bass)
-  \n*************************************\nSCHEDULE:\n
-  5:00 PM PDT: LC tech crew loads\n--------------------------------------
- --\n
-  5:30 PM - 6:30 PM PDT: Band loads & soundcheck\n-----------------------
- -----------------\n
-  8:00 PM PDT: Doors\n----------------------------------------\n
-  9:00 PM PDT: Call time\n----------------------------------------\n
-  10:00 PM - 10:30 PM PDT: 10-10:30pm show time\n  For Saturday\, 30 min
- set\n
-  LTC\n
-  YA ME VOY\n
-  CUMBIA DE BARRIO\n
-  SIRENA\n
-  OAXACA\n
-  COM LA FLOR\n
-  BAMBA\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240921T220721
-LAST-MODIFIED:20240923T223733
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:f0789962-e015-4801-8b6b-96af32b38674
