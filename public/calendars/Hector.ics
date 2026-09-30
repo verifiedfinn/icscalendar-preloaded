@@ -16,60 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:f0789962-e015-4801-8b6b-96af32b38674
-DTSTAMP:20240910T050200
-SUMMARY:DC & HF Flight LGB>SJC
-DTSTART:20240930T230000Z
-DTEND:20241001T043000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  4:00 PM - 10/1/2024 4:00 PM PDT: Rental Car - Budget - JC\n  Pick up: O
- XR\n
-  Drop off: SFO\n
-  Confirmation: #09457627US4\n
-  Expedia itinerary: 72916964001853\n
-  Phone : +1 805-382-8350\n
-  \n----------------------------------------\n
-  9:30 PM - 10/1/2024 9:30 PM PDT: Rental Car - Budget - HF\n  Pick up :
- SJC\n
-  Drop off : SFO\n
-  Confirmation: #09431031US1\n
-  Expedia itinerary: 72916595613864\n
-  Phone: +1 408-286-7850\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - LBG>SJC - Southwest - 35UFRL - DC\,HL - Southwest\n
-    2496\n
-    DEPART: Long Beach Airport 9/30/2024 7:40 PM PDT\n
-    ARRIVE: San Jose Mineta International Airport 9/30/2024 8:50 PM PDT\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotels -Double tree\n
-    Modesto\, CA\, 95354\, US\n
-    ARRIVE: 9/30/2024 3:00 PM PDT\n
-    DEPART: 10/3/2024 11:00 AM PDT\n
-    Double Tree by Hilton Hotel\n
-  1150 9th Street\, Modesto\, CA 95354 209-526-6000\n
-  September 30\, 2024 - October 3. 2024\n
-  Denise Carlos\n
-  Single Room Confirmation# 54101991\n
-  October 1\, 2024 - October 3\, 2024\n
-  Jose Cano & Jesus Gonzalez\n
-  Double Room Confirmation# 54089630\n
-  Moises Baqueiro &Jorge Mijangos Double Room Confirmation# 54084708\n
-  Angela Gonzalez\n
-  Double Room Confirmation# 54079254\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240910T050200
-LAST-MODIFIED:20240910T211820
-X-HECTOR-SCHED:20240930 → 960–1290 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:e1f4b420-bdb7-43e9-991b-ea4f49b2aa75
 DTSTAMP:20240910T035201
 SUMMARY:(DC & HF) 2 workshops (1. No Racism & 2. Women)
