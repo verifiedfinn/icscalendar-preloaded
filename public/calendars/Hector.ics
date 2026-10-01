@@ -2,58 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:e1f4b420-bdb7-43e9-991b-ea4f49b2aa75
-DTSTAMP:20240910T035201
-SUMMARY:(DC & HF) 2 workshops (1. No Racism & 2. Women)
-DTSTART;TZID=America/Los_Angeles:20241001T120000
-DTEND;TZID=America/Los_Angeles:20241001T163000
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  12:00 PM - 2:30 PM PDT: Racism: “Ain’t Nobody Got Time for That!”
- \n  10/1\, 1-2:30 pm (12pm arrive/prep)\n
-  Racism: “Ain’t Nobody Got Time for That!”\n
-  (up to 75 ppl) in a meeting room in the student center\n
-  PARKING\n
-  Parking - you may park in the reserved (official guest) parking spots o
- n the first row\, west end of Lot 11. Neisha upon arrival (310-991-5430)
-  and I will meet you with a permit.\n
-    Dropped pin to parking for convenience https://goo.gl/maps/5Rw49Vvr1
- cAV9JVK7\n
-    Campus map https://www.csustan.edu/campus-maps\n
-  \n----------------------------------------\n
-  2:30 PM - 4:30 PM PDT: Mujer Soy: Reclaiming Identity\, Sisterhood\, an
- d Mujerismo\n  10/1\, 3 pm-4:30 pm (20 ppl)\n
-  ﻿Warrior Cross Cultural Center (tables and chairs)\n
-  Mujer Soy: Reclaiming Identity\, Sisterhood\, and Mujerismo\n
-  This workshop is for max 20 ppl.\n
-  For the Workshop we will need the following materials:\n
-  •projector and screen\n
-  •mac adaptor or a smart laptop ( usually they are already built in to
-  the room)\n
-  •sound for presentation (we show clips and need audience to hear)\n
-  •butcher paper or large Post-it paper that sticks to wall\n
-  •markers\n
-  •blank paper for participants\n
-  •pens/pencils for participants\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240910T035201
-LAST-MODIFIED:20241001T073626
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:d4d897f4-3873-4df2-829b-fd3398785ede
