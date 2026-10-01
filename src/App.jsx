@@ -351,6 +351,8 @@ function parseICSText(text, sourceId, sourceName){
     try {
       const e = new ICAL.Event(v);
       const summary = e.summary || "Event";
+      // Tech rehearsals share the podcast feed but aren't episodes — drop them.
+      if (sourceId === PODCAST_ID && /\btech\s*rehears/i.test(summary)) continue;
       const isUrgent = /!/.test(summary); // "need more info" marker
       const isCancelled = isCancelledSummary(summary);
       const ep = sourceId === PODCAST_ID ? parseEpisode(summary) : null;
