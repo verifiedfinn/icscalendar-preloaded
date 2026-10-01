@@ -1701,6 +1701,12 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const firstPod = hasPodcast ? info.podcastItems[0] : null;
     const epTag = hasPodcast ? (firstPod?.ep || parseEpisode(firstPod?.summary) || "EP") : null;
     const guestInitials = hasPodcast && firstPod?.guest ? getInitials(firstPod.guest) : null;
+    // All podcasts that day, e.g. "AB · CD" (falls back to each one's episode tag)
+    const allInitials = hasPodcast
+      ? info.podcastItems
+          .map(p => (p?.guest ? getInitials(p.guest) : null) || p?.ep || parseEpisode(p?.summary) || "EP")
+          .join(" · ")
+      : null;
     const isPastPodcastDay = hasPodcast && endOfDay(date) < now;
     const isCancelledPodcastDay = hasPodcast && !!info.hasCancelledPodcast;
 
@@ -1709,7 +1715,9 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
     const holidayAccentClass = (!hasPodcast && holiday?.accentClass) ? holiday.accentClass : "";
 
     const title = hasPodcast
-      ? `${fmt(date)} — ${epTag || "Podcast"}${guestInitials ? ` · ${guestInitials}` : ""}`
+      ? (info.podcastItems.length > 1
+          ? `${fmt(date)} — ${allInitials}`
+          : `${fmt(date)} — ${epTag || "Podcast"}${guestInitials ? ` · ${guestInitials}` : ""}`)
       : `${fmt(date)} — ${pct(info?.freeMinutes||0, info?.totalMinutes||0)}% free${holiday ? ` • ${holiday.name}` : ""}`;
 
     cells.push(
@@ -1752,7 +1760,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
         >
           {hasPodcast
             ? (podLabelMode === 'initials'
-                ? (guestInitials || epTag || "EP")
+                ? allInitials
                 : `${epTag || "EP"}${guestInitials ? ` · ${guestInitials}` : ""}`)
             : `${pct(info?.freeMinutes||0, info?.totalMinutes||0)}%`}
         </div>
