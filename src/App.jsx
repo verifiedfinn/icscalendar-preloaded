@@ -66,6 +66,9 @@ function parseEpisode(summary="") {
 // Extract guest name from F2T podcast summary, eg: "Dread Scott Ep.205 Freedom To Thrive Podcast" → "Dread Scott"
 function parseGuest(summary="") {
   let s = String(summary);
+  // Strip status prefixes so "UPDATED Katya Grokhovsky" → "KG", not "UKG".
+  // (Revertable: delete this line to restore the old behavior.)
+  s = s.replace(/^(?:\s*(?:updated|rescheduled?|cancell?ed)\b)+/i, '');
   s = s.replace(/\bep\.?\s*\d{1,4}\b/gi, '');
   s = s.replace(/#\s*\d{1,4}\b/g, '');
   s = s.replace(/\bfreedom\b.*/i, '');
