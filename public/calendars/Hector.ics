@@ -2,59 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:c35fbcc8-0f7a-4b2c-9c39-8b29096590b1
-DTSTAMP:20240813T163030
-SUMMARY:California State University\, Stanislaus
-DTSTART:20241002T174500Z
-DTEND:20241003T050000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Student Center
-  outdoors\n
-  \n*************************************\nSCHEDULE:\n
-  10:45 AM PDT: Lobby time\n----------------------------------------\n
-  11:30 AM - 1:30 PM PDT: Workshop: SOUNDS OF RESISTANCE (full band)\n  1
- 0/2\,\n
-  11:30am arrive/set up\n
-  12-1:30 pm (up to 75 ppl) in a meeting room in the Student Center (we h
- ave flexibility with the set up but was thinking theatre style to maximi
- ze participation)\n
-  The Sounds of Resistance: Storytelling to Movement Building\n
-  \n----------------------------------------\n
-  1:00 PM PDT: Angie pick up\n----------------------------------------\n
-  1:30 PM PDT: Lunch- provided by presenter\n----------------------------
- ------------\n
-  2:30 PM PDT: Angie preps console\n-------------------------------------
- ---\n
-  3:30 PM - 5:00 PM PDT: Band load/soundcheck\n--------------------------
- --------------\n
-  5:00 PM PDT: Dinner served\n----------------------------------------\n
-  6:00 PM PDT: Doors\n----------------------------------------\n
-  6:30 PM - 8:00 PM PDT: Showtime (90 min)\n-----------------------------
- -----------\n
-  9:00 PM - 10:00 PM PDT: MANDATORY- Post show gathering w/ sponsors\n  U
- niversity President will host in your home\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240813T163030
-LAST-MODIFIED:20240921T222121
-X-HECTOR-SCHED:20241002 → 645–1320 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:f49ff514-f1ff-44f8-adf2-8b5de6903849
@@ -10669,11 +10628,14 @@ TRANSP:OPAQUE
 UID:518b0379-cfa6-4250-8744-adf5deadd53d
 DTSTAMP:20260825T190015
 SUMMARY:Chicano Park Museum Fundraiser
-DTSTART:20261010T040000Z
+DTSTART:20261009T220000Z
 DTEND:20261010T050000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nSCHEDULE:\n
+  3:00 PM - 5:00 PM PDT: Load-in & Soundcheck\n--------------------------
+ --------------\n
+  5:00 PM PDT: Doors\n----------------------------------------\n
   9:00 PM - 10:00 PM PDT: Showtime (60Min\n------------------------------
  ----------\n
 STATUS:CONFIRMED
@@ -10685,7 +10647,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  -117.1415823
 CREATED:20260825T190015
 LAST-MODIFIED:20260916T015924
-X-HECTOR-SCHED:20261009 → 1260–1320 min (PDT)
+X-HECTOR-SCHED:20261009 → 900–1320 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
