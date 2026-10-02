@@ -3,30 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:d4d897f4-3873-4df2-829b-fd3398785ede
-DTSTAMP:20240930T184612
-SUMMARY:DC/ HF record Social media promo w/ staff
-DTSTART;TZID=America/Los_Angeles:20241001T163000
-DTEND;TZID=America/Los_Angeles:20241001T170000
-DESCRIPTION:
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240930T184612
-LAST-MODIFIED:20240930T184612
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:c35fbcc8-0f7a-4b2c-9c39-8b29096590b1
@@ -10752,22 +10739,7 @@ DTSTART:20261011T150000Z
 DTEND:20261012T010000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:An Evening of Remembrance\, Music & Tradition–Día de los Muer
- tos Celebración
-  Step into a world of color and rhythm for a heartfelt Día de los Mue
- rtos celebration\, Friday\, October 23. Hosted in partnership with Neva
- da State University\, this event is a powerful tribute to ancestors and
-  loved ones\, brought to life through art\, music and cultural tradition
- .\n
-  Wander through the handmade ofrendas (alters) created by students and
-  local community members\, traditional dance and a special performanc
- e by Las Cafeteras. Bring your family and friends\, everyone is welcome
- to take part in this vibrant celebration of life!\n
-  📅 Friday\, October 23 | 5-9pm\n
-  🎟️ FREE\n
-  📍 NSU James E. & Beverly Rodgers Student Center\n
-    1300 Nevada State Drive\n
-  \nVENUE INFO:\n
+DESCRIPTION:VENUE INFO:\n
     tel:+1 801-629-8000\n
     http://ogdenamphitheater.com/\n
     capacity: 7300\n
@@ -10786,7 +10758,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Ogden Amphitheater\n343 E 25th St\nOgden UT 84401 United States":g
  eo:41.2198753,-111.9720078
 CREATED:20260425T181919
-LAST-MODIFIED:20260917T230224
+LAST-MODIFIED:20261001T224855
 X-HECTOR-SCHED:20261011 → 540–1140 min (MDT)
 END:VEVENT
 BEGIN:VEVENT
