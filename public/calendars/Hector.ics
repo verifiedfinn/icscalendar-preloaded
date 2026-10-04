@@ -2,66 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:1b4c15d9-9d58-49ef-9a4f-dccbf91ef1e5
-DTSTAMP:20240624T203609
-SUMMARY:Red River Revel Festival (Louisiana)- Full band w/ Jasmine
-DTSTART:20241004T130000Z
-DTEND:20241005T024500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:**FULL BAND W/ JASMINE**
-  Festival Plaza - 101 Crockett Street\, Shreveport\, LA 71101\n
-  Contact:\n
-  Sarah Garrett\n
-  318-560-0037\n
-  music@redriverrevel.com\n
-  Logan Lewis\n
-  Executive Director\n
-  O: (318) 424-4000 | M: (318) 533-4432\n
-  https://redriverrevel.com/\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 AM CDT: Angie load/ set-up console\n  Parkin located behind the Ch
- ase Stage at the service entrance at the corner of Crockett St and Marke
- t St.\n
-  \n----------------------------------------\n
-  9:20 AM - 10:30 AM CDT: Band Load & Soundcheck\n  Parkin located behind
-  the Chase Stage at the service entrance at the corner of Crockett St an
- d Market St.\n
-  \n----------------------------------------\n
-  3:30 PM CDT: 3:30pm Lunch hosted by local family restaurant\n----------
- ------------------------------\n
-  4:45 PM CDT: Doors\n----------------------------------------\n
-  7:00 PM CDT: 7pm call time\n  Two RV's located backstage\n
-  \n----------------------------------------\n
-  8:00 PM - 8:30 PM CDT: Changeover/Line Check\n-------------------------
- ---------------\n
-  8:30 PM - 9:45 PM CDT: Showtime! (75min)\n-----------------------------
- -----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-GEO:32.5132752;-93.743866
-LOCATION:101 Crockett St\nShreveport LA  71101 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="101 Crockett St\nShreveport LA 71101 United States":geo:32.5132752
- ,-93.743866
-CREATED:20240624T203609
-LAST-MODIFIED:20240911T011646
-X-HECTOR-SCHED:20241004 → 480–1305 min (CDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:1e61f5e3-7932-4f5b-9237-b4f733ff0e64
