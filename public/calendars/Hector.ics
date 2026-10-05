@@ -2,56 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:1e61f5e3-7932-4f5b-9237-b4f733ff0e64
-DTSTAMP:20240828T211126
-SUMMARY:Fly Shreveport to LAX (tentative)
-DTSTART;VALUE=DATE:20241005
-DTEND;VALUE=DATE:20241006
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  2:00 PM PDT: 2pm lobby/ pack cars\n------------------------------------
- ----\n
-  \n*************************************\nFLIGHTS:\n
-    FLight - SHV>ONT - United - FLK4FN - AG - United\n
-    5900\n
-    DEPART: Shreveport Regional Airport 10/5/2024 9:00 AM CDT\n
-    ARRIVE: Ontario International Airport 10/5/2024 12:32 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJELPK - DC\,MB\,JM - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE: Los Angeles International Airport 10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJHTG7 - HF\,JG\,JL - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE:  10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJN5ZR - JC - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE:  10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211126
-LAST-MODIFIED:20240828T211126
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:624776f2-d55d-4498-b657-f34e03647a18
