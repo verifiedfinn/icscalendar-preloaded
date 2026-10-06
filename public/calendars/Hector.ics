@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10462,6 +10462,8 @@ DESCRIPTION:*************************************\nSCHEDULE:\n
   3:00 PM - 5:00 PM PDT: Load-in & Soundcheck\n--------------------------
  --------------\n
   5:00 PM PDT: Doors\n----------------------------------------\n
+  8:30 PM - 9:00 PM PDT: Changeover  time tbd\n--------------------------
+ --------------\n
   9:00 PM - 10:00 PM PDT: Showtime (60Min\n------------------------------
  ----------\n
 STATUS:CONFIRMED
