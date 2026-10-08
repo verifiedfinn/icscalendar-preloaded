@@ -10638,6 +10638,12 @@ DESCRIPTION:*************************************\nFLIGHTS:
   \n
     ARRIVE: Hollywood Burbank Airport 10/12/2026 4:50 PM PDT\n
     \n----------------------------------------\n
+    Flight - SLC>ORD - United - LH4WM4 - HF - United\n
+    UA1382\n
+    DEPART: Salt Lake City International Airport 10/12/2026 12:42 PM MDT\
+ n
+    ARRIVE: Chicago O'Hare International Airport 10/12/2026 5:00 PM CDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260722T021631
@@ -10657,6 +10663,26 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260926T000939
 LAST-MODIFIED:20260926T000939
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:e35363ff-1d1b-47d1-bbb2-b4aec77fa276
+DTSTAMP:20261008T224417
+SUMMARY:Hector Fly home
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - ORD>LAX - United - L7VJXK -HF - United\n
+    2499\n
+    DEPART: Chicago O'Hare International Airport 10/14/2026 7:45 PM CDT\n
+    ARRIVE: Los Angeles International Airport 10/14/2026 10:20 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20261008T224417
+LAST-MODIFIED:20261008T224417
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
