@@ -2,93 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:624776f2-d55d-4498-b657-f34e03647a18
-DTSTAMP:20240828T211444
-SUMMARY:Flight BUR/LGB>DC
-DTSTART;VALUE=DATE:20241009
-DTEND;VALUE=DATE:20241010
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  11:00 PM - 10/10/2024 11:00 PM PDT: Rental Car Cano\n  Company: Enterpr
- ise\n
-  Car: Mini Van\n
-  Confirmation: #1569959719\n
-  Expedia itinerary: 72927806695640\n
-  Phone: +1 844-648-1606\n
-  \n----------------------------------------\n
-  11:00 PM - 10/10/2024 11:00 PM PDT: Rental car Hector\n  Company: Enter
- prise\n
-  Car: Mini Van\n
-  Confirmation: #1569959828\n
-  Expedia itinerary: 72927807270424\n
-  Phone : 1 844-648-1606\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - ONT>DCA - Southwest - 4Y25FR - AG - Southwest\n
-    3080\n
-    DEPART: Ontario International Airport 10/9/2024 11:05 AM PDT\n
-    ARRIVE: Ronald Reagan Washington National Airport 10/9/2024 9:45 PM E
- DT\n
-    \n----------------------------------------\n
-    Flight - LGA>DCA - Southwest - 25VB6Z - JL - Southwest\n
-    3229\n
-    DEPART: Long Beach Airport 10/9/2024 11:25 AM PDT\n
-    ARRIVE: Ronald Reagan Washington National Airport 10/9/2024 9:25 PM E
- DT\n
-    \n----------------------------------------\n
-    Flight - LGB>DCA - Southwest - 2EPZVL - DC - Southwest\n
-    3229\n
-    DEPART: Long Beach Airport 10/9/2024 11:25 AM PDT\n
-    ARRIVE: Ronald Reagan Washington National Airport 10/9/2024 9:25 PM E
- DT\n
-    \n----------------------------------------\n
-    Flight - BUR>DCA - Southwest - 2L5EUJ - JM - Southwest\n
-    1600\n
-    DEPART: Hollywood Burbank Airport 10/9/2024 12:00 PM PDT\n
-    ARRIVE: Ronald Reagan Washington National Airport 10/9/2024 10:15 PM
- EDT\n
-    \n----------------------------------------\n
-    Flight - BUR>DCA - Southwest - 4XYAMB - HF\,JC\,MB\,JG - Southwest\n
-    1699\n
-    DEPART: Hollywood Burbank Airport 10/9/2024 12:00 PM PDT\n
-    ARRIVE: Ronald Reagan Washington National Airport 10/9/2024 10:15 PM
- EDT\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel Pentagon\n
-    Arlington\, VA\, 22206\, US\n
-    ARRIVE: 10/9/2024 3:00 PM EDT\n
-    DEPART: 10/11/2024 11:00 AM EDT\n
-    Itinerary number\n
-  72927797466233\n
-  Rooms\n
-  Denise Carlos\n
-  Jose Cano/ Jesús González\n
-  Hector Flores\n
-  Moises Baquiero/ Jorge Mijangos\n
-  Angela Gonzalez Gomez/ Jasmine Lopez\n
-  \n
-    tel:17039494400\n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211444
-LAST-MODIFIED:20240906T192852
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:5d457309-e440-4d73-a42b-500e3e50c400
