@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -2976,7 +2976,7 @@ DESCRIPTION:Crew: Denise\, Hector\, Mijangos\, Alih\, Sonny\,Hector Keys\
   Reach out to them directly and tell them we referred you.\n
   \nVENUE INFO:\n
     tel:+1 415-388-3850\n
-    http://www.sweetwatermusichall.com/\n
+    http://www.sweetwatermusichall.org/\n
   \n*************************************\nSCHEDULE:\n
   12:00 PM PDT: 12pm lobby/ eat at hotel??\n-----------------------------
  -----------\n
@@ -3011,13 +3011,13 @@ DESCRIPTION:Crew: Denise\, Hector\, Mijangos\, Alih\, Sonny\,Hector Keys\
     tel:415-479-8800\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.sweetwatermusichall.com/
-GEO:37.90703009999999;-122.5480921
+URL;VALUE=URI:http://www.sweetwatermusichall.org/
+GEO:37.9070164;-122.5481013
 LOCATION:Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA  9494
  1 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA 94941 U
- nited States":geo:37.90703009999999,-122.5480921
+ nited States":geo:37.9070164,-122.5481013
 CREATED:20240816T191720
 LAST-MODIFIED:20250422T003018
 X-HECTOR-SCHED:20250503 → 720–1320 min (PDT)
@@ -5182,12 +5182,12 @@ DESCRIPTION:CONTACT: LYNDSEY
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.sbbowl.com/
-GEO:34.4326369;-119.6938397
+GEO:34.4350471;-119.6935501
 LOCATION:Santa Barbara Bowl\n1122 N Milpas St\nSanta Barbara CA  93103 Un
  ited States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Santa Barbara Bowl\n1122 N Milpas St\nSanta Barbara CA 93103 Unite
- d States":geo:34.4326369,-119.6938397
+ d States":geo:34.4350471,-119.6935501
 CREATED:20250102T072028
 LAST-MODIFIED:20250928T184102
 X-HECTOR-SCHED:20251007 → 460–1230 min (PDT)
@@ -5563,7 +5563,7 @@ DESCRIPTION:PM Dean Hannula 480-329-5215
  and 2- femme performers\n
   \nVENUE INFO:\n
     tel:+1 480-782-2680\n
-    http://www.chandlercenter.org/\n
+    https://www.chandlercenter.org/\n
   \n*************************************\nSCHEDULE:\n
   11:00 AM - 11:00 PM MST: DOS Schedule\n  11AM VENUE ACCESS/ SOUND & LIG
  HTING TECH SET-UP (ALL HANDS ON DECK)\n
@@ -5583,13 +5583,13 @@ DESCRIPTION:PM Dean Hannula 480-329-5215
   \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.chandlercenter.org/
-GEO:33.3073239;-111.8424134
+URL;VALUE=URI:https://www.chandlercenter.org/
+GEO:33.3073883;-111.8423919
 LOCATION:Chandler Center for the Arts\n250 N Arizona Ave\nChandler AZ  85
  225 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Chandler Center for the Arts\n250 N Arizona Ave\nChandler AZ 85225
-  United States":geo:33.3073239,-111.8424134
+  United States":geo:33.3073883,-111.8423919
 CREATED:20241112T075200
 LAST-MODIFIED:20251017T032631
 X-HECTOR-SCHED:20251017 → 660–1380 min (MST)
@@ -6198,7 +6198,7 @@ DESCRIPTION:David Carter/ Production Director
   11pm load out\n
   \nVENUE INFO:\n
     tel:+1 505-988-1234\n
-    http://www.lensic.org/\n
+    https://lensic.org/\n
   \n*************************************\nSCHEDULE:\n
   8:00 AM - 8:30 AM MDT: 8am meet at vans/ 8:15-8:30am Load-in\n---------
  -------------------------------\n
@@ -6222,7 +6222,7 @@ DESCRIPTION:David Carter/ Production Director
  ---\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.lensic.org/
+URL;VALUE=URI:https://lensic.org/
 GEO:35.6878272;-105.941044
 LOCATION:Lensic Performing Arts Center\n211 W San Francisco St\nSanta Fe
  NM  87501 United States
@@ -6443,11 +6443,11 @@ DESCRIPTION:VENUE INFO:\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.sfjazz.org/
-GEO:37.776384;-122.421541
+GEO:37.7764351;-122.421631
 LOCATION:SFJAZZ\n201 Franklin St\nSan Francisco CA  94102 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="SFJAZZ\n201 Franklin St\nSan Francisco CA 94102 United States":geo
- :37.776384,-122.421541
+ :37.7764351,-122.421631
 CREATED:20250403T035152
 LAST-MODIFIED:20250709T023640
 X-HECTOR-SCHED:20251031 → 640–1380 min (PDT)
@@ -6535,11 +6535,11 @@ DESCRIPTION:VENUE INFO:\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://www.mondaviarts.org/
-GEO:38.5345111;-121.7487058
+GEO:38.5344361;-121.7485194
 LOCATION:Mondavi Center\n523 Mrak Hall Dr\nDavis CA  95616 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Mondavi Center\n523 Mrak Hall Dr\nDavis CA 95616 United States":ge
- o:38.5345111,-121.7487058
+ o:38.5344361,-121.7485194
 CREATED:20250208T043623
 LAST-MODIFIED:20250710T182054
 X-HECTOR-SCHED:20251101 → 630–1380 min (PDT)
@@ -8041,7 +8041,7 @@ DESCRIPTION:Contact: Tim Reeve
   Montalvo does not provide travel or local transportation\n
   Hotel- 1 night\n
   \nVENUE INFO:\n
-    tel:+1 408-961-5858\n
+    tel:+1 408-961-5800\n
     http://montalvoarts.org/\n
   \n*************************************\nSCHEDULE:\n
   3:00 PM - 5:30 PM PDT: Load/Sound\n------------------------------------
@@ -8175,7 +8175,7 @@ DESCRIPTION:NO BACKLINE (we can rent out of pocket)
   A merch seller may be provided with at least 1 week notice. Rate is $15
  0 + cash/digital tips at artist's expense.\n
   \nVENUE INFO:\n
-    tel:+1 415-678-5099\n
+    tel:+1 415-817-1479\n
     http://brickandmortarmusic.com/\n
   \n*************************************\nSCHEDULE:\n
   4:00 PM PDT: DOS Schedule\n  PROPOSED RUN OF SHOW: *Subject to change\n
@@ -8192,12 +8192,12 @@ DESCRIPTION:NO BACKLINE (we can rent out of pocket)
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://brickandmortarmusic.com/
-GEO:37.76972689999999;-122.42041
+GEO:37.769711;-122.420421
 LOCATION:Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA  94
  103 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Brick & Mortar Music Hall\n1710 Mission St\nSan Francisco CA 94103
-  United States":geo:37.76972689999999,-122.42041
+  United States":geo:37.769711,-122.420421
 CREATED:20260211T003658
 LAST-MODIFIED:20260331T194555
 END:VEVENT
@@ -8657,7 +8657,6 @@ DESCRIPTION:SOUND ENGINEER:  Dylan Johnson dylanchase1994@gmail.com (253)
   PRODUCTION MANAGER: Gina Cervantes gina@nectarlounge.com (425) 213-832
  3\n
   \nVENUE INFO:\n
-    tel:+1 206-632-2020\n
     http://nectarlounge.com/\n
   \n*************************************\nSCHEDULE:\n
   3:45 PM - 5:45 PM PDT: Load/in & Sound\n   Please check in with the Sou
@@ -8672,11 +8671,11 @@ DESCRIPTION:SOUND ENGINEER:  Dylan Johnson dylanchase1994@gmail.com (253)
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://nectarlounge.com/
-GEO:47.65236970000001;-122.3538481
+GEO:47.65238790000001;-122.3538607
 LOCATION:Nectar Lounge\n412 N 36th St\nSeattle WA  98103 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Nectar Lounge\n412 N 36th St\nSeattle WA 98103 United States":geo:
- 47.65236970000001,-122.3538481
+ 47.65238790000001,-122.3538607
 CREATED:20260219T220751
 LAST-MODIFIED:20260425T162504
 X-HECTOR-SCHED:20260429 → 945–1320 min (PDT)
@@ -9424,7 +9423,7 @@ X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE INFO:\n
     tel:+1 415-388-3850\n
-    http://www.sweetwatermusichall.com/\n
+    http://www.sweetwatermusichall.org/\n
   \n*************************************\nSCHEDULE:\n
   3:00 PM - 6:00 PM PDT: Load in & soundcheck\n--------------------------
  --------------\n
@@ -9447,13 +9446,13 @@ DESCRIPTION:VENUE INFO:\n
     tel:(415) 626-0200\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.sweetwatermusichall.com/
-GEO:37.90703009999999;-122.5480921
+URL;VALUE=URI:http://www.sweetwatermusichall.org/
+GEO:37.9070164;-122.5481013
 LOCATION:Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA  9494
  1 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Sweetwater Music Hall\n19 Corte Madera Ave\nMill Valley CA 94941 U
- nited States":geo:37.90703009999999,-122.5480921
+ nited States":geo:37.9070164,-122.5481013
 CREATED:20260206T023115
 LAST-MODIFIED:20260206T023115
 X-HECTOR-SCHED:20260628 → 900–1290 min (PDT)
