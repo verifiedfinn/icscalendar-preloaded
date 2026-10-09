@@ -2,370 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:25434760-6b25-4428-93ce-73ca557f637b
-DTSTAMP:20240921T220721
-SUMMARY:Ysabel Campaign party (Private show)
-DTSTART;TZID=America/Los_Angeles:20240928T210000
-DTEND;TZID=America/Los_Angeles:20240928T230000
-DESCRIPTION:Core + Jasmine\, Jesus\, Chuy (bass)
-  \n*************************************\nSCHEDULE:\n
-  5:00 PM PDT: LC tech crew loads\n--------------------------------------
- --\n
-  5:30 PM - 6:30 PM PDT: Band loads & soundcheck\n-----------------------
- -----------------\n
-  8:00 PM PDT: Doors\n----------------------------------------\n
-  9:00 PM PDT: Call time\n----------------------------------------\n
-  10:00 PM - 10:30 PM PDT: 10-10:30pm show time\n  For Saturday\, 30 min
- set\n
-  LTC\n
-  YA ME VOY\n
-  CUMBIA DE BARRIO\n
-  SIRENA\n
-  OAXACA\n
-  COM LA FLOR\n
-  BAMBA\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240921T220721
-LAST-MODIFIED:20240923T223733
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:f0789962-e015-4801-8b6b-96af32b38674
-DTSTAMP:20240910T050200
-SUMMARY:DC & HF Flight LGB>SJC
-DTSTART:20240930T230000Z
-DTEND:20241001T043000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  4:00 PM - 10/1/2024 4:00 PM PDT: Rental Car - Budget - JC\n  Pick up: O
- XR\n
-  Drop off: SFO\n
-  Confirmation: #09457627US4\n
-  Expedia itinerary: 72916964001853\n
-  Phone : +1 805-382-8350\n
-  \n----------------------------------------\n
-  9:30 PM - 10/1/2024 9:30 PM PDT: Rental Car - Budget - HF\n  Pick up :
- SJC\n
-  Drop off : SFO\n
-  Confirmation: #09431031US1\n
-  Expedia itinerary: 72916595613864\n
-  Phone: +1 408-286-7850\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - LBG>SJC - Southwest - 35UFRL - DC\,HL - Southwest\n
-    2496\n
-    DEPART: Long Beach Airport 9/30/2024 7:40 PM PDT\n
-    ARRIVE: San Jose Mineta International Airport 9/30/2024 8:50 PM PDT\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotels -Double tree\n
-    Modesto\, CA\, 95354\, US\n
-    ARRIVE: 9/30/2024 3:00 PM PDT\n
-    DEPART: 10/3/2024 11:00 AM PDT\n
-    Double Tree by Hilton Hotel\n
-  1150 9th Street\, Modesto\, CA 95354 209-526-6000\n
-  September 30\, 2024 - October 3. 2024\n
-  Denise Carlos\n
-  Single Room Confirmation# 54101991\n
-  October 1\, 2024 - October 3\, 2024\n
-  Jose Cano & Jesus Gonzalez\n
-  Double Room Confirmation# 54089630\n
-  Moises Baqueiro &Jorge Mijangos Double Room Confirmation# 54084708\n
-  Angela Gonzalez\n
-  Double Room Confirmation# 54079254\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240910T050200
-LAST-MODIFIED:20240910T211820
-X-HECTOR-SCHED:20240930 → 960–1290 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:e1f4b420-bdb7-43e9-991b-ea4f49b2aa75
-DTSTAMP:20240910T035201
-SUMMARY:(DC & HF) 2 workshops (1. No Racism & 2. Women)
-DTSTART;TZID=America/Los_Angeles:20241001T120000
-DTEND;TZID=America/Los_Angeles:20241001T163000
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  12:00 PM - 2:30 PM PDT: Racism: “Ain’t Nobody Got Time for That!”
- \n  10/1\, 1-2:30 pm (12pm arrive/prep)\n
-  Racism: “Ain’t Nobody Got Time for That!”\n
-  (up to 75 ppl) in a meeting room in the student center\n
-  PARKING\n
-  Parking - you may park in the reserved (official guest) parking spots o
- n the first row\, west end of Lot 11. Neisha upon arrival (310-991-5430)
-  and I will meet you with a permit.\n
-    Dropped pin to parking for convenience https://goo.gl/maps/5Rw49Vvr1
- cAV9JVK7\n
-    Campus map https://www.csustan.edu/campus-maps\n
-  \n----------------------------------------\n
-  2:30 PM - 4:30 PM PDT: Mujer Soy: Reclaiming Identity\, Sisterhood\, an
- d Mujerismo\n  10/1\, 3 pm-4:30 pm (20 ppl)\n
-  ﻿Warrior Cross Cultural Center (tables and chairs)\n
-  Mujer Soy: Reclaiming Identity\, Sisterhood\, and Mujerismo\n
-  This workshop is for max 20 ppl.\n
-  For the Workshop we will need the following materials:\n
-  •projector and screen\n
-  •mac adaptor or a smart laptop ( usually they are already built in to
-  the room)\n
-  •sound for presentation (we show clips and need audience to hear)\n
-  •butcher paper or large Post-it paper that sticks to wall\n
-  •markers\n
-  •blank paper for participants\n
-  •pens/pencils for participants\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240910T035201
-LAST-MODIFIED:20241001T073626
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:d4d897f4-3873-4df2-829b-fd3398785ede
-DTSTAMP:20240930T184612
-SUMMARY:DC/ HF record Social media promo w/ staff
-DTSTART;TZID=America/Los_Angeles:20241001T163000
-DTEND;TZID=America/Los_Angeles:20241001T170000
-DESCRIPTION:
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240930T184612
-LAST-MODIFIED:20240930T184612
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:c35fbcc8-0f7a-4b2c-9c39-8b29096590b1
-DTSTAMP:20240813T163030
-SUMMARY:California State University\, Stanislaus
-DTSTART:20241002T174500Z
-DTEND:20241003T050000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Student Center
-  outdoors\n
-  \n*************************************\nSCHEDULE:\n
-  10:45 AM PDT: Lobby time\n----------------------------------------\n
-  11:30 AM - 1:30 PM PDT: Workshop: SOUNDS OF RESISTANCE (full band)\n  1
- 0/2\,\n
-  11:30am arrive/set up\n
-  12-1:30 pm (up to 75 ppl) in a meeting room in the Student Center (we h
- ave flexibility with the set up but was thinking theatre style to maximi
- ze participation)\n
-  The Sounds of Resistance: Storytelling to Movement Building\n
-  \n----------------------------------------\n
-  1:00 PM PDT: Angie pick up\n----------------------------------------\n
-  1:30 PM PDT: Lunch- provided by presenter\n----------------------------
- ------------\n
-  2:30 PM PDT: Angie preps console\n-------------------------------------
- ---\n
-  3:30 PM - 5:00 PM PDT: Band load/soundcheck\n--------------------------
- --------------\n
-  5:00 PM PDT: Dinner served\n----------------------------------------\n
-  6:00 PM PDT: Doors\n----------------------------------------\n
-  6:30 PM - 8:00 PM PDT: Showtime (90 min)\n-----------------------------
- -----------\n
-  9:00 PM - 10:00 PM PDT: MANDATORY- Post show gathering w/ sponsors\n  U
- niversity President will host in your home\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240813T163030
-LAST-MODIFIED:20240921T222121
-X-HECTOR-SCHED:20241002 → 645–1320 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:f49ff514-f1ff-44f8-adf2-8b5de6903849
-DTSTAMP:20240830T074604
-SUMMARY:Hotel: Sam's Town Hotel & Casino
-DTSTART;VALUE=DATE:20241003
-DTEND;VALUE=DATE:20241006
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:6 rooms
-  1-DENISE CARLOS\n
-  2- HECTOR FLORES\n
-  3-JOSE CANO/ JESUS GONZALEZ\n
-  4- MOISES BAQUEIRO/ JORGE MIJANGOS\n
-  5-ANGELA GONZALEZ\n
-  6- JASMINE LOPEZ\n
-  \nVENUE INFO:\n
-    http://www.shreveportla.gov/\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel: Sam's Town Hotel & Casino\n
-    315 Clyde Fant Pkwy\, Shreveport\, LA\, 71101\, US\n
-    ARRIVE: 10/3/2024 12:00 AM CDT\n
-    DEPART: 10/5/2024 11:59 PM CDT\n
-    1-DENISE CARLOS\n
-  2- HECTOR FLORES\n
-  3-JOSE CANO/ JESUS GONZALEZ\n
-  4- MOISES BAQUEIRO/ JORGE MIJANGOS\n
-  5-ANGELA GONZALEZ\n
-  6- JASMINE LOPEZ\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.shreveportla.gov/
-GEO:32.5251516;-93.7501789
-LOCATION:Shreveport\nShreveport LA United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=4000;X-TITLE="Shreve
- port\nShreveport LA United States":geo:32.5251516,-93.7501789
-CREATED:20240830T074604
-LAST-MODIFIED:20240830T192447
-X-HECTOR-TYPE:LOCATION
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:02f0ce57-3deb-4780-85ea-0d4a0d1bfbe6
-DTSTAMP:20240828T211028
-SUMMARY:Fly SFO to Shreveport
-DTSTART;VALUE=DATE:20241003
-DTEND;VALUE=DATE:20241004
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  10:00 PM PDT: Cano rental car -enterprise\n  Cano car : Mini van\n
-  enterprise\n
-  Itinerary: 72923977880042\n
-  Conf: #1366432635\n
-  \n----------------------------------------\n
-  10:00 PM PDT: Hector car - enterprise\n  Hector car - mini van\n
-  enterprise\n
-  Confirmation: #1366432799\n
-  itinerary:  72923979169209\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - SFO>SHV- Untied -  PSYLDG - DC\,JM\,MB - United\n
-    1417\n
-    DEPART: San Francisco International Airport 10/3/2024 12:57 PM PDT\n
-    ARRIVE: Shreveport Regional Airport 10/3/2024 9:15 PM CDT\n
-    \n----------------------------------------\n
-    Flight - SFO>SHV- Untied - PS57FD - HF\,JG - United\n
-    1417\n
-    DEPART: San Francisco International Airport 10/3/2024 12:57 PM PDT\n
-    ARRIVE: Shreveport Regional Airport 10/3/2024 9:15 PM CDT\n
-    \n----------------------------------------\n
-    Flight - SFO>SHV- Untied - PTEGNM - JC\,AG - United\n
-    1417\n
-    DEPART:  10/3/2024 12:57 PM PDT\n
-    ARRIVE:  10/3/2024 9:15 PM PDT\n
-    \n----------------------------------------\n
-    Flight - BUR>SHV - United - PZL00P - JL - United\n
-    2292\n
-    DEPART: Hollywood Burbank Airport 10/3/2024 1:05 PM PDT\n
-    ARRIVE: Shreveport Regional Airport 10/3/2024 9:15 PM CDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211028
-LAST-MODIFIED:20240828T211046
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:1b4c15d9-9d58-49ef-9a4f-dccbf91ef1e5
-DTSTAMP:20240624T203609
-SUMMARY:Red River Revel Festival (Louisiana)- Full band w/ Jasmine
-DTSTART:20241004T130000Z
-DTEND:20241005T024500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:**FULL BAND W/ JASMINE**
-  Festival Plaza - 101 Crockett Street\, Shreveport\, LA 71101\n
-  Contact:\n
-  Sarah Garrett\n
-  318-560-0037\n
-  music@redriverrevel.com\n
-  Logan Lewis\n
-  Executive Director\n
-  O: (318) 424-4000 | M: (318) 533-4432\n
-  https://redriverrevel.com/\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 AM CDT: Angie load/ set-up console\n  Parkin located behind the Ch
- ase Stage at the service entrance at the corner of Crockett St and Marke
- t St.\n
-  \n----------------------------------------\n
-  9:20 AM - 10:30 AM CDT: Band Load & Soundcheck\n  Parkin located behind
-  the Chase Stage at the service entrance at the corner of Crockett St an
- d Market St.\n
-  \n----------------------------------------\n
-  3:30 PM CDT: 3:30pm Lunch hosted by local family restaurant\n----------
- ------------------------------\n
-  4:45 PM CDT: Doors\n----------------------------------------\n
-  7:00 PM CDT: 7pm call time\n  Two RV's located backstage\n
-  \n----------------------------------------\n
-  8:00 PM - 8:30 PM CDT: Changeover/Line Check\n-------------------------
- ---------------\n
-  8:30 PM - 9:45 PM CDT: Showtime! (75min)\n-----------------------------
- -----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-GEO:32.5132752;-93.743866
-LOCATION:101 Crockett St\nShreveport LA  71101 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="101 Crockett St\nShreveport LA 71101 United States":geo:32.5132752
- ,-93.743866
-CREATED:20240624T203609
-LAST-MODIFIED:20240911T011646
-X-HECTOR-SCHED:20241004 → 480–1305 min (CDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:1e61f5e3-7932-4f5b-9237-b4f733ff0e64
-DTSTAMP:20240828T211126
-SUMMARY:Fly Shreveport to LAX (tentative)
-DTSTART;VALUE=DATE:20241005
-DTEND;VALUE=DATE:20241006
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  2:00 PM PDT: 2pm lobby/ pack cars\n------------------------------------
- ----\n
-  \n*************************************\nFLIGHTS:\n
-    FLight - SHV>ONT - United - FLK4FN - AG - United\n
-    5900\n
-    DEPART: Shreveport Regional Airport 10/5/2024 9:00 AM CDT\n
-    ARRIVE: Ontario International Airport 10/5/2024 12:32 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJELPK - DC\,MB\,JM - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE: Los Angeles International Airport 10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJHTG7 - HF\,JG\,JL - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE:  10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SHV>LAX - United - AJN5ZR - JC - United\n
-    4912\n
-    DEPART: Shreveport Regional Airport 10/5/2024 4:10 PM CDT\n
-    ARRIVE:  10/5/2024 7:41 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211126
-LAST-MODIFIED:20240828T211126
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:624776f2-d55d-4498-b657-f34e03647a18
@@ -10803,38 +10451,39 @@ LAST-MODIFIED:20260926T005000
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:fabd32b2-49bc-46d5-85c3-907457577781
-DTSTAMP:20260923T172413
-SUMMARY:CSULB DDM (DC/HF/MB/JJ/JL)
-DTSTART;TZID=America/Los_Angeles:20261006T100000
-DTEND;TZID=America/Los_Angeles:20261006T150000
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 562-985-4111\n
-    http://www.csulb.edu/\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.csulb.edu/
-GEO:33.7838235;-118.1140904
-LOCATION:California State University Long Beach\n1250 Bellflower Blvd\nLo
- ng Beach CA  90840 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="California State University Long Beach\n1250 Bellflower Blvd\nLong
-  Beach CA 90840 United States":geo:33.7838235,-118.1140904
-CREATED:20260923T172413
-LAST-MODIFIED:20260926T005319
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:518b0379-cfa6-4250-8744-adf5deadd53d
 DTSTAMP:20260825T190015
 SUMMARY:Chicano Park Museum Fundraiser
-DTSTART:20261010T040000Z
+DTSTART:20261009T210000Z
 DTEND:20261010T050000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nSCHEDULE:\n
+  2:00 PM - 4:00 PM PDT: Load-in & Soundcheck\n--------------------------
+ --------------\n
+  5:00 PM PDT: Doors\n----------------------------------------\n
+  8:30 PM - 9:00 PM PDT: Changeover  time tbd\n--------------------------
+ --------------\n
   9:00 PM - 10:00 PM PDT: Showtime (60Min\n------------------------------
  ----------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Hotel Burbank - JC\, JM\n
+    Burbank\, CA\, 91502\, US\n
+    ARRIVE: 10/9/2026 12:00 AM PDT\n
+    DEPART: 10/9/2026 11:59 PM PDT\n
+    Hotel - John\, Mijangos\n
+  Hotel has a shuttle to the airport.\n
+  Hotel confirmation number:\n
+  Room 1: 1063623638\n
+  1 Night\, 1 Room\n
+  Check-in\n
+  Fri\, October 09\, 2026\n
+  after 15:00\n
+  Check-out\n
+  Sat\, October 10\, 2026\n
+  by 11:00\n
+  \n
+    tel:818-841-4770\n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 GEO:32.6964916;-117.1415823
@@ -10844,7 +10493,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  -117.1415823
 CREATED:20260825T190015
 LAST-MODIFIED:20260916T015924
-X-HECTOR-SCHED:20261009 → 1260–1320 min (PDT)
+X-HECTOR-SCHED:20261009 → 840–1320 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10898,22 +10547,7 @@ DTSTART:20261011T150000Z
 DTEND:20261012T010000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:An Evening of Remembrance\, Music & Tradition–Día de los Muer
- tos Celebración
-  Step into a world of color and rhythm for a heartfelt Día de los Mue
- rtos celebration\, Friday\, October 23. Hosted in partnership with Neva
- da State University\, this event is a powerful tribute to ancestors and
-  loved ones\, brought to life through art\, music and cultural tradition
- .\n
-  Wander through the handmade ofrendas (alters) created by students and
-  local community members\, traditional dance and a special performanc
- e by Las Cafeteras. Bring your family and friends\, everyone is welcome
- to take part in this vibrant celebration of life!\n
-  📅 Friday\, October 23 | 5-9pm\n
-  🎟️ FREE\n
-  📍 NSU James E. & Beverly Rodgers Student Center\n
-    1300 Nevada State Drive\n
-  \nVENUE INFO:\n
+DESCRIPTION:VENUE INFO:\n
     tel:+1 801-629-8000\n
     http://ogdenamphitheater.com/\n
     capacity: 7300\n
@@ -10932,7 +10566,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Ogden Amphitheater\n343 E 25th St\nOgden UT 84401 United States":g
  eo:41.2198753,-111.9720078
 CREATED:20260425T181919
-LAST-MODIFIED:20260917T230224
+LAST-MODIFIED:20261001T224855
 X-HECTOR-SCHED:20261011 → 540–1140 min (MDT)
 END:VEVENT
 BEGIN:VEVENT
@@ -11004,6 +10638,12 @@ DESCRIPTION:*************************************\nFLIGHTS:
   \n
     ARRIVE: Hollywood Burbank Airport 10/12/2026 4:50 PM PDT\n
     \n----------------------------------------\n
+    Flight - SLC>ORD - United - LH4WM4 - HF - United\n
+    UA1382\n
+    DEPART: Salt Lake City International Airport 10/12/2026 12:42 PM MDT\
+ n
+    ARRIVE: Chicago O'Hare International Airport 10/12/2026 5:00 PM CDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260722T021631
@@ -11023,6 +10663,26 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260926T000939
 LAST-MODIFIED:20260926T000939
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:e35363ff-1d1b-47d1-bbb2-b4aec77fa276
+DTSTAMP:20261008T224417
+SUMMARY:Hector Fly home
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - ORD>LAX - United - L7VJXK -HF - United\n
+    2499\n
+    DEPART: Chicago O'Hare International Airport 10/14/2026 7:45 PM CDT\n
+    ARRIVE: Los Angeles International Airport 10/14/2026 10:20 PM PDT\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20261008T224417
+LAST-MODIFIED:20261008T224417
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -11058,7 +10718,7 @@ TRANSP:OPAQUE
 UID:f1ce0e99-13d2-449d-af54-753ed0a262a8
 DTSTAMP:20260211T023853
 SUMMARY:DDM Concert  (Nevada State University)
-DTSTART:20261024T021500Z
+DTSTART:20261024T000000Z
 DTEND:20261024T033000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
@@ -11072,13 +10732,18 @@ DESCRIPTION:VENUE: Nevada State University/LOCATION: 1125 Nevada State Dr
   7pm show\n
   Load in at 3pm.\n
   \n*************************************\nSCHEDULE:\n
+  5:00 PM PDT: Event start\n----------------------------------------\n
+  6:00 PM - 6:55 PM PDT: Mariachi/ Folklorico\n--------------------------
+ --------------\n
+  6:55 PM - 7:15 PM PDT: Changeover (20min)\n----------------------------
+ ------------\n
   7:15 PM - 8:30 PM PDT: SHOW TIME! (75MIN)\n  Set Time: 7:15pm-8:30pm\n
   \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260211T023853
 LAST-MODIFIED:20260722T015521
-X-HECTOR-SCHED:20261023 → 1155–1230 min (PDT)
+X-HECTOR-SCHED:20261023 → 1020–1230 min (PDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
