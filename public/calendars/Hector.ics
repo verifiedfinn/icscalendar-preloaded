@@ -2,80 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:5d457309-e440-4d73-a42b-500e3e50c400
-DTSTAMP:20240607T014111
-SUMMARY:NATIONAL GALLERY\, (WASHINGTON\, DC)
-DTSTART:20241010T183000Z
-DTEND:20241011T004000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:**FULL BAND W/ JASMINE**
-  Día de los Muertos Celebration (4th Street Plaza)\n
-  Thursday\, October 10\, 2024\n
-  6:00 p.m. – 9:00 p.m.\n
-  East Building\n
-  National Gallery of Art\, 6th & Constitution Ave.\, NW\, Washington\, D
- C 20565\n
-  Kathleen Chau\n
-  202-870-4919\n
-  k-chau@nga.gov\n
-  performing in main Auditorium\n
-  NO MERCH\n
-  no transportation\, two reserved parking spaces on our campus for perso
- nal-sized vehicles\n
-  NO HOTEL\n
-  Park: https://drive.google.com/open?id=17tMxDle-XiLVDWeYLKXkQbdXS0B6vst
- I\n
-  We have a green room near the Auditorium stage entrance for use with on
- e private restroom. NO DRESSING ROOM\n
-  https://www.nga.gov/calendar/community-events/nights/dia-de-los-muertos
- -celebration.html/2024/10/10/1800\n
-  \nVENUE INFO:\n
-    tel:+1 202-737-4215\n
-    https://www.nga.gov/\n
-  \n*************************************\nSCHEDULE:\n
-  2:30 PM EDT: Angie load/ set-up console\n  Audio car: Cano\, Angie\, Mi
- jangos\, Jesus\n
-  \n----------------------------------------\n
-  3:30 PM - 4:00 PM EDT: Band loads and purchases meals w/ vouchers\n  Me
- rch comadre car: Héctor\, Denise & Chui\, Jasmine\, Moi\n
-  \n----------------------------------------\n
-  4:00 PM - 5:00 PM EDT: Soundcheck\n------------------------------------
- ----\n
-  5:00 PM EDT: Dinner /Band dress/prep\n---------------------------------
- -------\n
-  6:00 PM EDT: Doors\n----------------------------------------\n
-  6:30 PM - 7:25 PM EDT: Set 1 Show time (55 min)\n----------------------
- ------------------\n
-  7:45 PM - 8:40 PM EDT: Set 2 Show time (55min)\n-----------------------
- -----------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:https://www.nga.gov/
-GEO:38.8911966;-77.0171282
-LOCATION:National Gallery of Art - East Building\n4th St NW\nWashington D
- C  20565 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="National Gallery of Art - East Building\n4th St NW\nWashington DC
- 20565 United States":geo:38.8911966,-77.0171282
-CREATED:20240607T014111
-LAST-MODIFIED:20241010T180629
-X-HECTOR-SCHED:20241010 → 870–1240 min (EDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:7710490c-3f2d-4baa-9af8-fae00f151baf
