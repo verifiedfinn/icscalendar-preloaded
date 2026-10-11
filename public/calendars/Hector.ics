@@ -2,61 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:7710490c-3f2d-4baa-9af8-fae00f151baf
-DTSTAMP:20240828T211626
-SUMMARY:Flight DC> Utah
-DTSTART:20241011T190000Z
-DTEND:20241012T033000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  12:00 PM PDT: Car pack up/drive to airport\n---------------------------
- -------------\n
-  8:30 PM - 10/12/2024 8:30 PM PDT: Rental cars : Hector/Cano - Alamo\n
- Hector Car:\n
-  Fullsize\n
-  Alamo\n
-  Confirmation number 2073138711COUNT\n
-  Cano Car:\n
-  Fullsize\n
-  Alamo\n
-  Confirmation number 2073138814COUNT\n
-  Alamo phone number 8449420335\n
-  \n----------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - DCA>SLC - Southwest - 245DNV - JL - Southwest\n
-    1925\n
-    DEPART: Ronald Reagan Washington National Airport 10/11/2024 1:55 PM
- EDT\n
-    ARRIVE: Salt Lake City International Airport 10/11/2024 8:10 PM MDT\n
-    \n----------------------------------------\n
-    Flight - DCA>SLC - Southwest - 4XWJVP - JC\,HF\,DC\,MB\,JG\,AG\,JM -
- Southwest\n
-    1925\n
-    DEPART: Ronald Reagan Washington National Airport 10/11/2024 1:55 PM
- EDT\n
-    ARRIVE: Salt Lake City International Airport 10/11/2024 8:10 PM MDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211626
-LAST-MODIFIED:20240830T074645
-X-HECTOR-SCHED:20241011 → 720–1230 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:6c3d2722-863e-4cf7-afc8-cc8eb6db9a57
