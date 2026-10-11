@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10364,7 +10364,29 @@ DTSTART;VALUE=DATE:20261010
 DTEND;VALUE=DATE:20261011
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  10:00 PM - 10/11/2026 10:00 PM PDT: Rental Car - Denise -  Enterprise\n
+   Enterprise\n
+  Confirmation: #2140043674\n
+  Expedia itinerary: 73563000510206\n
+  Reservation details<h4>Pick-up</h4>\n
+  Sat\, Oct 10\n
+  10:00pm\n
+  <h4>Drop-off</h4>\n
+  Mon\, Oct 12\n
+  4:00pm\n
+  \n----------------------------------------\n
+  10:00 PM PDT: Rental car Hector - Enterprise\n  Enterprise\n
+  Confirmation: #2140043764\n
+  Expedia itinerary: 73563000893613\n
+  Reservation details<h4>Pick-up</h4>\n
+  Sat\, Oct 10\n
+  10:00pm\n
+  <h4>Drop-off</h4>\n
+  Mon\, Oct 12\n
+  4:00pm\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - BUR>SLC-SOUTHWEST- C7WGMH -DC\,HF\,JM\,JJ\,JC\,MB - SOUTHWES
  T\n
     WN #0898\n
