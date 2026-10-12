@@ -2,93 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:6c3d2722-863e-4cf7-afc8-cc8eb6db9a57
-DTSTAMP:20240526T001125
-SUMMARY:Ogden Dia De Los Muertos (Ogden\, UT)
-DTSTART:20241012T153000Z
-DTEND:20241013T020000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:**FULL BAND W/ JASMINE**
-  CONTACT:\n
-  Reba Nissen\n
-  801.682.6953\n
-  reba.ofoam@gmail.com\n
-  https://www.ofoam.org/dia-de-los-muertos\n
-  1 x 75 min mainstage set: OUTDOORS (FREE EVENT)\n
-  Transpo:\n
-  Reba will make your rental car reservations for 2 full size cars soon a
- nd send those confirmations over as I get them. Jose/ Hector will provid
- e the rental agency with a major CC and show their drivers license. We w
- ill reimburse by check as soon as you provide us with those invoices.\n
-  Hotel: YES\n
-  Backline: YES\n
-  \nVENUE INFO:\n
-    tel:+1 801-629-8000\n
-    http://ogdenamphitheater.com/\n
-    capacity: 7300\n
-  \n*************************************\nSCHEDULE:\n
-  9:30 AM MDT: Angie load/ set-up console\n  FOH load in at Ogden Amphit
- heater\n
-  \n----------------------------------------\n
-  10:30 AM - 11:45 AM MDT: Load & Soundcheck\n  https://maps.app.goo.gl/a
- HiXeG3oCax6jX2X7\n
-  \n----------------------------------------\n
-  11:50 AM MDT: Hector to Merch Booth\n  Hector to Merchandise Booth to c
- heck in merch\,\n
-  \n----------------------------------------\n
-  12:00 PM MDT: Doors\n  Dia de los Muertos en Ogden - Noche de Almas beg
- ins\n
-  \n----------------------------------------\n
-  5:20 PM MDT: Green room open for Las Cafeteras\n-----------------------
- -----------------\n
-  5:25 PM MDT: CALL TIME\n----------------------------------------\n
-  6:05 PM - 6:35 PM MDT: Changeover\n  6:05 PM  Las Cafeteras FOH\, lin
- e check\, stage set\n
-  \n----------------------------------------\n
-  6:45 PM - 8:00 PM MDT: Showtime (75 min)\n-----------------------------
- -----------\n
-  8:30 PM MDT: Post-performance meal at restaurant near hotel and amphith
- eater\n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    OGDEN HOTEL: Hampton Inn & Suites Ogden\n
-    2401 Washington Blvd\, Ogden\, UT\, 84401\, US\n
-    ARRIVE: 10/11/2024 12:00 AM MDT\n
-    DEPART: 10/13/2024 11:59 PM MDT\n
-    1- Denise Carlos 96286033\n
-  2- Hector Flores 93140849\n
-  3-Angela Gonzalez 97597585\n
-  4-Jasmine Lopez 90257809\n
-  5- Jose Cano & Jesus Gonzalez 92353329\n
-  6-Moises Baqueiro & Jorge Mijangos 90780625\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://ogdenamphitheater.com/
-GEO:41.2198753;-111.9720078
-LOCATION:Ogden Amphitheater\n343 E 25th St\nOgden UT  84401 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Ogden Amphitheater\n343 E 25th St\nOgden UT 84401 United States":g
- eo:41.2198753,-111.9720078
-CREATED:20240526T001125
-LAST-MODIFIED:20240911T012558
-X-HECTOR-SCHED:20241012 → 570–1200 min (MDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:5e9a03cf-3466-4269-ac4d-c228fb382832
