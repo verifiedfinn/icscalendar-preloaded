@@ -2,57 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Denver
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:5e9a03cf-3466-4269-ac4d-c228fb382832
-DTSTAMP:20240909T232453
-SUMMARY:Flight SLC>BUR/ONT
-DTSTART;VALUE=DATE:20241013
-DTEND;VALUE=DATE:20241014
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - SLC> LGB Southwest - 3Y5567 - DC - Southwest\n
-    WN540\n
-    DEPART: Salt Lake City International Airport 10/13/2024 10:50 AM MDT\
- n
-    ARRIVE: LGB 10/13/2024 11:40 AM PDT\n
-    \n----------------------------------------\n
-    Flight - SLC>BUR - Southwest - 34DKI4 - HF\,MB\,JG\,JL - Southwest\n
-    1294\n
-    DEPART: Salt Lake City International Airport 10/13/2024 12:20 PM MDT\
- n
-    ARRIVE: Hollywood Burbank Airport 10/13/2024 3:35 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SLC>BUR - Southwest - 4B5MMI - JM - Southwest\n
-    1294\n
-    DEPART: Salt Lake City International Airport 10/13/2024 12:20 PM MDT\
- n
-    ARRIVE: Hollywood Burbank Airport 10/13/2024 3:35 PM PDT\n
-    \n----------------------------------------\n
-    Flight - SLC>ONT - Southwest - 34FT62- AG - Southwest\n
-    1294\n
-    DEPART: Salt Lake City International Airport 10/13/2024 12:20 PM MDT\
- n
-    ARRIVE: Hollywood Burbank Airport 10/13/2024 3:55 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240909T232453
-LAST-MODIFIED:20240909T232453
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:f790ab2e-b95c-4c08-a353-92c1174c8f4f
