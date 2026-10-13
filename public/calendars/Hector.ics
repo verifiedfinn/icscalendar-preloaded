@@ -7972,12 +7972,12 @@ DESCRIPTION:Monday\, April 13\, 2026\, 9:30 AM
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.galloarts.org/
-GEO:37.6396361;-120.9983935
+GEO:37.639539;-120.9984804
 LOCATION:Gallo Center for the Arts\n1000 I St\nModesto CA  95354 United S
  tates
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Gallo Center for the Arts\n1000 I St\nModesto CA 95354 United Stat
- es":geo:37.6396361,-120.9983935
+ es":geo:37.639539,-120.9984804
 CREATED:20251125T034430
 LAST-MODIFIED:20251125T034430
 END:VEVENT
@@ -10547,6 +10547,40 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  .039737,-88.286914
 CREATED:20260917T224436
 LAST-MODIFIED:20260917T224616
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:7031e2fe-2034-4976-961c-447fbef3c051
+DTSTAMP:20261013T220620
+SUMMARY:Mission Hills
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:● Event Name: Día de los Muertos 2026
+  ● Event Date: Saturday\, November 7\, 2026\n
+  ● Event Location: San Fernando Mission Cemetery\n
+  ● Event Address: 11160 Stranwood Avenue\, Mission Hills\, CA 91346\n
+  ● Performance Time: 5:00 PM–6:00 PM\n
+  ● Performance Duration: One (1) hour\n
+  ● Sound Equipment: To be provided by the venue\n
+  \nVENUE INFO:\n
+    tel:+1 818-361-7387\n
+    https://catholiccm.org/san-fernando-mission-cemetery-mission-hills-ca
+ tholic-mortuary\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://catholiccm.org/san-fernando-mission-cem
+ etery-mission-hills-catholic-mortuary
+GEO:34.2740211;-118.4667445
+LOCATION:San Fernando Mission Cemetery & Mission Hills Catholic Mortuary\
+ n11160 Stranwood Ave\nMission Hills\nLos Angeles CA  91345 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="San Fernando Mission Cemetery & Mission Hills Catholic Mortuary\n1
+ 1160 Stranwood Ave\nMission Hills\nLos Angeles CA 91345 United States":g
+ eo:34.2740211,-118.4667445
+CREATED:20261013T220620
+LAST-MODIFIED:20261013T220620
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
