@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -4070,7 +4070,7 @@ DESCRIPTION:CONTACT: Sam Leonard 413-221-2423
  eys)\n
   FOH Angie\n
   \nVENUE INFO:\n
-    tel:+1 413-345-2945\n
+    tel:+1 413-230-3020\n
     https://www.thedrakeamherst.org/\n
   \n*************************************\nSCHEDULE:\n
   10:00 AM - 12:00 PM EDT: Breakfast on your own\n-----------------------
@@ -4101,11 +4101,11 @@ DESCRIPTION:CONTACT: Sam Leonard 413-221-2423
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://www.thedrakeamherst.org/
-GEO:42.37638880000001;-72.5202764
+GEO:42.3761907;-72.5201584
 LOCATION:The Drake\n44 N Pleasant St\nAmherst MA  01002 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="The Drake\n44 N Pleasant St\nAmherst MA 01002 United States":geo:4
- 2.37638880000001,-72.5202764
+ 2.3761907,-72.5201584
 CREATED:20250515T175009
 LAST-MODIFIED:20250725T185230
 X-HECTOR-SCHED:20250807 → 600–1290 min (EDT)
@@ -6312,12 +6312,12 @@ DESCRIPTION:DOS SCHEDULE
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:http://www.sunsetcenter.org/
-GEO:36.5517403;-121.9216415
-LOCATION:Sunset Center\nSan Carlos St\nCarmel-By-The-Sea\nCarmel-by-the-S
- ea CA  93923 United States
+GEO:36.5515689;-121.9211629
+LOCATION:Sunset Center\n908 San Carlos St\nCarmel-By-The-Sea\nCarmel-by-t
+ he-Sea CA  93921 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Sunset Center\nSan Carlos St\nCarmel-By-The-Sea\nCarmel-by-the-Sea
-  CA 93923 United States":geo:36.5517403,-121.9216415
+ ITLE="Sunset Center\n908 San Carlos St\nCarmel-By-The-Sea\nCarmel-by-the
+ -Sea CA 93921 United States":geo:36.5515689,-121.9211629
 CREATED:20250819T195945
 LAST-MODIFIED:20251102T142600
 END:VEVENT
