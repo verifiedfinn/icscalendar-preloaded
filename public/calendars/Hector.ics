@@ -3,42 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:f790ab2e-b95c-4c08-a353-92c1174c8f4f
-DTSTAMP:20240828T211727
-SUMMARY:Flight - LA>Richmond\, VA
-DTSTART;VALUE=DATE:20241015
-DTEND;VALUE=DATE:20241016
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - LGB>RIC - Southwest - 2KVNWB - DC\,HF - Southwest\n
-    2378\n
-    DEPART: Long Beach Airport 10/15/2024 10:25 AM PDT\n
-    ARRIVE: Richmond International Airport 10/15/2024 8:50 PM EDT\n
-    \n----------------------------------------\n
-    Flight - LAX>RIC - United - HT7939 - JC\,JM\,JG - United\n
-    1260\n
-    DEPART: Los Angeles International Airport 10/15/2024 11:00 AM PDT\n
-    ARRIVE: Richmond International Airport 10/15/2024 11:18 PM EDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240828T211727
-LAST-MODIFIED:20240828T211727
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:0b8af526-da33-41e9-bd61-bc995b1009cc
@@ -10413,6 +10388,34 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20261008T224417
 LAST-MODIFIED:20261008T224417
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:052451cd-4f35-4673-a0f6-3bed4ee6e65e
+DTSTAMP:20261001T043503
+SUMMARY:Fly to Phoenix
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - BUR>PHX-SOUTHWEST- A9E4CX (DC\,MB\,JJ\,HF\, JL) - Southwest\
+ n
+    WN856\n
+    DEPART: Hollywood Burbank Airport 10/19/2026 10:40 AM PDT\n
+    ARRIVE: Phoenix Sky Harbor International Airport 10/19/2026 12:15 PM
+ MST\n
+    \n----------------------------------------\n
+    Lina\, Dante\, Jen- LGB>PHX-SOUTHWEST- A92M23 - SOUTHWEST\n
+    WN2569\n
+    DEPART: Long Beach Airport 10/19/2026 11:00 AM PDT\n
+    ARRIVE: Phoenix Sky Harbor International Airport 10/19/2026 12:20 PM
+ MST\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20261001T043503
+LAST-MODIFIED:20261001T044420
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
