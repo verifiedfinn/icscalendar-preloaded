@@ -28,7 +28,23 @@ const HECTOR_RE = /hector|\bhf\b/i;
 // Band-wide show/performance events are included regardless — Hector performs
 // at every Las Cafeteras show.
 const SHOW_RE =
-  /las\s*cafeteras|\bshow\b|\bconcert\b|\bperformance\b|\bgig\b|\bfestival\b|show\s*time|musicians\s*arrive/i;
+  /las\s*cafeteras|\bshow\b|\bconcert\b|\bperformance\b|\bmatinee\b|\bgig\b|\bfestival\b|show\s*time|musicians\s*arrive/i;
+
+// Band-wide travel days. Artist Growth often files tour travel ("FLY TO NEVADA",
+// "TRAVEL HOME", "Fly to Indiana", "Fly home") with no personnel listed, so
+// neither HECTOR_RE nor SHOW_RE matches and the day silently disappears.
+// Hector performs at every show, so a travel entry that sits within
+// TRAVEL_ADJ_DAYS of a kept show/Hector event is treated as his travel too.
+const TRAVEL_RE = /\b(travel|fly|flight|flights|drive|driving|road\s*trip|airport)\b/i;
+// ...unless the SUMMARY names other people ("Dancers FLY HOME",
+// "John & Mijangos Flight", "Jasmine Flight Home", "Flight BUR>LGA - JM,JJ,AD,AG").
+// Names are case-insensitive; the initials list is case-sensitive so ordinary
+// words like "TO" in "FLY TO NEVADA" don't trip it. HF-tagged events never
+// reach this check (HECTOR_RE keeps them first).
+const OTHER_PEOPLE_RE =
+  /\b(dancers?|crew|lina|dante|jen|john|mijangos|jasmine?|jaz|denise|moi|xoco|chuy|alih|aunya|diego)\b/i;
+const OTHER_INITIALS_RE = /\b(DC|JM|JJ|JL|MB|AD|AG|LD)\b/;
+const TRAVEL_ADJ_DAYS = 2;
 
 // Hotel detection checked against SUMMARY only.
 // Artist Growth adds an "ACCOMMODATIONS:" header to nearly every event's
@@ -217,11 +233,25 @@ function textFields(fields) {
 
 const isHectorEvent = fields => textFields(fields).some(v => HECTOR_RE.test(v));
 const isShowEvent   = fields => textFields(fields).some(v => SHOW_RE.test(v));
-const isHotelEvent  = fields => HOTEL_RE.test(fields.SUMMARY || '');
+// A show whose venue is a hotel ("Hotel Congress DDM show") is a show, not lodging.
+const isHotelEvent  = fields => HOTEL_RE.test(fields.SUMMARY || '') && !SHOW_RE.test(fields.SUMMARY || '');
+const isTravelEvent = fields => {
+  const sum = fields.SUMMARY || '';
+  return TRAVEL_RE.test(sum) && !OTHER_PEOPLE_RE.test(sum) && !OTHER_INITIALS_RE.test(sum);
+};
+
+// Calendar-date span of an event as YYYYMMDD strings (DTEND is exclusive for
+// all-day events; for timed events the UTC date is close enough for adjacency).
+function eventDateRange(fields) {
+  const sm = (fields.DTSTART || '').match(/(\d{8})/);
+  if (!sm) return null;
+  const em = (fields.DTEND || '').match(/(\d{8})/);
+  return { s: sm[1], e: em ? em[1] : sm[1] };
+}
 
 // ── Build output lines for a single kept event ────────────────────────────────
 
-function buildEventLines(ev, isHotel) {
+function buildEventLines(ev, isHotel, isTravel = false) {
   const { rawLines, fields } = ev;
 
   // For single-day all-day events, try to replace VALUE=DATE with real UTC times.
@@ -256,6 +286,7 @@ function buildEventLines(ev, isHotel) {
     }
     if (t === 'END:VEVENT') {
       if (isHotel)  out.push('X-HECTOR-TYPE:LOCATION');
+      if (isTravel) out.push('X-HECTOR-REASON:TRAVEL-ADJACENT');
       if (inject)   out.push(`X-HECTOR-SCHED:${inject.label}`);
       out.push('END:VEVENT');
     } else {
@@ -291,7 +322,8 @@ async function main() {
   console.log(`Total events in calendar: ${allEvents.length}`);
 
   const kept = [];
-  let hotelCt = 0, showCt = 0, hectorCt = 0;
+  const dropped = [];
+  let hotelCt = 0, showCt = 0, hectorCt = 0, travelCt = 0;
 
   for (const ev of allEvents) {
     const { fields } = ev;
@@ -299,7 +331,7 @@ async function main() {
     const show   = isShowEvent(fields);
     const hotel  = isHotelEvent(fields);
 
-    if (!hector && !show) continue;   // unrelated to Hector
+    if (!hector && !show) { dropped.push(ev); continue; } // no Hector/show mention
     if (hotel && !hector) continue;   // band-wide hotel entry, not Hector's room
 
     if (hector) hectorCt++;
@@ -309,15 +341,43 @@ async function main() {
     kept.push({ ev, isHotel: hotel });
   }
 
-  console.log(`Kept: ${kept.length}  (${hectorCt} Hector-specific, ${showCt} band shows, ${hotelCt} hotels)`);
+  // Second pass: band-wide travel that brackets a kept show/Hector event.
+  const anchors = kept
+    .filter(k => !k.isHotel)
+    .map(k => eventDateRange(k.ev.fields))
+    .filter(Boolean);
+
+  for (const ev of dropped) {
+    const { fields } = ev;
+    if (!isTravelEvent(fields) || isHotelEvent(fields)) continue;
+    const r = eventDateRange(fields);
+    if (!r) continue;
+    const near = anchors.some(a =>
+      dateDiffDays(a.e, r.s) <= TRAVEL_ADJ_DAYS && dateDiffDays(r.e, a.s) <= TRAVEL_ADJ_DAYS);
+    if (!near) {
+      console.log(`  ✈ skipped travel (no show within ${TRAVEL_ADJ_DAYS}d): ${r.s} ${(fields.SUMMARY || '').slice(0, 50)}`);
+      continue;
+    }
+    kept.push({ ev, isHotel: false, isTravel: true });
+    travelCt++;
+  }
+
+  // Keep the output in date order now that the travel pass appends out of sequence.
+  kept.sort((a, b) => {
+    const da = eventDateRange(a.ev.fields)?.s || '';
+    const db = eventDateRange(b.ev.fields)?.s || '';
+    return da < db ? -1 : da > db ? 1 : 0;
+  });
+
+  console.log(`Kept: ${kept.length}  (${hectorCt} Hector-specific, ${showCt} band shows, ${hotelCt} hotels, ${travelCt} travel-adjacent)`);
 
   // ── Build output ICS ──────────────────────────────────────────────────────
   const preamble = extractPreamble(raw);
   const outLines = [...preamble];
   let timedCt = 0;
 
-  for (const { ev, isHotel } of kept) {
-    const lines = buildEventLines(ev, isHotel);
+  for (const { ev, isHotel, isTravel } of kept) {
+    const lines = buildEventLines(ev, isHotel, isTravel);
     outLines.push(...lines);
 
     // Count time-injected events for the log

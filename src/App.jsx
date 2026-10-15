@@ -183,21 +183,33 @@ const JASMIN_SOURCE_ID = "jasmin";
 // days, so entries here downgrade that day's Hector event(s) to context-only
 // (same treatment as a hotel/LOCATION entry — shown, but not counted as busy).
 // Remove an entry once its date has passed.
-// Format: "YYYY-M-D" (zero-padded), matching dayKey().
-const HECTOR_AVAILABLE_OVERRIDE_DATES = new Set([
-  "2026-09-09", // WAA 2026 (Oakland) multi-day block — available from the hotel
+// Key format: "YYYY-MM-DD" (zero-padded), matching dayKey().
+// Value: FULL_DAY (whole day available) or { from: "HH:MM" } (24h, local time)
+// meaning the day's events stay busy up to that time and are context-only after.
+const FULL_DAY = null;
+const HECTOR_AVAILABLE_OVERRIDE_DATES = new Map([
+  ["2026-09-09", FULL_DAY],          // WAA 2026 (Oakland) multi-day block — available from the hotel
+  ["2026-10-19", { from: "15:00" }], // Fly to Phoenix (lands midday) — not available until after 3 PM
 ]);
 
 // Same treatment for Jasmin: that day's Jasmin event(s) become context-only,
 // so she counts as 100% available.
-const JASMIN_AVAILABLE_OVERRIDE_DATES = new Set([
-  "2026-10-19", // inside "Jasmin is Out" Oct 16–20 block — available this day
+const JASMIN_AVAILABLE_OVERRIDE_DATES = new Map([
+  ["2026-10-19", FULL_DAY], // inside "Jasmin is Out" Oct 16–20 block — available this day
 ]);
 
 const AVAILABLE_OVERRIDE_DATES = new Map([
   [HECTOR_SOURCE_ID, HECTOR_AVAILABLE_OVERRIDE_DATES],
   [JASMIN_SOURCE_ID, JASMIN_AVAILABLE_OVERRIDE_DATES],
 ]);
+
+// Absolute ms for "HH:MM" on the local calendar day that contains ts.
+function overrideCutoffMs(ts, hhmm) {
+  const m = /^(\d{1,2}):(\d{2})$/.exec(hhmm || "");
+  if (!m) return null;
+  const d = new Date(ts);
+  return new Date(d.getFullYear(), d.getMonth(), d.getDate(), +m[1], +m[2]).getTime();
+}
 
 // Hector.ics is auto-updated every 6h by .github/workflows/update-hector.yml
 // from the Artist Growth live feed. Events = Hector busy (availabilityMode:false).
@@ -982,21 +994,31 @@ export default function App(){
 
         // Manual override: this day is downgraded to context-only for the source,
         // same as a hotel/LOCATION entry (see AVAILABLE_OVERRIDE_DATES).
-        const isOverride = !ev.isLocation && !!AVAILABLE_OVERRIDE_DATES.get(ev.sourceId)?.has(k);
+        // A { from } override keeps the event busy up to the cutoff time and
+        // downgrades only the remainder of the day.
+        const ovMap = AVAILABLE_OVERRIDE_DATES.get(ev.sourceId);
+        const ov = ovMap && ovMap.has(k) ? ovMap.get(k) : undefined;
+        let isOverride = false;
+        let segStart = seg.start, segEnd = seg.end;
+        if (ov !== undefined && !ev.isLocation) {
+          const cutoff = ov && ov.from ? overrideCutoffMs(seg.start, ov.from) : null;
+          if (cutoff === null || seg.start >= cutoff) isOverride = true;
+          else segEnd = Math.min(seg.end, cutoff);
+        }
         const isLoc = ev.isLocation || isOverride;
 
         // Location events (hotels) show context only — skip busy-time accounting
         if (!isLoc && ev.sourceId !== PODCAST_ID && !AVAILABILITY_SOURCES.has(ev.sourceId)) {
           if(!perDayUnion.has(k)) perDayUnion.set(k, []);
-          perDayUnion.get(k).push([seg.start, seg.end]);
+          perDayUnion.get(k).push([segStart, segEnd]);
         }
 
         if(!perDayBySrc.has(k)) perDayBySrc.set(k, new Map());
         const m = perDayBySrc.get(k);
         if(!m.has(ev.sourceId)) m.set(ev.sourceId, { name: ev.sourceName, intervals: [], titles: [] });
-        if (!isLoc) m.get(ev.sourceId).intervals.push([seg.start, seg.end]);
+        if (!isLoc) m.get(ev.sourceId).intervals.push([segStart, segEnd]);
         // Overridden days still list the event as a plain note (no tag/emoji).
-        m.get(ev.sourceId).titles.push({ start: seg.start, end: seg.end, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc, isOverride });
+        m.get(ev.sourceId).titles.push({ start: segStart, end: segEnd, summary: ev.summary || "Event", isUrgent: !!ev.isUrgent, isCancelled: !!ev.isCancelled, isLocation: isLoc, isOverride });
 
         if (ev.isUrgent) urgentByDay.set(k, true);
 
