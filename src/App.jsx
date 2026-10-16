@@ -186,11 +186,22 @@ const JASMIN_SOURCE_ID = "jasmin";
 // Remove an entry once its date has passed.
 // Key format: "YYYY-MM-DD" (zero-padded), matching dayKey().
 // Value: FULL_DAY (whole day available) or { from: "HH:MM" } (24h, local time)
-// meaning the day's events stay busy up to that time and are context-only after.
+// meaning the day's events stay busy up to that time and are context-only after,
+// or { available: [["HH:MM","HH:MM"], ...], note } meaning the ONLY available
+// windows that day are the ones listed (24h, local time; [] = busy all day).
+// All feed events that day become context-only and the rest of the day is
+// blocked as a manual busy entry labelled with `note`. For Hector, those
+// manual entries are added to Hector (Personal) (see MANUAL_BLOCK_SOURCE).
 const FULL_DAY = null;
 const HECTOR_AVAILABLE_OVERRIDE_DATES = new Map([
   ["2026-09-09", FULL_DAY],          // WAA 2026 (Oakland) multi-day block — available from the hotel
   ["2026-10-19", { from: "15:00" }], // Fly to Phoenix (lands midday) — not available until after 3 PM
+  ["2026-10-21", { available: [], note: "Children's Workshops (not available)" }],
+  ["2026-10-22", { available: [["13:00", "16:00"]], note: "Not available (open 1–4 PM)" }],
+  ["2026-10-23", { available: [["13:00", "15:00"]], note: "Not available (open 1–3 PM)" }],
+  ["2026-10-26", FULL_DAY],          // Open except 11:30 AM–2 PM (already in Hector Personal feed)
+  ["2026-10-27", FULL_DAY],          // Open all day
+  ["2026-10-29", { available: [["08:00", "14:00"]], note: "Not available (open 8 AM–2 PM)" }],
 ]);
 
 // Same treatment for Jasmin: that day's Jasmin event(s) become context-only,
@@ -199,10 +210,41 @@ const JASMIN_AVAILABLE_OVERRIDE_DATES = new Map([
   ["2026-10-19", FULL_DAY], // inside "Jasmin is Out" Oct 16–20 block — available this day
 ]);
 
+// Which calendar the manual busy entries from { available } overrides go on.
+const MANUAL_BLOCK_SOURCE = new Map([
+  [HECTOR_SOURCE_ID, HECTOR_PERSONAL_ID],
+]);
+
 const AVAILABLE_OVERRIDE_DATES = new Map([
   [HECTOR_SOURCE_ID, HECTOR_AVAILABLE_OVERRIDE_DATES],
   [JASMIN_SOURCE_ID, JASMIN_AVAILABLE_OVERRIDE_DATES],
 ]);
+
+// Manual busy blocks for { available } overrides: the complement of the listed
+// windows within that local day, as synthetic events for the given source.
+function manualOverrideEvents(sourceId, sourceName, ovMap, rangeStart, rangeEnd) {
+  const out = [];
+  for (const [k, ov] of ovMap) {
+    if (!ov || !Array.isArray(ov.available)) continue;
+    const [y, mo, d] = k.split("-").map(Number);
+    const at = (hhmm) => { const [h, m] = hhmm.split(":").map(Number); return new Date(y, mo - 1, d, h, m).getTime(); };
+    const dayStart = at("00:00"), dayEnd = at("24:00");
+    const wins = ov.available.map(([a, b]) => [at(a), at(b)]).sort((p, q) => p[0] - q[0]);
+    let cur = dayStart;
+    const blocks = [];
+    for (const [a, b] of wins) { if (a > cur) blocks.push([cur, a]); cur = Math.max(cur, b); }
+    if (cur < dayEnd) blocks.push([cur, dayEnd]);
+    for (const [a, b] of blocks) {
+      if (b < rangeStart.getTime() || a > rangeEnd.getTime()) continue;
+      out.push({
+        sourceId, sourceName, summary: ov.note || "Not available",
+        isUrgent: false, isCancelled: false, isLocation: false, isManual: true,
+        start: new Date(a), end: new Date(b), allDay: a === dayStart && b === dayEnd,
+      });
+    }
+  }
+  return out;
+}
 
 // Absolute ms for "HH:MM" on the local calendar day that contains ts.
 function overrideCutoffMs(ts, hhmm) {
@@ -966,6 +1008,12 @@ export default function App(){
         out.push(e);
       }
     }
+    for (const [ovSid, ovMap] of AVAILABLE_OVERRIDE_DATES) {
+      const sid = MANUAL_BLOCK_SOURCE.get(ovSid) || ovSid;
+      if (!want.has(sid)) continue;
+      const name = (PRESET_CALENDARS.find(c => c.id === sid) || {}).name || sid;
+      out.push(...manualOverrideEvents(sid, name, ovMap, rangeStart, rangeEnd));
+    }
     return out;
   }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
 
@@ -1001,7 +1049,7 @@ export default function App(){
         const ov = ovMap && ovMap.has(k) ? ovMap.get(k) : undefined;
         let isOverride = false;
         let segStart = seg.start, segEnd = seg.end;
-        if (ov !== undefined && !ev.isLocation) {
+        if (ov !== undefined && !ev.isLocation && !ev.isManual) {
           const cutoff = ov && ov.from ? overrideCutoffMs(seg.start, ov.from) : null;
           if (cutoff === null || seg.start >= cutoff) isOverride = true;
           else segEnd = Math.min(seg.end, cutoff);
