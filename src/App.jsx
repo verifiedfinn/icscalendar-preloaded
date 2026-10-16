@@ -27,6 +27,7 @@ const monthStart = (d) => new Date(d.getFullYear(), d.getMonth(), 1);
 const monthEnd   = (d) => new Date(d.getFullYear(), d.getMonth()+1, 0);
 const dayKey     = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const clamp      = (v,a,b)=> Math.max(a, Math.min(b, v));
+const fmtHour12  = (h)=> { const x = ((h % 24) + 24) % 24; return `${x % 12 === 0 ? 12 : x % 12} ${x < 12 ? "AM" : "PM"}`; };
 const minutesBetween = (a,b)=> Math.max(0, Math.round((b-a)/60000));
 const mergeIntervals = (ints)=>{
   if(!ints.length) return [];
@@ -1450,10 +1451,13 @@ export default function App(){
           <div className="bg-white rounded-2xl shadow p-4 min-w-0">
             <h2 className="font-semibold mb-2">3) Hours & View</h2>
             <div className="flex items-center gap-2 mb-3">
-              <input type="number" min={0} max={23} value={workStart} onChange={e=>setWorkStart(clamp(parseInt(e.target.value||"0",10),0,23))} className="border rounded-lg p-2 w-20" />
+              <select value={workStart} onChange={e=>setWorkStart(clamp(parseInt(e.target.value,10),0,23))} className="border rounded-lg p-2">
+                {Array.from({length:24},(_,h)=>h).map(h=> <option key={h} value={h}>{fmtHour12(h)}</option>)}
+              </select>
               <span className="muted">to</span>
-              <input type="number" min={1} max={24} value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value||"24",10),1,24))} className="border rounded-lg p-2 w-20" />
-              <span className="muted">o'clock</span>
+              <select value={workEnd} onChange={e=>setWorkEnd(clamp(parseInt(e.target.value,10),1,24))} className="border rounded-lg p-2">
+                {Array.from({length:24},(_,i)=>i+1).map(h=> <option key={h} value={h}>{fmtHour12(h)}</option>)}
+              </select>
             </div>
             {/* flex-wrap (not a breakpoint-gated row/col switch) so this reflows
                 correctly no matter how narrow the card itself is -- the grid
