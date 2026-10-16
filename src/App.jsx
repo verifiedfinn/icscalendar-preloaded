@@ -210,6 +210,12 @@ const JASMIN_AVAILABLE_OVERRIDE_DATES = new Map([
   ["2026-10-19", FULL_DAY], // inside "Jasmin is Out" Oct 16–20 block — available this day
 ]);
 
+// Months ("YYYY-MM") where Hector's all-day Artist Growth (shows feed) blocks
+// are hidden entirely — not shown and not counted as busy. Timed events stay.
+const HECTOR_HIDE_ALLDAY_MONTHS = new Set(["2026-11"]);
+const isHiddenHectorAllDay = (e) =>
+  e.sourceId === HECTOR_SOURCE_ID && e.allDay && e.start && HECTOR_HIDE_ALLDAY_MONTHS.has(dayKey(e.start).slice(0, 7));
+
 // Which calendar the manual busy entries from { available } overrides go on.
 const MANUAL_BLOCK_SOURCE = new Map([
   [HECTOR_SOURCE_ID, HECTOR_PERSONAL_ID],
@@ -993,6 +999,7 @@ export default function App(){
               if (ee < rangeStart) { if (++i > 5000) break theIter; continue; }
               if (s  > rangeEnd) break;
               const summary = evt.summary || "Event";
+              if (isHiddenHectorAllDay({ sourceId: e.sourceId, allDay: next.isDate, start: s })) { if (++i > 5000) break; continue; }
               out.push({
                 sourceId:e.sourceId, sourceName:e.sourceName, summary,
                 isUrgent:/!/.test(summary), isCancelled: isCancelledSummary(summary), ep: e.sourceId===PODCAST_ID ? parseEpisode(summary) : null,
@@ -1004,7 +1011,7 @@ export default function App(){
             }
           }
         } catch { /* skip malformed recurring event */ }
-      } else if (!(e.end < rangeStart || e.start > rangeEnd)) {
+      } else if (!(e.end < rangeStart || e.start > rangeEnd) && !isHiddenHectorAllDay(e)) {
         out.push(e);
       }
     }
