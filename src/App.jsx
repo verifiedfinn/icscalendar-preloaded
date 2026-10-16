@@ -218,6 +218,11 @@ const isHiddenHectorAllDay = (e) =>
   e.sourceId === HECTOR_SOURCE_ID && e.allDay && e.start && !/blackout/i.test(e.summary || "") &&
   HECTOR_HIDE_ALLDAY_MONTHS.has(dayKey(e.start).slice(0, 7));
 
+// Hector (Personal) events hidden entirely by title (not shown, not counted as busy).
+const HECTOR_PERSONAL_HIDE_TITLES = [/recording\s*(&|and)\s*creation/i];
+const isHiddenHectorPersonal = (e) =>
+  e.sourceId === HECTOR_PERSONAL_ID && HECTOR_PERSONAL_HIDE_TITLES.some(re => re.test(e.summary || ""));
+
 // Which calendar the manual busy entries from { available } overrides go on.
 const MANUAL_BLOCK_SOURCE = new Map([
   [HECTOR_SOURCE_ID, HECTOR_PERSONAL_ID],
@@ -987,6 +992,7 @@ export default function App(){
     const want = selectedIds;
     for (const e of rawEvents) {
       if (!want.size || !want.has(e.sourceId)) continue;
+      if (isHiddenHectorPersonal(e)) continue;
       if (e.isRecurring) {
         try {
           const evt = new ICAL.Event(e.component);
