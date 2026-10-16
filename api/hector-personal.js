@@ -1,6 +1,5 @@
 // Vercel serverless function — proxies Hector's personal Google Calendar ICS.
 // The real URL lives in HECTOR_PERSONAL_ICS_URL (env var, never sent to browser).
-// Callers must supply:  Authorization: Bearer <APP_PASSWORD>
 
 let cache = { ics: null, at: 0 };
 const CACHE_MS = 30 * 60 * 1000; // 30 minutes
@@ -19,11 +18,6 @@ export default async function handler(req, res) {
   }
 
   Object.entries(CORS_HEADERS).forEach(([k, v]) => res.setHeader(k, v));
-
-  const expected = `Bearer ${process.env.APP_PASSWORD}`;
-  if (!process.env.APP_PASSWORD || req.headers['authorization'] !== expected) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
 
   const url = process.env.HECTOR_PERSONAL_ICS_URL;
   if (!url) {

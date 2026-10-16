@@ -219,7 +219,7 @@ function overrideCutoffMs(ts, hhmm) {
 const API_BASE = (import.meta.env.VITE_API_BASE || '').replace(/\/$/, '');
 const PRESET_CALENDARS = [
   { id: HECTOR_SOURCE_ID,   name: "Hector (Shows)",    url: `${import.meta.env.BASE_URL}calendars/Hector.ics`, availabilityMode: false },
-  { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `${API_BASE}/api/hector-personal`, availabilityMode: false, requiresAuth: true },
+  { id: HECTOR_PERSONAL_ID, name: "Hector (Personal)", url: `${API_BASE}/api/hector-personal`, availabilityMode: false },
   { id: JASMIN_SOURCE_ID,  name: "Jasmin",           url: `${import.meta.env.BASE_URL}calendars/Jasmin.ics`, availabilityMode: false },
 ];
 const AVAILABILITY_SOURCES = new Set(PRESET_CALENDARS.filter(p => p.availabilityMode).map(p => p.id));
@@ -676,7 +676,7 @@ export default function App(){
   const [dateFrom, setDateFrom] = useState(() => dayKey(monthStart(today)));
   const [dateTo,   setDateTo]   = useState(() => dayKey(monthEnd(today)));
   const [workStart, setWorkStart] = useState(8);
-  const [workEnd,   setWorkEnd]   = useState(20);
+  const [workEnd,   setWorkEnd]   = useState(18);
   const [viewMode, setViewMode] = useState("single");
   const [currentMonth, setCurrentMonth] = useState(() => monthStart(today));
   const [hoverDay, setHoverDay] = useState(null);
