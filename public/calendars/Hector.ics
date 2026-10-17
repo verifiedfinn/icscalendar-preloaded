@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -10583,6 +10583,38 @@ X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:737d1ea2-0e22-4265-9d21-feaa7f7e1d3d
+DTSTAMP:20261016T195903
+SUMMARY:Tucson Hotel: Hampton Inn/Home2Suites Downtown Tucson
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:1.     DENISE CARLOS: KING ROOM CFN: 80754957
+  2.     HECTOR FLORES: KING ROOM CFN: 88095181\n
+  3.     MOISES BAQUEIRO/ JONNY JYEMO : Q/Q ROOM CFN: 81541005\n
+  4.     JOHN CALANCHINI/ JORGE MIJANGOS: Q/Q ROOM CFN:81803981\n
+  5.      JASMINE LOPEZ : KING ROOM CFN: 86784045\n
+  \nVENUE INFO:\n
+    tel:+1 520-274-7400\n
+    https://www.hilton.com/en/hotels/tuscaht-home2-suites-tucson-downtown
+ /?SEO_id=GMB-AMER-HT-TUSCAHT\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://www.hilton.com/en/hotels/tuscaht-home2-
+ suites-tucson-downtown/?SEO_id=GMB-AMER-HT-TUSCAHT
+GEO:32.2197936;-110.9706912
+LOCATION:Home2 Suites by Hilton Tucson Downtown\n141 S Stone Ave\nTucson
+ AZ  85701 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Home2 Suites by Hilton Tucson Downtown\n141 S Stone Ave\nTucson AZ
+  85701 United States":geo:32.2197936,-110.9706912
+CREATED:20261016T195903
+LAST-MODIFIED:20261016T220557
+X-HECTOR-TYPE:LOCATION
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:398e3374-8fa6-4c4c-b633-382b7f755582
 DTSTAMP:20260206T020348
 SUMMARY:DDM Youth matinee
@@ -10611,17 +10643,33 @@ SUMMARY:Hotel Congress DDM show
 DTSTART;TZID=America/Phoenix:20261022T150000
 DTEND;TZID=America/Phoenix:20261022T230000
 DESCRIPTION:Date: Thursday\, October 22\, 2026
-  Time: Doors at 7:00 PM\; Show at 7:30 PM\n
+  Time: Doors at 6:00 PM\; Show at 7:00 PM\n
   Venue: Hotel Congress – Plaza Stage\, 311 E Congress St\, Tucson\, AZ
  \n
+  Ty Engle\n
+  Production Manager | Hotel Congress\n
+  520-409-5868\n
+  Be sure to stop by the hotel front desk upon arrival to get a parking p
+ ass for the loading zone at the corner of Toole Ave and Congress St. M
+ ap Attached.\n
   \nVENUE INFO:\n
     tel:+1 520-622-8848\n
     https://hotelcongress.com/\n
     capacity: 400\n
   \n*************************************\nSCHEDULE:\n
-  7:00 PM MST: Doors\n----------------------------------------\n
-  7:30 PM - 9:00 PM MST: SHOWTIME! 90 mi\n-------------------------------
- ---------\n
+  3:30 PM - 5:00 PM MST: 3:30pm  LC Load in / soundcheck\n  stop by the h
+ otel front desk upon arrival to get a parking pass for the loading zone
+ at the corner of Toole Ave and Congress St. Map Attached.\n
+  \n----------------------------------------\n
+  5:00 PM - 6:30 PM MST: 5pm SUPPORTload in / soundcheck\n---------------
+ -------------------------\n
+  6:30 PM MST: Doors\n----------------------------------------\n
+  7:30 PM - 8:00 PM MST: 7:30- 8pm SUPPORT (30min)\n---------------------
+ -------------------\n
+  8:15 PM - 9:45 PM MST: LC SHOWTIME! 90 mi\n----------------------------
+ ------------\n
+  10:00 PM MST: 10pm Stage Curfew\n--------------------------------------
+ --\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://hotelcongress.com/
@@ -10632,7 +10680,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Hotel Congress\n311 E Congress St #1811\nTucson AZ 85701 United St
  ates":geo:32.222248,-110.966648
 CREATED:20260425T183323
-LAST-MODIFIED:20260612T233904
+LAST-MODIFIED:20261016T224901
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10686,21 +10734,6 @@ CLASS:PUBLIC
 CREATED:20261001T045110
 LAST-MODIFIED:20261001T045110
 X-HECTOR-REASON:TRAVEL-ADJACENT
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:c88d9eaa-2b56-40a0-8bd7-ef0afcde0cf0
-DTSTAMP:20260926T001103
-SUMMARY:Hector in Chicago (HLM Promo)
-DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261028
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20260926T001103
-LAST-MODIFIED:20260926T001103
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
