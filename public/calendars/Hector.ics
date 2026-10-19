@@ -2,52 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:1d07ab09-fd35-426c-b83b-ab4b8a53d78e
-DTSTAMP:20241004T201849
-SUMMARY:Fly Home RIC>LAX/ONT
-DTSTART;VALUE=DATE:20241019
-DTEND;VALUE=DATE:20241020
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  2:00 PM PDT: JL pick up artists at hotel (Denise\,Pablo\,moi\,Jesus)\n-
- ---------------------------------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - RIC>BUR - United -AR5DBS  - JM\, JC - United\n
-    2493\n
-    DEPART: Richmond International Airport 10/19/2024 8:10 AM EDT\n
-    ARRIVE: Hollywood Burbank Airport 10/19/2024 12:45 PM PDT\n
-    \n----------------------------------------\n
-    Flight - RIC>SAN - Southwest - 3SA7OT - AG - Southwest\n
-    1498\n
-    DEPART: Richmond International Airport 10/19/2024 8:10 AM EDT\n
-    ARRIVE: San Diego International Airport 10/19/2024 2:20 PM PDT\n
-    \n----------------------------------------\n
-    Flight - RIC>LAX - Southwest - 3S88HY - DC\,JC\,HF\,MB\,JG - Southwes
- t\n
-    6222\n
-    DEPART:  10/19/2024 4:40 PM PDT\n
-    ARRIVE:  10/19/2024 9:30 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20241004T201849
-LAST-MODIFIED:20241004T201849
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:ec88aeb6-dbfc-4906-8cfa-3021f1798bf1
@@ -10517,7 +10483,40 @@ DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  10/18/2026 12:00 AM -  PDT: Rental Car - Budget - DC\n  Budget car rent
+ al in Tucson\n
+  Standard\n
+  Chevrolet Equinox or similar\n
+  5 passengers\n
+  Unlimited mileage\n
+  Pick-up\n
+  Mon\, Oct 19\, 1:00pm\n
+  1805 E. Sky Harbor Circle South\, Phoenix\, Arizona\, USA\, PHX\n
+  Drop-off\n
+  Fri\, Oct 23\, 10:30am\n
+  7275 S Tucson Blvd\, Tucson\, Arizona\, USA\, TUS\n
+  Confirmation #50150239US6\n
+  Budget Phone Number: 602 261 5950\n
+  Itinerary#73568830168213\n
+  \n----------------------------------------\n
+  10/18/2026 12:00 AM -  PDT: Rental Car - Budget - HF\n  Budget car rent
+ al in Tucson\n
+  Standard\n
+  Chevrolet Equinox or similar\n
+  5 passengers\n
+  Unlimited mileage\n
+  Pick-up\n
+  Mon\, Oct 19\, 1:00pm\n
+  1805 E. Sky Harbor Circle South\, Phoenix\, Arizona\, USA\, PHX\n
+  Drop-off\n
+  Fri\, Oct 23\, 10:30am\n
+  7275 S Tucson Blvd\, Tucson\, Arizona\, USA\, TUS\n
+  Confirmation #50150231US5\n
+  Budget Phone Number: 602 261 5950\n
+  Itinerary#73568829200069\n
+  \n----------------------------------------\n
+  \n*************************************\nFLIGHTS:\n
     Flight - BUR>PHX-SOUTHWEST- A9E4CX (DC\,MB\,JJ\,HF\, JL) - Southwest\
  n
     WN856\n
@@ -10535,6 +10534,34 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20261001T043503
 LAST-MODIFIED:20261001T044420
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:3bbcb248-ed14-4349-b6ef-c4b0e7db066d
+DTSTAMP:20260211T023711
+SUMMARY:Travel/ Load in ASU GAMMAGE (Tempe\, AZ) -1 hotel night
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nACCOMMODATIONS:
+    Hotel - the Graduate\n
+    Tempe\, AZ\, 85281\, US\n
+    ARRIVE: 10/19/2026 4:00 PM MST\n
+    DEPART: 10/20/2026 11:00 AM MST\n
+    1-Denise Carlos\n
+  2-Hector Flores\n
+  3-Moises Baqueiro/\n
+  4-Jonny Jyemo\n
+  5-Angelina Rivera/ Dante Espinoza\n
+  6-Jennifer Rodriguez\n
+  \n
+    tel:(480) 967-9431\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20260211T023711
+LAST-MODIFIED:20260728T224424
+X-HECTOR-TYPE:LOCATION
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
