@@ -721,8 +721,10 @@ export default function App(){
     { id: "America/New_York",    label: "ET (America/New_York)" },
   ];
   const [displayTz, setDisplayTz] = useState("America/Los_Angeles");
+  // Calendar-day labels. Day cells are built in the device's local time zone,
+  // so their labels must be too: formatting local midnight in displayTz shows
+  // the previous day whenever the device clock is east of that zone.
   const fmt = (d) => new Intl.DateTimeFormat(undefined, {
-    timeZone: displayTz === "system" ? undefined : displayTz,
     year: "numeric", month: "short", day: "numeric"
   }).format(d);
   const fmtTime = (d) => new Intl.DateTimeFormat(undefined, {
@@ -1488,7 +1490,7 @@ export default function App(){
               <span className="muted text-sm text-center sm:text-left">to</span>
               <input type="date" value={dateTo} onChange={e=>setDateTo(e.target.value)} className="border rounded-lg p-2 w-full min-w-0" />
             </div>
-            <div className="text-xs muted mt-2">{fmt(new Date(dateFrom))} – {fmt(new Date(dateTo))}</div>
+            <div className="text-xs muted mt-2">{fmt(fromDayKey(dateFrom))} – {fmt(fromDayKey(dateTo))}</div>
 
             {/* Time slot view toggle (Matt & Hector) */}
             <div className="mt-3 flex items-center justify-between gap-2 flex-wrap">
