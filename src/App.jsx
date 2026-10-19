@@ -20,6 +20,40 @@ function useResizeWidth(ref) {
   }, [ref]);
   return w;
 }
+// Everything in this app is computed and displayed in ONE chosen time zone
+// (Pacific by default, switchable in the header), no matter what clock the
+// viewing device uses. Instants from feeds are converted to a Date whose
+// *local* fields equal that zone's wall clock, so all the local-time day math
+// below (dayKey, startOfDay, work hours...) happens in the chosen zone.
+const DEFAULT_TZ = "America/Los_Angeles";
+const _wallFmts = new Map();
+const wallFmt = (tz) => {
+  if (!_wallFmts.has(tz)) _wallFmts.set(tz, new Intl.DateTimeFormat("en-US", {
+    timeZone: tz, hourCycle: "h23",
+    year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric",
+  }));
+  return _wallFmts.get(tz);
+};
+const toWall = (d, tz) => {
+  const p = {};
+  for (const { type, value } of wallFmt(tz).formatToParts(d)) p[type] = value;
+  return new Date(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second, d.getMilliseconds());
+};
+// Wall-clock fields in `tz` -> real instant.
+const fromWall = (y, m, d, h, mi, tz) => {
+  const want = Date.UTC(y, m, d, h, mi);
+  let t = want;
+  for (let i = 0; i < 2; i++) {
+    const w = toWall(new Date(t), tz);
+    t += want - Date.UTC(w.getFullYear(), w.getMonth(), w.getDate(), w.getHours(), w.getMinutes());
+  }
+  return new Date(t);
+};
+const nowWall = (tz) => toWall(new Date(), tz);
+// ICAL.Time -> wall-clock Date (all-day values keep their calendar date).
+const icalToWall = (t, tz) => t.isDate ? new Date(t.year, t.month - 1, t.day) : toWall(t.toJSDate(), tz);
+// Raw parsed event -> wall-clock event for the chosen zone.
+const eventToWall = (e, tz) => e.allDay ? e : { ...e, start: toWall(e.start, tz), end: toWall(e.end, tz) };
 const startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
 const endOfDay   = (d) => { const x = new Date(d); x.setHours(23,59,59,999); return x; };
 const addDays    = (d,n)=> { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
@@ -243,7 +277,7 @@ function manualOverrideEvents(sourceId, sourceName, ovMap, rangeStart, rangeEnd)
   for (const [k, ov] of ovMap) {
     if (!ov || !Array.isArray(ov.available)) continue;
     const [y, mo, d] = k.split("-").map(Number);
-    const at = (hhmm) => { const [h, m] = hhmm.split(":").map(Number); return new Date(y, mo - 1, d, h, m).getTime(); };
+    const at = (hhmm) => { const [h, m] = hhmm.split(":").map(Number); return fromWall(y, mo - 1, d, h, m, DEFAULT_TZ).getTime(); };
     const dayStart = at("00:00"), dayEnd = at("24:00");
     const wins = ov.available.map(([a, b]) => [at(a), at(b)]).sort((p, q) => p[0] - q[0]);
     let cur = dayStart;
@@ -251,7 +285,7 @@ function manualOverrideEvents(sourceId, sourceName, ovMap, rangeStart, rangeEnd)
     for (const [a, b] of wins) { if (a > cur) blocks.push([cur, a]); cur = Math.max(cur, b); }
     if (cur < dayEnd) blocks.push([cur, dayEnd]);
     for (const [a, b] of blocks) {
-      if (b < rangeStart.getTime() || a > rangeEnd.getTime()) continue;
+      if (b < rangeStart.getTime() - 86400000 || a > rangeEnd.getTime() + 86400000) continue;
       out.push({
         sourceId, sourceName, summary: ov.note || "Not available",
         isUrgent: false, isCancelled: false, isLocation: false, isManual: true,
@@ -438,9 +472,11 @@ function parseICSText(text, sourceId, sourceName){
       if (e.isRecurring()) {
         events.push({ sourceId, sourceName, summary, isUrgent, isCancelled, ep, guest, isLocation, isRecurring: true, component: v });
       } else {
-        const s = e.startDate.toJSDate();
-        const ee = e.endDate ? e.endDate.toJSDate() : new Date(s.getTime() + 30*60000);
-        events.push({ sourceId, sourceName, summary, isUrgent, isCancelled, ep, guest, isLocation, start: s, end: ee, allDay: e.startDate.isDate, isRecurring: false });
+        const allDay = !!e.startDate.isDate;
+        const s = allDay ? new Date(e.startDate.year, e.startDate.month - 1, e.startDate.day) : e.startDate.toJSDate();
+        const ee = e.endDate ? (allDay ? new Date(e.endDate.year, e.endDate.month - 1, e.endDate.day) : e.endDate.toJSDate())
+                             : new Date(s.getTime() + 30*60000);
+        events.push({ sourceId, sourceName, summary, isUrgent, isCancelled, ep, guest, isLocation, start: s, end: ee, allDay, isRecurring: false });
       }
     } catch {}
   }
@@ -703,7 +739,7 @@ function UnlockForm({ onUnlock, onCancel }) {
 }
 
 export default function App(){
-  const today = new Date();
+  const today = nowWall(DEFAULT_TZ);
   const [appPassword, setAppPassword] = useState(() => localStorage.getItem('app_pw') || null);
   const [showUnlock, setShowUnlock] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
@@ -716,19 +752,18 @@ export default function App(){
   }, [theme]);
 
   const TZ_OPTS = [
-    { id: "system", label: "System (auto)" },
-    { id: "America/Los_Angeles", label: "PT (America/Los_Angeles)" },
-    { id: "America/New_York",    label: "ET (America/New_York)" },
+    { id: "America/Los_Angeles", label: "PT (Pacific)" },
+    { id: "America/Denver",      label: "MT (Mountain)" },
+    { id: "America/Chicago",     label: "CT (Central)" },
+    { id: "America/New_York",    label: "ET (Eastern)" },
   ];
-  const [displayTz, setDisplayTz] = useState("America/Los_Angeles");
-  // Calendar-day labels. Day cells are built in the device's local time zone,
-  // so their labels must be too: formatting local midnight in displayTz shows
-  // the previous day whenever the device clock is east of that zone.
-  const fmt = (d) => new Intl.DateTimeFormat(undefined, {
+  const [displayTz, setDisplayTz] = useState(DEFAULT_TZ);
+  // All Dates in the app already carry wall-clock fields for displayTz (see
+  // toWall), so format them as-is; never pass a timeZone here.
+  const fmt = (d) => new Intl.DateTimeFormat("en-US", {
     year: "numeric", month: "short", day: "numeric"
   }).format(d);
-  const fmtTime = (d) => new Intl.DateTimeFormat(undefined, {
-    timeZone: displayTz === "system" ? undefined : displayTz,
+  const fmtTime = (d) => new Intl.DateTimeFormat("en-US", {
     hour: "2-digit", minute: "2-digit"
   }).format(d);
 
@@ -966,7 +1001,7 @@ export default function App(){
           console.warn(`Manual refresh failed for ${r.name}: ${e?.message || e}`);
         }
       }
-      const ts = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
+      const ts = new Intl.DateTimeFormat("en-US", { timeZone: displayTz, hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(new Date());
       setNotice(ok ? `Refreshed at ${ts}` : `Refresh finished with errors at ${ts}`);
     } finally {
       setIsRefreshing(false);
@@ -1005,8 +1040,8 @@ export default function App(){
             const it = evt.iterator();
             let next; let i = 0;
             while ((next = it.next())) {
-              const s  = next.toJSDate();
-              const ee = evt.duration ? next.clone().addDuration(evt.duration).toJSDate()
+              const s  = icalToWall(next, displayTz);
+              const ee = evt.duration ? icalToWall(next.clone().addDuration(evt.duration), displayTz)
                                       : new Date(s.getTime() + 30 * 60000);
               if (!s || !ee || isNaN(s.getTime()) || isNaN(ee.getTime())) { if (++i > 5000) break theIter; continue; }
               if (ee < rangeStart) { if (++i > 5000) break theIter; continue; }
@@ -1024,18 +1059,19 @@ export default function App(){
             }
           }
         } catch { /* skip malformed recurring event */ }
-      } else if (!(e.end < rangeStart || e.start > rangeEnd) && !isHiddenHectorAllDay(e)) {
-        out.push(e);
+      } else {
+        const w = eventToWall(e, displayTz);
+        if (!(w.end < rangeStart || w.start > rangeEnd) && !isHiddenHectorAllDay(w)) out.push(w);
       }
     }
     for (const [ovSid, ovMap] of AVAILABLE_OVERRIDE_DATES) {
       const sid = MANUAL_BLOCK_SOURCE.get(ovSid) || ovSid;
       if (!want.has(sid)) continue;
       const name = (PRESET_CALENDARS.find(c => c.id === sid) || {}).name || sid;
-      out.push(...manualOverrideEvents(sid, name, ovMap, rangeStart, rangeEnd));
+      out.push(...manualOverrideEvents(sid, name, ovMap, rangeStart, rangeEnd).map(e => eventToWall(e, displayTz)));
     }
     return out;
-  }, [rawEvents, selectedIds, rangeStart, rangeEnd]);
+  }, [rawEvents, selectedIds, rangeStart, rangeEnd, displayTz]);
 
   // Person-specific lists
   const mattEvents = useMemo(
@@ -1199,7 +1235,7 @@ export default function App(){
       const secFrom = cur < mStart ? mStart : cur;
       const secTo   = to  < mEnd   ? to    : mEnd;
       blocks.push(
-        <MonthGrid
+        <MonthGrid tz={displayTz}
           key={`${mStart.getFullYear()}-${mStart.getMonth()}`}
           year={mStart.getFullYear()}
           month={mStart.getMonth()}
@@ -1344,7 +1380,7 @@ export default function App(){
           <div className="ml-auto flex flex-col items-end gap-1">
             <div className="flex items-center gap-2 flex-wrap justify-end">
               <ThemeToggle theme={theme} onChange={setTheme} />
-              <label className="text-sm muted hidden sm:inline">Display time zone:</label>
+              <label className="text-sm muted hidden sm:inline">Time zone:</label>
               <select className="border rounded-lg p-2 text-sm max-w-[12rem] sm:max-w-none" value={displayTz} onChange={e=>setDisplayTz(e.target.value)}>
                 {TZ_OPTS.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
               </select>
@@ -1580,7 +1616,7 @@ export default function App(){
               />
             ) : (
               viewMode==='single'
-                ? <MonthGrid
+                ? <MonthGrid tz={displayTz}
                     year={new Date(currentMonth).getFullYear()}
                     month={new Date(currentMonth).getMonth()}
                     from={monthStart(currentMonth)}
@@ -1603,7 +1639,7 @@ export default function App(){
           {/* Sidebar (hover/click details) */}
           {!slotViewOn && (
             <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey)
-              ? (activeInfo?.hasCancelledPodcast ? "cancelled-outline rounded-2xl" : (endOfDay(fromDayKey(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl"))
+              ? (activeInfo?.hasCancelledPodcast ? "cancelled-outline rounded-2xl" : (endOfDay(fromDayKey(activeDayKey)) < nowWall(displayTz) ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl"))
               : ""}>
               {activeInfo
                 ? <div className="bg-white rounded-2xl shadow p-4">
@@ -1611,7 +1647,7 @@ export default function App(){
 
                     {/* Podcast: rainbow "Recording — Ep ###" before today, blue "Recorded — Ep ###" after */}
                     {selectedIds.has(PODCAST_ID) && activeInfo.podcastItems?.length ? (() => {
-                      const isRecorded = endOfDay(activeInfo.date) < new Date();
+                      const isRecorded = endOfDay(activeInfo.date) < nowWall(displayTz);
                       const isCancelled = activeInfo.hasCancelledPodcast;
                       const first = activeInfo.podcastItems[0];
                       const ep = parseEpisode(first.summary);
@@ -1766,7 +1802,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
 }
 
 /* ===== Calendar Grid ===== */
-function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent, podLabelMode = "initials" }){
+function MonthGrid({ year, month, from, to, dayStats, tz = DEFAULT_TZ, setHoverDay, onClickDay, selectedDay, colorForRatio, fmt, fmtTime, podcastOn, outlineUrgent, podLabelMode = "initials" }){
   const first = new Date(year, month, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0
   const daysInMonth = new Date(year, month+1, 0).getDate();
@@ -1781,7 +1817,7 @@ function MonthGrid({ year, month, from, to, dayStats, setHoverDay, onClickDay, s
   const cells=[];
   for(let i=0;i<startWeekday;i++) cells.push(<div key={"pad-"+i}/>);
 
-  const now = new Date();
+  const now = nowWall(tz);
 
   for(let day=1; day<=daysInMonth; day++){
     const date = new Date(year, month, day);
