@@ -26,6 +26,9 @@ const addDays    = (d,n)=> { const x = new Date(d); x.setDate(x.getDate()+n); re
 const monthStart = (d) => new Date(d.getFullYear(), d.getMonth(), 1);
 const monthEnd   = (d) => new Date(d.getFullYear(), d.getMonth()+1, 0);
 const dayKey     = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+// Inverse of dayKey: "YYYY-MM-DD" -> local midnight. (new Date("YYYY-MM-DD")
+// parses as UTC and shows the previous day in US time zones.)
+const fromDayKey = (k) => { const [y, m, d] = String(k).split("-").map(Number); return new Date(y, m - 1, d); };
 const clamp      = (v,a,b)=> Math.max(a, Math.min(b, v));
 const fmtHour12  = (h)=> { const x = ((h % 24) + 24) % 24; return `${x % 12 === 0 ? 12 : x % 12} ${x < 12 ? "AM" : "PM"}`; };
 const minutesBetween = (a,b)=> Math.max(0, Math.round((b-a)/60000));
@@ -1598,7 +1601,7 @@ export default function App(){
           {/* Sidebar (hover/click details) */}
           {!slotViewOn && (
             <aside className={selectedIds.has(PODCAST_ID) && activeDayKey && dayHasPodcast(activeDayKey)
-              ? (activeInfo?.hasCancelledPodcast ? "cancelled-outline rounded-2xl" : (endOfDay(new Date(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl"))
+              ? (activeInfo?.hasCancelledPodcast ? "cancelled-outline rounded-2xl" : (endOfDay(fromDayKey(activeDayKey)) < new Date() ? "recorded-outline rounded-2xl" : "rainbow-outline rounded-2xl"))
               : ""}>
               {activeInfo
                 ? <div className="bg-white rounded-2xl shadow p-4">
@@ -1712,7 +1715,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
   const groups = useMemo(() => {
     const m = new Map();
     for (const e of events) {
-      const k = e.start.toISOString().slice(0,10);
+      const k = dayKey(e.start);
       if (!m.has(k)) m.set(k, []);
       m.get(k).push(e);
     }
@@ -1733,7 +1736,7 @@ function PersonAgenda({ person, events, fmt, fmtTime }) {
         <div className="space-y-3">
           {groups.map(([k, list]) => (
             <div key={k}>
-              <div className="text-xs font-medium muted mb-1">{fmt(new Date(k))}</div>
+              <div className="text-xs font-medium muted mb-1">{fmt(fromDayKey(k))}</div>
               <div className="space-y-2">
                 {list.map((e, i) => (
                   <div key={i} className="flex items-start gap-3 p-2 border rounded-lg">
