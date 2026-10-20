@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10548,11 +10548,11 @@ DESCRIPTION:*************************************\nACCOMMODATIONS:
     Hotel - the Graduate\n
     Tempe\, AZ\, 85281\, US\n
     ARRIVE: 10/19/2026 4:00 PM MST\n
-    DEPART: 10/20/2026 11:00 AM MST\n
+    DEPART: 10/20/2026 8:00 AM MST\n
     1-Denise Carlos\n
   2-Hector Flores\n
-  3-Moises Baqueiro/\n
-  4-Jonny Jyemo\n
+  3-Moises Baqueiro/Jonny Jyemo\n
+  4- Jasmine Lopez\n
   5-Angelina Rivera/ Dante Espinoza\n
   6-Jennifer Rodriguez\n
   \n
@@ -10576,7 +10576,7 @@ DESCRIPTION:Tuesday\, October 20\, 2026 @ 10–11 a.m.
     tel:+1 480-965-3434\n
     https://www.asugammage.com/\n
   \n*************************************\nSCHEDULE:\n
-  8:30 AM MST: Load/line check\n----------------------------------------\
+  8:15 AM MST: Load/line check\n----------------------------------------\
  n
   9:30 AM MST: Doors\n----------------------------------------\n
   10:00 AM - 11:00 AM MST: 10am Showtime\n-------------------------------
