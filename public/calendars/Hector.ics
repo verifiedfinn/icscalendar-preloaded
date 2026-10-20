@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10576,11 +10576,17 @@ DESCRIPTION:Tuesday\, October 20\, 2026 @ 10–11 a.m.
     tel:+1 480-965-3434\n
     https://www.asugammage.com/\n
   \n*************************************\nSCHEDULE:\n
+  8:00 AM MST: 8am checkout hotel/ Lobby\n-------------------------------
+ ---------\n
   8:15 AM MST: Load/line check\n----------------------------------------\
  n
-  9:30 AM MST: Doors\n----------------------------------------\n
+  9:15 AM MST: Doors\n----------------------------------------\n
   10:00 AM - 11:00 AM MST: 10am Showtime\n-------------------------------
  ---------\n
+  11:15 AM - 12:30 PM MST: Donor luncheon (all attending)\n--------------
+ --------------------------\n
+  1:00 PM MST: Drive dancers to airport\, then Tucson\n------------------
+ ----------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://www.asugammage.com/
