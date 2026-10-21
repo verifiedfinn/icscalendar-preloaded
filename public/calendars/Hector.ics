@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -10798,6 +10798,47 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260917T191653
 LAST-MODIFIED:20260917T191653
+X-HECTOR-REASON:TRAVEL-ADJACENT
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:a7fc05ca-b006-4c18-8104-994855c17c56
+DTSTAMP:20261021T173645
+SUMMARY:Manny Travel
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261028
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  12:00 AM -  PDT: Many Drives LA > Gallup\, NM\n  Drive to Gallup\, NM\n
+  10 hr drive\n
+  625 miles\n
+  \n----------------------------------------\n
+  10/26/2026 12:00 AM -  PDT: Manny Drives Gallup\, NM > Oklahoma City\,
+ OK\n  Drive to Oklahoma City\, OK\n
+  10 hrs\n
+  672 miles\n
+  \n----------------------------------------\n
+  10/27/2026 12:00 AM -  PDT: Manny Drives Oklahoma City\, OK > Carmel\,
+ IN\n  Drive to Carmel\, IN\n
+  11 hr drive\n
+  765 miles\n
+  \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel -  El Rancho\n
+    Gallup\, NM\, 87301\, US\n
+    ARRIVE: 10/25/2026 12:00 AM MDT\n
+    DEPART: 10/25/2026 11:59 PM MDT\n
+    tel:1 (505) 863-9311\n----------------------------------------\n
+    Hotel - Radisson\n
+    4716 W I 40 Service Rd\, Oklahoma City\, OK\, 73128\, US\n
+    ARRIVE: 10/26/2026 12:00 AM CDT\n
+    DEPART: 10/26/2026 11:59 PM CDT\n
+    tel:1 (405) 546-3305\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20261021T173645
+LAST-MODIFIED:20261021T173645
 X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
