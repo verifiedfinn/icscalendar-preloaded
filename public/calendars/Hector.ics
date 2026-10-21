@@ -4264,7 +4264,8 @@ DESCRIPTION:Backline provided
   8:45-10pm LAS CAFETERAS\n
   \nVENUE INFO:\n
     tel:+1 408-535-3570\n
-    http://www.sjparks.org/\n
+    https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityD
+ irectory/2343/2028\n
   \n*************************************\nSCHEDULE:\n
   2:00 PM - 4:00 PM PDT: Las Cafeteras Load/ Soundcheck\n----------------
  ------------------------\n
@@ -4310,13 +4311,14 @@ DESCRIPTION:Backline provided
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
-URL;VALUE=URI:http://www.sjparks.org/
+URL;VALUE=URI:https://www.sanjoseca.gov/Home/Components/Facil
+ ityDirectory/FacilityDirectory/2343/2028
 GEO:37.3324858;-121.8898421
-LOCATION:Plaza de César Chávez\n1 Paseo de San Antonio\nSan Jose CA  95
- 113 United States
+LOCATION:Plaza de San Jose\n1 Paseo de San Antonio\nSan Jose CA  95113 Un
+ ited States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Plaza de César Chávez\n1 Paseo de San Antonio\nSan Jose CA 95113
-  United States":geo:37.3324858,-121.8898421
+ ITLE="Plaza de San Jose\n1 Paseo de San Antonio\nSan Jose CA 95113 Unite
+ d States":geo:37.3324858,-121.8898421
 CREATED:20250714T185117
 LAST-MODIFIED:20250906T212242
 X-HECTOR-SCHED:20250906 → 840–1365 min (PDT)
@@ -10713,7 +10715,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="Hotel Congress\n311 E Congress St #1811\nTucson AZ 85701 United St
  ates":geo:32.222248,-110.966648
 CREATED:20260425T183323
-LAST-MODIFIED:20261016T224901
+LAST-MODIFIED:20261021T005732
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
