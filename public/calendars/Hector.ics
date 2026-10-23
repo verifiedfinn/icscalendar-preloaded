@@ -16,40 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:ec88aeb6-dbfc-4906-8cfa-3021f1798bf1
-DTSTAMP:20240923T225654
-SUMMARY:MUSIC VIDEO SHOOT: TIA LUCHA
-DTSTART:20241023T150000Z
-DTEND:20241023T170000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:VENUE INFO:\n
-    http://www.theecho.com/\n
-  \n*************************************\nSCHEDULE:\n
-  8:00 AM - 10:00 AM PDT: 8am Video Crew/ Hector/ Lil J call time (prep)\
- n----------------------------------------\n
-  9:30 AM PDT: Denise/ MUA call\n----------------------------------------
- \n
-  11:00 AM PDT: Jasmine call\n----------------------------------------\n
-  1:30 PM PDT: Moi/ Jesus call\n----------------------------------------\
- n
-  5:00 PM PDT: Jasmine departs\n----------------------------------------\
- n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.theecho.com/
-GEO:34.0776005;-118.2605077
-LOCATION:Echoplex\n1154 Glendale Blvd\nLos Angeles CA  90026 United State
- s
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Echoplex\n1154 Glendale Blvd\nLos Angeles CA 90026 United States":
- geo:34.0776005,-118.2605077
-CREATED:20240923T225654
-LAST-MODIFIED:20240923T225705
-X-HECTOR-SCHED:20241023 → 480–600 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:e88b3e76-2eae-4842-a35d-d435696b1b16
 DTSTAMP:20241008T212357
 SUMMARY:Tucson w/ Mi Gente
