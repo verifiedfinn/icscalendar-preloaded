@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10754,6 +10754,11 @@ DESCRIPTION:*************************************\nFLIGHTS:
     DEPART: Harry Reid International Airport 10/24/2026 6:35 AM PDT\n
     ARRIVE: Hollywood Burbank Airport 10/24/2026 7:45 AM PDT\n
     \n----------------------------------------\n
+    Flight - LAS>ORD - United -   CZ2N2S - HF - United\n
+    1583\n
+    DEPART: Las Vegas 10/24/2026 10:50 AM PDT\n
+    ARRIVE: Chicago O'Hare International Airport 10/24/2026 4:42 PM CDT\n
+    \n----------------------------------------\n
     Flight - LAS>BUR-SOUTHWEST- 28C85S- DC\,JJ\,JC - SOUTHWEST\n
     WN 1706\n
     DEPART: Harry Reid International Airport 10/24/2026 11:20 AM PDT\n
@@ -10768,7 +10773,6 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260917T191653
 LAST-MODIFIED:20260917T191653
-X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
