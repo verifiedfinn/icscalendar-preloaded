@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10824,7 +10824,11 @@ DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - LAX>IND-SOUTHWEST- 28FQ37 -\n
+    DEPART: Los Angeles International Airport 10/28/2026 9:25 AM PDT\n
+    ARRIVE: Indianapolis International Airport 10/28/2026 5:50 PM EDT\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20261001T045329
@@ -10877,6 +10881,18 @@ DESCRIPTION:Main Stage
   \nVENUE INFO:\n
     tel:+1 847-931-5900\n
     https://elginil.gov/2538/Hemmens-Cultural-Center\n
+  \n*************************************\nSCHEDULE:\n
+  11:00 AM CST: 11 am LOAD-IN\n  11AM VENUE ACCESS/ SOUND & LIGHTING TEC
+ H SET-UP\n
+  12:30-2PM SOUND CHECK /FULL CAST STUMBLE THROUGH\n
+  2pm LUNCH\n
+  3PM CALL TIME/ DRESSING ROOMS\n
+  4PM DOORS\n
+  4:30-6:05PM SHOW TIME\n
+  6:05PM STRIKE STAGE/ LOBBY MEET & GREET\n
+  7PM STRIKE LOBBY/ PACK STAGE & ALTAR PROPS\n
+  DEPART VENUE\n
+  \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://elginil.gov/2538/Hemmens-Cultural-Cente
