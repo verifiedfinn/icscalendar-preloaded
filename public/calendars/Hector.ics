@@ -2,112 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:e88b3e76-2eae-4842-a35d-d435696b1b16
-DTSTAMP:20241008T212357
-SUMMARY:Tucson w/ Mi Gente
-DTSTART:20241026T181500Z
-DTEND:20241027T043000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Free\, Chisme Block Party
-  1 x 60-90\n
-  R/trip van transport from PHX if needed\, backline.\n
-  ﻿Dinner/hospitality per rider\n
-  \nVENUE INFO:\n
-    tel:+1 520-461-1107\n
-    http://mercadodistrict.com/annex\n
-  \n*************************************\nSCHEDULE:\n
-  11:15 AM MST: Angie to venue to start set up/prep. Lane pick up\n------
- ----------------------------------\n
-  12:00 PM MST: Angie load/ set-up console (UBER to venue)\n-------------
- ---------------------------\n
-  12:30 PM - 10/27/2024 12:30 PM MST: Cano - Rental car - Budget\n  Mini
- Van\n
-  Budget\n
-  Confirmation: #11947510US1\n
-  Expedia itinerary: 72949703213073\n
-  Pick up : 12:30pm\n
-  Drop off : PHX 12:30pm\n
-  \n----------------------------------------\n
-  12:30 PM - 10/27/2024 12:30 PM MST: Hector - Rental Car - Budget\n  Min
- i van\n
-  Budget\n
-  Confirmation: #11947581US2\n
-  Expedia itinerary: 72949703447623\n
-  Pick up : 12:30pm\n
-  Drop off : PHX 12:30pm\n
-  \n----------------------------------------\n
-  1:00 PM - 2:00 PM MST: Band Load & Soundcheck\n------------------------
- ----------------\n
-  2:00 PM MST: 2pm Doors\n----------------------------------------\n
-  6:30 PM MST: Call time\n----------------------------------------\n
-  7:30 PM - 8:00 PM MST: Changeover/Line Check\n-------------------------
- ---------------\n
-  8:00 PM - 9:30 PM MST: 8pm showtime\n----------------------------------
- ------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - ONT > TUS - Southwest - 3IPZ37 - AG - Southwest\n
-    3932\n
-    DEPART: Ontario International Airport 10/26/2024 6:20 AM PDT\n
-    ARRIVE: Tucson International Airport 10/26/2024 10:55 AM MST\n
-    \n----------------------------------------\n
-    Flight - PHL>TUS - United - FBEK4S - Kristal Sotomayor - United\n
-    2383\n
-    DEPART: Philadelphia International Airport 10/26/2024 7:00 AM EDT\n
-    ARRIVE: Tucson International Airport 10/26/2024 12:35 PM MST\n
-    \n----------------------------------------\n
-    Flight - SFO>TUS - United - F6QZ0T - Carlo Nasisse - United\n
-    5506\n
-    DEPART: San Francisco International Airport 10/26/2024 9:30 AM PDT\n
-    ARRIVE: Tucson International Airport 10/26/2024 11:47 AM MST\n
-    \n----------------------------------------\n
-    Flight - LAX>TUS - Southwest - 3C38D4 - JC\,DC\,HF\,MB\,JG - Southwes
- t\n
-    1624\n
-    DEPART: Los Angeles International Airport 10/26/2024 10:15 AM PDT\n
-    ARRIVE: Tucson International Airport 10/26/2024 11:45 AM MST\n
-    \n----------------------------------------\n
-    Flight - LAX>TUS - Southwest - 3E3Z7S - JM - Southwest\n
-    1624\n
-    DEPART: Los Angeles International Airport 10/26/2024 10:15 AM PDT\n
-    ARRIVE: Tucson International Airport 10/26/2024 11:45 AM MST\n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel - Doubletree By Hilton Hotel Tucson-Reid Park\n
-    Tucson\, AZ\, 85711\, US\n
-    ARRIVE: 10/26/2024 3:00 PM MST\n
-    DEPART: 10/27/2024 11:00 AM MST\n
-    Confirmation #:4882811322\, 4882811322\, 4882811322\, 4882811322\, 48
- 82811322\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://mercadodistrict.com/annex
-GEO:32.217954;-110.9843566
-LOCATION:MSA Annex\n267 South Avenida del Convento\nTucson AZ  85745 Unit
- ed States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="MSA Annex\n267 South Avenida del Convento\nTucson AZ 85745 United
- States":geo:32.217954,-110.9843566
-CREATED:20241008T212357
-LAST-MODIFIED:20241025T000520
-X-HECTOR-SCHED:20241026 → 675–1290 min (MST)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:96b001d4-22a8-4f9f-bfca-a257c31a7cd8
