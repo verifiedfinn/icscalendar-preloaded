@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -10731,7 +10731,14 @@ DTEND;VALUE=DATE:20261029
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - LAX>IND-SOUTHWEST- 28FQ37 -\n
+    Flight - LAX>IND-SOUTHWEST- 28FQ37- DC\, MB\,JJ\,JL\,AR\,DE\,JR\,AR -
+  Southwest\n
+    WN #452\n
+    DEPART: Los Angeles International Airport 10/28/2026 9:25 AM PDT\n
+    ARRIVE: Indianapolis International Airport 10/28/2026 5:50 PM EDT\n
+    \n----------------------------------------\n
+    Flight - LAX>IND-SOUTHWEST- B4AUZI- LIL J - Southwest\n
+    452\n
     DEPART: Los Angeles International Airport 10/28/2026 9:25 AM PDT\n
     ARRIVE: Indianapolis International Airport 10/28/2026 5:50 PM EDT\n
     \n----------------------------------------\n
