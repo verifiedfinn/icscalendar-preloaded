@@ -2,13 +2,13 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
@@ -10784,8 +10784,8 @@ TRANSP:OPAQUE
 UID:4953f1cb-317e-4df0-93a0-22929969e3a3
 DTSTAMP:20260917T224436
 SUMMARY:HLM Elgin\, IL
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
+DTSTART:20261101T170000Z
+DTEND:20261102T003000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:Main Stage
@@ -10806,6 +10806,16 @@ DESCRIPTION:Main Stage
   7PM STRIKE LOBBY/ PACK STAGE & ALTAR PROPS\n
   DEPART VENUE\n
   \n----------------------------------------\n
+  4:30 PM - 6:30 PM CST: 4:30PM SHOWTIME\n-------------------------------
+ ---------\n
+  \n*************************************\nFLIGHTS:\n
+    Flight -ORD>STL-UNITED- GTK8WP- JJ - UNITED\n
+    DEPART:  11/1/2026 10:00 PM CST\n
+    eTicket number: 0162152263146\n
+  \n
+    ARRIVE: St. Louis Lambert International Airport 11/1/2026 11:24 PM CS
+ T\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://elginil.gov/2538/Hemmens-Cultural-Cente
@@ -10817,6 +10827,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  .039737,-88.286914
 CREATED:20260917T224436
 LAST-MODIFIED:20260917T224616
+X-HECTOR-SCHED:20261101 → 660–1110 min (CST)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10827,7 +10838,17 @@ DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:
+DESCRIPTION:*************************************\nFLIGHTS:
+    Flight - MDW>SBA-SOUTHWEST- 286EZ5)-JM - SOUTHWEST\n
+    WN #3174\n
+    DEPART: Chicago Midway International Airport 11/2/2026 10:05 AM CST\n
+    ARRIVE: Santa Barbara Airport 11/2/2026 2:35 PM PST\n
+    \n----------------------------------------\n
+    Flight - MDW>LAX-SOUTHWEST- BFXM2U-AR - SOUTHWEST\n
+    1517\n
+    DEPART: Chicago Midway International Airport 11/2/2026 10:15 AM CST\n
+    ARRIVE: Los Angeles International Airport 11/2/2026 12:45 PM PST\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260814T065526
