@@ -16,61 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:96b001d4-22a8-4f9f-bfca-a257c31a7cd8
-DTSTAMP:20241021T003747
-SUMMARY:Fly Home
-DTSTART;VALUE=DATE:20241027
-DTEND;VALUE=DATE:20241028
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
-  8:00 AM PDT: 8am drive out/ breakfast\n--------------------------------
- --------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - PHX > LAX -United-  L66JHR - HF\,MB\,JG - United\n
-    651\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 1:20 PM M
- ST\n
-    ARRIVE: Los Angeles International Airport 10/27/2024 2:52 PM PDT\n
-    \n----------------------------------------\n
-    Flight - PHX > LAX -United-  L67J33 - JC - United\n
-    651\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 1:20 PM M
- ST\n
-    ARRIVE:  10/27/2024 2:52 PM PDT\n
-    \n----------------------------------------\n
-    Flight - PHX >LAX - United - K5TCF8 - DC\,JM - United\n
-    651\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 1:20 PM M
- ST\n
-    ARRIVE: Los Angeles International Airport 10/27/2024 2:52 PM PDT\n
-    \n----------------------------------------\n
-    Flight - PHX>ONT - Southwest - 4CXH9E - AG - Southwest\n
-    3346\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 1:25 PM M
- ST\n
-    ARRIVE: Ontario International Airport 10/27/2024 2:40 PM PDT\n
-    \n----------------------------------------\n
-    Flight - PHX>PHL - Southwest - 4UVTQO - Kristal Sotomayor - southwest
- \n
-    0512\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 1:50 PM M
- ST\n
-    ARRIVE: Philadelphia International Airport 10/28/2024 12:10 AM EDT\n
-    \n----------------------------------------\n
-    Flight - PHX>SFO - Southwest - 4UVKAV - Carlo Nasisse - southwest\n
-    3779\n
-    DEPART: Phoenix Sky Harbor International Airport 10/27/2024 2:35 PM M
- ST\n
-    ARRIVE: San Francisco International Airport 10/27/2024 4:35 PM PDT\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20241021T003747
-LAST-MODIFIED:20241022T210947
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:60574c26-fc8c-4f75-8d73-84b9fb9d611e
 DTSTAMP:20241025T003018
 SUMMARY:Full band rehearsal
@@ -10699,6 +10644,10 @@ DESCRIPTION:*************************************\nSCHEDULE:\n
   10 hrs\n
   672 miles\n
   \n----------------------------------------\n
+  10/27/2026 12:00 AM -  PDT: Manny Drives Oklahoma city > Terre Haute\n
+  10 hr drive\n
+  671 miles\n
+  \n----------------------------------------\n
   10/27/2026 12:00 AM -  PDT: Manny Drives Oklahoma City\, OK > Carmel\,
  IN\n  Drive to Carmel\, IN\n
   11 hr drive\n
@@ -10715,6 +10664,14 @@ DESCRIPTION:*************************************\nSCHEDULE:\n
     ARRIVE: 10/26/2026 12:00 AM CDT\n
     DEPART: 10/26/2026 11:59 PM CDT\n
     tel:1 (405) 546-3305\n----------------------------------------\n
+    Hotel - La Quinta Inn & Suites by Wyndham Terre Haute\n
+    451 E Margaret Ave\, Terre Haute\, IN\, 47802\, US\n
+    ARRIVE: 10/27/2026 12:00 AM EDT\n
+    DEPART: 10/28/2026 11:59 PM EDT\n
+    Confirmation number:88681EF079809\n
+  Itinerary number:73574582328452\n
+  \n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20261021T173645
@@ -10741,6 +10698,11 @@ DESCRIPTION:*************************************\nFLIGHTS:
     452\n
     DEPART: Los Angeles International Airport 10/28/2026 9:25 AM PDT\n
     ARRIVE: Indianapolis International Airport 10/28/2026 5:50 PM EDT\n
+    \n----------------------------------------\n
+    Flight - LGA>IND - Delta - G4HSEL - Russel - Delta\n
+    4931\n
+    DEPART: LaGuardia Airport 10/28/2026 11:20 AM EDT\n
+    ARRIVE: Indianapolis International Airport 10/28/2026 1:43 PM EDT\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
