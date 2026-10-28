@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Denver
 X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10782,6 +10782,48 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  armel IN 46032 United States":geo:39.969549,-86.13041819999999
 CREATED:20260613T004204
 LAST-MODIFIED:20260722T014046
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:0d751901-d53b-4018-9824-6ff1f5dc0cdb
+DTSTAMP:20260613T005050
+SUMMARY:HLM CHICAGO
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 773-777-8898\n
+    https://copernicuscenter.org/\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Holiday Inn & Suites Chicago North Shore (Skokie) by IHG\n
+    5300 W Touhy Ave\, Skokie\, IL\, 60077\, US\n
+    ARRIVE: 10/30/2026 12:00 AM CDT\n
+    DEPART: 11/1/2026 11:59 PM CST\n
+    Confirmation number24371206\n
+  Expedia itinerary73575255795400\n
+  Room list\n
+  Denise Carlos\n
+  Hector Flores\n
+  Moises Baqueiro\n
+  Emmanuel Ortiz & Russel Chow\n
+  Jonny Jyemo & Jorge Mijangos\n
+  Adriana Rafaela\n
+  Jessica Lopez & Jennifer Rodriguez\n
+  •		8.	Dante Espinoza & Angelina Rivera\n
+  \n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://copernicuscenter.org/
+GEO:41.9682754;-87.75881819999999
+LOCATION:Copernicus Center\n5216 W Lawrence Ave\nChicago IL  60630 United
+  States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Copernicus Center\n5216 W Lawrence Ave\nChicago IL 60630 United St
+ ates":geo:41.9682754,-87.75881819999999
+CREATED:20260613T005050
+LAST-MODIFIED:20260613T005050
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
