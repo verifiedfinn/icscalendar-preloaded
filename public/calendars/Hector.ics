@@ -10680,6 +10680,48 @@ X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
+UID:24b21c99-3267-4da4-b6b1-0af34cdaa5b4
+DTSTAMP:20260616T021227
+SUMMARY:Load-in/ Tech Rehearsal
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 317-843-3800\n
+    https://thecenterpresents.org/\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Sonesta Select Indianapolis Carmel\n
+    37 W 103rd St\, Indianapolis\, IN\, 46290\, US\n
+    ARRIVE: 10/28/2026 12:00 AM EDT\n
+    DEPART: 10/30/2026 11:59 PM EDT\n
+    Confirmation number32631SH105322\n
+  Expedia itinerary73575201379638\n
+  Hotel list\n
+  Denise Carlos\n
+  Hector Flores\n
+  Moises Baqueiro\n
+  Emmanuel Ortiz & Russel Chow\n
+  Jonny Jyemo & Jorge Mijangos\n
+  Adriana Rafaela\n
+  Jessica Lopez & Jennifer Rodriguez\n
+  Dante Espinoza & Angelina Rivera\n
+  \n
+    tel:3175711110\n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:https://thecenterpresents.org/
+GEO:39.969549;-86.13041819999999
+LOCATION:Allied Solutions Center for the Performing Arts\n1 Carter Green\
+ nCarmel IN  46032 United States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Allied Solutions Center for the Performing Arts\n1 Carter Green\nC
+ armel IN 46032 United States":geo:39.969549,-86.13041819999999
+CREATED:20260616T021227
+LAST-MODIFIED:20260616T021227
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
 UID:b188cd4a-c4ca-4edc-94fe-699316a53988
 DTSTAMP:20261001T045329
 SUMMARY:Fly to Indiana
@@ -10811,11 +10853,16 @@ DESCRIPTION:*************************************\nFLIGHTS:
     DEPART: Chicago Midway International Airport 11/2/2026 10:15 AM CST\n
     ARRIVE: Los Angeles International Airport 11/2/2026 12:45 PM PST\n
     \n----------------------------------------\n
+    Flight - ORD>LAX-UNITED- IF9C26- DC\,HF\, MB\,JR\,JL\,AR\,DE\,RC - UN
+ ITED\n
+    UA 1967\n
+    DEPART: Chicago O'Hare International Airport 11/2/2026 5:52 PM CST\n
+    ARRIVE: Los Angeles International Airport 11/2/2026 8:29 PM PST\n
+    \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260814T065526
 LAST-MODIFIED:20260926T001417
-X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
