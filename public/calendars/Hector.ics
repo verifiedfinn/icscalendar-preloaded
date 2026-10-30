@@ -2,64 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:60574c26-fc8c-4f75-8d73-84b9fb9d611e
-DTSTAMP:20241025T003018
-SUMMARY:Full band rehearsal
-DTSTART;TZID=America/Los_Angeles:20241030T150000
-DTEND;TZID=America/Los_Angeles:20241030T210000
-DESCRIPTION:VENUE INFO:\n
-    tel:+1 818-975-8434\n
-    http://www.parehearsalstudios.com/\n
-  \n*************************************\nSCHEDULE:\n
-  9:00 AM - 10/31/2024 9:00 AM PDT: Rental car Hector - Enterprise\n  Hec
- tor Flores\n
-  Mini Van\n
-  Confirmation: #1783361352\n
-  Expedia itinerary: 72924370551491\n
-  Pick-up\n
-  Wed\, Oct 30\n
-  9:00am\n
-  Drop-off\n
-  Sat\, Nov 2\n
-  9:00am\n
-  \n----------------------------------------\n
-  1:00 PM - 10/31/2024 1:00 PM PDT: Rental Car Cano - Budget\n  Budget\n
-  Mini van\n
-  Confirmation: #11792698US1\n
-  Expedia itinerary: 72947649332021\n
-  Pick-up\n
-  Wed\, Oct 30\n
-  1:00pm\n
-  Drop-off\n
-  Sat\, Nov 2\n
-  9:00am\n
-  \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.parehearsalstudios.com/
-GEO:34.200505;-118.5374792
-LOCATION:PA Rehearsal Studios\n7143 Baird Ave\nReseda\nLos Angeles CA  91
- 335 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="PA Rehearsal Studios\n7143 Baird Ave\nReseda\nLos Angeles CA 91335
-  United States":geo:34.200505,-118.5374792
-CREATED:20241025T003018
-LAST-MODIFIED:20241030T174607
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:acffe373-e725-4f8e-96eb-98f55cc86007
@@ -10788,13 +10742,28 @@ TRANSP:OPAQUE
 UID:0d751901-d53b-4018-9824-6ff1f5dc0cdb
 DTSTAMP:20260613T005050
 SUMMARY:HLM CHICAGO
-DTSTART;VALUE=DATE:20261030
-DTEND;VALUE=DATE:20261031
+DTSTART:20261030T170000Z
+DTEND:20261031T030000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:VENUE INFO:\n
     tel:+1 773-777-8898\n
     https://copernicuscenter.org/\n
+  \n*************************************\nSCHEDULE:\n
+  12:00 PM CDT: 12pm load/tech rehearsal\n  12PM VENUE ACCESS/ SOUND & L
+ IGHTING TECH SET-UP\n
+  2pm FULL CAST LOAD-IN/ STAGE ALTAR & MERCH SET-UP\n
+  2:30-4:30PM SOUND CHECK /FULL CAST RUN THROUGH\n
+  4:30PM RELEASE FOR PREP/ HOTEL CHECK-IN & DINNER\n
+  6PM CALL TIME/ DRESSING ROOMS\n
+  6:30PM DOORS\n
+  8-9:35PM SHOW TIME\n
+  9:35PM STRIKE STAGE/ LOBBY MEET & GREET\n
+  10PM STRIKE LOBBY/ PACK STAGE & ALTAR PROPS\n
+  11PM DEPART VENUE\n
+  \n----------------------------------------\n
+  6:30 PM CDT: Doors\n----------------------------------------\n
+  8:00 PM CDT: Show time\n----------------------------------------\n
   \n*************************************\nACCOMMODATIONS:\n
     Hotel - Holiday Inn & Suites Chicago North Shore (Skokie) by IHG\n
     5300 W Touhy Ave\, Skokie\, IL\, 60077\, US\n
@@ -10810,7 +10779,8 @@ DESCRIPTION:VENUE INFO:\n
   Jonny Jyemo & Jorge Mijangos\n
   Adriana Rafaela\n
   Jessica Lopez & Jennifer Rodriguez\n
-  •		8.	Dante Espinoza & Angelina Rivera\n
+  8.	Dante Espinoza & Angelina Rivera\n
+  9.jasmine Lopez\n
   \n
     \n----------------------------------------\n
 STATUS:CONFIRMED
@@ -10824,6 +10794,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ates":geo:41.9682754,-87.75881819999999
 CREATED:20260613T005050
 LAST-MODIFIED:20260613T005050
+X-HECTOR-SCHED:20261030 → 720–1320 min (CDT)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
