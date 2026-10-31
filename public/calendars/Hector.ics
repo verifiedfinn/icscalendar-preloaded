@@ -2,68 +2,18 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:acffe373-e725-4f8e-96eb-98f55cc86007
-DTSTAMP:20240912T035708
-SUMMARY:VOTA PALOOZA (Visalia\, CA)
-DTSTART:20241031T180000Z
-DTEND:20241101T030500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Rudy Echauri
-  SPECIAL EVENTS OPERATOR\n
-  MOBILE  (818)-823-5544\n
-  EMAIL     rudy@roox.live\n
-  WEB       www.roox.live\n
-  EVENT 3-11PM\n
-  SHOW: 1x 75-90 minutes\n
-  \nVENUE INFO:\n
-    tel:+1 559-713-4000\n
-    http://www.visalia.org/\n
-  \n*************************************\nSCHEDULE:\n
-  11:00 AM PDT: LA car meet at Hector’s & drive out\n------------------
- ----------------------\n
-  5:00 PM - 6:45 PM PDT: 5PM Load/ 6-6:45PM Soundcheck (INDOOR STAGE)\n
- Load in. De su equipo\, esta bien. Lo más sercas de su tiempo de sound
- check lo mejor.\n
-  Hay un loading area\, allí vajan sus cosas y luego mueven el carro al
- estacionamiento por favor. Gracias\n
-  Shared dressing area:\n
-  I am creating a 10x10 pipe and drape area/dressing room just for you gu
- ys\, this will be on back stage-stage right on the floor\n
-  \n----------------------------------------\n
-  5:30 PM PDT: Event Doors (Outside)\n-----------------------------------
- -----\n
-  7:00 PM PDT: 7pm INDOOR STAGE DOORS OPEN\n-----------------------------
- -----------\n
-  7:35 PM - 8:05 PM PDT: 7:35pm Showtime (30min)\n-----------------------
- -----------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.visalia.org/
-GEO:36.3284967;-119.2904557
-LOCATION:Visalia Convention Center\n303 E Acequia Ave\nVisalia CA  93291
- United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Visalia Convention Center\n303 E Acequia Ave\nVisalia CA 93291 Uni
- ted States":geo:36.3284967,-119.2904557
-CREATED:20240912T035708
-LAST-MODIFIED:20240921T221420
-X-HECTOR-SCHED:20241031 → 660–1205 min (PDT)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:77e475c5-3f05-4ba3-a622-667df0e73928
