@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Detroit
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10782,6 +10782,12 @@ DESCRIPTION:Main Stage
   \n
     ARRIVE: St. Louis Lambert International Airport 11/1/2026 11:24 PM CS
  T\n
+    \n----------------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Elgin Hotel: Holiday innn\n
+    495 Airport Rd\, Elgin\, IL\, 60123\, US\n
+    ARRIVE: 11/1/2026 3:00 PM CST\n
+    DEPART: 11/2/2026 12:00 PM CST\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
