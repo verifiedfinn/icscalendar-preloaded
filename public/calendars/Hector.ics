@@ -16,108 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:87054bf9-2d27-435f-b83f-3f9767f1be87
-DTSTAMP:20240410T232839
-SUMMARY:San Jose Mexican Heritage Plaza DIA DE MUERTOS
-DTSTART:20241102T183000Z
-DTEND:20241103T053000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:FULL BAND W/ JASMINE
-  Joy Hackett\n
-  669-293-1385\n
-  joy@schoolofartsandculture.org\n
-  Avenida de Altares\, Dia De Los Muertos\, Mexican Heritage Plaza\, San
- Jose\, CA\n
-  Hotel: yes/ doubles\n
-  backline: yes\n
-  transpo: no\n
-  \nVENUE INFO:\n
-    tel:+1 408-794-6240\n
-    http://www.mhplaza.com/\n
-  \n*************************************\nSCHEDULE:\n
-  11:30 AM - 11/3/2024 10:30 AM PDT: Rental Car Denise - Enterprise\n  Co
- mpany: Enterprise\n
-  Car: Mini Van\n
-  Confirmation: #1668081407\n
-  Expedia itinerary: 72947439499686\n
-  Pick-up\n
-  Sat\, Nov 2\n
-  11:30am\n
-  Drop-off\n
-  Mon\, Nov 4\n
-  4:00pm\n
-  221 E Pomona Blvd\, Monterey Park\, CA 91755\n
-  \n----------------------------------------\n
-  11:30 AM - 11/3/2024 10:30 AM PDT: Rental car Hector - Enterprise\n  Co
- mpany: Enterprise\n
-  Car : Mini Van\n
-  Confirmation: #1668081375\n
-  Expedia itinerary: 72947439059282\n
-  Pick-up\n
-  Sat\, Nov 2\n
-  11:30am\n
-  Drop-off\n
-  Mon\, Nov 4\n
-  4:00pm\n
-  221 E Pomona Blvd\, Monterey Park\, CA 91755\n
-  \n----------------------------------------\n
-  12:30 PM PDT: Angie load/ set-up console\n-----------------------------
- -----------\n
-  1:30 PM - 3:00 PM PDT: Band Load & Soundcheck\n------------------------
- ----------------\n
-  5:30 PM PDT: Doors\n----------------------------------------\n
-  7:00 PM PDT: Call time\n----------------------------------------\n
-  8:30 PM PDT: 8:30pm changeover\n---------------------------------------
- -\n
-  9:00 PM - 10:30 PM PDT: 9pm showtime  (90min)\n------------------------
- ----------------\n
-  \n*************************************\nFLIGHTS:\n
-    Flight - SAN>SJC - Southwest - 49Y6WI - JC\,DC\,HF\,MB\,JM\,AG\,JL -
- southwest\n
-    1278\n
-    DEPART:  11/2/2024 9:20 AM PDT\n
-    ARRIVE:  11/2/2024 10:50 AM PDT\n
-    \n----------------------------------------\n
-    Flight - BUR>SCJ - Southwest - 498ULL - JG - Southwest\n
-    542\n
-    DEPART: Hollywood Burbank Airport 11/2/2024 10:30 AM PDT\n
-    ARRIVE: San Jose Mineta International Airport 11/2/2024 11:45 AM PDT\
- n
-    \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    San José hotel- Hyatt\n
-    282 S Almaden Blvd\, San Jose\, CA\, 95113\, US\n
-    ARRIVE: 11/2/2024 3:00 PM PDT\n
-    DEPART: 11/3/2024 11:00 AM PST\n
-    Address:\n
-  Hyatt Place\, Downtown San Jose\n
-  282 S Almaden Blvd\, San Jose\, CA 95113\n
-  #51119103\n
-  1-Denise Carlos\n
-  2-Hector Flores\n
-  #40444741\n
-  3-Jose Cano/ Jesus Gonzalez\n
-  4-Moises Baqueiro/ Jorge Mijangos\n
-  #63897126\n
-  5-Jasmine Lopez/ Angela Gonzalez\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.mhplaza.com/
-GEO:37.3526791;-121.8544988
-LOCATION:Mexican Heritage Plaza\n1700 Alum Rock Ave\nSan Jose CA  95116 U
- nited States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Mexican Heritage Plaza\n1700 Alum Rock Ave\nSan Jose CA 95116 Unit
- ed States":geo:37.3526791,-121.8544988
-CREATED:20240410T232839
-LAST-MODIFIED:20241018T034354
-X-HECTOR-SCHED:20241102 → 690–1350 min (PDT)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:77154871-94a8-4c0b-a7c6-449e17659c3d
 DTSTAMP:20240926T225535
 SUMMARY:GOTV Fresno/ Arte Americas
@@ -10764,6 +10662,42 @@ STATUS:CONFIRMED
 CLASS:PUBLIC
 CREATED:20260814T065526
 LAST-MODIFIED:20260926T001417
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:e163ec7a-cec0-45c2-8683-201f193e0af2
+DTSTAMP:20261102T073055
+SUMMARY:Manny Travel
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261105
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:*************************************\nSCHEDULE:\n
+  12:00 AM -  PST: Manny Drives Chicago > Grand Island\, NE\n  Travel to
+ Grand Island\, NE\n
+  608 Miles\n
+  \n----------------------------------------\n
+  11/3/2026 12:00 AM -  PST: Manny Drives Grand Island\, NE > Green River
+ \, UT\n  735 miles\n
+  \n----------------------------------------\n
+  11/4/2026 12:00 AM -  PST: Manny Drives - Green River>Glendora\n-------
+ ---------------------------------\n
+  \n*************************************\nACCOMMODATIONS:\n
+    Hotel - Park Inn by Radisson\, Grand Island I-8\n
+    7301 Bosselman Ave\, Grand Island\, NE\, 68803\, US\n
+    ARRIVE: 11/2/2026 12:00 AM CST\n
+    DEPART: 11/3/2026 11:59 PM CST\n
+    \n----------------------------------------\n
+    Hotel - Comfort Inn Green River National Park Area\n
+    1975 E Main St\, Green River\, UT\, 84525\, US\n
+    ARRIVE: 11/3/2026 12:00 AM MST\n
+    DEPART: 11/4/2026 11:59 PM MST\n
+    \n----------------------------------------\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+CREATED:20261102T073055
+LAST-MODIFIED:20261102T073055
+X-HECTOR-REASON:TRAVEL-ADJACENT
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
