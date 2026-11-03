@@ -3,115 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:77154871-94a8-4c0b-a7c6-449e17659c3d
-DTSTAMP:20240926T225535
-SUMMARY:GOTV Fresno/ Arte Americas
-DTSTART;VALUE=DATE:20241103
-DTEND;VALUE=DATE:20241103
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:• Las Cafeteras will perform for approximately 60 minutes\, o
- pening the program at
-  5:00pm\n
-  • Richard Juarez will provide sound engineering and lighting for the
- event.\n
-  • Arte Américas will not provide backline\; the band must bring all
- necessary\n
-  instruments and amplifiers.\n
-  \nVENUE INFO:\n
-    tel:+1 559-268-6130\n
-    http://arteamericas.org/\n
-  \n*************************************\nSCHEDULE:\n
-  10:00 AM PST: Car 1 (Audio) drive-out to Fresno  (Hector\, Angie\, Jesu
- s)\n  Eat at hotel 9am\n
-  \n----------------------------------------\n
-  11:00 AM PST: Car 2  drive-out to Fresno (Denise\, Chui\, Jasmine\, Mij
- angos)\n  Eat at hotel 9am\n
-  \n----------------------------------------\n
-  1:00 PM PST: Angie loads & preps console/ equipment & Drummer set up\n-
- ---------------------------------------\n
-  2:00 PM - 3:30 PM PST: LC Band load/ soundcheck\n----------------------
- ------------------\n
-  4:00 PM PST: Doors\n----------------------------------------\n
-  5:00 PM - 6:00 PM PST: Showtime\n  SET LIST\n
-  LTC\n
-  Chuchumbe\n
-  Cumbia de Mi Barrio\n
-  Ya Me Voy\n
-  Como la Flor\n
-  Sirena\n
-  Oaxaca\n
-  Ritchie\n
-  Bamba\n
-  OTRA\n
-  This Land\n
-  \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Hotel- Double Tree - JM\, Chuy\n
-    ARRIVE: 11/3/2024 3:00 PM PST\n
-    DEPART: 11/4/2024 11:00 AM PST\n
-    1 double room for Mijangos and chuy\n
-  Room under : Jorge bonifaz Mijangos\n
-  Confirmation: 72956637842685\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://arteamericas.org/
-GEO:36.741117;-119.7958325
-LOCATION:Arte Américas\n1630 Van Ness Ave\nFresno CA  93721 United State
- s
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Arte Américas\n1630 Van Ness Ave\nFresno CA 93721 United States":
- geo:36.741117,-119.7958325
-CREATED:20240926T225535
-LAST-MODIFIED:20241017T060352
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:454848fb-9a4b-4979-b79f-5ace1b265565
-DTSTAMP:20240901T034812
-SUMMARY:Travel day - Fly SJC>LA/ONT
-DTSTART;VALUE=DATE:20241103
-DTEND;VALUE=DATE:20241103
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nFLIGHTS:
-    Flight - SJC>BUR - Southwest - 48TS3Y - JC - Southwest\n
-    1252\n
-    DEPART: San Jose Mineta International Airport 11/3/2024 11:10 AM PST\
- n
-    ARRIVE: Hollywood Burbank Airport 11/3/2024 12:20 PM PST\n
-    \n----------------------------------------\n
-    Flight - SJC>BUR - Southwest - 4LWM68 - MB - southwest\n
-    1252\n
-    DEPART:  11/3/2024 11:10 AM PST\n
-    ARRIVE:  11/3/2024 12:20 PM PST\n
-    \n----------------------------------------\n
-    Flight - SJC>BUR - Southwest - 4LWJ3Z - DC - southwest\n
-    2311\n
-    DEPART:  11/3/2024 8:30 PM PST\n
-    ARRIVE:  11/3/2024 9:35 PM PST\n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-CREATED:20240901T034812
-LAST-MODIFIED:20241017T055032
-X-HECTOR-REASON:TRAVEL-ADJACENT
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:6edcb352-4572-4720-9824-b6f6fe33fe96
@@ -10704,8 +10606,8 @@ TRANSP:OPAQUE
 UID:7031e2fe-2034-4976-961c-447fbef3c051
 DTSTAMP:20261013T220620
 SUMMARY:Mission Hills
-DTSTART;VALUE=DATE:20261107
-DTEND;VALUE=DATE:20261108
+DTSTART:20261108T010000Z
+DTEND:20261108T020000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
 DESCRIPTION:● Event Name: Día de los Muertos 2026
@@ -10719,6 +10621,9 @@ DESCRIPTION:● Event Name: Día de los Muertos 2026
     tel:+1 818-361-7387\n
     https://catholiccm.org/san-fernando-mission-cemetery-mission-hills-ca
  tholic-mortuary\n
+  \n*************************************\nSCHEDULE:\n
+  5:00 PM - 6:00 PM PST: Showtime 60min\n--------------------------------
+ --------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://catholiccm.org/san-fernando-mission-cem
@@ -10732,6 +10637,7 @@ X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  eo:34.2740211,-118.4667445
 CREATED:20261013T220620
 LAST-MODIFIED:20261013T220620
+X-HECTOR-SCHED:20261107 → 1020–1080 min (PST)
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
@@ -10747,6 +10653,30 @@ STATUS:TENTATIVE
 CLASS:PUBLIC
 CREATED:20260508T235420
 LAST-MODIFIED:20260508T235420
+END:VEVENT
+BEGIN:VEVENT
+TRANSP:OPAQUE
+UID:3cf9766c-6ea5-4a8e-9170-631b971bdedd
+DTSTAMP:20260917T173620
+SUMMARY:NEW YEARS EVE show! LA
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270102
+X-FUNAMBOL-ALLDAY:1
+X-MICROSOFT-CDO-ALLDAYEVENT:1
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 213-972-7211\n
+    http://www.musiccenter.org/\n
+STATUS:CONFIRMED
+CLASS:PUBLIC
+URL;VALUE=URI:http://www.musiccenter.org/
+GEO:34.0572129;-118.2482502
+LOCATION:The Music Center\n135 N Grand Ave\nLos Angeles CA  90012 United
+ States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="The Music Center\n135 N Grand Ave\nLos Angeles CA 90012 United Sta
+ tes":geo:34.0572129,-118.2482502
+CREATED:20260917T173620
+LAST-MODIFIED:20261103T094832
 END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
