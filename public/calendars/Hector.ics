@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/New_York
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10045,11 +10045,11 @@ DESCRIPTION:Tuesday\, October 20\, 2026 @ 10–11 a.m.
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://www.asugammage.com/
-GEO:33.416291;-111.9379382
+GEO:33.4162651;-111.9380015
 LOCATION:ASU Gammage\n1200 S Forest Ave\nTempe AZ  85281 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="ASU Gammage\n1200 S Forest Ave\nTempe AZ 85281 United States":geo:
- 33.416291,-111.9379382
+ 33.4162651,-111.9380015
 CREATED:20251125T020607
 LAST-MODIFIED:20260728T225255
 END:VEVENT
