@@ -3,80 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:6edcb352-4572-4720-9824-b6f6fe33fe96
-DTSTAMP:20240926T225235
-SUMMARY:Election Day festival in DTLA
-DTSTART:20241105T200000Z
-DTEND:20241106T053000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:CoCo Parking Lot Main Stage
-  Production Contact: Dexter Story (310) 614-1585\n
-  4pm Yesika\;\n
-  5:45pm: DJ Olea\n
-  6:30pm Contra Tiempo\n
-  8:45pm Las Cafeteras\n
-  DJs TBD\n
-  Merchandising: Artist sells\, 100% to artist\n
-  Artist Parking:\n
-  Load out / in parking is provided for artists on 81st Street between Ve
- rmont Avenue and New Hampshire Avenue NEAR New Hampshire Avenue. Enter t
- he load out / in artist and vendor parking area using the following addr
- ess: 8101 S. New Hampshire Avenue\, Los Angeles\, CA 90044. *Please not
- e that on the day of the show\, 81st Street at Vermont Avenue will be cl
- osed. When you arrive\, please call Dexter Story (310) 614-1585\, Tafara
- i Bayne (310) 743-2589 or Derrick Ah Sam (626) 840-0944. Your name will
-  be at the entrance to this area.\n
-  Once you load in\, depending on space\, you may be asked to remain par
- ked in the load out / in area or asked to park at the Crenshaw Christia
- n Center at 7901 S. Vermont Avenue Los Angeles\, CA 90044. The safe and
-  brief walk from parking at Crenshaw Christian Center is 4 minutes (0.2
- miles) south on Vermont Avenue. Parking is free on 81st Street or Crensh
- aw Christian Center.\n
-  \nVENUE INFO:\n
-    tel:+1 323-750-9087\n
-    http://www.cocosouthla.org/\n
-  \n*************************************\nSCHEDULE:\n
-  12:00 PM PST: Angie/ Audio prep\n--------------------------------------
- --\n
-  12:30 PM - 2:00 PM PST: Band loads/ soundchecks\n  5 parking spots\n
-  1-Angie\n
-  2-Denise\n
-  3-Hector\n
-  4- First come first serve\n
-  5- First come first serve\n
-  \n----------------------------------------\n
-  3:00 PM PST: Doors\n----------------------------------------\n
-  7:30 PM PST: Call time\n----------------------------------------\n
-  8:15 PM PST: Changeover\n----------------------------------------\n
-  8:45 PM - 9:30 PM PST: Showtime (45 min)\n-----------------------------
- -----------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.cocosouthla.org/
-GEO:33.9652031;-118.2920689
-LOCATION:Community Coalition-Substance\n8101 Vermont Ave\nLos Angeles CA
-  90044 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Community Coalition-Substance\n8101 Vermont Ave\nLos Angeles CA 90
- 044 United States":geo:33.9652031,-118.2920689
-CREATED:20240926T225235
-LAST-MODIFIED:20241105T063954
-X-HECTOR-SCHED:20241105 → 720–1290 min (PST)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:6a36e870-85df-438b-ab48-2ca7edfcaf7d
