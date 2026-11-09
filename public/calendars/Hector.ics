@@ -3,95 +3,17 @@ VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Indiana/Indianapolis
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Edmonton
 X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
+X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
-BEGIN:VEVENT
-TRANSP:OPAQUE
-UID:6a36e870-85df-438b-ab48-2ca7edfcaf7d
-DTSTAMP:20240930T002549
-SUMMARY:Bakersfield Dia de Muertos
-DTSTART:20241109T170000Z
-DTEND:20241110T053000Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Cynthia Zamora
-  661.808.8392\n
-  cynthia.zamora@bakersfieldcollege.edu\n
-  Bakersfield College\n
-  Outdoor Theater\n
-  1801 Panorama Dr Bakersfield CA 93305\n
-  PARK: https://drive.google.com/open?id=1RlKSDqwJT-YIkOpG6unxtbWh5XfVl2l
- t\n
-  Parking Lot P3 on the corner of Panorama and Mt.Vernon\n
-  This show is being produced in memory of Clarisa Rojas\; she was the da
- ughter of one of our Directors. They created a foundation in her name\,
- and she was a super fan of Las Cafeteras. Her last concert that she atte
- nded with her mother was\, Las Cafeteras.\n
-  1 x 75-90 minute headline show\n
-  Backline\, hotels and hospitality provided as per rider\, per advance.\
- n
-  \nVENUE INFO:\n
-    tel:+1 661-395-4011\n
-    http://www.bakersfieldcollege.edu/\n
-  \n*************************************\nSCHEDULE:\n
-  9:00 AM - 11/10/2024 9:00 AM PST: Rental car Hector - Budget\n  Budget\
- n
-  15 Passenger\n
-  1212 West Whittier Boulevard\n
-  Confirmation: #12649279US6\n
-  Expedia itinerary: 72959943502490\n
-  Pick-up\n
-  Sat\, Nov 9\n
-  9:00am\n
-  Drop-off\n
-  Sun\, Nov 10\n
-  9:00am\n
-  \n----------------------------------------\n
-  11:00 AM PST: Hector Van Load/Drive out\n------------------------------
- ----------\n
-  3:00 PM PST: Angie/Audio prep\n----------------------------------------
- \n
-  4:00 PM - 6:00 PM PST: Band Load/Soundcheck\n--------------------------
- --------------\n
-  6:30 PM PST: Doors\n----------------------------------------\n
-  8:00 PM - 9:30 PM PST: Show time! 90min\n------------------------------
- ----------\n
-  10:30 PM PST: D-Nice Bday Hang @ El Puesto Cocina Lounge\n  El Puesto C
- ocina & Lounge\n
-  2060 White Ln\, Bakersfield\, CA 93304\n
-  \n----------------------------------------\n
-  \n*************************************\nACCOMMODATIONS:\n
-    Bakersfield Hotel: Four Points Sheraton\,\n
-    5101 California Ave\, Bakersfield\, CA\, 93309\, US\n
-    ARRIVE: 11/9/2024 3:00 PM PST\n
-    DEPART: 11/10/2024 11:00 AM PST\n
-    1-Denise Carlos\n
-  2-Jose Cano\n
-  3- Héctor Flores\n
-  \n
-    \n----------------------------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.bakersfieldcollege.edu/
-GEO:35.4079139;-118.9718054
-LOCATION:Bakersfield College\n1801 Panorama Dr\nBakersfield CA  93305 Uni
- ted States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Bakersfield College\n1801 Panorama Dr\nBakersfield CA 93305 United
-  States":geo:35.4079139,-118.9718054
-CREATED:20240930T002549
-LAST-MODIFIED:20241029T190255
-X-HECTOR-SCHED:20241109 → 540–1290 min (PST)
-END:VEVENT
 BEGIN:VEVENT
 TRANSP:OPAQUE
 UID:ac70999a-e80c-4a8f-b8a1-c8bc1fd0d405
