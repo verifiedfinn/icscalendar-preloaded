@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Denver
-X-WR-TIMEZONE:America/Los_Angeles
-X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Chicago
 X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Indiana/Indianapolis
 X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Los_Angeles
+X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/New_York
 X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Indiana/Indianapolis
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -7791,8 +7791,7 @@ DESCRIPTION:Organizer: Perla Estrada. 503 708 6441              pestrada@
   \nVENUE INFO:\n
     tel:+1 503-281-6111\n
     https://www.hilton.com/en/hotels/rllc-dt-doubletree-portland/?SEO_id=
- GMB-AMER-DT-RLLCDT&y_source=1_MTM3MjY5Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%
- 3D\n
+ GMB-AMER-DT-RLLCDT\n
   \n*************************************\nSCHEDULE:\n
   7:15 AM PDT: Lobby (get breakfast at cafe in lobby)/load\n-------------
  ---------------------------\n
@@ -7811,14 +7810,13 @@ DESCRIPTION:Organizer: Perla Estrada. 503 708 6441              pestrada@
 STATUS:CONFIRMED
 CLASS:PUBLIC
 URL;VALUE=URI:https://www.hilton.com/en/hotels/rllc-dt-double
- tree-portland/?SEO_id=GMB-AMER-DT-RLLCDT&y_source=1_MTM3MjY5Mi03MTUtbG9j
- YXRpb24ud2Vic2l0ZQ%3D%3D
-GEO:45.53070719999999;-122.6555577
+ tree-portland/?SEO_id=GMB-AMER-DT-RLLCDT
+GEO:45.53075990000001;-122.6555863
 LOCATION:DoubleTree by Hilton Hotel Portland\n1000 NE Multnomah St\nPortl
  and OR  97232 United States
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
  ITLE="DoubleTree by Hilton Hotel Portland\n1000 NE Multnomah St\nPortlan
- d OR 97232 United States":geo:45.53070719999999,-122.6555577
+ d OR 97232 United States":geo:45.53075990000001,-122.6555863
 CREATED:20251203T015925
 LAST-MODIFIED:20260430T115445
 END:VEVENT
