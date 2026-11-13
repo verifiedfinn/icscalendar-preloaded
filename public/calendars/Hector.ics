@@ -16,66 +16,6 @@ X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
 X-WR-RELCALID:7e34ce41-f3f2-4f2d-af93-43e3a3eddf71
 BEGIN:VEVENT
 TRANSP:OPAQUE
-UID:ac70999a-e80c-4a8f-b8a1-c8bc1fd0d405
-DTSTAMP:20241008T212136
-SUMMARY:Private show- National Immigration Law Center
-DTSTART:20241113T210000Z
-DTEND:20241114T021500Z
-X-FUNAMBOL-ALLDAY:1
-X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:Dawn Sinko
-  3237884152\n
-  dawnsinko@gmail.com\n
-  Parking:\n
-  Please use the Valet Parking at the front entrance and reference Talen
- t for the NILC Retreat when you arrive. There will be no cost to anyo
- ne to park at that time.\n
-  Tech/Band Load-In Location:\n
-  • To access the Lawn Event Location the band and AV can drive onto th
- e promenade area that fronts the event lawn by removing the yellow stanc
- hions. Access is through the left side of the parking lot facing the hot
- el entrance.\n
-  \nVENUE INFO:\n
-    tel:+1 310-301-1000\n
-    http://www.marinadelreyhotel.com/\n
-  \n*************************************\nSCHEDULE:\n
-  1:00 PM PST: Angie/ Audio Prep\n  Tech/Band Load-In Location:\n
-  • To access the Lawn Event Location the band and AV can drive onto th
- e promenade area that fronts the event lawn by removing the yellow stanc
- hions. Access is through the left side of the parking lot facing the hot
- el entrance.\n
-  \n----------------------------------------\n
-  2:00 PM - 3:30 PM PST: Band Load/soundcheck (Event Lawn)\n  Parking:\n
-  Please use the Valet Parking at the front entrance and reference Talen
- t for the NILC Retreat when you arrive. There will be no cost to anyo
- ne to park at that time.\n
-  \n----------------------------------------\n
-  3:30 PM PST: Dinner served (green room)\n------------------------------
- ----------\n
-  3:30 PM PST: Hector meet panelists at Edgewater Room\n  3:30pm\n
-  All panellists will be directed to the Edgewater Room.\n
-  Victoria to meet with Panelists\n
-  \n----------------------------------------\n
-  4:00 PM - 5:00 PM PST: Hector on Arts Panel (Regatta Room)\n-----------
- -----------------------------\n
-  5:00 PM PST: Stage call\n----------------------------------------\n
-  5:15 PM - 6:15 PM PST: Showtime 60 min (outdoors)\n--------------------
- --------------------\n
-STATUS:CONFIRMED
-CLASS:PUBLIC
-URL;VALUE=URI:http://www.marinadelreyhotel.com/
-GEO:33.9799859;-118.4456637
-LOCATION:Marina Del Rey Hotel\n13534 Bali Way\nMarina Del Rey\nMarina del
-  Rey CA  90292 United States
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
- ITLE="Marina Del Rey Hotel\n13534 Bali Way\nMarina Del Rey\nMarina del R
- ey CA 90292 United States":geo:33.9799859,-118.4456637
-CREATED:20241008T212136
-LAST-MODIFIED:20241112T055659
-X-HECTOR-SCHED:20241113 → 780–1095 min (PST)
-END:VEVENT
-BEGIN:VEVENT
-TRANSP:OPAQUE
 UID:bb38d5e2-375c-4560-a1c8-3e8df843f864
 DTSTAMP:20241006T210026
 SUMMARY:HLM/ Viva Cultura school show
