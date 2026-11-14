@@ -2,14 +2,14 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//artist growth llc//nashville//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
-X-WR-TIMEZONE:America/Phoenix
-X-WR-TIMEZONE:America/Detroit
-X-WR-TIMEZONE:America/Chicago
-X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/Denver
+X-WR-TIMEZONE:America/Los_Angeles
 X-WR-TIMEZONE:America/New_York
-X-WR-TIMEZONE:America/Edmonton
+X-WR-TIMEZONE:America/Chicago
+X-WR-TIMEZONE:America/Phoenix
 X-WR-TIMEZONE:America/Indiana/Indianapolis
+X-WR-TIMEZONE:America/Detroit
+X-WR-TIMEZONE:America/Edmonton
 METHOD:PUBLISH
 X-WR-CALNAME:Las Cafeteras @ Artist Growth
 X-WR-CALDESC:Las Cafeteras / artistgrowth.com Calendar
@@ -10459,7 +10459,10 @@ DTSTART:20261114T200000Z
 DTEND:20261115T053000Z
 X-FUNAMBOL-ALLDAY:1
 X-MICROSOFT-CDO-ALLDAYEVENT:1
-DESCRIPTION:*************************************\nSCHEDULE:\n
+DESCRIPTION:VENUE INFO:\n
+    tel:+1 661-395-4011\n
+    http://www.bakersfieldcollege.edu/\n
+  \n*************************************\nSCHEDULE:\n
   12:00 PM - 1:30 PM PST: Load/Soundcheckl\n-----------------------------
  -----------\n
   6:00 PM PST: Doors\n----------------------------------------\n
@@ -10476,8 +10479,15 @@ DESCRIPTION:*************************************\nSCHEDULE:\n
     \n----------------------------------------\n
 STATUS:CONFIRMED
 CLASS:PUBLIC
+URL;VALUE=URI:http://www.bakersfieldcollege.edu/
+GEO:35.4079139;-118.9718054
+LOCATION:Bakersfield College\n1801 Panorama Dr\nBakersfield CA  93305 Uni
+ ted States
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.9476825002696;X-T
+ ITLE="Bakersfield College\n1801 Panorama Dr\nBakersfield CA 93305 United
+  States":geo:35.4079139,-118.9718054
 CREATED:20260901T023710
-LAST-MODIFIED:20260901T023710
+LAST-MODIFIED:20261113T234212
 X-HECTOR-SCHED:20261114 → 720–1290 min (PST)
 END:VEVENT
 BEGIN:VEVENT
